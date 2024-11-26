@@ -146,12 +146,12 @@ namespace SuShiX
             if (txbPassword.UseSystemPasswordChar)
             {
                 txbPassword.UseSystemPasswordChar = false;
-                pbDisplayPassword.Image = Properties.Resources.eye_close;
+                pbDisplayPassword.Image = Properties.Resources.eye_open;
             }
             else
             {
                 txbPassword.UseSystemPasswordChar = true;
-                pbDisplayPassword.Image = Properties.Resources.eye_open;
+                pbDisplayPassword.Image = Properties.Resources.eye_close;
             }
         }
 

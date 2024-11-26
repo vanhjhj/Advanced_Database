@@ -142,12 +142,12 @@ namespace SuShiX
             if (txbPassword.UseSystemPasswordChar)
             {
                 txbPassword.UseSystemPasswordChar = false;
-                pbDisplayPassword.Image = Properties.Resources.eye_close;
+                pbDisplayPassword.Image = Properties.Resources.eye_open;
             }
             else
             {
                 txbPassword.UseSystemPasswordChar = true;
-                pbDisplayPassword.Image = Properties.Resources.eye_open;
+                pbDisplayPassword.Image = Properties.Resources.eye_close;
             }
         }
 
@@ -156,13 +156,30 @@ namespace SuShiX
             if (txbPassword1.UseSystemPasswordChar)
             {
                 txbPassword1.UseSystemPasswordChar = false;
-                pbDisplayPassword.Image = Properties.Resources.eye_close;
+                pbDisplayPassword1.Image = Properties.Resources.eye_open;
             }
             else
             {
                 txbPassword1.UseSystemPasswordChar = true;
-                pbDisplayPassword.Image = Properties.Resources.eye_open;
+                pbDisplayPassword1.Image = Properties.Resources.eye_close;
             }
+        }
+
+        private void pbReturn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbReturn_Click_1(object sender, EventArgs e)
+        {
+            //Open login form
+            FrmLogin loginForm = new FrmLogin();
+
+            //Hide register form
+            this.Hide();
+
+            //Show login form
+            loginForm.ShowDialog();
         }
     }
 }

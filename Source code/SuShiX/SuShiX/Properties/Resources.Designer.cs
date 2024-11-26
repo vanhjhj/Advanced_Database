@@ -83,9 +83,19 @@ namespace SuShiX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_login {
+        internal static System.Drawing.Bitmap login1 {
             get {
-                object obj = ResourceManager.GetObject("logo_login", resourceCulture);
+                object obj = ResourceManager.GetObject("login1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login2 {
+            get {
+                object obj = ResourceManager.GetObject("login2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +106,26 @@ namespace SuShiX.Properties {
         internal static System.Drawing.Bitmap logo_register {
             get {
                 object obj = ResourceManager.GetObject("logo_register", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap return_button {
+            get {
+                object obj = ResourceManager.GetObject("return_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sushi_logo {
+            get {
+                object obj = ResourceManager.GetObject("sushi_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,190 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogoLogin = new System.Windows.Forms.PictureBox();
-            this.pnlLoginSite = new System.Windows.Forms.Panel();
-            this.pnlInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRestaurantName = new System.Windows.Forms.Label();
-            this.pnlLogin = new System.Windows.Forms.Panel();
-            this.pbDisplayPassword = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlLoginInfo = new System.Windows.Forms.Panel();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.pbDisplayPassword = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pbLoginImage = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoLogin)).BeginInit();
-            this.pnlLoginSite.SuspendLayout();
-            this.pnlInfo.SuspendLayout();
-            this.pnlLogin.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.pnlLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDisplayPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoginImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
             // 
             this.pnlRoot.ColumnCount = 2;
-            this.pnlRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.pnlRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.pnlRoot.Controls.Add(this.pbLogoLogin, 0, 0);
-            this.pnlRoot.Controls.Add(this.pnlLoginSite, 1, 0);
+            this.pnlRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.18868F));
+            this.pnlRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.81132F));
+            this.pnlRoot.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.pnlRoot.Controls.Add(this.pbLoginImage, 0, 0);
             this.pnlRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRoot.Location = new System.Drawing.Point(0, 0);
-            this.pnlRoot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlRoot.Margin = new System.Windows.Forms.Padding(0);
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
-            this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlRoot.Size = new System.Drawing.Size(1178, 744);
-            this.pnlRoot.TabIndex = 0;
+            this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlRoot.Size = new System.Drawing.Size(1484, 1012);
+            this.pnlRoot.TabIndex = 1;
             // 
-            // pbLogoLogin
+            // tableLayoutPanel1
             // 
-            this.pbLogoLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoLogin.Image = global::SuShiX.Properties.Resources.logo_login;
-            this.pbLogoLogin.Location = new System.Drawing.Point(3, 4);
-            this.pbLogoLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbLogoLogin.Name = "pbLogoLogin";
-            this.pbLogoLogin.Size = new System.Drawing.Size(465, 736);
-            this.pbLogoLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoLogin.TabIndex = 0;
-            this.pbLogoLogin.TabStop = false;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.Controls.Add(this.pnlLoginInfo, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pbLogo, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(819, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.71542F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.28458F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(665, 1012);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // pnlLoginSite
+            // pnlLoginInfo
             // 
-            this.pnlLoginSite.Controls.Add(this.pnlInfo);
-            this.pnlLoginSite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLoginSite.Location = new System.Drawing.Point(474, 4);
-            this.pnlLoginSite.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLoginSite.Name = "pnlLoginSite";
-            this.pnlLoginSite.Size = new System.Drawing.Size(701, 736);
-            this.pnlLoginSite.TabIndex = 1;
-            // 
-            // pnlInfo
-            // 
-            this.pnlInfo.ColumnCount = 1;
-            this.pnlInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.pnlInfo.Controls.Add(this.lblRestaurantName, 0, 0);
-            this.pnlInfo.Controls.Add(this.pnlLogin, 0, 1);
-            this.pnlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlInfo.Name = "pnlInfo";
-            this.pnlInfo.RowCount = 2;
-            this.pnlInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pnlInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.pnlInfo.Size = new System.Drawing.Size(701, 736);
-            this.pnlInfo.TabIndex = 0;
-            // 
-            // lblRestaurantName
-            // 
-            this.lblRestaurantName.AutoSize = true;
-            this.lblRestaurantName.BackColor = System.Drawing.Color.Cornsilk;
-            this.lblRestaurantName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRestaurantName.Font = new System.Drawing.Font("Times New Roman", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestaurantName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblRestaurantName.Location = new System.Drawing.Point(3, 0);
-            this.lblRestaurantName.Name = "lblRestaurantName";
-            this.lblRestaurantName.Size = new System.Drawing.Size(695, 184);
-            this.lblRestaurantName.TabIndex = 0;
-            this.lblRestaurantName.Text = "Nhà Hàng Sushi X";
-            this.lblRestaurantName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.BackColor = System.Drawing.Color.White;
-            this.pnlLogin.Controls.Add(this.pbDisplayPassword);
-            this.pnlLogin.Controls.Add(this.btnRegister);
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Controls.Add(this.txbPassword);
-            this.pnlLogin.Controls.Add(this.txbUsername);
-            this.pnlLogin.Controls.Add(this.lblPassword);
-            this.pnlLogin.Controls.Add(this.lblUsername);
-            this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLogin.Location = new System.Drawing.Point(3, 188);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(695, 544);
-            this.pnlLogin.TabIndex = 1;
-            // 
-            // pbDisplayPassword
-            // 
-            this.pbDisplayPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbDisplayPassword.Image = global::SuShiX.Properties.Resources.eye_open;
-            this.pbDisplayPassword.Location = new System.Drawing.Point(528, 220);
-            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbDisplayPassword.Name = "pbDisplayPassword";
-            this.pbDisplayPassword.Size = new System.Drawing.Size(34, 34);
-            this.pbDisplayPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDisplayPassword.TabIndex = 6;
-            this.pbDisplayPassword.TabStop = false;
-            this.pbDisplayPassword.Click += new System.EventHandler(this.pbDisplayPassword_Click);
+            this.pnlLoginInfo.BackColor = System.Drawing.Color.PeachPuff;
+            this.pnlLoginInfo.Controls.Add(this.pbDisplayPassword);
+            this.pnlLoginInfo.Controls.Add(this.btnLogin);
+            this.pnlLoginInfo.Controls.Add(this.btnRegister);
+            this.pnlLoginInfo.Controls.Add(this.txbPassword);
+            this.pnlLoginInfo.Controls.Add(this.txbUsername);
+            this.pnlLoginInfo.Controls.Add(this.lblPassword);
+            this.pnlLoginInfo.Controls.Add(this.lblUsername);
+            this.pnlLoginInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLoginInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 240);
+            this.pnlLoginInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlLoginInfo.Name = "pnlLoginInfo";
+            this.pnlLoginInfo.Size = new System.Drawing.Size(665, 772);
+            this.pnlLoginInfo.TabIndex = 2;
             // 
             // btnRegister
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegister.BackColor = System.Drawing.Color.DimGray;
-            this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(394, 351);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Location = new System.Drawing.Point(367, 412);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(155, 68);
-            this.btnRegister.TabIndex = 5;
+            this.btnRegister.Size = new System.Drawing.Size(97, 36);
+            this.btnRegister.TabIndex = 14;
             this.btnRegister.Text = "Đăng Ký";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.BackColor = System.Drawing.Color.DimGray;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(135, 351);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(155, 68);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Đăng Nhập";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txbPassword
             // 
             this.txbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword.Location = new System.Drawing.Point(342, 220);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbPassword.Location = new System.Drawing.Point(306, 329);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(220, 35);
-            this.txbPassword.TabIndex = 3;
+            this.txbPassword.Size = new System.Drawing.Size(195, 26);
+            this.txbPassword.TabIndex = 8;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
             // txbUsername
             // 
             this.txbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUsername.Location = new System.Drawing.Point(342, 130);
-            this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbUsername.Location = new System.Drawing.Point(306, 290);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(220, 35);
-            this.txbUsername.TabIndex = 2;
+            this.txbUsername.Size = new System.Drawing.Size(195, 26);
+            this.txbUsername.TabIndex = 7;
             // 
             // lblPassword
             // 
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
-            this.lblPassword.BackColor = System.Drawing.Color.White;
             this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(112, 228);
+            this.lblPassword.Location = new System.Drawing.Point(174, 332);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(118, 26);
+            this.lblPassword.Size = new System.Drawing.Size(78, 19);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Mật Khẩu";
             // 
@@ -219,35 +156,91 @@
             // 
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.White;
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(112, 138);
+            this.lblUsername.Location = new System.Drawing.Point(173, 294);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(166, 26);
+            this.lblUsername.Size = new System.Drawing.Size(109, 19);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tên Tài Khoản";
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(224, 412);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(97, 36);
+            this.btnLogin.TabIndex = 14;
+            this.btnLogin.Text = "Đăng Nhập";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // pbDisplayPassword
+            // 
+            this.pbDisplayPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbDisplayPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.pbDisplayPassword.Image = ((System.Drawing.Image)(resources.GetObject("pbDisplayPassword.Image")));
+            this.pbDisplayPassword.Location = new System.Drawing.Point(478, 332);
+            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pbDisplayPassword.Name = "pbDisplayPassword";
+            this.pbDisplayPassword.Size = new System.Drawing.Size(20, 20);
+            this.pbDisplayPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDisplayPassword.TabIndex = 15;
+            this.pbDisplayPassword.TabStop = false;
+            this.pbDisplayPassword.Click += new System.EventHandler(this.pbDisplayPassword_Click);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = global::SuShiX.Properties.Resources.sushi_logo;
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(665, 240);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 3;
+            this.pbLogo.TabStop = false;
+            // 
+            // pbLoginImage
+            // 
+            this.pbLoginImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.pbLoginImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLoginImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLoginImage.Image = global::SuShiX.Properties.Resources.login2;
+            this.pbLoginImage.Location = new System.Drawing.Point(0, 0);
+            this.pbLoginImage.Margin = new System.Windows.Forms.Padding(0);
+            this.pbLoginImage.Name = "pbLoginImage";
+            this.pbLoginImage.Size = new System.Drawing.Size(819, 1012);
+            this.pbLoginImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLoginImage.TabIndex = 2;
+            this.pbLoginImage.TabStop = false;
+            // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1178, 744);
+            this.ClientSize = new System.Drawing.Size(1484, 1012);
             this.Controls.Add(this.pnlRoot);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phầm mềm quản lý nhà hàng Sushi X";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.pnlRoot.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoLogin)).EndInit();
-            this.pnlLoginSite.ResumeLayout(false);
-            this.pnlInfo.ResumeLayout(false);
-            this.pnlInfo.PerformLayout();
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnlLoginInfo.ResumeLayout(false);
+            this.pnlLoginInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDisplayPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoginImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,18 +248,17 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel pnlRoot;
-        private System.Windows.Forms.PictureBox pbLogoLogin;
-        private System.Windows.Forms.Panel pnlLoginSite;
-        private System.Windows.Forms.TableLayoutPanel pnlInfo;
-        private System.Windows.Forms.Label lblRestaurantName;
-        private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel pnlLoginInfo;
+        private System.Windows.Forms.PictureBox pbDisplayPassword;
+        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.PictureBox pbLoginImage;
+        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.PictureBox pbDisplayPassword;
     }
 }
 
