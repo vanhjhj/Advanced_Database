@@ -9,3 +9,14 @@ D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\Su
 D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb
 D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.pdb
 D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusRegister.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.exe.config
+E:\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.exe
+E:\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.pdb
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.AssemblyReference.cache
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusRegister.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmLogin.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.Properties.Resources.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.GenerateResource.cache
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.CoreCompileInputs.cache
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.exe
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb

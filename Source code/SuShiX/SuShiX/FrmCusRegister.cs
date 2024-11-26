@@ -150,5 +150,19 @@ namespace SuShiX
                 pbDisplayPassword.Image = Properties.Resources.eye_open;
             }
         }
+
+        private void pbDisplayPassword1_Click(object sender, EventArgs e)
+        {
+            if (txbPassword1.UseSystemPasswordChar)
+            {
+                txbPassword1.UseSystemPasswordChar = false;
+                pbDisplayPassword.Image = Properties.Resources.eye_close;
+            }
+            else
+            {
+                txbPassword1.UseSystemPasswordChar = true;
+                pbDisplayPassword.Image = Properties.Resources.eye_open;
+            }
+        }
     }
 }

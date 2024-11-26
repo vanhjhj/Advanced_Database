@@ -154,5 +154,10 @@ namespace SuShiX
                 pbDisplayPassword.Image = Properties.Resources.eye_open;
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
