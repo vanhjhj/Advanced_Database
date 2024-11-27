@@ -32,3 +32,4 @@ D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.exe
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb
 D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
+D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources

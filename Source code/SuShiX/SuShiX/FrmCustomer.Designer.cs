@@ -44,7 +44,7 @@
             this.lblCertifiedDate = new System.Windows.Forms.Label();
             this.txbCardNumber = new System.Windows.Forms.TextBox();
             this.lblCardNumber = new System.Windows.Forms.Label();
-            this.btnReservation = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.txbIdNumber = new System.Windows.Forms.TextBox();
             this.cbbGender = new System.Windows.Forms.ComboBox();
             this.txbEmail = new System.Windows.Forms.TextBox();
@@ -57,7 +57,6 @@
             this.txbFullName = new System.Windows.Forms.TextBox();
             this.pbDisplayPassword = new System.Windows.Forms.PictureBox();
             this.btnUpdateInfo = new System.Windows.Forms.Button();
-            this.btnShippingOrder = new System.Windows.Forms.Button();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -122,7 +121,7 @@
             this.pnlLoginInfo.Controls.Add(this.lblCertifiedDate);
             this.pnlLoginInfo.Controls.Add(this.txbCardNumber);
             this.pnlLoginInfo.Controls.Add(this.lblCardNumber);
-            this.pnlLoginInfo.Controls.Add(this.btnReservation);
+            this.pnlLoginInfo.Controls.Add(this.btnOrder);
             this.pnlLoginInfo.Controls.Add(this.txbIdNumber);
             this.pnlLoginInfo.Controls.Add(this.cbbGender);
             this.pnlLoginInfo.Controls.Add(this.txbEmail);
@@ -135,7 +134,6 @@
             this.pnlLoginInfo.Controls.Add(this.txbFullName);
             this.pnlLoginInfo.Controls.Add(this.pbDisplayPassword);
             this.pnlLoginInfo.Controls.Add(this.btnUpdateInfo);
-            this.pnlLoginInfo.Controls.Add(this.btnShippingOrder);
             this.pnlLoginInfo.Controls.Add(this.txbPassword);
             this.pnlLoginInfo.Controls.Add(this.txbUsername);
             this.pnlLoginInfo.Controls.Add(this.lblPassword);
@@ -280,21 +278,22 @@
             this.lblCardNumber.TabIndex = 27;
             this.lblCardNumber.Text = "Mã Thẻ";
             // 
-            // btnReservation
+            // btnOrder
             // 
-            this.btnReservation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
-            this.btnReservation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReservation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservation.ForeColor = System.Drawing.Color.White;
-            this.btnReservation.Location = new System.Drawing.Point(359, 577);
-            this.btnReservation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(129, 44);
-            this.btnReservation.TabIndex = 26;
-            this.btnReservation.Text = "Đặt Bàn";
-            this.btnReservation.UseVisualStyleBackColor = false;
+            this.btnOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.ForeColor = System.Drawing.Color.White;
+            this.btnOrder.Location = new System.Drawing.Point(549, 577);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(129, 44);
+            this.btnOrder.TabIndex = 26;
+            this.btnOrder.Text = "Đặt Món";
+            this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnReservation_Click);
             // 
             // txbIdNumber
             // 
@@ -425,7 +424,7 @@
             this.btnUpdateInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnUpdateInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInfo.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(92, 577);
+            this.btnUpdateInfo.Location = new System.Drawing.Point(199, 577);
             this.btnUpdateInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
             this.btnUpdateInfo.Size = new System.Drawing.Size(129, 44);
@@ -433,22 +432,6 @@
             this.btnUpdateInfo.Text = "Cập Nhật";
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
             this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
-            // 
-            // btnShippingOrder
-            // 
-            this.btnShippingOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShippingOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
-            this.btnShippingOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnShippingOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnShippingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShippingOrder.ForeColor = System.Drawing.Color.White;
-            this.btnShippingOrder.Location = new System.Drawing.Point(629, 577);
-            this.btnShippingOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnShippingOrder.Name = "btnShippingOrder";
-            this.btnShippingOrder.Size = new System.Drawing.Size(129, 44);
-            this.btnShippingOrder.TabIndex = 14;
-            this.btnShippingOrder.Text = "Giao Hàng";
-            this.btnShippingOrder.UseVisualStyleBackColor = false;
             // 
             // txbPassword
             // 
@@ -547,7 +530,6 @@
         private System.Windows.Forms.Panel pnlLoginInfo;
         private System.Windows.Forms.PictureBox pbDisplayPassword;
         private System.Windows.Forms.Button btnUpdateInfo;
-        private System.Windows.Forms.Button btnShippingOrder;
         private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.Label lblPassword;
@@ -564,7 +546,7 @@
         private System.Windows.Forms.ComboBox cbbGender;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.TextBox txbPhoneNumber;
-        private System.Windows.Forms.Button btnReservation;
+        private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.TextBox txbReservedPoint;
         private System.Windows.Forms.Label lblReservedPoint;
         private System.Windows.Forms.TextBox txbTotalPoint;

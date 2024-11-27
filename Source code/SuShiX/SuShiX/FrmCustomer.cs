@@ -196,5 +196,10 @@ namespace SuShiX
                 pbDisplayPassword.Image = Properties.Resources.eye_close; // Icon mắt đóng
             }
         }
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

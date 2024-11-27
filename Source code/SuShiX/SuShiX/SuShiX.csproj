@@ -52,6 +52,12 @@
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCusOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCusOrder.Designer.cs">
+      <DependentUpon>FrmCusOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCusRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCusOrder.resx">
+      <DependentUpon>FrmCusOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCusRegister.resx">
       <DependentUpon>FrmCusRegister.cs</DependentUpon>
     </EmbeddedResource>

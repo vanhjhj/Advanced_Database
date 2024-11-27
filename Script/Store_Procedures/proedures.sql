@@ -1,10 +1,10 @@
 ﻿-- Đăng Nhập
 GO
 CREATE PROCEDURE USP_DangNhap
-    @TenTK NVARCHAR(50),
-    @MatKhau NVARCHAR(50),
-    @MaTK NVARCHAR(10) OUTPUT,    -- Thêm MaTK làm tham số đầu ra
-    @LoaiTK NVARCHAR(50) OUTPUT,
+    @TenTK VARCHAR(50),
+    @MatKhau VARCHAR(20),
+    @MaTK VARCHAR(10) OUTPUT,    -- Thêm MaTK làm tham số đầu ra
+    @LoaiTK NVARCHAR(10) OUTPUT,
     @TenBP NVARCHAR(50) OUTPUT
 AS
 BEGIN
@@ -36,20 +36,19 @@ END;
 GO
 
 -- Đăng Ký
-GO
 CREATE PROCEDURE USP_DangKy
-    @TenTK NVARCHAR(50),
-    @MatKhau NVARCHAR(50),
+    @TenTK VARCHAR(50),
+    @MatKhau VARCHAR(20),
     @HoTen NVARCHAR(50),
-    @SDT NVARCHAR(10),
+    @SDT VARCHAR(10),
     @GioiTinh NVARCHAR(3),
-    @CCCD NVARCHAR(12),
-    @Email NVARCHAR(50),
-    @MaTK NVARCHAR(10) OUTPUT -- Biến trả về MaTK
+    @CCCD VARCHAR(12),
+    @Email VARCHAR(50),
+    @MaTK VARCHAR(10) OUTPUT -- Biến trả về MaTK
 AS
 BEGIN
     -- Tạo MaTK mới
-    DECLARE @MaxMaTK INT, @NewMaTK NVARCHAR(10);
+    DECLARE @MaxMaTK INT, @NewMaTK VARCHAR(10);
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
 
@@ -67,3 +66,57 @@ BEGIN
     SET @MaTK = @NewMaTK;
 END;
 GO
+
+-- Xem thông tin khách hàng
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE USP_XemThongTinKhachHang
+    @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
+AS
+BEGIN
+    SELECT TK.TenTK,TK.MatKhau,
+           KH.HoTen, KH.SDT, KH.Email, KH.CCCD, KH.GioiTinh, 
+		   TH.MaThe, TH.NgayLap, TH.NgayBDChuKy, TH.TongDiem, TH.TongDiemDuyTri, TH.TenLoaiThe
+    FROM TaiKhoan TK
+	JOIN KhachHang KH ON TK.MaTK = KH.MaTK
+    LEFT JOIN The TH ON KH.MaTK = TH.TkSoHuu
+    WHERE TK.MaTK = @MaTK
+    AND TH.TinhTrang = N'Mở' OR TH.TinhTrang IS NULL; -- Chỉ lấy thẻ có trạng thái 'Mở'
+END;
+GO
+
+-- Cập Nhật thông tin khách hàng
+GO
+CREATE PROCEDURE USP_CapNhatThongTinKhachHang
+    @MaTK VARCHAR(10),    
+    @TenTK VARCHAR(50),   
+    @MatKhau VARCHAR(20), 
+    @HoTen NVARCHAR(50),   
+    @SDT VARCHAR(10),     
+    @Email VARCHAR(50),   
+    @CCCD VARCHAR(12),    
+    @GioiTinh NVARCHAR(3)  
+AS
+BEGIN
+    -- Cập nhật thông tin trong bảng TaiKhoan
+    UPDATE TaiKhoan
+    SET TenTK = @TenTK,
+        MatKhau = @MatKhau
+    WHERE MaTK = @MaTK;
+
+    -- Cập nhật thông tin trong bảng KhachHang
+    UPDATE KhachHang
+    SET HoTen = @HoTen,
+        SDT = @SDT,
+        Email = @Email,
+        CCCD = @CCCD,
+        GioiTinh = @GioiTinh
+    WHERE MaTK = @MaTK;
+END
+GO
+
+
+
+
+
