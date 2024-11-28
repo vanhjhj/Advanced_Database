@@ -1,4 +1,5 @@
-﻿-- Đăng Nhập
+﻿USE QUAN_LY_NHA_HANG
+-- Đăng Nhập
 GO
 CREATE PROCEDURE USP_DangNhap
     @TenTK VARCHAR(50),
@@ -98,7 +99,7 @@ GO
 
 -- Xem thông tin khách hàng
 GO
-CREATE PROCEDURE USP_XemThongTinKhachHang
+CREATE OR ALTER PROCEDURE USP_XemThongTinKhachHang
     @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
 AS
 BEGIN
@@ -109,7 +110,7 @@ BEGIN
 	JOIN KhachHang KH ON TK.MaTK = KH.MaTK
     LEFT JOIN The TH ON KH.MaTK = TH.TkSoHuu
     WHERE TK.MaTK = @MaTK
-    AND TH.TinhTrang = N'Mở' OR TH.TinhTrang IS NULL; -- Chỉ lấy thẻ có trạng thái 'Mở'
+    AND (TH.TinhTrang = N'Mở' OR TH.TinhTrang IS NULL); -- Chỉ lấy thẻ có trạng thái 'Mở'
 END;
 GO
 

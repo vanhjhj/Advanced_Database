@@ -11,7 +11,7 @@ namespace SuShiX
         private string userID;
 
         // Connection string cho cơ sở dữ liệu
-        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        private string connectionString = AppConfig.connectionString;
 
         // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
         public string UserID

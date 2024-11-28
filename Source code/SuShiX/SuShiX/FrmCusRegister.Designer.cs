@@ -76,7 +76,7 @@
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlRoot.Size = new System.Drawing.Size(1924, 1055);
+            this.pnlRoot.Size = new System.Drawing.Size(1443, 857);
             this.pnlRoot.TabIndex = 0;
             // 
             // pbLogoRegister
@@ -88,7 +88,7 @@
             this.pbLogoRegister.Location = new System.Drawing.Point(0, 0);
             this.pbLogoRegister.Margin = new System.Windows.Forms.Padding(0);
             this.pbLogoRegister.Name = "pbLogoRegister";
-            this.pbLogoRegister.Size = new System.Drawing.Size(841, 1055);
+            this.pbLogoRegister.Size = new System.Drawing.Size(631, 857);
             this.pbLogoRegister.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogoRegister.TabIndex = 0;
             this.pbLogoRegister.TabStop = false;
@@ -97,19 +97,19 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.pnlRegisterInfo, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblCusRegister, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(841, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(631, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.56522F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.43478F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1083, 1055);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(812, 857);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pnlRegisterInfo
@@ -137,19 +137,18 @@
             this.pnlRegisterInfo.Controls.Add(this.lblUsername);
             this.pnlRegisterInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRegisterInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlRegisterInfo.Location = new System.Drawing.Point(0, 206);
+            this.pnlRegisterInfo.Location = new System.Drawing.Point(0, 167);
             this.pnlRegisterInfo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlRegisterInfo.Name = "pnlRegisterInfo";
-            this.pnlRegisterInfo.Size = new System.Drawing.Size(1083, 849);
+            this.pnlRegisterInfo.Size = new System.Drawing.Size(812, 690);
             this.pnlRegisterInfo.TabIndex = 2;
             // 
             // pbReturn
             // 
             this.pbReturn.Image = ((System.Drawing.Image)(resources.GetObject("pbReturn.Image")));
-            this.pbReturn.Location = new System.Drawing.Point(13, 15);
-            this.pbReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbReturn.Location = new System.Drawing.Point(10, 12);
             this.pbReturn.Name = "pbReturn";
-            this.pbReturn.Size = new System.Drawing.Size(53, 49);
+            this.pbReturn.Size = new System.Drawing.Size(40, 40);
             this.pbReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbReturn.TabIndex = 19;
             this.pbReturn.TabStop = false;
@@ -160,10 +159,10 @@
             this.pbDisplayPassword1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbDisplayPassword1.BackColor = System.Drawing.SystemColors.Window;
             this.pbDisplayPassword1.Image = ((System.Drawing.Image)(resources.GetObject("pbDisplayPassword1.Image")));
-            this.pbDisplayPassword1.Location = new System.Drawing.Point(677, 333);
-            this.pbDisplayPassword1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbDisplayPassword1.Location = new System.Drawing.Point(508, 271);
+            this.pbDisplayPassword1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbDisplayPassword1.Name = "pbDisplayPassword1";
-            this.pbDisplayPassword1.Size = new System.Drawing.Size(27, 25);
+            this.pbDisplayPassword1.Size = new System.Drawing.Size(20, 20);
             this.pbDisplayPassword1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDisplayPassword1.TabIndex = 18;
             this.pbDisplayPassword1.TabStop = false;
@@ -173,10 +172,10 @@
             // 
             this.txbPassword1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbPassword1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword1.Location = new System.Drawing.Point(448, 329);
-            this.txbPassword1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbPassword1.Location = new System.Drawing.Point(336, 267);
+            this.txbPassword1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbPassword1.Name = "txbPassword1";
-            this.txbPassword1.Size = new System.Drawing.Size(259, 30);
+            this.txbPassword1.Size = new System.Drawing.Size(195, 26);
             this.txbPassword1.TabIndex = 17;
             this.txbPassword1.UseSystemPasswordChar = true;
             // 
@@ -185,9 +184,10 @@
             this.lblPassWord1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassWord1.AutoSize = true;
             this.lblPassWord1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassWord1.Location = new System.Drawing.Point(271, 332);
+            this.lblPassWord1.Location = new System.Drawing.Point(203, 270);
+            this.lblPassWord1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassWord1.Name = "lblPassWord1";
-            this.lblPassWord1.Size = new System.Drawing.Size(162, 23);
+            this.lblPassWord1.Size = new System.Drawing.Size(131, 19);
             this.lblPassWord1.TabIndex = 16;
             this.lblPassWord1.Text = "Nhập lại mật khẩu";
             // 
@@ -196,10 +196,10 @@
             this.pbDisplayPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbDisplayPassword.BackColor = System.Drawing.SystemColors.Window;
             this.pbDisplayPassword.Image = ((System.Drawing.Image)(resources.GetObject("pbDisplayPassword.Image")));
-            this.pbDisplayPassword.Location = new System.Drawing.Point(677, 279);
-            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbDisplayPassword.Location = new System.Drawing.Point(508, 227);
+            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbDisplayPassword.Name = "pbDisplayPassword";
-            this.pbDisplayPassword.Size = new System.Drawing.Size(27, 25);
+            this.pbDisplayPassword.Size = new System.Drawing.Size(20, 20);
             this.pbDisplayPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDisplayPassword.TabIndex = 15;
             this.pbDisplayPassword.TabStop = false;
@@ -213,10 +213,10 @@
             this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(481, 589);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegister.Location = new System.Drawing.Point(361, 479);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(129, 44);
+            this.btnRegister.Size = new System.Drawing.Size(97, 36);
             this.btnRegister.TabIndex = 14;
             this.btnRegister.Text = "Đăng Ký";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -226,10 +226,10 @@
             // 
             this.txbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(448, 538);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbEmail.Location = new System.Drawing.Point(336, 437);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(259, 30);
+            this.txbEmail.Size = new System.Drawing.Size(195, 26);
             this.txbEmail.TabIndex = 13;
             // 
             // cbbGender
@@ -239,50 +239,50 @@
             this.cbbGender.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbGender.Location = new System.Drawing.Point(748, 437);
-            this.cbbGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbGender.Location = new System.Drawing.Point(561, 355);
+            this.cbbGender.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbbGender.Name = "cbbGender";
-            this.cbbGender.Size = new System.Drawing.Size(79, 30);
+            this.cbbGender.Size = new System.Drawing.Size(60, 27);
             this.cbbGender.TabIndex = 12;
             // 
             // txbIdNumber
             // 
             this.txbIdNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbIdNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbIdNumber.Location = new System.Drawing.Point(448, 489);
-            this.txbIdNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbIdNumber.Location = new System.Drawing.Point(336, 397);
+            this.txbIdNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbIdNumber.Name = "txbIdNumber";
-            this.txbIdNumber.Size = new System.Drawing.Size(259, 30);
+            this.txbIdNumber.Size = new System.Drawing.Size(195, 26);
             this.txbIdNumber.TabIndex = 11;
             // 
             // txbTelephone
             // 
             this.txbTelephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTelephone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTelephone.Location = new System.Drawing.Point(448, 436);
-            this.txbTelephone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbTelephone.Location = new System.Drawing.Point(336, 354);
+            this.txbTelephone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbTelephone.Name = "txbTelephone";
-            this.txbTelephone.Size = new System.Drawing.Size(161, 30);
+            this.txbTelephone.Size = new System.Drawing.Size(122, 26);
             this.txbTelephone.TabIndex = 10;
             // 
             // txbFullname
             // 
             this.txbFullname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbFullname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFullname.Location = new System.Drawing.Point(448, 382);
-            this.txbFullname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbFullname.Location = new System.Drawing.Point(336, 310);
+            this.txbFullname.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbFullname.Name = "txbFullname";
-            this.txbFullname.Size = new System.Drawing.Size(259, 30);
+            this.txbFullname.Size = new System.Drawing.Size(195, 26);
             this.txbFullname.TabIndex = 9;
             // 
             // txbPassword
             // 
             this.txbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword.Location = new System.Drawing.Point(448, 275);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbPassword.Location = new System.Drawing.Point(336, 223);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(259, 30);
+            this.txbPassword.Size = new System.Drawing.Size(195, 26);
             this.txbPassword.TabIndex = 8;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
@@ -290,10 +290,10 @@
             // 
             this.txbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUsername.Location = new System.Drawing.Point(448, 227);
-            this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbUsername.Location = new System.Drawing.Point(336, 184);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(259, 30);
+            this.txbUsername.Size = new System.Drawing.Size(195, 26);
             this.txbUsername.TabIndex = 7;
             // 
             // lblGender
@@ -301,9 +301,10 @@
             this.lblGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(644, 440);
+            this.lblGender.Location = new System.Drawing.Point(483, 358);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(91, 23);
+            this.lblGender.Size = new System.Drawing.Size(72, 19);
             this.lblGender.TabIndex = 6;
             this.lblGender.Text = "Giới Tính";
             // 
@@ -312,9 +313,10 @@
             this.lblIdNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdNumber.AutoSize = true;
             this.lblIdNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdNumber.Location = new System.Drawing.Point(271, 492);
+            this.lblIdNumber.Location = new System.Drawing.Point(203, 400);
+            this.lblIdNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIdNumber.Name = "lblIdNumber";
-            this.lblIdNumber.Size = new System.Drawing.Size(66, 23);
+            this.lblIdNumber.Size = new System.Drawing.Size(54, 19);
             this.lblIdNumber.TabIndex = 5;
             this.lblIdNumber.Text = "CCCD";
             // 
@@ -323,9 +325,10 @@
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(271, 541);
+            this.lblEmail.Location = new System.Drawing.Point(203, 440);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(58, 23);
+            this.lblEmail.Size = new System.Drawing.Size(47, 19);
             this.lblEmail.TabIndex = 4;
             this.lblEmail.Text = "Email";
             // 
@@ -334,9 +337,10 @@
             this.lblTelephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelephone.AutoSize = true;
             this.lblTelephone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelephone.Location = new System.Drawing.Point(271, 441);
+            this.lblTelephone.Location = new System.Drawing.Point(203, 358);
+            this.lblTelephone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelephone.Name = "lblTelephone";
-            this.lblTelephone.Size = new System.Drawing.Size(128, 23);
+            this.lblTelephone.Size = new System.Drawing.Size(104, 19);
             this.lblTelephone.TabIndex = 3;
             this.lblTelephone.Text = "Số Điện Thoại";
             // 
@@ -345,9 +349,10 @@
             this.lblFullname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFullname.AutoSize = true;
             this.lblFullname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullname.Location = new System.Drawing.Point(271, 388);
+            this.lblFullname.Location = new System.Drawing.Point(203, 315);
+            this.lblFullname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFullname.Name = "lblFullname";
-            this.lblFullname.Size = new System.Drawing.Size(72, 23);
+            this.lblFullname.Size = new System.Drawing.Size(59, 19);
             this.lblFullname.TabIndex = 2;
             this.lblFullname.Text = "Họ Tên";
             // 
@@ -356,9 +361,10 @@
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(272, 279);
+            this.lblPassword.Location = new System.Drawing.Point(204, 227);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(94, 23);
+            this.lblPassword.Size = new System.Drawing.Size(78, 19);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Mật Khẩu";
             // 
@@ -367,9 +373,10 @@
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(271, 232);
+            this.lblUsername.Location = new System.Drawing.Point(203, 188);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(134, 23);
+            this.lblUsername.Size = new System.Drawing.Size(109, 19);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tên Tài Khoản";
             // 
@@ -383,18 +390,18 @@
             this.lblCusRegister.Location = new System.Drawing.Point(0, 0);
             this.lblCusRegister.Margin = new System.Windows.Forms.Padding(0);
             this.lblCusRegister.Name = "lblCusRegister";
-            this.lblCusRegister.Size = new System.Drawing.Size(1083, 206);
+            this.lblCusRegister.Size = new System.Drawing.Size(812, 167);
             this.lblCusRegister.TabIndex = 1;
             this.lblCusRegister.Text = "Đăng Ký Tài Khoản";
             this.lblCusRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmCusRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1443, 857);
             this.Controls.Add(this.pnlRoot);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FrmCusRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCusRegister";

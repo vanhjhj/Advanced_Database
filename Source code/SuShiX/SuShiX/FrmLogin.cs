@@ -11,7 +11,7 @@ namespace SuShiX
         string username = "";
         string password = "";
         string accountType = "";
-        string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        string connectionString = AppConfig.connectionString;
 
         public FrmLogin()
         {

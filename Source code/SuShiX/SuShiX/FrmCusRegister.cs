@@ -15,7 +15,7 @@ namespace SuShiX
         private string GioiTinh;
         private string CCCD;
         private string Email;
-        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        private string connectionString = AppConfig.connectionString;
 
         public FrmCusRegister()
         {
@@ -81,13 +81,6 @@ namespace SuShiX
                     string userId = outputMaTK.Value.ToString();
 
                     MessageBox.Show("Đăng ký tài khoản thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Chuyển sang FrmCustomer với userId
-                    FrmCustomer customerForm = new FrmCustomer(userId);
-                    this.Hide();
-                    customerForm.ShowDialog();
-                    this.Show();
-                    this.Close();
                 }
             }
         }
@@ -123,6 +116,12 @@ namespace SuShiX
 
             // Gọi hàm đăng ký
             RegisterUser();
+
+            // Chuyển sang FrmLogin
+            FrmLogin frmLogin = new FrmLogin();
+            this.Hide();
+            frmLogin.ShowDialog();
+            this.Close();
         }
 
         private void pbDisplayPassword_Click(object sender, EventArgs e)
