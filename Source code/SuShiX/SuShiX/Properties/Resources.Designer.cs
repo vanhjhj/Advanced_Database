@@ -103,6 +103,16 @@ namespace SuShiX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_cus_order {
+            get {
+                object obj = ResourceManager.GetObject("logo_cus_order", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_register {
             get {
                 object obj = ResourceManager.GetObject("logo_register", resourceCulture);

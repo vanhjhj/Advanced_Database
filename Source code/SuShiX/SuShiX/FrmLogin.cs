@@ -11,6 +11,7 @@ namespace SuShiX
         string username = "";
         string password = "";
         string accountType = "";
+        string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
 
         public FrmLogin()
         {
@@ -82,14 +83,13 @@ namespace SuShiX
 
         private bool ValidateLogin(string username, string password, ref string userID, ref string accountType, ref string department)
         {
-            string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.USP_DangNhap", connection))
+                    using (SqlCommand command = new SqlCommand("USP_DangNhap", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -155,9 +155,5 @@ namespace SuShiX
             }
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

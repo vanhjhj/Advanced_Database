@@ -44,10 +44,36 @@ CREATE PROCEDURE USP_DangKy
     @GioiTinh NVARCHAR(3),
     @CCCD VARCHAR(12),
     @Email VARCHAR(50),
-    @MaTK VARCHAR(10) OUTPUT -- Biến trả về MaTK
+    @MaTK VARCHAR(10) OUTPUT, -- Biến trả về MaTK
+    @ViPhamUnique NVARCHAR(50) OUTPUT -- Thêm tham số đầu ra để trả về trường bị vi phạm unique
 AS
 BEGIN
-    -- Tạo MaTK mới
+    -- Kiểm tra sự tồn tại của các trường
+    IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK)
+    BEGIN
+        SET @ViPhamUnique = 'Tên tài khoản';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE SDT = @SDT)
+    BEGIN
+        SET @ViPhamUnique = 'Số điện thoại';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE CCCD = @CCCD)
+    BEGIN
+        SET @ViPhamUnique = 'CCCD';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE Email = @Email)
+    BEGIN
+        SET @ViPhamUnique = 'Email';
+        RETURN;
+    END
+
+    -- Nếu không có trường nào bị trùng lặp, tiếp tục đăng ký
     DECLARE @MaxMaTK INT, @NewMaTK VARCHAR(10);
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
@@ -64,12 +90,13 @@ BEGIN
 
     -- Trả về MaTK
     SET @MaTK = @NewMaTK;
+
+    -- Nếu không có lỗi, trả về NULL cho ConflictField
+    SET @ViPhamUnique = NULL;
 END;
 GO
 
 -- Xem thông tin khách hàng
-GO
-SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE USP_XemThongTinKhachHang
     @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
@@ -96,9 +123,35 @@ CREATE PROCEDURE USP_CapNhatThongTinKhachHang
     @SDT VARCHAR(10),     
     @Email VARCHAR(50),   
     @CCCD VARCHAR(12),    
-    @GioiTinh NVARCHAR(3)  
+    @GioiTinh NVARCHAR(3), 
+    @ViPhamUnique NVARCHAR(50) OUTPUT -- Trả về trường vi phạm điều kiện unique
 AS
 BEGIN
+    -- Kiểm tra tính duy nhất cho các trường
+    IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK AND MaTK != @MaTK)
+    BEGIN
+        SET @ViPhamUnique = 'Tên tài khoản';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE SDT = @SDT AND MaTK != @MaTK)
+    BEGIN
+        SET @ViPhamUnique = 'Số điện thoại';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE Email = @Email AND MaTK != @MaTK)
+    BEGIN
+        SET @ViPhamUnique = 'Email';
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM KhachHang WHERE CCCD = @CCCD AND MaTK != @MaTK)
+    BEGIN
+        SET @ViPhamUnique = 'CCCD';
+        RETURN;
+    END
+
     -- Cập nhật thông tin trong bảng TaiKhoan
     UPDATE TaiKhoan
     SET TenTK = @TenTK,
@@ -113,10 +166,200 @@ BEGIN
         CCCD = @CCCD,
         GioiTinh = @GioiTinh
     WHERE MaTK = @MaTK;
+
+    -- Nếu không có lỗi, trả về NULL cho ViPhamUnique
+    SET @ViPhamUnique = NULL;
 END
 GO
 
+-- Lấy thông tin chi nhánh
+GO
+CREATE PROCEDURE USP_ThongTinChiNhanh 
+    @DiaChiChiNhanh NVARCHAR(200)
+AS
+BEGIN
+    -- Lấy thông tin chi nhánh theo địa chỉ chi nhánh
+    SELECT TenCN, SDT, BaiDoXeHoi, BaiDoXeMay, 
+        -- Trả về thời gian mở cửa và đóng cửa với định dạng HH:mm
+        RIGHT('00' + CAST(DATEPART(HOUR, TgMoCua) AS VARCHAR(2)), 2) + ':' + 
+        RIGHT('00' + CAST(DATEPART(MINUTE, TgMoCua) AS VARCHAR(2)), 2) AS ThoiGianMoCua,
+        
+        RIGHT('00' + CAST(DATEPART(HOUR, TgDongCua) AS VARCHAR(2)), 2) + ':' + 
+        RIGHT('00' + CAST(DATEPART(MINUTE, TgDongCua) AS VARCHAR(2)), 2) AS ThoiGianDongCua
+    FROM ChiNhanh
+    WHERE DiaChi = @DiaChiChiNhanh;
+END;
+GO
 
+-- Lấy thực đơn của chi nhánh
+GO
+CREATE PROCEDURE USP_ThucDonChiNhanh
+    @LoaiPhieuDat NVARCHAR(50),
+    @DiaChiChiNhanh NVARCHAR(200)
+AS
+BEGIN
+    IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+    BEGIN
+        SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, MA.GiaHienTai AS Price
+		FROM dbo.ThucDon TD
+		JOIN dbo.ChiNhanh CN ON CN.MaCN = TD.MaCN
+		JOIN dbo.MonAn MA ON MA.MaMA = TD.MaMA
+		JOIN dbo.Muc ON Muc.MaMuc = MA.MaMuc
+		WHERE CN.DiaChi = @DiaChiChiNhanh AND TD.TinhTrangPhucVu = N'Có'
+    END
 
+    ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+    BEGIN
+        SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, MA.GiaHienTai AS Price
+		FROM dbo.ThucDon TD
+		JOIN dbo.ChiNhanh CN ON CN.MaCN = TD.MaCN
+		JOIN dbo.MonAn MA ON MA.MaMA = TD.MaMA
+		JOIN dbo.Muc ON Muc.MaMuc = MA.MaMuc
+		WHERE CN.DiaChi = @DiaChiChiNhanh AND TD.TinhTrangGiaoHang = N'Có'
+    END
+END;
+GO
 
+-- Tạo table type cho món ăn
+CREATE TYPE dbo.CTPDType AS TABLE
+(
+    DishName NVARCHAR(50),
+    Amount INT,
+    Price INT,
+    TotalAmount INT,
+    Note NVARCHAR(200)
+);
+GO
 
+-- Lập Phiếu Đặt Bàn Trực Tuyến
+GO
+CREATE PROCEDURE USP_DatBanTrucTuyen
+    @TkLap VARCHAR(10),                    
+    @DiaChiChiNhanh NVARCHAR(200),        
+    @TdTruyCap DATETIME,                  
+    @TgTruyCap INT,                       
+    @SLKhach INT,                         
+    @ThoiGianDen DATETIME,                
+    @GhiChu NVARCHAR(200),                
+    @CTPD dbo.CTPDType READONLY 
+AS
+BEGIN
+    -- Biến để lưu MaPhieu mới
+    DECLARE @MaPhieu VARCHAR(10);
+
+    -- Tạo mã phiếu mới tự động
+    DECLARE @MaxMaPhieu INT;
+    SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
+    FROM PhieuDatBanTrucTuyen;
+
+    SET @MaPhieu = 'PDOL' + FORMAT(@MaxMaPhieu + 1, '0000');
+
+	DECLARE @MaCN VARCHAR(10);
+	
+	SELECT @MaCN = MaCN
+	FROM ChiNhanh
+	WHERE DiaChi = @DiaChiChiNhanh
+
+    -- Bước 1: Nhập dữ liệu vào bảng PhieuDat
+    INSERT INTO PhieuDat (MaPhieu, TinhTrangThanhToan, LoaiPD, MaCN, TkLap)
+    VALUES (@MaPhieu, N'Chưa Thanh Toán', N'Trực Tuyến', @MaCN, @TkLap);
+
+    -- Bước 2: Nhập dữ liệu vào bảng PhieuDatBanTrucTuyen
+    INSERT INTO PhieuDatBanTrucTuyen (MaPhieu, TdTruyCap, TgTruyCap, SLKhach, ThoiGianDen, GhiChu)
+    VALUES (@MaPhieu, @TdTruyCap, @TgTruyCap, @SLKhach, @ThoiGianDen, @GhiChu);
+
+    -- Bước 3: Nhập dữ liệu vào bảng CTPD
+    DECLARE @DishName NVARCHAR(50), @SoLuong INT, @DonGia INT, @ThanhTien INT, @GhiChuCTPD NVARCHAR(200);
+    DECLARE @MaMA VARCHAR(10); -- Mã món ăn
+
+    -- Lặp qua tất cả các món ăn được chọn trong TVP
+    DECLARE cur CURSOR FOR
+    SELECT DishName, Amount, Price, TotalAmount, Note
+    FROM @CTPD;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+
+    -- Lặp qua từng món ăn trong danh sách
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy MaMA từ bảng MonAn dựa trên TenMA
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @DishName;
+
+        INSERT INTO CTPD (MaPhieu, MaMA, SoLuong, DonGia, ThanhTien, GhiChu)
+        VALUES (@MaPhieu, @MaMA, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD);
+
+        FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+END;
+GO
+
+-- Lập Phiếu Giao Hàng Tận Nơi
+GO
+CREATE PROCEDURE USP_GiaoHangTanNoi 
+	@TkLap VARCHAR(10),                    
+    @DiaChiChiNhanh NVARCHAR(200),        
+    @TdTruyCap DATETIME,                  
+    @TgTruyCap INT,                       
+    @DiaChiNhan NVARCHAR(200),                          
+    @SDTNhan VARCHAR(10),                 
+    @GhiChu NVARCHAR(200),                
+    @CTPD dbo.CTPDType READONLY
+AS
+BEGIN
+    -- Biến để lưu MaPhieu mới
+    DECLARE @MaPhieu VARCHAR(10);
+
+    -- Tạo mã phiếu mới tự động
+    DECLARE @MaxMaPhieu INT;
+    SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
+    FROM PhieuDatGiaoHang;
+
+    SET @MaPhieu = 'PDGH' + FORMAT(@MaxMaPhieu + 1, '0000');
+
+	DECLARE @MaCN VARCHAR(10);
+	
+	SELECT @MaCN = MaCN
+	FROM ChiNhanh
+	WHERE DiaChi = @DiaChiChiNhanh
+
+    -- Bước 1: Nhập dữ liệu vào bảng PhieuDat
+    INSERT INTO PhieuDat (MaPhieu, TinhTrangThanhToan, LoaiPD, MaCN, TkLap)
+    VALUES (@MaPhieu, N'Chưa Thanh Toán', N'Giao Hàng', @MaCN, @TkLap);
+
+    -- Bước 2: Nhập dữ liệu vào bảng PhieuDatBanTrucTuyen
+    INSERT INTO PhieuDatGiaoHang(MaPhieu, TdTruyCap, TgTruyCap, DiaChi, SDTNguoiNhan, GhiChuGH)
+    VALUES (@MaPhieu, @TdTruyCap, @TgTruyCap, @DiaChiNhan, @SDTNhan, @GhiChu);
+
+    -- Bước 3: Nhập dữ liệu vào bảng CTPD
+    DECLARE @DishName NVARCHAR(50), @SoLuong INT, @DonGia INT, @ThanhTien INT, @GhiChuCTPD NVARCHAR(200);
+    DECLARE @MaMA VARCHAR(10); -- Mã món ăn
+
+    -- Lặp qua tất cả các món ăn được chọn trong TVP
+    DECLARE cur CURSOR FOR
+    SELECT DishName, Amount, Price, TotalAmount, Note
+    FROM @CTPD;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+
+    -- Lặp qua từng món ăn trong danh sách
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy MaMA từ bảng MonAn dựa trên TenMA
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @DishName;
+
+        INSERT INTO CTPD (MaPhieu, MaMA, SoLuong, DonGia, ThanhTien, GhiChu)
+        VALUES (@MaPhieu, @MaMA, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD);
+
+        -- Tiến đến món ăn tiếp theo
+        FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+END;
+GO

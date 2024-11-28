@@ -15,57 +15,18 @@ namespace SuShiX
         private string GioiTinh;
         private string CCCD;
         private string Email;
+        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
 
         public FrmCusRegister()
         {
             InitializeComponent();
         }
 
-        // Hàm kiểm tra tính unique của thông tin
-        private string CheckUnique()
-        {
-            string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
-            string query = @"
-                SELECT CASE 
-                    WHEN EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK) THEN 'Tên tài khoản'
-                    WHEN EXISTS (SELECT 1 FROM KhachHang WHERE SDT = @SDT) THEN 'Số điện thoại'
-                    WHEN EXISTS (SELECT 1 FROM KhachHang WHERE CCCD = @CCCD) THEN 'CCCD'
-                    WHEN EXISTS (SELECT 1 FROM KhachHang WHERE Email = @Email) THEN 'Email'
-                    ELSE NULL
-                END AS ConflictField";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    // Thêm tham số
-                    command.Parameters.AddWithValue("@TenTK", TenTK);
-                    command.Parameters.AddWithValue("@SDT", SDT);
-                    command.Parameters.AddWithValue("@CCCD", CCCD);
-                    command.Parameters.AddWithValue("@Email", Email);
-
-                    connection.Open();
-                    object result = command.ExecuteScalar();
-                    connection.Close();
-
-                    return result?.ToString(); // Trả về trường bị trùng hoặc NULL nếu không có
-                }
-            }
-        }
-
         // Hàm đăng ký tài khoản
         private void RegisterUser()
         {
-            // Kiểm tra thông tin có bị trùng lặp không
-            string conflictField = CheckUnique();
-
-            if (!string.IsNullOrEmpty(conflictField))
-            {
-                MessageBox.Show($"{conflictField} đã tồn tại. Vui lòng nhập thông tin khác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+            // Khai báo tham số để nhận kết quả từ stored procedure
+            string conflictField = null;
             string procedureName = "USP_DangKy";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -83,22 +44,41 @@ namespace SuShiX
                     command.Parameters.AddWithValue("@CCCD", CCCD);
                     command.Parameters.AddWithValue("@Email", Email);
 
-                    // Thêm tham số output để nhận MaTK
-                    SqlParameter outputParam = new SqlParameter
+                    // Thêm tham số output để nhận MaTK và ConflictField
+                    SqlParameter outputMaTK = new SqlParameter
                     {
                         ParameterName = "@MaTK",
                         SqlDbType = SqlDbType.NVarChar,
                         Size = 10,
                         Direction = ParameterDirection.Output
                     };
-                    command.Parameters.Add(outputParam);
+                    command.Parameters.Add(outputMaTK);
+
+                    SqlParameter outputConflictField = new SqlParameter
+                    {
+                        ParameterName = "@ViPhamUnique",
+                        SqlDbType = SqlDbType.NVarChar,
+                        Size = 50,
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(outputConflictField);
 
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
 
+                    // Lấy kết quả trả về
+                    conflictField = outputConflictField.Value.ToString();
+
+                    // Kiểm tra nếu có trường bị vi phạm
+                    if (!string.IsNullOrEmpty(conflictField))
+                    {
+                        MessageBox.Show($"{conflictField} đã tồn tại. Vui lòng nhập thông tin khác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     // Lấy MaTK được trả về
-                    string userId = outputParam.Value.ToString();
+                    string userId = outputMaTK.Value.ToString();
 
                     MessageBox.Show("Đăng ký tài khoản thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -111,6 +91,7 @@ namespace SuShiX
                 }
             }
         }
+
 
         // Hàm xử lý sự kiện nhấn nút Đăng Ký
         private void btnRegister_Click(object sender, EventArgs e)
@@ -130,6 +111,13 @@ namespace SuShiX
                 string.IsNullOrEmpty(Email))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra xem mật khẩu và nhập lại mật khẩu có khớp không
+            if (MatKhau != txbPassword1.Text.Trim())
+            {
+                MessageBox.Show("Mật khẩu và xác nhận mật khẩu không khớp. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -166,11 +154,6 @@ namespace SuShiX
         }
 
         private void pbReturn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbReturn_Click_1(object sender, EventArgs e)
         {
             //Open login form
             FrmLogin loginForm = new FrmLogin();

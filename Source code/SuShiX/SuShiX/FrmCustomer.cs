@@ -11,18 +11,13 @@ namespace SuShiX
         private string userID;
 
         // Connection string cho cơ sở dữ liệu
-        private readonly string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
 
         // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
         public string UserID
         {
             get { return userID; }
             private set { userID = value; }
-        }
-
-        public FrmCustomer()
-        {
-            InitializeComponent();
         }
 
         // Constructor nhận userID khi khởi tạo form
@@ -98,32 +93,7 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    // Kiểm tra tính duy nhất của các thuộc tính trước khi cập nhật
-                    if (!IsUniqueValue(conn, "TaiKhoan", "TenTK", txbUsername.Text.Trim(), userID))
-                    {
-                        MessageBox.Show("Tên tài khoản đã tồn tại, vui lòng chọn tên khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if (!IsUniqueValue(conn, "KhachHang", "SDT", txbPhoneNumber.Text.Trim(), userID))
-                    {
-                        MessageBox.Show("Số điện thoại đã tồn tại, vui lòng chọn số khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if (!IsUniqueValue(conn, "KhachHang", "Email", txbEmail.Text.Trim(), userID))
-                    {
-                        MessageBox.Show("Email đã tồn tại, vui lòng chọn email khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if (!IsUniqueValue(conn, "KhachHang", "CCCD", txbIdNumber.Text.Trim(), userID))
-                    {
-                        MessageBox.Show("CCCD đã tồn tại, vui lòng chọn CCCD khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    // Nếu không có trùng lặp, tiến hành cập nhật thông tin
+                    // Gọi thủ tục cập nhật thông tin khách hàng
                     using (SqlCommand cmd = new SqlCommand("USP_CapNhatThongTinKhachHang", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -138,8 +108,28 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@CCCD", txbIdNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@GioiTinh", cbbGender.SelectedItem.ToString());
 
+                        // Thêm tham số output để nhận trường vi phạm
+                        SqlParameter violationParam = new SqlParameter
+                        {
+                            ParameterName = "@ViPhamUnique",
+                            SqlDbType = SqlDbType.NVarChar,
+                            Size = 50,
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(violationParam);
+
                         // Thực thi thủ tục
                         cmd.ExecuteNonQuery();
+
+                        // Kiểm tra nếu có trường vi phạm tính duy nhất
+                        string violation = violationParam.Value.ToString();
+                        if (!string.IsNullOrEmpty(violation))
+                        {
+                            MessageBox.Show($"{violation} đã tồn tại, vui lòng chọn {violation.ToLower()} khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Nếu không có lỗi, thông báo thành công
                         MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -147,32 +137,6 @@ namespace SuShiX
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Hàm kiểm tra tính duy nhất
-        private bool IsUniqueValue(SqlConnection conn, string tableName, string columnName, string value, string currentUserID)
-        {
-            try
-            {
-                string query = $@"
-                    SELECT COUNT(*)
-                    FROM {tableName}
-                    WHERE {columnName} = @Value AND MaTK != @CurrentUserID";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Value", value);
-                    cmd.Parameters.AddWithValue("@CurrentUserID", currentUserID);
-
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count == 0; // True nếu không có bản ghi trùng lặp
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi kiểm tra tính duy nhất của {columnName}: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
 
@@ -199,7 +163,14 @@ namespace SuShiX
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
+            FrmCusOrder frmCusOrder = new FrmCusOrder(userID);
 
+            this.Hide();
+
+            // Hiển thị form đặt món
+            frmCusOrder.ShowDialog();
+
+            this.Close();
         }
     }
 }
