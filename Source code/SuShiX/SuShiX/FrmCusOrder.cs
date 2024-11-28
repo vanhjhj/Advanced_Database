@@ -82,7 +82,7 @@ namespace SuShiX
 
                 // Kiểm tra loại phiếu đặt và thay đổi trạng thái các điều khiển tương ứng
                 if (selectedOrderType == "Đặt Bàn Trực Tuyến")
-                {                    
+                {
                     txbReceiverAddress.Enabled = false;
                     txbReceiverPhoneNumber.Enabled = false;
 
@@ -270,7 +270,7 @@ namespace SuShiX
                 MessageBox.Show($"Lỗi khi tải thực đơn: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         // Hàm xử lý sự kiện khi chọn địa chỉ chi nhánh
         private void cbbBranchAddress_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -575,7 +575,8 @@ namespace SuShiX
         private void btnOrder_Click(object sender, EventArgs e)
         {
             string orderType = cbbOrderType.SelectedItem?.ToString();
-            if (orderType == "Đặt Bàn Trực Tuyến") {
+            if (orderType == "Đặt Bàn Trực Tuyến")
+            {
                 HandleOnlineReservation();
             }
             else if (orderType == "Giao Hàng Tận Nơi")
