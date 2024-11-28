@@ -63,7 +63,6 @@ namespace SuShiX
             // Bật các panel liên quan
             pnlBookingOnline.Enabled = true;
             pnlShipping.Enabled = true;
-            btnOrder.Enabled = true;
         }
 
         // Hàm xử lý sự kiện thay đổi giá trị của cbbOrderType
@@ -333,7 +332,7 @@ namespace SuShiX
                     }
 
                     // Cập nhật trạng thái của nút "Order"
-                    //UpdateOrderButtonState();
+                    UpdateOrderButtonState();
                 }
             }
         }
