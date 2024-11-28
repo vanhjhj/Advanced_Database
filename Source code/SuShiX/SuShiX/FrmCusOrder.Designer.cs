@@ -36,7 +36,6 @@
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
             this.pnlGeneralOrderInfo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txbGeneralNote = new System.Windows.Forms.TextBox();
             this.txbTimeOpen = new System.Windows.Forms.TextBox();
             this.txbMotorbikeParking = new System.Windows.Forms.TextBox();
@@ -88,7 +87,6 @@
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlShipping.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -197,7 +195,6 @@
             // 
             this.pnlGeneralOrderInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.pnlGeneralOrderInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlGeneralOrderInfo.Controls.Add(this.pictureBox1);
             this.pnlGeneralOrderInfo.Controls.Add(this.txbGeneralNote);
             this.pnlGeneralOrderInfo.Controls.Add(this.txbTimeOpen);
             this.pnlGeneralOrderInfo.Controls.Add(this.txbMotorbikeParking);
@@ -220,18 +217,6 @@
             this.pnlGeneralOrderInfo.Name = "pnlGeneralOrderInfo";
             this.pnlGeneralOrderInfo.Size = new System.Drawing.Size(1149, 280);
             this.pnlGeneralOrderInfo.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txbGeneralNote
             // 
@@ -770,7 +755,6 @@
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlShipping.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -844,6 +828,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

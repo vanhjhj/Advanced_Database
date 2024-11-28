@@ -121,10 +121,10 @@ namespace SuShiX
         // Hàm xử lý sự kiện nhấn nút 'Quay Lại'
         private void btnExit_Click(object sender, EventArgs e)
         {
-            FrmCustomer frmCustomer = new FrmCustomer(userID);
+            FrmHomepageCustomer frmHomepageCustomer = new FrmHomepageCustomer(userID);
             this.Hide();
-            frmCustomer.ShowDialog();  // Hiển thị Form Khách Hàng
-            this.Close(); // Đóng Form hiện tại
+            frmHomepageCustomer.ShowDialog();
+            this.Close();
         }
 
         // Hàm tải dữ liệu Địa Chỉ Chi Nhánh từ database
@@ -610,14 +610,6 @@ namespace SuShiX
         private void FrmCusOrder_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            FrmHomepageCustomer frmHomepageCustomer = new FrmHomepageCustomer(userID);
-            this.Hide();
-            frmHomepageCustomer.ShowDialog();
-            this.Close();
         }
 
         private void FrmCusOrder_Load_1(object sender, EventArgs e)
