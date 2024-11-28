@@ -20,16 +20,21 @@ E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.GenerateR
 E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.CoreCompileInputs.cache
 E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.exe
 E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb
-D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.exe.config
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.exe
-D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.pdb
+D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
+D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources
+D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.exe.config
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.AssemblyReference.cache
+D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusRegister.resources
+D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmLogin.resources
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.Properties.Resources.resources
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.GenerateResource.cache
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.csproj.CoreCompileInputs.cache
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.exe
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb
-D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
-D:\Junior\Document-master\Advanced Database System\Project\3_DATH\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources
+D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.pdb
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmHomepageCustomer.resources

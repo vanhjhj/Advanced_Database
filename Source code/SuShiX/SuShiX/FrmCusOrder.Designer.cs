@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
@@ -220,7 +221,7 @@
             // txbGeneralNote
             // 
             this.txbGeneralNote.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbGeneralNote.Location = new System.Drawing.Point(265, 193);
+            this.txbGeneralNote.Location = new System.Drawing.Point(276, 193);
             this.txbGeneralNote.Multiline = true;
             this.txbGeneralNote.Name = "txbGeneralNote";
             this.txbGeneralNote.Size = new System.Drawing.Size(797, 66);
@@ -229,59 +230,59 @@
             // txbTimeOpen
             // 
             this.txbTimeOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbTimeOpen.Location = new System.Drawing.Point(954, 144);
+            this.txbTimeOpen.Location = new System.Drawing.Point(965, 144);
             this.txbTimeOpen.Name = "txbTimeOpen";
             this.txbTimeOpen.ReadOnly = true;
-            this.txbTimeOpen.Size = new System.Drawing.Size(108, 30);
+            this.txbTimeOpen.Size = new System.Drawing.Size(108, 35);
             this.txbTimeOpen.TabIndex = 16;
             this.txbTimeOpen.Text = "7:00 - 23:00";
             // 
             // txbMotorbikeParking
             // 
             this.txbMotorbikeParking.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbMotorbikeParking.Location = new System.Drawing.Point(651, 144);
+            this.txbMotorbikeParking.Location = new System.Drawing.Point(662, 144);
             this.txbMotorbikeParking.Name = "txbMotorbikeParking";
             this.txbMotorbikeParking.ReadOnly = true;
-            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 30);
+            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 35);
             this.txbMotorbikeParking.TabIndex = 15;
             this.txbMotorbikeParking.Text = "Không";
             // 
             // txbCarParking
             // 
             this.txbCarParking.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbCarParking.Location = new System.Drawing.Point(265, 144);
+            this.txbCarParking.Location = new System.Drawing.Point(276, 144);
             this.txbCarParking.Name = "txbCarParking";
             this.txbCarParking.ReadOnly = true;
-            this.txbCarParking.Size = new System.Drawing.Size(61, 30);
+            this.txbCarParking.Size = new System.Drawing.Size(61, 35);
             this.txbCarParking.TabIndex = 14;
             this.txbCarParking.Text = "Không";
             // 
             // txbBranchPhoneNumber
             // 
             this.txbBranchPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbBranchPhoneNumber.Location = new System.Drawing.Point(728, 98);
+            this.txbBranchPhoneNumber.Location = new System.Drawing.Point(739, 98);
             this.txbBranchPhoneNumber.Name = "txbBranchPhoneNumber";
             this.txbBranchPhoneNumber.ReadOnly = true;
-            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(108, 30);
+            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(108, 35);
             this.txbBranchPhoneNumber.TabIndex = 13;
             this.txbBranchPhoneNumber.Text = "0285201215";
             // 
             // txbBranchName
             // 
             this.txbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbBranchName.Location = new System.Drawing.Point(266, 98);
+            this.txbBranchName.Location = new System.Drawing.Point(277, 98);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 35);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbBranchAddress
             // 
             this.cbbBranchAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbBranchAddress.FormattingEnabled = true;
-            this.cbbBranchAddress.Location = new System.Drawing.Point(266, 52);
+            this.cbbBranchAddress.Location = new System.Drawing.Point(277, 52);
             this.cbbBranchAddress.Name = "cbbBranchAddress";
-            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 30);
+            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 35);
             this.cbbBranchAddress.TabIndex = 11;
             this.cbbBranchAddress.SelectedIndexChanged += new System.EventHandler(this.cbbBranchAddress_SelectedIndexChanged);
             // 
@@ -289,9 +290,9 @@
             // 
             this.cbbAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbAreaName.FormattingEnabled = true;
-            this.cbbAreaName.Location = new System.Drawing.Point(648, 13);
+            this.cbbAreaName.Location = new System.Drawing.Point(659, 13);
             this.cbbAreaName.Name = "cbbAreaName";
-            this.cbbAreaName.Size = new System.Drawing.Size(260, 30);
+            this.cbbAreaName.Size = new System.Drawing.Size(260, 35);
             this.cbbAreaName.TabIndex = 10;
             this.cbbAreaName.SelectedIndexChanged += new System.EventHandler(this.cbbAreaName_SelectedIndexChanged);
             // 
@@ -302,9 +303,9 @@
             this.cbbOrderType.Items.AddRange(new object[] {
             "Đặt Bàn Trực Tuyến",
             "Giao Hàng Tận Nơi"});
-            this.cbbOrderType.Location = new System.Drawing.Point(265, 13);
+            this.cbbOrderType.Location = new System.Drawing.Point(276, 13);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 35);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -312,9 +313,9 @@
             // 
             this.lblGeneralNote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGeneralNote.AutoSize = true;
-            this.lblGeneralNote.Location = new System.Drawing.Point(99, 217);
+            this.lblGeneralNote.Location = new System.Drawing.Point(110, 217);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
+            this.lblGeneralNote.Size = new System.Drawing.Size(93, 27);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -322,9 +323,9 @@
             // 
             this.lblMotorbikeParking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMotorbikeParking.AutoSize = true;
-            this.lblMotorbikeParking.Location = new System.Drawing.Point(499, 147);
+            this.lblMotorbikeParking.Location = new System.Drawing.Point(510, 147);
             this.lblMotorbikeParking.Name = "lblMotorbikeParking";
-            this.lblMotorbikeParking.Size = new System.Drawing.Size(135, 22);
+            this.lblMotorbikeParking.Size = new System.Drawing.Size(164, 27);
             this.lblMotorbikeParking.TabIndex = 7;
             this.lblMotorbikeParking.Text = "Bãi Đỗ Xe Máy";
             // 
@@ -332,9 +333,9 @@
             // 
             this.lblCarParking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCarParking.AutoSize = true;
-            this.lblCarParking.Location = new System.Drawing.Point(75, 147);
+            this.lblCarParking.Location = new System.Drawing.Point(86, 147);
             this.lblCarParking.Name = "lblCarParking";
-            this.lblCarParking.Size = new System.Drawing.Size(131, 22);
+            this.lblCarParking.Size = new System.Drawing.Size(156, 27);
             this.lblCarParking.TabIndex = 6;
             this.lblCarParking.Text = "Bãi Đỗ Xe Hơi";
             // 
@@ -342,9 +343,9 @@
             // 
             this.lblTimeOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTimeOpen.AutoSize = true;
-            this.lblTimeOpen.Location = new System.Drawing.Point(756, 147);
+            this.lblTimeOpen.Location = new System.Drawing.Point(767, 147);
             this.lblTimeOpen.Name = "lblTimeOpen";
-            this.lblTimeOpen.Size = new System.Drawing.Size(181, 22);
+            this.lblTimeOpen.Size = new System.Drawing.Size(220, 27);
             this.lblTimeOpen.TabIndex = 5;
             this.lblTimeOpen.Text = "Thời Gian Hoạt Động";
             // 
@@ -352,9 +353,9 @@
             // 
             this.lblBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchName.AutoSize = true;
-            this.lblBranchName.Location = new System.Drawing.Point(75, 101);
+            this.lblBranchName.Location = new System.Drawing.Point(86, 101);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
+            this.lblBranchName.Size = new System.Drawing.Size(159, 27);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -362,9 +363,9 @@
             // 
             this.lblBranchPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchPhoneNumber.AutoSize = true;
-            this.lblBranchPhoneNumber.Location = new System.Drawing.Point(499, 101);
+            this.lblBranchPhoneNumber.Location = new System.Drawing.Point(510, 101);
             this.lblBranchPhoneNumber.Name = "lblBranchPhoneNumber";
-            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(213, 22);
+            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(259, 27);
             this.lblBranchPhoneNumber.TabIndex = 3;
             this.lblBranchPhoneNumber.Text = "Số Điện Thoại Chi Nhánh";
             // 
@@ -372,9 +373,9 @@
             // 
             this.lblBranchAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchAddress.AutoSize = true;
-            this.lblBranchAddress.Location = new System.Drawing.Point(75, 55);
+            this.lblBranchAddress.Location = new System.Drawing.Point(86, 55);
             this.lblBranchAddress.Name = "lblBranchAddress";
-            this.lblBranchAddress.Size = new System.Drawing.Size(160, 22);
+            this.lblBranchAddress.Size = new System.Drawing.Size(196, 27);
             this.lblBranchAddress.TabIndex = 2;
             this.lblBranchAddress.Text = "Địa Chỉ Chi Nhánh";
             // 
@@ -382,9 +383,9 @@
             // 
             this.lblAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAreaName.AutoSize = true;
-            this.lblAreaName.Location = new System.Drawing.Point(499, 16);
+            this.lblAreaName.Location = new System.Drawing.Point(510, 16);
             this.lblAreaName.Name = "lblAreaName";
-            this.lblAreaName.Size = new System.Drawing.Size(115, 22);
+            this.lblAreaName.Size = new System.Drawing.Size(142, 27);
             this.lblAreaName.TabIndex = 1;
             this.lblAreaName.Text = "Tên Khu Vực";
             // 
@@ -392,9 +393,9 @@
             // 
             this.lblOrderType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOrderType.AutoSize = true;
-            this.lblOrderType.Location = new System.Drawing.Point(75, 16);
+            this.lblOrderType.Location = new System.Drawing.Point(86, 16);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(158, 27);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -478,7 +479,7 @@
             this.txbReceiverPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(125, 19);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(156, 30);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(156, 35);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -553,7 +554,7 @@
             this.nudCusNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nudCusNumber.Location = new System.Drawing.Point(55, 20);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(107, 30);
+            this.nudCusNumber.Size = new System.Drawing.Size(107, 35);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
@@ -570,14 +571,14 @@
             this.dtpArrivalTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpArrivalTime.Location = new System.Drawing.Point(55, 18);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 30);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 35);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // pnlOrderDetails
             // 
             this.pnlOrderDetails.ColumnCount = 2;
-            this.pnlOrderDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.pnlOrderDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlOrderDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.9369F));
+            this.pnlOrderDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.06309F));
             this.pnlOrderDetails.Controls.Add(this.pnlButton, 1, 0);
             this.pnlOrderDetails.Controls.Add(this.dgvOrderDetails, 0, 0);
             this.pnlOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -598,23 +599,25 @@
             this.pnlButton.Controls.Add(this.btnOrder, 0, 0);
             this.pnlButton.Controls.Add(this.btnExit, 0, 1);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlButton.Location = new System.Drawing.Point(928, 3);
+            this.pnlButton.Location = new System.Drawing.Point(1032, 3);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.RowCount = 2;
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButton.Size = new System.Drawing.Size(226, 333);
+            this.pnlButton.Size = new System.Drawing.Size(122, 333);
             this.pnlButton.TabIndex = 1;
             // 
             // btnOrder
             // 
             this.btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
             this.btnOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOrder.Location = new System.Drawing.Point(6, 6);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(214, 156);
+            this.btnOrder.Size = new System.Drawing.Size(110, 156);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Lập Phiếu";
             this.btnOrder.UseVisualStyleBackColor = false;
@@ -624,11 +627,13 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnExit.Location = new System.Drawing.Point(6, 171);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(214, 156);
+            this.btnExit.Size = new System.Drawing.Size(110, 156);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Quay Lại";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -638,6 +643,14 @@
             // 
             this.dgvOrderDetails.AllowUserToDeleteRows = false;
             this.dgvOrderDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DishName,
@@ -647,20 +660,20 @@
             this.TotalAmount,
             this.Note,
             this.Choice});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvOrderDetails.Location = new System.Drawing.Point(3, 3);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
-            this.dgvOrderDetails.Size = new System.Drawing.Size(919, 333);
+            this.dgvOrderDetails.Size = new System.Drawing.Size(1023, 333);
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
@@ -689,7 +702,7 @@
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
+            this.Amount.Width = 150;
             // 
             // Price
             // 
@@ -714,18 +727,18 @@
             this.Note.MinimumWidth = 6;
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
-            this.Note.Width = 200;
+            this.Note.Width = 250;
             // 
             // Choice
             // 
-            this.Choice.HeaderText = "Lựa Chọn";
+            this.Choice.HeaderText = "Đặt";
             this.Choice.MinimumWidth = 6;
             this.Choice.Name = "Choice";
-            this.Choice.Width = 125;
+            this.Choice.Width = 60;
             // 
             // FrmCusOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1690, 887);
             this.Controls.Add(this.pnlRoot);
@@ -734,6 +747,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCusOrder";
             this.Text = "FrmCusOrder";
+            this.Load += new System.EventHandler(this.FrmCusOrder_Load_1);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
@@ -806,6 +820,7 @@
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvOrderDetails;
+        private System.Windows.Forms.Timer timerAccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
@@ -813,6 +828,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
-        
+        private System.Windows.Forms.Timer timerAccess;
     }
 }

@@ -9,7 +9,7 @@ namespace SuShiX
     public partial class FrmCusOrder : Form
     {
         private string userID;
-        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        private string connectionString = AppConfig.connectionString;
         private DateTime timeAccess; // Lưu thời gian khi form mở
         private DateTime totalTimeAccess; // Lưu thời gian khi nhấn nút Lập Phiếu
 
@@ -32,6 +32,7 @@ namespace SuShiX
             lblOrderType.Enabled = true;
             cbbOrderType.Enabled = true;
             btnExit.Enabled = true;
+            btnOrder.Enabled = false;
         }
         public FrmCusOrder(string userID)
         {
@@ -120,10 +121,10 @@ namespace SuShiX
         // Hàm xử lý sự kiện nhấn nút 'Quay Lại'
         private void btnExit_Click(object sender, EventArgs e)
         {
-            FrmCustomer frmCustomer = new FrmCustomer(userID);
+            FrmHomepageCustomer frmHomepageCustomer = new FrmHomepageCustomer(userID);
             this.Hide();
-            frmCustomer.ShowDialog();  // Hiển thị Form Khách Hàng
-            this.Close(); // Đóng Form hiện tại
+            frmHomepageCustomer.ShowDialog();
+            this.Close();
         }
 
         // Hàm tải dữ liệu Địa Chỉ Chi Nhánh từ database
@@ -284,6 +285,24 @@ namespace SuShiX
             }
         }
 
+        // Hàm cập nhật trạng thái của nút "Order"
+        private void UpdateOrderButtonState()
+        {
+            // Đếm số lượng ô "Choice" được chọn
+            int selectedCount = 0;
+            foreach (DataGridViewRow row in dgvOrderDetails.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["Choice"] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    selectedCount++;
+                }
+            }
+
+            // Kiểm tra điều kiện bật/tắt nút "Order"
+            btnOrder.Enabled = selectedCount > 0; // Bật nút Order nếu có ít nhất 1 ô được chọn, ngược lại tắt
+        }
+
         // Hàm xử lý sự kiện khi người dùng click vào ô checkbox
         private void dgvOrderDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -311,9 +330,13 @@ namespace SuShiX
                         dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].Value = null;
                         dgvOrderDetails.Rows[e.RowIndex].Cells["TotalAmount"].Value = null;
                     }
+
+                    // Cập nhật trạng thái của nút "Order"
+                    UpdateOrderButtonState();
                 }
             }
         }
+
 
         // Hàm xử lý sự kiện khi người dùng thay đổi giá trị của ô "Số Lượng"
         private void dgvOrderDetails_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -583,6 +606,16 @@ namespace SuShiX
             {
                 HandleDeliveryOrder();
             }
+        }
+
+        private void FrmCusOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCusOrder_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

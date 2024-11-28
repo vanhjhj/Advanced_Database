@@ -11,7 +11,7 @@ namespace SuShiX
         private string userID;
 
         // Connection string cho cơ sở dữ liệu
-        private string connectionString = @"Server=HOANGVU\SQLEXPRESS;Database=QUAN_LY_NHA_HANG;Trusted_Connection=True;";
+        private string connectionString = AppConfig.connectionString;
 
         // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
         public string UserID
@@ -140,11 +140,6 @@ namespace SuShiX
             }
         }
 
-        // Sự kiện nhấn vào nút cập nhật
-        private void btnUpdateInfo_Click(object sender, EventArgs e)
-        {
-            UpdateCustomerInfo();
-        }
 
         // Sự kiện nhấn vào icon hiển thị/ẩn mật khẩu
         private void pbDisplayPassword_Click(object sender, EventArgs e)
@@ -161,16 +156,22 @@ namespace SuShiX
             }
         }
 
-        private void btnReservation_Click(object sender, EventArgs e)
+        private void FrmCustomer_Load(object sender, EventArgs e)
         {
-            FrmCusOrder frmCusOrder = new FrmCusOrder(userID);
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FrmHomepageCustomer frmHomepageCustomer = new FrmHomepageCustomer(userID);
             this.Hide();
-
-            // Hiển thị form đặt món
-            frmCusOrder.ShowDialog();
-
+            frmHomepageCustomer.ShowDialog();
             this.Close();
+        }
+
+        private void btnUpdateInfo_Click(object sender, EventArgs e)
+        {
+            UpdateCustomerInfo();
         }
     }
 }
