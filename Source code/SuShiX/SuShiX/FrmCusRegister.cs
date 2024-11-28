@@ -163,5 +163,10 @@ namespace SuShiX
             //Show login form
             loginForm.ShowDialog();
         }
+
+        private void FrmCusRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

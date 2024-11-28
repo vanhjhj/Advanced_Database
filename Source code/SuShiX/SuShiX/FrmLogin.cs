@@ -46,7 +46,7 @@ namespace SuShiX
                 // Điều hướng đến form phù hợp
                 if (accountType == "Khách Hàng")
                 {
-                    FrmCustomer customerForm = new FrmCustomer(userID);
+                    FrmHomepageCustomer customerForm = new FrmHomepageCustomer(userID);
                     this.Hide();
                     customerForm.ShowDialog();
                 }
@@ -155,5 +155,9 @@ namespace SuShiX
             }
         }
 
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

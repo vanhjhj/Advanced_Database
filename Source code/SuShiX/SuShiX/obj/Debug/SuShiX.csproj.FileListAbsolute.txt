@@ -35,3 +35,6 @@ D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.exe
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.pdb
 D:\OneDrive - VNU-HCMUS\ADB\TKVatLy\Advanced_Database\Source code\SuShiX\SuShiX\bin\Debug\SuShiX.pdb
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCusOrder.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmCustomer.resources
+E:\Advanced_Database\Source code\SuShiX\SuShiX\obj\Debug\SuShiX.FrmHomepageCustomer.resources

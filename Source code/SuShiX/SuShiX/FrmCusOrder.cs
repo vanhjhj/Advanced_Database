@@ -606,5 +606,23 @@ namespace SuShiX
                 HandleDeliveryOrder();
             }
         }
+
+        private void FrmCusOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FrmHomepageCustomer frmHomepageCustomer = new FrmHomepageCustomer(userID);
+            this.Hide();
+            frmHomepageCustomer.ShowDialog();
+            this.Close();
+        }
+
+        private void FrmCusOrder_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
