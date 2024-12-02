@@ -26,7 +26,6 @@ namespace SuShiX
         private void RegisterUser()
         {
             // Khai báo tham số để nhận kết quả từ stored procedure
-            string conflictField = null;
             string procedureName = "USP_DangKy";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -44,7 +43,7 @@ namespace SuShiX
                     command.Parameters.AddWithValue("@CCCD", CCCD);
                     command.Parameters.AddWithValue("@Email", Email);
 
-                    // Thêm tham số output để nhận MaTK và ConflictField
+                    // Thêm tham số output để nhận MaTK
                     SqlParameter outputMaTK = new SqlParameter
                     {
                         ParameterName = "@MaTK",
@@ -54,37 +53,28 @@ namespace SuShiX
                     };
                     command.Parameters.Add(outputMaTK);
 
-                    SqlParameter outputConflictField = new SqlParameter
+                    try
                     {
-                        ParameterName = "@ViPhamUnique",
-                        SqlDbType = SqlDbType.NVarChar,
-                        Size = 50,
-                        Direction = ParameterDirection.Output
-                    };
-                    command.Parameters.Add(outputConflictField);
+                        connection.Open();
+                        command.ExecuteNonQuery();
 
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                        // Lấy MaTK được trả về
+                        string userId = outputMaTK.Value.ToString();
 
-                    // Lấy kết quả trả về
-                    conflictField = outputConflictField.Value.ToString();
-
-                    // Kiểm tra nếu có trường bị vi phạm
-                    if (!string.IsNullOrEmpty(conflictField))
-                    {
-                        MessageBox.Show($"{conflictField} đã tồn tại. Vui lòng nhập thông tin khác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        MessageBox.Show("Đăng ký tài khoản thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    // Lấy MaTK được trả về
-                    string userId = outputMaTK.Value.ToString();
-
-                    MessageBox.Show("Đăng ký tài khoản thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    catch (SqlException ex)
+                    {
+                        // Xử lý lỗi ném ra từ THROW
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }
-
 
         // Hàm xử lý sự kiện nhấn nút Đăng Ký
         private void btnRegister_Click(object sender, EventArgs e)

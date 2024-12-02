@@ -124,7 +124,7 @@ namespace SuShiX
                         accountType = outputLoaiTK.Value == DBNull.Value ? null : outputLoaiTK.Value.ToString();
                         department = outputTenBP.Value == DBNull.Value ? null : outputTenBP.Value.ToString();
 
-                        // Nếu LoaiTK không null, thông tin đăng nhập hợp lệ
+                        // Nếu MaTK không null, thông tin đăng nhập hợp lệ
                         return userID != null;
                     }
                 }

@@ -1,7 +1,6 @@
-﻿USE QUAN_LY_NHA_HANG
--- Đăng Nhập
+﻿-- Đăng Nhập
 GO
-CREATE or ALTER PROCEDURE USP_DangNhap
+CREATE OR ALTER PROCEDURE USP_DangNhap
     @TenTK VARCHAR(50),
     @MatKhau VARCHAR(20),
     @MaTK VARCHAR(10) OUTPUT,    -- Thêm MaTK làm tham số đầu ra
@@ -37,7 +36,8 @@ END;
 GO
 
 -- Đăng Ký
-CREATE or ALTER PROCEDURE USP_DangKy
+GO
+CREATE OR ALTER PROCEDURE USP_DangKy
     @TenTK VARCHAR(50),
     @MatKhau VARCHAR(20),
     @HoTen NVARCHAR(50),
@@ -45,33 +45,28 @@ CREATE or ALTER PROCEDURE USP_DangKy
     @GioiTinh NVARCHAR(3),
     @CCCD VARCHAR(12),
     @Email VARCHAR(50),
-    @MaTK VARCHAR(10) OUTPUT, -- Biến trả về MaTK
-    @ViPhamUnique NVARCHAR(50) OUTPUT -- Thêm tham số đầu ra để trả về trường bị vi phạm unique
+    @MaTK VARCHAR(10) OUTPUT -- Biến trả về MaTK
 AS
 BEGIN
     -- Kiểm tra sự tồn tại của các trường
     IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK)
     BEGIN
-        SET @ViPhamUnique = 'Tên tài khoản';
-        RETURN;
+        ;THROW 50000, 'Tên tài khoản đã tồn tại. Vui lòng nhập tên khác.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE SDT = @SDT)
     BEGIN
-        SET @ViPhamUnique = 'Số điện thoại';
-        RETURN;
+        ;THROW 50000, 'Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE CCCD = @CCCD)
     BEGIN
-        SET @ViPhamUnique = 'CCCD';
-        RETURN;
+        ;THROW 50000, 'CCCD đã tồn tại. Vui lòng nhập CCCD khác.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE Email = @Email)
     BEGIN
-        SET @ViPhamUnique = 'Email';
-        RETURN;
+        ;THROW 50000, 'Email đã tồn tại. Vui lòng nhập email khác.', 1;
     END
 
     -- Nếu không có trường nào bị trùng lặp, tiếp tục đăng ký
@@ -91,10 +86,7 @@ BEGIN
 
     -- Trả về MaTK
     SET @MaTK = @NewMaTK;
-
-    -- Nếu không có lỗi, trả về NULL cho ConflictField
-    SET @ViPhamUnique = NULL;
-END;
+END
 GO
 
 -- Xem thông tin khách hàng
@@ -116,7 +108,7 @@ GO
 
 -- Cập Nhật thông tin khách hàng
 GO
-CREATE PROCEDURE USP_CapNhatThongTinKhachHang
+CREATE OR ALTER PROCEDURE USP_CapNhatThongTinKhachHang
     @MaTK VARCHAR(10),    
     @TenTK VARCHAR(50),   
     @MatKhau VARCHAR(20), 
@@ -124,33 +116,28 @@ CREATE PROCEDURE USP_CapNhatThongTinKhachHang
     @SDT VARCHAR(10),     
     @Email VARCHAR(50),   
     @CCCD VARCHAR(12),    
-    @GioiTinh NVARCHAR(3), 
-    @ViPhamUnique NVARCHAR(50) OUTPUT -- Trả về trường vi phạm điều kiện unique
+    @GioiTinh NVARCHAR(3) 
 AS
 BEGIN
     -- Kiểm tra tính duy nhất cho các trường
     IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK AND MaTK != @MaTK)
     BEGIN
-        SET @ViPhamUnique = 'Tên tài khoản';
-        RETURN;
+        ;THROW 51000, 'Tên tài khoản đã tồn tại.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE SDT = @SDT AND MaTK != @MaTK)
     BEGIN
-        SET @ViPhamUnique = 'Số điện thoại';
-        RETURN;
+        ;THROW 51000, 'Số điện thoại đã tồn tại.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE Email = @Email AND MaTK != @MaTK)
     BEGIN
-        SET @ViPhamUnique = 'Email';
-        RETURN;
+        ;THROW 51000, 'Email đã tồn tại.', 1;
     END
 
     IF EXISTS (SELECT 1 FROM KhachHang WHERE CCCD = @CCCD AND MaTK != @MaTK)
     BEGIN
-        SET @ViPhamUnique = 'CCCD';
-        RETURN;
+        ;THROW 51000, 'CCCD đã tồn tại.', 1;
     END
 
     -- Cập nhật thông tin trong bảng TaiKhoan
@@ -167,15 +154,14 @@ BEGIN
         CCCD = @CCCD,
         GioiTinh = @GioiTinh
     WHERE MaTK = @MaTK;
-
-    -- Nếu không có lỗi, trả về NULL cho ViPhamUnique
-    SET @ViPhamUnique = NULL;
 END
 GO
 
+
+
 -- Lấy thông tin chi nhánh
 GO
-CREATE PROCEDURE USP_ThongTinChiNhanh 
+CREATE OR ALTER PROCEDURE USP_ThongTinChiNhanh 
     @DiaChiChiNhanh NVARCHAR(200)
 AS
 BEGIN
@@ -194,7 +180,7 @@ GO
 
 -- Lấy thực đơn của chi nhánh
 GO
-CREATE PROCEDURE USP_ThucDonChiNhanh
+CREATE OR ALTER PROCEDURE USP_ThucDonChiNhanh
     @LoaiPhieuDat NVARCHAR(50),
     @DiaChiChiNhanh NVARCHAR(200)
 AS
@@ -234,7 +220,7 @@ GO
 
 -- Lập Phiếu Đặt Bàn Trực Tuyến
 GO
-CREATE PROCEDURE USP_DatBanTrucTuyen
+CREATE OR ALTER PROCEDURE USP_DatBanTrucTuyen
     @TkLap VARCHAR(10),                    
     @DiaChiChiNhanh NVARCHAR(200),        
     @TdTruyCap DATETIME,                  
@@ -300,7 +286,7 @@ GO
 
 -- Lập Phiếu Giao Hàng Tận Nơi
 GO
-CREATE PROCEDURE USP_GiaoHangTanNoi 
+CREATE OR ALTER PROCEDURE USP_GiaoHangTanNoi 
 	@TkLap VARCHAR(10),                    
     @DiaChiChiNhanh NVARCHAR(200),        
     @TdTruyCap DATETIME,                  

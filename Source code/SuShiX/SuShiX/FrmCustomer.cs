@@ -108,30 +108,24 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@CCCD", txbIdNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@GioiTinh", cbbGender.SelectedItem.ToString());
 
-                        // Thêm tham số output để nhận trường vi phạm
-                        SqlParameter violationParam = new SqlParameter
-                        {
-                            ParameterName = "@ViPhamUnique",
-                            SqlDbType = SqlDbType.NVarChar,
-                            Size = 50,
-                            Direction = ParameterDirection.Output
-                        };
-                        cmd.Parameters.Add(violationParam);
-
                         // Thực thi thủ tục
                         cmd.ExecuteNonQuery();
-
-                        // Kiểm tra nếu có trường vi phạm tính duy nhất
-                        string violation = violationParam.Value.ToString();
-                        if (!string.IsNullOrEmpty(violation))
-                        {
-                            MessageBox.Show($"{violation} đã tồn tại, vui lòng chọn {violation.ToLower()} khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
 
                         // Nếu không có lỗi, thông báo thành công
                         MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Kiểm tra mã lỗi duy nhất và hiển thị thông báo chi tiết
+                if (ex.Number == 50000)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -139,6 +133,8 @@ namespace SuShiX
                 MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
 
         // Sự kiện nhấn vào icon hiển thị/ẩn mật khẩu
