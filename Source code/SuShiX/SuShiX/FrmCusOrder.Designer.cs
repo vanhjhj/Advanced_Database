@@ -820,7 +820,6 @@
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvOrderDetails;
-        private System.Windows.Forms.Timer timerAccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
@@ -828,6 +827,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
-        private System.Windows.Forms.Timer timerAccess;
     }
 }
