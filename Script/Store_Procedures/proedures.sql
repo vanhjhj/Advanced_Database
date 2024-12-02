@@ -1,7 +1,7 @@
 ﻿USE QUAN_LY_NHA_HANG
 -- Đăng Nhập
 GO
-CREATE PROCEDURE USP_DangNhap
+CREATE or ALTER PROCEDURE USP_DangNhap
     @TenTK VARCHAR(50),
     @MatKhau VARCHAR(20),
     @MaTK VARCHAR(10) OUTPUT,    -- Thêm MaTK làm tham số đầu ra
@@ -37,7 +37,7 @@ END;
 GO
 
 -- Đăng Ký
-CREATE PROCEDURE USP_DangKy
+CREATE or ALTER PROCEDURE USP_DangKy
     @TenTK VARCHAR(50),
     @MatKhau VARCHAR(20),
     @HoTen NVARCHAR(50),
@@ -364,3 +364,52 @@ BEGIN
     DEALLOCATE cur;
 END;
 GO
+
+CREATE OR ALTER PROCEDURE USP_DangKyTheThanhVien
+	@TkLap VARCHAR(10),
+	@TenTKKH VARCHAR(50),
+	@MaThe VARCHAR(10) OUTPUT
+AS
+BEGIN
+	-- Kiểm tra tên tài khoản khách hàng có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTKKH)
+		THROW 50000, N'Tên tài khoản khách hàng không tồn tại!', 1;
+
+	-- Lấy mã tài khoản khách hàng
+	DECLARE @MaTKKH VARCHAR(10)
+
+	SELECT @MaTKKH = MaTK
+	FROM TaiKhoan
+	WHERE TenTK = @TenTKKH
+
+	--Kiểm tra tên tài khoản có thuộc loại khách hàng hay không
+	IF NOT EXISTS (SELECT 1 FROM KhachHang WHERE MaTK = @MaTKKH)
+		THROW 50000, N'Tên tài khoản không phải là tài khoản khách hàng', 1;
+
+	-- Kiểm tra tài khoản lập có tồn tại 
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @TkLap)
+		THROW 50000, N'Tài khoản lập không tồn tại', 1;
+
+	-- Kiểm tra tài khoản lập có phải là nhân viên không
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @TkLap)
+		THROW 50000, N'Tài khoản lập không phải là nhân viên', 1;
+
+	-- Kiểm tra nếu tài khoản khách hàng đã có thẻ rồi thì không được đăng ký mới nữa
+	IF EXISTS (SELECT 1 FROM The WHERE TkSoHuu = @MaTKKH)
+		THROW 50000, N'Khách hàng đã có thẻ thành viên', 1;
+
+	-- Kiểm tra hợp lệ, tạo mã thẻ mới
+	DECLARE @MaxMaThe INT, @NewMaThe VARCHAR(10)
+	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
+	FROM The
+
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+
+	-- Insert vào bảng The
+	INSERT INTO The (MaThe, NgayLap, NgayBDChuKy, TongDiem, TongDiemDuyTri, TinhTrang, TenLoaiThe, TkSoHuu, TkLap)
+	VALUES (@NewMaThe, GETDATE(), GETDATE(), 0, 0, N'Mở', 'Membership', @MaTKKH, @TkLap)
+
+	-- Trả về mã thẻ
+	SET @MaThe = @NewMaThe
+END
+

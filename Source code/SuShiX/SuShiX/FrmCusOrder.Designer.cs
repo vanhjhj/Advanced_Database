@@ -75,13 +75,13 @@
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
-            this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlRoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
@@ -233,7 +233,7 @@
             this.txbTimeOpen.Location = new System.Drawing.Point(965, 144);
             this.txbTimeOpen.Name = "txbTimeOpen";
             this.txbTimeOpen.ReadOnly = true;
-            this.txbTimeOpen.Size = new System.Drawing.Size(108, 35);
+            this.txbTimeOpen.Size = new System.Drawing.Size(108, 30);
             this.txbTimeOpen.TabIndex = 16;
             this.txbTimeOpen.Text = "7:00 - 23:00";
             // 
@@ -243,7 +243,7 @@
             this.txbMotorbikeParking.Location = new System.Drawing.Point(662, 144);
             this.txbMotorbikeParking.Name = "txbMotorbikeParking";
             this.txbMotorbikeParking.ReadOnly = true;
-            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 35);
+            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 30);
             this.txbMotorbikeParking.TabIndex = 15;
             this.txbMotorbikeParking.Text = "Không";
             // 
@@ -253,7 +253,7 @@
             this.txbCarParking.Location = new System.Drawing.Point(276, 144);
             this.txbCarParking.Name = "txbCarParking";
             this.txbCarParking.ReadOnly = true;
-            this.txbCarParking.Size = new System.Drawing.Size(61, 35);
+            this.txbCarParking.Size = new System.Drawing.Size(61, 30);
             this.txbCarParking.TabIndex = 14;
             this.txbCarParking.Text = "Không";
             // 
@@ -263,7 +263,7 @@
             this.txbBranchPhoneNumber.Location = new System.Drawing.Point(739, 98);
             this.txbBranchPhoneNumber.Name = "txbBranchPhoneNumber";
             this.txbBranchPhoneNumber.ReadOnly = true;
-            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(108, 35);
+            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(108, 30);
             this.txbBranchPhoneNumber.TabIndex = 13;
             this.txbBranchPhoneNumber.Text = "0285201215";
             // 
@@ -273,7 +273,7 @@
             this.txbBranchName.Location = new System.Drawing.Point(277, 98);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 35);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbBranchAddress
@@ -282,7 +282,7 @@
             this.cbbBranchAddress.FormattingEnabled = true;
             this.cbbBranchAddress.Location = new System.Drawing.Point(277, 52);
             this.cbbBranchAddress.Name = "cbbBranchAddress";
-            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 35);
+            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 30);
             this.cbbBranchAddress.TabIndex = 11;
             this.cbbBranchAddress.SelectedIndexChanged += new System.EventHandler(this.cbbBranchAddress_SelectedIndexChanged);
             // 
@@ -292,7 +292,7 @@
             this.cbbAreaName.FormattingEnabled = true;
             this.cbbAreaName.Location = new System.Drawing.Point(659, 13);
             this.cbbAreaName.Name = "cbbAreaName";
-            this.cbbAreaName.Size = new System.Drawing.Size(260, 35);
+            this.cbbAreaName.Size = new System.Drawing.Size(260, 30);
             this.cbbAreaName.TabIndex = 10;
             this.cbbAreaName.SelectedIndexChanged += new System.EventHandler(this.cbbAreaName_SelectedIndexChanged);
             // 
@@ -305,7 +305,7 @@
             "Giao Hàng Tận Nơi"});
             this.cbbOrderType.Location = new System.Drawing.Point(276, 13);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 35);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -315,7 +315,7 @@
             this.lblGeneralNote.AutoSize = true;
             this.lblGeneralNote.Location = new System.Drawing.Point(110, 217);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(93, 27);
+            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -325,7 +325,7 @@
             this.lblMotorbikeParking.AutoSize = true;
             this.lblMotorbikeParking.Location = new System.Drawing.Point(510, 147);
             this.lblMotorbikeParking.Name = "lblMotorbikeParking";
-            this.lblMotorbikeParking.Size = new System.Drawing.Size(164, 27);
+            this.lblMotorbikeParking.Size = new System.Drawing.Size(135, 22);
             this.lblMotorbikeParking.TabIndex = 7;
             this.lblMotorbikeParking.Text = "Bãi Đỗ Xe Máy";
             // 
@@ -335,7 +335,7 @@
             this.lblCarParking.AutoSize = true;
             this.lblCarParking.Location = new System.Drawing.Point(86, 147);
             this.lblCarParking.Name = "lblCarParking";
-            this.lblCarParking.Size = new System.Drawing.Size(156, 27);
+            this.lblCarParking.Size = new System.Drawing.Size(131, 22);
             this.lblCarParking.TabIndex = 6;
             this.lblCarParking.Text = "Bãi Đỗ Xe Hơi";
             // 
@@ -345,7 +345,7 @@
             this.lblTimeOpen.AutoSize = true;
             this.lblTimeOpen.Location = new System.Drawing.Point(767, 147);
             this.lblTimeOpen.Name = "lblTimeOpen";
-            this.lblTimeOpen.Size = new System.Drawing.Size(220, 27);
+            this.lblTimeOpen.Size = new System.Drawing.Size(181, 22);
             this.lblTimeOpen.TabIndex = 5;
             this.lblTimeOpen.Text = "Thời Gian Hoạt Động";
             // 
@@ -355,7 +355,7 @@
             this.lblBranchName.AutoSize = true;
             this.lblBranchName.Location = new System.Drawing.Point(86, 101);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(159, 27);
+            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -365,7 +365,7 @@
             this.lblBranchPhoneNumber.AutoSize = true;
             this.lblBranchPhoneNumber.Location = new System.Drawing.Point(510, 101);
             this.lblBranchPhoneNumber.Name = "lblBranchPhoneNumber";
-            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(259, 27);
+            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(213, 22);
             this.lblBranchPhoneNumber.TabIndex = 3;
             this.lblBranchPhoneNumber.Text = "Số Điện Thoại Chi Nhánh";
             // 
@@ -375,7 +375,7 @@
             this.lblBranchAddress.AutoSize = true;
             this.lblBranchAddress.Location = new System.Drawing.Point(86, 55);
             this.lblBranchAddress.Name = "lblBranchAddress";
-            this.lblBranchAddress.Size = new System.Drawing.Size(196, 27);
+            this.lblBranchAddress.Size = new System.Drawing.Size(160, 22);
             this.lblBranchAddress.TabIndex = 2;
             this.lblBranchAddress.Text = "Địa Chỉ Chi Nhánh";
             // 
@@ -385,7 +385,7 @@
             this.lblAreaName.AutoSize = true;
             this.lblAreaName.Location = new System.Drawing.Point(510, 16);
             this.lblAreaName.Name = "lblAreaName";
-            this.lblAreaName.Size = new System.Drawing.Size(142, 27);
+            this.lblAreaName.Size = new System.Drawing.Size(115, 22);
             this.lblAreaName.TabIndex = 1;
             this.lblAreaName.Text = "Tên Khu Vực";
             // 
@@ -395,7 +395,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(86, 16);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(158, 27);
+            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -413,7 +413,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1157, 166);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -479,7 +479,7 @@
             this.txbReceiverPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(125, 19);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(156, 35);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(156, 30);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -554,7 +554,7 @@
             this.nudCusNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nudCusNumber.Location = new System.Drawing.Point(55, 20);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(107, 35);
+            this.nudCusNumber.Size = new System.Drawing.Size(107, 30);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
@@ -571,7 +571,7 @@
             this.dtpArrivalTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpArrivalTime.Location = new System.Drawing.Point(55, 18);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 35);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 30);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // pnlOrderDetails
@@ -586,7 +586,7 @@
             this.pnlOrderDetails.Name = "pnlOrderDetails";
             this.pnlOrderDetails.RowCount = 1;
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 324F));
             this.pnlOrderDetails.Size = new System.Drawing.Size(1157, 339);
             this.pnlOrderDetails.TabIndex = 2;
             // 
@@ -642,7 +642,6 @@
             // dgvOrderDetails
             // 
             this.dgvOrderDetails.AllowUserToDeleteRows = false;
-            this.dgvOrderDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -668,41 +667,40 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvOrderDetails.Location = new System.Drawing.Point(3, 3);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
+            this.dgvOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrderDetails.Size = new System.Drawing.Size(1023, 333);
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
             // 
-            // DishName
+            // Choice
             // 
-            this.DishName.DataPropertyName = "DishName";
-            this.DishName.HeaderText = "Tên Món";
-            this.DishName.MinimumWidth = 6;
-            this.DishName.Name = "DishName";
-            this.DishName.ReadOnly = true;
-            this.DishName.Width = 200;
+            this.Choice.HeaderText = "Đặt";
+            this.Choice.MinimumWidth = 6;
+            this.Choice.Name = "Choice";
+            this.Choice.Width = 60;
             // 
-            // DishType
+            // Note
             // 
-            this.DishType.DataPropertyName = "DishType";
-            this.DishType.HeaderText = "Tên Mục";
-            this.DishType.MinimumWidth = 6;
-            this.DishType.Name = "DishType";
-            this.DishType.ReadOnly = true;
-            this.DishType.Width = 125;
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Width = 250;
             // 
-            // Amount
+            // TotalAmount
             // 
-            this.Amount.HeaderText = "Số Lượng";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 150;
+            this.TotalAmount.HeaderText = "Thành Tiền";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.Width = 125;
             // 
             // Price
             // 
@@ -713,32 +711,35 @@
             this.Price.ReadOnly = true;
             this.Price.Width = 125;
             // 
-            // TotalAmount
+            // Amount
             // 
-            this.TotalAmount.HeaderText = "Thành Tiền";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 125;
+            this.Amount.HeaderText = "Số Lượng";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 125;
             // 
-            // Note
+            // DishType
             // 
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Width = 250;
+            this.DishType.DataPropertyName = "DishType";
+            this.DishType.HeaderText = "Tên Mục";
+            this.DishType.MinimumWidth = 6;
+            this.DishType.Name = "DishType";
+            this.DishType.ReadOnly = true;
+            this.DishType.Width = 125;
             // 
-            // Choice
+            // DishName
             // 
-            this.Choice.HeaderText = "Đặt";
-            this.Choice.MinimumWidth = 6;
-            this.Choice.Name = "Choice";
-            this.Choice.Width = 60;
+            this.DishName.DataPropertyName = "DishName";
+            this.DishName.HeaderText = "Tên Món";
+            this.DishName.MinimumWidth = 6;
+            this.DishName.Name = "DishName";
+            this.DishName.ReadOnly = true;
+            this.DishName.Width = 200;
             // 
             // FrmCusOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1690, 887);
             this.Controls.Add(this.pnlRoot);
@@ -820,7 +821,6 @@
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvOrderDetails;
-        private System.Windows.Forms.Timer timerAccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
@@ -828,6 +828,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
-        private System.Windows.Forms.Timer timerAccess;
     }
 }
