@@ -1,4 +1,5 @@
-﻿-- Đăng Nhập
+﻿USE QUAN_LY_NHA_HANG
+-- Đăng Nhập
 GO
 CREATE OR ALTER PROCEDURE USP_DangNhap
     @TenTK VARCHAR(50),
@@ -351,6 +352,8 @@ BEGIN
 END;
 GO
 
+
+--Đăng ký thẻ thành viên cho khách hàng
 CREATE OR ALTER PROCEDURE USP_DangKyTheThanhVien
 	@TkLap VARCHAR(10),
 	@TenTKKH VARCHAR(50),
@@ -370,19 +373,15 @@ BEGIN
 
 	--Kiểm tra tên tài khoản có thuộc loại khách hàng hay không
 	IF NOT EXISTS (SELECT 1 FROM KhachHang WHERE MaTK = @MaTKKH)
-		THROW 50000, N'Tên tài khoản không phải là tài khoản khách hàng', 1;
+		THROW 50000, N'Tài khoản không phải là tài khoản khách hàng', 1
 
-	-- Kiểm tra tài khoản lập có tồn tại 
-	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @TkLap)
-		THROW 50000, N'Tài khoản lập không tồn tại', 1;
-
-	-- Kiểm tra tài khoản lập có phải là nhân viên không
+	-- Kiểm tra tài khoản lập có tồn tại và có là nhân viên không
 	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @TkLap)
-		THROW 50000, N'Tài khoản lập không phải là nhân viên', 1;
+		THROW 50000, N'Tài khoản lập không tồn tại hoặc không phải là nhân viên', 1
 
 	-- Kiểm tra nếu tài khoản khách hàng đã có thẻ rồi thì không được đăng ký mới nữa
 	IF EXISTS (SELECT 1 FROM The WHERE TkSoHuu = @MaTKKH)
-		THROW 50000, N'Khách hàng đã có thẻ thành viên', 1;
+		THROW 50000, N'Khách hàng đã có thẻ thành viên', 1
 
 	-- Kiểm tra hợp lệ, tạo mã thẻ mới
 	DECLARE @MaxMaThe INT, @NewMaThe VARCHAR(10)
@@ -399,3 +398,124 @@ BEGIN
 	SET @MaThe = @NewMaThe
 END
 
+
+--Cấp lại thẻ thành viên cho khách hàng
+CREATE OR ALTER PROCEDURE USP_CapLaiTheThanhVien
+	@TkLap VARCHAR(10),
+	@TenTKKH VARCHAR(50),
+	@MaThe VARCHAR(10) OUTPUT
+AS
+BEGIN
+	--Kiểm tra tên tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTKKH)
+		THROW 50000, N'Tên tài khoản không tồn tại', 1
+
+	--Lấy mã tài khoản
+	DECLARE @MaTKKH VARCHAR(10)
+	SELECT @MaTKKH = MaTK
+	FROM TaiKhoan
+	WHERE @TenTKKH = TenTK
+
+	--Kiểm tra tài khoản có phải là tài khoản khách hàng không
+	IF NOT EXISTS (SELECT 1 FROM KhachHang WHERE MaTK = @MaTKKH)
+		THROW 50000, N'Tài khoản không phải là tài khoản khách hàng', 1
+
+	--Kiểm tra tài khoản đã có thẻ chưa
+	IF NOT EXISTS (SELECT 1 FROM The WHERE TkSoHuu = @MaTKKH)
+		THROW 50000, N'Tài khoản chưa có thẻ thành viên, vui lòng đăng ký thẻ thành viên', 1
+
+	-- Kiểm tra tài khoản lập có tồn tại và có là nhân viên không
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @TkLap)
+		THROW 50000, N'Tài khoản lập không tồn tại hoặc không phải là nhân viên', 1
+
+	-- Kiểm tra hợp lệ, tạo mã thẻ mới
+	DECLARE @MaxMaThe INT, @NewMaThe VARCHAR(10)
+	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
+	FROM The
+
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+
+	--Lấy lại các thông tin của thẻ thành viên có tình trạng đang mở
+	DECLARE @NgayBDChuKy DATETIME, @TongDiem INT, @TongDiemDuyTri INT, @TenLoaiThe VARCHAR(10)
+	
+	SELECT TOP 1 @NgayBDChuKy = NgayBDChuKy, @TongDiem = TongDiem, @TongDiemDuyTri = TongDiemDuyTri, @TenLoaiThe = TenLoaiThe
+	FROM The
+	WHERE TkSoHuu = @MaTKKH and TinhTrang = N'Mở'
+	ORDER BY NgayLap DESC
+
+	--Update tất cả thẻ cũ thành tình trạng đóng
+	UPDATE The
+	SET TinhTrang = N'Đóng'
+	WHERE TkSoHuu = @MaTKKH AND TinhTrang = N'Mở'
+
+	--Insert thẻ mới vào bảng The
+	INSERT INTO The (MaThe, NgayLap, NgayBDChuKy, TongDiem, TongDiemDuyTri, TinhTrang, TenLoaiThe, TkSoHuu, TkLap)
+	VALUES (@NewMaThe, GETDATE(), @NgayBDChuKy, @TongDiem, @TongDiemDuyTri, N'Mở', @TenLoaiThe, @MaTKKH, @TkLap)
+
+	-- Trả về mã thẻ
+	SET @MaThe = @NewMaThe
+END
+GO
+
+
+--Cập nhật lại hạng thẻ cho khách hàng
+CREATE OR ALTER PROCEDURE USP_CapNhatHangTheThanhVien
+AS
+BEGIN
+	
+	--Khai báo cursor, lấy ra các thẻ cần cập nhật
+	DECLARE cur CURSOR FOR
+	SELECT MaThe, TongDiemDuyTri, TenLoaiThe
+	FROM The
+	WHERE DATEDIFF(DAY, NgayBDChuKy, GETDATE()) >= 365 AND TinhTrang = N'Mở'
+
+	--Khai báo các biến để duyệt
+	DECLARE @MaThe VARCHAR(10), @TongDiemDuyTri INT, @TenLoaiThe VARCHAR(10) 
+
+	OPEN cur
+	FETCH NEXT FROM cur INTO @Mathe, @TongDiemDuyTri, @TenLoaiThe
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		DECLARE @TenLoaiTheMoi VARCHAR(10)
+
+		--Xác định loại thẻ mới dựa trên tổng điểm duy trì trong năm
+		IF @TenLoaiThe = 'Membership'
+		BEGIN
+			IF @TongDiemDuyTri >= 100
+				SET @TenLoaiTheMoi = 'Silver'
+			ELSE
+				SET @TenLoaiTheMoi = @TenLoaiThe
+		END
+
+		ELSE IF @TenLoaiThe = 'Silver'
+		BEGIN
+			IF @TongDiemDuyTri < 50
+				SET @TenLoaiTheMoi = 'Membership'
+			ELSE IF @TongDiemDuyTri < 100
+				SET @TenLoaiTheMoi = @TenLoaiThe
+			ELSE
+				SET @TenLoaiTheMoi = 'Gold'
+		END
+
+		ELSE
+		BEGIN
+			IF @TongDiemDuyTri < 100
+				SET @TenLoaiTheMoi = 'Silver'
+			ELSE
+				SET @TenLoaiTheMoi = @TenLoaiThe
+		END
+
+		--Cập nhật lại loại thẻ, reset tổng điểm duy trì về 0, ngày bắt đầu chu kỳ là ngày chạy thủ tục
+		UPDATE The
+		SET TenLoaiThe = @TenLoaiTheMoi, TongDiemDuyTri = 0, NgayBDChuKy = GETDATE()
+		WHERE MaThe = @MaThe
+
+		--Duyệt qua thẻ tiếp theo
+		FETCH NEXT FROM cur INTO @Mathe, @TongDiemDuyTri, @TenLoaiThe
+	END
+
+	CLOSE cur
+	DEALLOCATe cur
+END
+GO
