@@ -748,7 +748,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCusOrder";
             this.Text = "FrmCusOrder";
-            this.Load += new System.EventHandler(this.FrmCusOrder_Load_1);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();

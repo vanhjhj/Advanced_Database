@@ -607,15 +607,5 @@ namespace SuShiX
                 HandleDeliveryOrder();
             }
         }
-
-        private void FrmCusOrder_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCusOrder_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
