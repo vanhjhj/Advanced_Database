@@ -85,7 +85,7 @@
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlRoot.Size = new System.Drawing.Size(2164, 1291);
+            this.pnlRoot.Size = new System.Drawing.Size(1264, 761);
             this.pnlRoot.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -97,14 +97,14 @@
             this.tableLayoutPanel1.Controls.Add(this.pbLogo, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1194, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(697, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.71542F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.28458F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(970, 1291);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(567, 761);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pnlLoginInfo
@@ -141,10 +141,10 @@
             this.pnlLoginInfo.Controls.Add(this.lblUsername);
             this.pnlLoginInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLoginInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 306);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 180);
             this.pnlLoginInfo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
-            this.pnlLoginInfo.Size = new System.Drawing.Size(970, 985);
+            this.pnlLoginInfo.Size = new System.Drawing.Size(567, 581);
             this.pnlLoginInfo.TabIndex = 2;
             // 
             // pictureBox1
@@ -152,9 +152,9 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
@@ -164,11 +164,11 @@
             // 
             this.txbCardType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCardType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCardType.Location = new System.Drawing.Point(745, 536);
-            this.txbCardType.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbCardType.Location = new System.Drawing.Point(444, 359);
+            this.txbCardType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbCardType.Name = "txbCardType";
             this.txbCardType.ReadOnly = true;
-            this.txbCardType.Size = new System.Drawing.Size(192, 35);
+            this.txbCardType.Size = new System.Drawing.Size(88, 26);
             this.txbCardType.TabIndex = 38;
             // 
             // lblCardType
@@ -176,9 +176,9 @@
             this.lblCardType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardType.AutoSize = true;
             this.lblCardType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardType.Location = new System.Drawing.Point(546, 539);
+            this.lblCardType.Location = new System.Drawing.Point(300, 366);
             this.lblCardType.Name = "lblCardType";
-            this.lblCardType.Size = new System.Drawing.Size(149, 26);
+            this.lblCardType.Size = new System.Drawing.Size(99, 19);
             this.lblCardType.TabIndex = 37;
             this.lblCardType.Text = "Tên Loại Thẻ";
             // 
@@ -186,11 +186,11 @@
             // 
             this.txbReservedPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbReservedPoint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbReservedPoint.Location = new System.Drawing.Point(745, 453);
-            this.txbReservedPoint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbReservedPoint.Location = new System.Drawing.Point(444, 309);
+            this.txbReservedPoint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbReservedPoint.Name = "txbReservedPoint";
             this.txbReservedPoint.ReadOnly = true;
-            this.txbReservedPoint.Size = new System.Drawing.Size(192, 35);
+            this.txbReservedPoint.Size = new System.Drawing.Size(88, 26);
             this.txbReservedPoint.TabIndex = 36;
             // 
             // lblReservedPoint
@@ -198,9 +198,9 @@
             this.lblReservedPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblReservedPoint.AutoSize = true;
             this.lblReservedPoint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReservedPoint.Location = new System.Drawing.Point(546, 453);
+            this.lblReservedPoint.Location = new System.Drawing.Point(300, 317);
             this.lblReservedPoint.Name = "lblReservedPoint";
-            this.lblReservedPoint.Size = new System.Drawing.Size(209, 26);
+            this.lblReservedPoint.Size = new System.Drawing.Size(138, 19);
             this.lblReservedPoint.TabIndex = 35;
             this.lblReservedPoint.Text = "Tổng Điểm Duy Trì";
             // 
@@ -208,11 +208,11 @@
             // 
             this.txbTotalPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalPoint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalPoint.Location = new System.Drawing.Point(745, 373);
-            this.txbTotalPoint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbTotalPoint.Location = new System.Drawing.Point(444, 259);
+            this.txbTotalPoint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalPoint.Name = "txbTotalPoint";
             this.txbTotalPoint.ReadOnly = true;
-            this.txbTotalPoint.Size = new System.Drawing.Size(192, 35);
+            this.txbTotalPoint.Size = new System.Drawing.Size(88, 26);
             this.txbTotalPoint.TabIndex = 34;
             // 
             // lblTotalPoint
@@ -220,9 +220,9 @@
             this.lblTotalPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotalPoint.AutoSize = true;
             this.lblTotalPoint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPoint.Location = new System.Drawing.Point(546, 375);
+            this.lblTotalPoint.Location = new System.Drawing.Point(300, 266);
             this.lblTotalPoint.Name = "lblTotalPoint";
-            this.lblTotalPoint.Size = new System.Drawing.Size(124, 26);
+            this.lblTotalPoint.Size = new System.Drawing.Size(83, 19);
             this.lblTotalPoint.TabIndex = 33;
             this.lblTotalPoint.Text = "Tổng Điểm";
             // 
@@ -230,11 +230,11 @@
             // 
             this.txbStartedCycle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbStartedCycle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbStartedCycle.Location = new System.Drawing.Point(745, 285);
-            this.txbStartedCycle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbStartedCycle.Location = new System.Drawing.Point(444, 209);
+            this.txbStartedCycle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbStartedCycle.Name = "txbStartedCycle";
             this.txbStartedCycle.ReadOnly = true;
-            this.txbStartedCycle.Size = new System.Drawing.Size(192, 35);
+            this.txbStartedCycle.Size = new System.Drawing.Size(88, 26);
             this.txbStartedCycle.TabIndex = 32;
             // 
             // lblStartedCycle
@@ -242,9 +242,9 @@
             this.lblStartedCycle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStartedCycle.AutoSize = true;
             this.lblStartedCycle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartedCycle.Location = new System.Drawing.Point(546, 293);
+            this.lblStartedCycle.Location = new System.Drawing.Point(300, 216);
             this.lblStartedCycle.Name = "lblStartedCycle";
-            this.lblStartedCycle.Size = new System.Drawing.Size(190, 26);
+            this.lblStartedCycle.Size = new System.Drawing.Size(127, 19);
             this.lblStartedCycle.TabIndex = 31;
             this.lblStartedCycle.Text = "Ngày BD Chu Kỳ";
             // 
@@ -252,11 +252,11 @@
             // 
             this.txbCertifiedDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCertifiedDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCertifiedDate.Location = new System.Drawing.Point(745, 201);
-            this.txbCertifiedDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbCertifiedDate.Location = new System.Drawing.Point(444, 159);
+            this.txbCertifiedDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbCertifiedDate.Name = "txbCertifiedDate";
             this.txbCertifiedDate.ReadOnly = true;
-            this.txbCertifiedDate.Size = new System.Drawing.Size(192, 35);
+            this.txbCertifiedDate.Size = new System.Drawing.Size(88, 26);
             this.txbCertifiedDate.TabIndex = 30;
             // 
             // lblCertifiedDate
@@ -264,9 +264,9 @@
             this.lblCertifiedDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCertifiedDate.AutoSize = true;
             this.lblCertifiedDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCertifiedDate.Location = new System.Drawing.Point(546, 204);
+            this.lblCertifiedDate.Location = new System.Drawing.Point(300, 166);
             this.lblCertifiedDate.Name = "lblCertifiedDate";
-            this.lblCertifiedDate.Size = new System.Drawing.Size(112, 26);
+            this.lblCertifiedDate.Size = new System.Drawing.Size(75, 19);
             this.lblCertifiedDate.TabIndex = 29;
             this.lblCertifiedDate.Text = "Ngày Lập";
             // 
@@ -274,11 +274,11 @@
             // 
             this.txbCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCardNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCardNumber.Location = new System.Drawing.Point(745, 118);
-            this.txbCardNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbCardNumber.Location = new System.Drawing.Point(444, 109);
+            this.txbCardNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbCardNumber.Name = "txbCardNumber";
             this.txbCardNumber.ReadOnly = true;
-            this.txbCardNumber.Size = new System.Drawing.Size(192, 35);
+            this.txbCardNumber.Size = new System.Drawing.Size(88, 26);
             this.txbCardNumber.TabIndex = 28;
             // 
             // lblCardNumber
@@ -286,9 +286,9 @@
             this.lblCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardNumber.AutoSize = true;
             this.lblCardNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardNumber.Location = new System.Drawing.Point(546, 119);
+            this.lblCardNumber.Location = new System.Drawing.Point(300, 116);
             this.lblCardNumber.Name = "lblCardNumber";
-            this.lblCardNumber.Size = new System.Drawing.Size(92, 26);
+            this.lblCardNumber.Size = new System.Drawing.Size(63, 19);
             this.lblCardNumber.TabIndex = 27;
             this.lblCardNumber.Text = "Mã Thẻ";
             // 
@@ -296,10 +296,10 @@
             // 
             this.txbIdNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbIdNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbIdNumber.Location = new System.Drawing.Point(217, 536);
-            this.txbIdNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbIdNumber.Location = new System.Drawing.Point(137, 359);
+            this.txbIdNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbIdNumber.Name = "txbIdNumber";
-            this.txbIdNumber.Size = new System.Drawing.Size(290, 35);
+            this.txbIdNumber.Size = new System.Drawing.Size(149, 26);
             this.txbIdNumber.TabIndex = 25;
             // 
             // cbbGender
@@ -309,29 +309,29 @@
             this.cbbGender.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbGender.Location = new System.Drawing.Point(217, 627);
+            this.cbbGender.Location = new System.Drawing.Point(137, 409);
             this.cbbGender.Name = "cbbGender";
-            this.cbbGender.Size = new System.Drawing.Size(114, 35);
+            this.cbbGender.Size = new System.Drawing.Size(75, 27);
             this.cbbGender.TabIndex = 24;
             // 
             // txbEmail
             // 
             this.txbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(217, 453);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbEmail.Location = new System.Drawing.Point(137, 309);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(290, 35);
+            this.txbEmail.Size = new System.Drawing.Size(149, 26);
             this.txbEmail.TabIndex = 23;
             // 
             // txbPhoneNumber
             // 
             this.txbPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPhoneNumber.Location = new System.Drawing.Point(217, 373);
-            this.txbPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbPhoneNumber.Location = new System.Drawing.Point(137, 259);
+            this.txbPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbPhoneNumber.Name = "txbPhoneNumber";
-            this.txbPhoneNumber.Size = new System.Drawing.Size(290, 35);
+            this.txbPhoneNumber.Size = new System.Drawing.Size(149, 26);
             this.txbPhoneNumber.TabIndex = 22;
             // 
             // lblGender
@@ -339,9 +339,9 @@
             this.lblGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(60, 628);
+            this.lblGender.Location = new System.Drawing.Point(22, 417);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(111, 26);
+            this.lblGender.Size = new System.Drawing.Size(72, 19);
             this.lblGender.TabIndex = 21;
             this.lblGender.Text = "Giới Tính";
             // 
@@ -350,9 +350,9 @@
             this.lblIdNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdNumber.AutoSize = true;
             this.lblIdNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdNumber.Location = new System.Drawing.Point(60, 539);
+            this.lblIdNumber.Location = new System.Drawing.Point(22, 366);
             this.lblIdNumber.Name = "lblIdNumber";
-            this.lblIdNumber.Size = new System.Drawing.Size(80, 26);
+            this.lblIdNumber.Size = new System.Drawing.Size(54, 19);
             this.lblIdNumber.TabIndex = 20;
             this.lblIdNumber.Text = "CCCD";
             // 
@@ -361,9 +361,9 @@
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(60, 456);
+            this.lblEmail.Location = new System.Drawing.Point(22, 316);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(73, 26);
+            this.lblEmail.Size = new System.Drawing.Size(47, 19);
             this.lblEmail.TabIndex = 19;
             this.lblEmail.Text = "Email";
             // 
@@ -372,9 +372,9 @@
             this.lblPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(60, 375);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(22, 266);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(156, 26);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(104, 19);
             this.lblPhoneNumber.TabIndex = 18;
             this.lblPhoneNumber.Text = "Số Điện Thoại";
             // 
@@ -383,9 +383,9 @@
             this.lblFullName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.Location = new System.Drawing.Point(60, 293);
+            this.lblFullName.Location = new System.Drawing.Point(22, 216);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(88, 26);
+            this.lblFullName.Size = new System.Drawing.Size(59, 19);
             this.lblFullName.TabIndex = 17;
             this.lblFullName.Text = "Họ Tên";
             // 
@@ -393,10 +393,10 @@
             // 
             this.txbFullName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbFullName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFullName.Location = new System.Drawing.Point(217, 292);
-            this.txbFullName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbFullName.Location = new System.Drawing.Point(137, 209);
+            this.txbFullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbFullName.Name = "txbFullName";
-            this.txbFullName.Size = new System.Drawing.Size(290, 35);
+            this.txbFullName.Size = new System.Drawing.Size(149, 26);
             this.txbFullName.TabIndex = 16;
             // 
             // pbDisplayPassword
@@ -404,10 +404,10 @@
             this.pbDisplayPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbDisplayPassword.BackColor = System.Drawing.SystemColors.Window;
             this.pbDisplayPassword.Image = ((System.Drawing.Image)(resources.GetObject("pbDisplayPassword.Image")));
-            this.pbDisplayPassword.Location = new System.Drawing.Point(475, 208);
-            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pbDisplayPassword.Location = new System.Drawing.Point(263, 162);
+            this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbDisplayPassword.Name = "pbDisplayPassword";
-            this.pbDisplayPassword.Size = new System.Drawing.Size(30, 31);
+            this.pbDisplayPassword.Size = new System.Drawing.Size(20, 20);
             this.pbDisplayPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDisplayPassword.TabIndex = 15;
             this.pbDisplayPassword.TabStop = false;
@@ -421,10 +421,10 @@
             this.btnUpdateInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnUpdateInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInfo.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(465, 739);
-            this.btnUpdateInfo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnUpdateInfo.Location = new System.Drawing.Point(240, 504);
+            this.btnUpdateInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
-            this.btnUpdateInfo.Size = new System.Drawing.Size(146, 55);
+            this.btnUpdateInfo.Size = new System.Drawing.Size(100, 40);
             this.btnUpdateInfo.TabIndex = 14;
             this.btnUpdateInfo.Text = "Cập Nhật";
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
@@ -434,10 +434,10 @@
             // 
             this.txbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword.Location = new System.Drawing.Point(217, 204);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbPassword.Location = new System.Drawing.Point(137, 159);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(290, 35);
+            this.txbPassword.Size = new System.Drawing.Size(149, 26);
             this.txbPassword.TabIndex = 8;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
@@ -445,10 +445,10 @@
             // 
             this.txbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUsername.Location = new System.Drawing.Point(217, 118);
-            this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txbUsername.Location = new System.Drawing.Point(137, 109);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(290, 35);
+            this.txbUsername.Size = new System.Drawing.Size(149, 26);
             this.txbUsername.TabIndex = 7;
             // 
             // lblPassword
@@ -456,9 +456,9 @@
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(60, 207);
+            this.lblPassword.Location = new System.Drawing.Point(22, 166);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(118, 26);
+            this.lblPassword.Size = new System.Drawing.Size(78, 19);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Mật Khẩu";
             // 
@@ -467,9 +467,9 @@
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(60, 119);
+            this.lblUsername.Location = new System.Drawing.Point(22, 116);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(166, 26);
+            this.lblUsername.Size = new System.Drawing.Size(109, 19);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tên Tài Khoản";
             // 
@@ -480,7 +480,7 @@
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(970, 306);
+            this.pbLogo.Size = new System.Drawing.Size(567, 180);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
@@ -494,21 +494,21 @@
             this.pbLoginImage.Location = new System.Drawing.Point(0, 0);
             this.pbLoginImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbLoginImage.Name = "pbLoginImage";
-            this.pbLoginImage.Size = new System.Drawing.Size(1194, 1291);
+            this.pbLoginImage.Size = new System.Drawing.Size(697, 761);
             this.pbLoginImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLoginImage.TabIndex = 2;
             this.pbLoginImage.TabStop = false;
             // 
             // FrmCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2164, 1291);
+            this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.pnlRoot);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCustomer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.pnlRoot.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
