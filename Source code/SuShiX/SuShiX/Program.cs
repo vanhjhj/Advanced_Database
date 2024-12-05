@@ -16,9 +16,8 @@ namespace SuShiX
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmCusOrder("KH30000"));
+            //Application.Run(new FrmLogin());
             Application.Run(new FrmLogin());
-            //Application.Run(new FrmAdmin("BNT0JAW0BORZ5ZI"));
         }
     }
 }

@@ -519,3 +519,57 @@ BEGIN
 	DEALLOCATe cur
 END
 GO
+
+
+CREATE TYPE dbo.ThucDonThayDoi AS TABLE
+(
+	MaMA VARCHAR(10),
+	TinhTrangPhucVu VARCHAR(10),
+	TinhTrangGiaoHang VARCHAR(10)
+)
+
+--Quản lí chi nhánh cập nhật thực đơn (trạng thái phục vụ và trạng thái giao hàng)
+
+CREATE OR ALTER PROCEDURE USP_CapNhatThucDon
+	@MaTK VARCHAR(10),
+	@ThucDonThayDoi dbo.ThucDonThayDoi READONLY
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại', 1
+	
+	--Kiểm tra tài khoản có phải là quản lý
+	IF NOT EXISTS (SELECT 1 FROM ChiNhanh WHERE QuanLy = @MaTK)
+		THROW 50000, N'Tài khoản không phải là quản lý của chi nhánh', 1
+
+	--Nếu là quản lí, lấy mã chi nhánh mà người đó quản lý
+	DECLARE @MaCN VARCHAR(10)
+	SELECT @MaCN = MaCN
+	FROM ChiNhanh 
+	WHERE QuanLy = @MaTK
+
+	--Khai báo cursor
+	DECLARE cur CURSOR FOR
+	SELECT MaMA, TinhTrangPhucVu, TinhTrangGiaoHang
+	FROM @ThucDonThayDoi
+
+	--Khai báo các biến dùng để duyệt
+	DECLARE @MaMA VARCHAR(10), @TinhTrangPhucVu VARCHAR(10), @TinhTrangGiaoHang VARCHAR(10)
+
+	--Duyệt qua cursor
+	OPEN cur
+	FETCH NEXT FROM cur INTO @MaMA, @TinhTrangPhucVu, @TinhTrangGiaoHang
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		UPDATE ThucDon
+		SET TinhTrangPhucVu = @TinhTrangPhucVu, TinhTrangGiaoHang = @TinhTrangGiaoHang
+		WHERE MaCN = @MaCN and MaMA = @MaMA
+
+		FETCH NEXT FROM cur INTO @MaMA, @TinhTrangPhucVu, @TinhTrangGiaoHang
+	END
+
+	CLOSE cur
+	DEALLOCATe cur
+END

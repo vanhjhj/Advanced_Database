@@ -20,6 +20,8 @@ namespace SuShiX
         public FrmCusRegister()
         {
             InitializeComponent();
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
         }
 
         // Hàm đăng ký tài khoản

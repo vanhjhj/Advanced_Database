@@ -15,10 +15,6 @@ namespace SuShiX
             private set { userID = value; }
         }
 
-        public FrmManager()
-        {
-            InitializeComponent();
-        }
 
         // Constructor nhận userID khi khởi tạo form
         public FrmManager(string userID)
@@ -26,8 +22,10 @@ namespace SuShiX
             InitializeComponent();
             this.UserID = userID;
 
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
             // Sử dụng userID để thực hiện các tác vụ
-            LoadManagerData();
+            //LoadManagerData();
         }
 
         // Hàm tải dữ liệu quản lý dựa trên userID
@@ -45,6 +43,22 @@ namespace SuShiX
         {
             // Bạn có thể sử dụng UserID ở đây mà không lo bị sửa đổi ngoài ý muốn
             Console.WriteLine($"User ID hiện tại là: {UserID}");
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void btnManageMenu_Click(object sender, EventArgs e)
+        {
+            FrmManageMenu frmManageMenu = new FrmManageMenu(userID);
+            this.Hide();
+            frmManageMenu.ShowDialog();
+            this.Close();
         }
     }
 }
