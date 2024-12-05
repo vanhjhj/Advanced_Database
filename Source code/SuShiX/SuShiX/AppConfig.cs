@@ -8,6 +8,6 @@ namespace SuShiX
 {
     public static class AppConfig
     {
-        public static string connectionString = @"Server=NGUYENDANGTRI\SQLEXPRESS;Initial Catalog=QUAN_LY_NHA_HANG;Integrated Security=True;Encrypt=False;";
+        public static string connectionString = @"Data Source=DESKTOP-7517V61\SQLEXPRESS;Initial Catalog=QUAN_LY_NHA_HANG;Integrated Security=True;Encrypt=False;";
     }
 }
