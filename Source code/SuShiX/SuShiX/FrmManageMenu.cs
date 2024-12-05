@@ -171,7 +171,10 @@ namespace SuShiX
 
         private void btnAddMenu_Click(object sender, EventArgs e)
         {
-
+            FrmAddMenuItem frmAddMenuItem = new FrmAddMenuItem(userID);
+            this.Hide();
+            frmAddMenuItem.ShowDialog();
+            this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
