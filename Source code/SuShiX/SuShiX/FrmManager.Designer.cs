@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnManageMenu = new System.Windows.Forms.Button();
             this.btnManageIn4Employee = new System.Windows.Forms.Button();
             this.btnStatistics = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -64,17 +64,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1258, 744);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::SuShiX.Properties.Resources.login2;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(688, 738);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -89,17 +78,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.3F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(558, 738);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::SuShiX.Properties.Resources.sushi_logo;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(552, 168);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tableLayoutPanel3
             // 
@@ -132,19 +110,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(188, 552);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // btnUpdateIn4
-            // 
-            this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateIn4.BackColor = System.Drawing.Color.Black;
-            this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateIn4.Location = new System.Drawing.Point(24, 3);
-            this.btnUpdateIn4.Name = "btnUpdateIn4";
-            this.btnUpdateIn4.Size = new System.Drawing.Size(139, 76);
-            this.btnUpdateIn4.TabIndex = 3;
-            this.btnUpdateIn4.Text = "Cập nhật thông tin";
-            this.btnUpdateIn4.UseVisualStyleBackColor = false;
-            // 
             // btnLogout
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -158,6 +123,19 @@
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnUpdateIn4
+            // 
+            this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateIn4.BackColor = System.Drawing.Color.Black;
+            this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateIn4.Location = new System.Drawing.Point(24, 3);
+            this.btnUpdateIn4.Name = "btnUpdateIn4";
+            this.btnUpdateIn4.Size = new System.Drawing.Size(139, 76);
+            this.btnUpdateIn4.TabIndex = 3;
+            this.btnUpdateIn4.Text = "Cập nhật thông tin";
+            this.btnUpdateIn4.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel5
             // 
@@ -190,6 +168,7 @@
             this.btnManageMenu.TabIndex = 0;
             this.btnManageMenu.Text = "Quản lý thực đơn";
             this.btnManageMenu.UseVisualStyleBackColor = false;
+            this.btnManageMenu.Click += new System.EventHandler(this.btnManageMenu_Click);
             // 
             // btnManageIn4Employee
             // 
@@ -217,6 +196,28 @@
             this.btnStatistics.Text = "Thống kê doanh thu";
             this.btnStatistics.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::SuShiX.Properties.Resources.login2;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(688, 738);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::SuShiX.Properties.Resources.sushi_logo;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(552, 168);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -224,14 +225,16 @@
             this.ClientSize = new System.Drawing.Size(1258, 744);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmManager";
+            this.Load += new System.EventHandler(this.FrmManager_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

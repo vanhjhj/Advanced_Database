@@ -27,7 +27,7 @@ namespace SuShiX
             this.UserID = userID;
 
             // Sử dụng userID để thực hiện các tác vụ
-            LoadManagerData();
+            //LoadManagerData();
         }
 
         // Hàm tải dữ liệu quản lý dựa trên userID
@@ -52,6 +52,19 @@ namespace SuShiX
             this.Hide();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void FrmManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManageMenu_Click(object sender, EventArgs e)
+        {
+            FrmManageMenu frmManageMenu = new FrmManageMenu(userID);
+            this.Hide();
+            frmManageMenu.ShowDialog();
             this.Close();
         }
     }
