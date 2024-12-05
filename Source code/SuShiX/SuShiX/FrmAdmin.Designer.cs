@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // FrmAdmin
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.ClientSize = new System.Drawing.Size(2164, 1291);
             this.Name = "FrmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

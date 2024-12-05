@@ -75,13 +75,13 @@
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
-            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlRoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
@@ -115,7 +115,7 @@
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlRoot.Size = new System.Drawing.Size(1690, 887);
+            this.pnlRoot.Size = new System.Drawing.Size(1260, 757);
             this.pnlRoot.TabIndex = 0;
             // 
             // pbLogoCusOrder
@@ -126,7 +126,7 @@
             this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
             this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(496, 873);
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
             this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogoCusOrder.TabIndex = 0;
             this.pbLogoCusOrder.TabStop = false;
@@ -143,13 +143,13 @@
             this.pnlOrder.Controls.Add(this.pnlGeneralInfo, 0, 0);
             this.pnlOrder.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.pnlOrder.Controls.Add(this.pnlOrderDetails, 0, 2);
-            this.pnlOrder.Location = new System.Drawing.Point(514, 7);
+            this.pnlOrder.Location = new System.Drawing.Point(385, 7);
             this.pnlOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOrder.Name = "pnlOrder";
             this.pnlOrder.RowCount = 3;
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.86486F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.64865F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.62162F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -158,7 +158,7 @@
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlOrder.Size = new System.Drawing.Size(1169, 873);
+            this.pnlOrder.Size = new System.Drawing.Size(868, 743);
             this.pnlOrder.TabIndex = 1;
             // 
             // pnlGeneralInfo
@@ -174,7 +174,7 @@
             this.pnlGeneralInfo.RowCount = 2;
             this.pnlGeneralInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.pnlGeneralInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.pnlGeneralInfo.Size = new System.Drawing.Size(1155, 336);
+            this.pnlGeneralInfo.Size = new System.Drawing.Size(854, 246);
             this.pnlGeneralInfo.TabIndex = 0;
             // 
             // lblGeneralInfo
@@ -186,7 +186,7 @@
             this.lblGeneralInfo.Location = new System.Drawing.Point(4, 0);
             this.lblGeneralInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGeneralInfo.Name = "lblGeneralInfo";
-            this.lblGeneralInfo.Size = new System.Drawing.Size(1147, 50);
+            this.lblGeneralInfo.Size = new System.Drawing.Size(846, 36);
             this.lblGeneralInfo.TabIndex = 0;
             this.lblGeneralInfo.Text = "Thông Tin Phiếu Đặt";
             this.lblGeneralInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,76 +213,73 @@
             this.pnlGeneralOrderInfo.Controls.Add(this.lblBranchAddress);
             this.pnlGeneralOrderInfo.Controls.Add(this.lblAreaName);
             this.pnlGeneralOrderInfo.Controls.Add(this.lblOrderType);
-            this.pnlGeneralOrderInfo.Location = new System.Drawing.Point(3, 53);
+            this.pnlGeneralOrderInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGeneralOrderInfo.Location = new System.Drawing.Point(3, 39);
             this.pnlGeneralOrderInfo.Name = "pnlGeneralOrderInfo";
-            this.pnlGeneralOrderInfo.Size = new System.Drawing.Size(1149, 280);
+            this.pnlGeneralOrderInfo.Size = new System.Drawing.Size(848, 204);
             this.pnlGeneralOrderInfo.TabIndex = 1;
             // 
             // txbGeneralNote
             // 
             this.txbGeneralNote.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbGeneralNote.Location = new System.Drawing.Point(276, 193);
+            this.txbGeneralNote.Location = new System.Drawing.Point(145, 141);
             this.txbGeneralNote.Multiline = true;
             this.txbGeneralNote.Name = "txbGeneralNote";
-            this.txbGeneralNote.Size = new System.Drawing.Size(797, 66);
+            this.txbGeneralNote.Size = new System.Drawing.Size(677, 50);
             this.txbGeneralNote.TabIndex = 17;
             // 
             // txbTimeOpen
             // 
             this.txbTimeOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbTimeOpen.Location = new System.Drawing.Point(965, 144);
+            this.txbTimeOpen.Location = new System.Drawing.Point(714, 109);
             this.txbTimeOpen.Name = "txbTimeOpen";
             this.txbTimeOpen.ReadOnly = true;
-            this.txbTimeOpen.Size = new System.Drawing.Size(108, 30);
+            this.txbTimeOpen.Size = new System.Drawing.Size(108, 26);
             this.txbTimeOpen.TabIndex = 16;
-            this.txbTimeOpen.Text = "7:00 - 23:00";
             // 
             // txbMotorbikeParking
             // 
             this.txbMotorbikeParking.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbMotorbikeParking.Location = new System.Drawing.Point(662, 144);
+            this.txbMotorbikeParking.Location = new System.Drawing.Point(472, 109);
             this.txbMotorbikeParking.Name = "txbMotorbikeParking";
             this.txbMotorbikeParking.ReadOnly = true;
-            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 30);
+            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 26);
             this.txbMotorbikeParking.TabIndex = 15;
-            this.txbMotorbikeParking.Text = "Không";
             // 
             // txbCarParking
             // 
             this.txbCarParking.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbCarParking.Location = new System.Drawing.Point(276, 144);
+            this.txbCarParking.Location = new System.Drawing.Point(145, 109);
             this.txbCarParking.Name = "txbCarParking";
             this.txbCarParking.ReadOnly = true;
-            this.txbCarParking.Size = new System.Drawing.Size(61, 30);
+            this.txbCarParking.Size = new System.Drawing.Size(61, 26);
             this.txbCarParking.TabIndex = 14;
-            this.txbCarParking.Text = "Không";
             // 
             // txbBranchPhoneNumber
             // 
             this.txbBranchPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbBranchPhoneNumber.Location = new System.Drawing.Point(739, 98);
+            this.txbBranchPhoneNumber.Location = new System.Drawing.Point(531, 77);
             this.txbBranchPhoneNumber.Name = "txbBranchPhoneNumber";
             this.txbBranchPhoneNumber.ReadOnly = true;
-            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(108, 30);
+            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(88, 26);
             this.txbBranchPhoneNumber.TabIndex = 13;
-            this.txbBranchPhoneNumber.Text = "0285201215";
             // 
             // txbBranchName
             // 
             this.txbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbBranchName.Location = new System.Drawing.Point(277, 98);
+            this.txbBranchName.Location = new System.Drawing.Point(145, 77);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 26);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbBranchAddress
             // 
             this.cbbBranchAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbBranchAddress.FormattingEnabled = true;
-            this.cbbBranchAddress.Location = new System.Drawing.Point(277, 52);
+            this.cbbBranchAddress.Location = new System.Drawing.Point(145, 45);
             this.cbbBranchAddress.Name = "cbbBranchAddress";
-            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 30);
+            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 27);
             this.cbbBranchAddress.TabIndex = 11;
             this.cbbBranchAddress.SelectedIndexChanged += new System.EventHandler(this.cbbBranchAddress_SelectedIndexChanged);
             // 
@@ -290,9 +287,9 @@
             // 
             this.cbbAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbAreaName.FormattingEnabled = true;
-            this.cbbAreaName.Location = new System.Drawing.Point(659, 13);
+            this.cbbAreaName.Location = new System.Drawing.Point(459, 12);
             this.cbbAreaName.Name = "cbbAreaName";
-            this.cbbAreaName.Size = new System.Drawing.Size(260, 30);
+            this.cbbAreaName.Size = new System.Drawing.Size(260, 27);
             this.cbbAreaName.TabIndex = 10;
             this.cbbAreaName.SelectedIndexChanged += new System.EventHandler(this.cbbAreaName_SelectedIndexChanged);
             // 
@@ -303,9 +300,9 @@
             this.cbbOrderType.Items.AddRange(new object[] {
             "Đặt Bàn Trực Tuyến",
             "Giao Hàng Tận Nơi"});
-            this.cbbOrderType.Location = new System.Drawing.Point(276, 13);
+            this.cbbOrderType.Location = new System.Drawing.Point(145, 12);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -313,9 +310,9 @@
             // 
             this.lblGeneralNote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGeneralNote.AutoSize = true;
-            this.lblGeneralNote.Location = new System.Drawing.Point(110, 217);
+            this.lblGeneralNote.Location = new System.Drawing.Point(15, 172);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
+            this.lblGeneralNote.Size = new System.Drawing.Size(59, 19);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -323,9 +320,9 @@
             // 
             this.lblMotorbikeParking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMotorbikeParking.AutoSize = true;
-            this.lblMotorbikeParking.Location = new System.Drawing.Point(510, 147);
+            this.lblMotorbikeParking.Location = new System.Drawing.Point(360, 112);
             this.lblMotorbikeParking.Name = "lblMotorbikeParking";
-            this.lblMotorbikeParking.Size = new System.Drawing.Size(135, 22);
+            this.lblMotorbikeParking.Size = new System.Drawing.Size(106, 19);
             this.lblMotorbikeParking.TabIndex = 7;
             this.lblMotorbikeParking.Text = "Bãi Đỗ Xe Máy";
             // 
@@ -333,9 +330,9 @@
             // 
             this.lblCarParking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCarParking.AutoSize = true;
-            this.lblCarParking.Location = new System.Drawing.Point(86, 147);
+            this.lblCarParking.Location = new System.Drawing.Point(15, 112);
             this.lblCarParking.Name = "lblCarParking";
-            this.lblCarParking.Size = new System.Drawing.Size(131, 22);
+            this.lblCarParking.Size = new System.Drawing.Size(100, 19);
             this.lblCarParking.TabIndex = 6;
             this.lblCarParking.Text = "Bãi Đỗ Xe Hơi";
             // 
@@ -343,9 +340,9 @@
             // 
             this.lblTimeOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTimeOpen.AutoSize = true;
-            this.lblTimeOpen.Location = new System.Drawing.Point(767, 147);
+            this.lblTimeOpen.Location = new System.Drawing.Point(569, 112);
             this.lblTimeOpen.Name = "lblTimeOpen";
-            this.lblTimeOpen.Size = new System.Drawing.Size(181, 22);
+            this.lblTimeOpen.Size = new System.Drawing.Size(139, 19);
             this.lblTimeOpen.TabIndex = 5;
             this.lblTimeOpen.Text = "Thời Gian Hoạt Động";
             // 
@@ -353,9 +350,9 @@
             // 
             this.lblBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchName.AutoSize = true;
-            this.lblBranchName.Location = new System.Drawing.Point(86, 101);
+            this.lblBranchName.Location = new System.Drawing.Point(15, 80);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
+            this.lblBranchName.Size = new System.Drawing.Size(101, 19);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -363,9 +360,9 @@
             // 
             this.lblBranchPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchPhoneNumber.AutoSize = true;
-            this.lblBranchPhoneNumber.Location = new System.Drawing.Point(510, 101);
+            this.lblBranchPhoneNumber.Location = new System.Drawing.Point(360, 80);
             this.lblBranchPhoneNumber.Name = "lblBranchPhoneNumber";
-            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(213, 22);
+            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(165, 19);
             this.lblBranchPhoneNumber.TabIndex = 3;
             this.lblBranchPhoneNumber.Text = "Số Điện Thoại Chi Nhánh";
             // 
@@ -373,9 +370,9 @@
             // 
             this.lblBranchAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBranchAddress.AutoSize = true;
-            this.lblBranchAddress.Location = new System.Drawing.Point(86, 55);
+            this.lblBranchAddress.Location = new System.Drawing.Point(15, 47);
             this.lblBranchAddress.Name = "lblBranchAddress";
-            this.lblBranchAddress.Size = new System.Drawing.Size(160, 22);
+            this.lblBranchAddress.Size = new System.Drawing.Size(124, 19);
             this.lblBranchAddress.TabIndex = 2;
             this.lblBranchAddress.Text = "Địa Chỉ Chi Nhánh";
             // 
@@ -383,9 +380,9 @@
             // 
             this.lblAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAreaName.AutoSize = true;
-            this.lblAreaName.Location = new System.Drawing.Point(510, 16);
+            this.lblAreaName.Location = new System.Drawing.Point(360, 15);
             this.lblAreaName.Name = "lblAreaName";
-            this.lblAreaName.Size = new System.Drawing.Size(115, 22);
+            this.lblAreaName.Size = new System.Drawing.Size(93, 19);
             this.lblAreaName.TabIndex = 1;
             this.lblAreaName.Text = "Tên Khu Vực";
             // 
@@ -393,9 +390,9 @@
             // 
             this.lblOrderType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOrderType.AutoSize = true;
-            this.lblOrderType.Location = new System.Drawing.Point(86, 16);
+            this.lblOrderType.Location = new System.Drawing.Point(15, 15);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -409,29 +406,29 @@
             this.tableLayoutPanel1.Controls.Add(this.pnlShipping, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnlBookingOnline, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 353);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 263);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1157, 166);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 93);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pnlShipping
             // 
             this.pnlShipping.Controls.Add(this.tableLayoutPanel2);
             this.pnlShipping.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShipping.Location = new System.Drawing.Point(583, 6);
+            this.pnlShipping.Location = new System.Drawing.Point(432, 6);
             this.pnlShipping.Name = "pnlShipping";
-            this.pnlShipping.Size = new System.Drawing.Size(568, 154);
+            this.pnlShipping.Size = new System.Drawing.Size(418, 81);
             this.pnlShipping.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.7972F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.2028F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.93976F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.06024F));
             this.tableLayoutPanel2.Controls.Add(this.lblReceiverAddress, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblReceiverPhoneNumber, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 1);
@@ -442,7 +439,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(568, 154);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 81);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // lblReceiverAddress
@@ -450,7 +447,7 @@
             this.lblReceiverAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblReceiverAddress.Location = new System.Drawing.Point(6, 3);
             this.lblReceiverAddress.Name = "lblReceiverAddress";
-            this.lblReceiverAddress.Size = new System.Drawing.Size(149, 72);
+            this.lblReceiverAddress.Size = new System.Drawing.Size(136, 36);
             this.lblReceiverAddress.TabIndex = 0;
             this.lblReceiverAddress.Text = "Địa Chỉ Nhận";
             this.lblReceiverAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,9 +455,9 @@
             // lblReceiverPhoneNumber
             // 
             this.lblReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 78);
+            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 42);
             this.lblReceiverPhoneNumber.Name = "lblReceiverPhoneNumber";
-            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(149, 73);
+            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(136, 36);
             this.lblReceiverPhoneNumber.TabIndex = 1;
             this.lblReceiverPhoneNumber.Text = "Số Điện Thoại Nhận";
             this.lblReceiverPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -469,17 +466,17 @@
             // 
             this.panel1.Controls.Add(this.txbReceiverPhoneNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(164, 81);
+            this.panel1.Location = new System.Drawing.Point(151, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 67);
+            this.panel1.Size = new System.Drawing.Size(261, 30);
             this.panel1.TabIndex = 3;
             // 
             // txbReceiverPhoneNumber
             // 
-            this.txbReceiverPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(125, 19);
+            this.txbReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(156, 30);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 26);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -487,9 +484,9 @@
             // 
             this.panel2.Controls.Add(this.txbReceiverAddress);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(164, 6);
+            this.panel2.Location = new System.Drawing.Point(151, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 66);
+            this.panel2.Size = new System.Drawing.Size(261, 30);
             this.panel2.TabIndex = 4;
             // 
             // txbReceiverAddress
@@ -498,15 +495,15 @@
             this.txbReceiverAddress.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverAddress.Multiline = true;
             this.txbReceiverAddress.Name = "txbReceiverAddress";
-            this.txbReceiverAddress.Size = new System.Drawing.Size(398, 66);
+            this.txbReceiverAddress.Size = new System.Drawing.Size(261, 30);
             this.txbReceiverAddress.TabIndex = 0;
             // 
             // pnlBookingOnline
             // 
             this.pnlBookingOnline.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.pnlBookingOnline.ColumnCount = 2;
-            this.pnlBookingOnline.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.7972F));
-            this.pnlBookingOnline.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.2028F));
+            this.pnlBookingOnline.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.71014F));
+            this.pnlBookingOnline.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.28986F));
             this.pnlBookingOnline.Controls.Add(this.lblArrivalTime, 0, 0);
             this.pnlBookingOnline.Controls.Add(this.lblCusNumber, 0, 1);
             this.pnlBookingOnline.Controls.Add(this.pnlCusNumber, 1, 1);
@@ -517,7 +514,7 @@
             this.pnlBookingOnline.RowCount = 2;
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlBookingOnline.Size = new System.Drawing.Size(568, 154);
+            this.pnlBookingOnline.Size = new System.Drawing.Size(417, 81);
             this.pnlBookingOnline.TabIndex = 2;
             // 
             // lblArrivalTime
@@ -525,7 +522,7 @@
             this.lblArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblArrivalTime.Location = new System.Drawing.Point(6, 3);
             this.lblArrivalTime.Name = "lblArrivalTime";
-            this.lblArrivalTime.Size = new System.Drawing.Size(149, 72);
+            this.lblArrivalTime.Size = new System.Drawing.Size(115, 36);
             this.lblArrivalTime.TabIndex = 0;
             this.lblArrivalTime.Text = "Thời Gian Đến";
             this.lblArrivalTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -533,9 +530,9 @@
             // lblCusNumber
             // 
             this.lblCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCusNumber.Location = new System.Drawing.Point(6, 78);
+            this.lblCusNumber.Location = new System.Drawing.Point(6, 42);
             this.lblCusNumber.Name = "lblCusNumber";
-            this.lblCusNumber.Size = new System.Drawing.Size(149, 73);
+            this.lblCusNumber.Size = new System.Drawing.Size(115, 36);
             this.lblCusNumber.TabIndex = 1;
             this.lblCusNumber.Text = "Số Lượng Khách";
             this.lblCusNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -544,34 +541,34 @@
             // 
             this.pnlCusNumber.Controls.Add(this.nudCusNumber);
             this.pnlCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCusNumber.Location = new System.Drawing.Point(164, 81);
+            this.pnlCusNumber.Location = new System.Drawing.Point(130, 45);
             this.pnlCusNumber.Name = "pnlCusNumber";
-            this.pnlCusNumber.Size = new System.Drawing.Size(398, 67);
+            this.pnlCusNumber.Size = new System.Drawing.Size(281, 30);
             this.pnlCusNumber.TabIndex = 3;
             // 
             // nudCusNumber
             // 
-            this.nudCusNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudCusNumber.Location = new System.Drawing.Point(55, 20);
+            this.nudCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudCusNumber.Location = new System.Drawing.Point(0, 0);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(107, 30);
+            this.nudCusNumber.Size = new System.Drawing.Size(281, 26);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
             // 
             this.pnlArrivalTime.Controls.Add(this.dtpArrivalTime);
             this.pnlArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlArrivalTime.Location = new System.Drawing.Point(164, 6);
+            this.pnlArrivalTime.Location = new System.Drawing.Point(130, 6);
             this.pnlArrivalTime.Name = "pnlArrivalTime";
-            this.pnlArrivalTime.Size = new System.Drawing.Size(398, 66);
+            this.pnlArrivalTime.Size = new System.Drawing.Size(281, 30);
             this.pnlArrivalTime.TabIndex = 4;
             // 
             // dtpArrivalTime
             // 
-            this.dtpArrivalTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpArrivalTime.Location = new System.Drawing.Point(55, 18);
+            this.dtpArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpArrivalTime.Location = new System.Drawing.Point(0, 0);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 30);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(281, 26);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // pnlOrderDetails
@@ -582,12 +579,12 @@
             this.pnlOrderDetails.Controls.Add(this.pnlButton, 1, 0);
             this.pnlOrderDetails.Controls.Add(this.dgvOrderDetails, 0, 0);
             this.pnlOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 528);
+            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 365);
             this.pnlOrderDetails.Name = "pnlOrderDetails";
             this.pnlOrderDetails.RowCount = 1;
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.pnlOrderDetails.Size = new System.Drawing.Size(1157, 339);
+            this.pnlOrderDetails.Size = new System.Drawing.Size(856, 372);
             this.pnlOrderDetails.TabIndex = 2;
             // 
             // pnlButton
@@ -599,12 +596,12 @@
             this.pnlButton.Controls.Add(this.btnOrder, 0, 0);
             this.pnlButton.Controls.Add(this.btnExit, 0, 1);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlButton.Location = new System.Drawing.Point(1032, 3);
+            this.pnlButton.Location = new System.Drawing.Point(764, 3);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.RowCount = 2;
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButton.Size = new System.Drawing.Size(122, 333);
+            this.pnlButton.Size = new System.Drawing.Size(89, 366);
             this.pnlButton.TabIndex = 1;
             // 
             // btnOrder
@@ -617,7 +614,7 @@
             this.btnOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOrder.Location = new System.Drawing.Point(6, 6);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(110, 156);
+            this.btnOrder.Size = new System.Drawing.Size(77, 172);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Lập Phiếu";
             this.btnOrder.UseVisualStyleBackColor = false;
@@ -631,9 +628,9 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(6, 171);
+            this.btnExit.Location = new System.Drawing.Point(6, 187);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(110, 156);
+            this.btnExit.Size = new System.Drawing.Size(77, 173);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Quay Lại";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -642,7 +639,7 @@
             // dgvOrderDetails
             // 
             this.dgvOrderDetails.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -674,81 +671,89 @@
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
             this.dgvOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvOrderDetails.Size = new System.Drawing.Size(1023, 333);
+            this.dgvOrderDetails.Size = new System.Drawing.Size(755, 366);
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
             // 
-            // Choice
-            // 
-            this.Choice.HeaderText = "Đặt";
-            this.Choice.MinimumWidth = 6;
-            this.Choice.Name = "Choice";
-            this.Choice.Width = 60;
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Width = 250;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.HeaderText = "Thành Tiền";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Đơn Giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Số Lượng";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
-            // 
-            // DishType
-            // 
-            this.DishType.DataPropertyName = "DishType";
-            this.DishType.HeaderText = "Tên Mục";
-            this.DishType.MinimumWidth = 6;
-            this.DishType.Name = "DishType";
-            this.DishType.ReadOnly = true;
-            this.DishType.Width = 125;
-            // 
             // DishName
             // 
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DishName.DataPropertyName = "DishName";
+            this.DishName.FillWeight = 32.40876F;
             this.DishName.HeaderText = "Tên Món";
             this.DishName.MinimumWidth = 6;
             this.DishName.Name = "DishName";
             this.DishName.ReadOnly = true;
-            this.DishName.Width = 200;
+            // 
+            // DishType
+            // 
+            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DishType.DataPropertyName = "DishType";
+            this.DishType.FillWeight = 32.40876F;
+            this.DishType.HeaderText = "Tên Mục";
+            this.DishType.MinimumWidth = 6;
+            this.DishType.Name = "DishType";
+            this.DishType.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.FillWeight = 437.9562F;
+            this.Amount.HeaderText = "SL";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 40;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Price.DataPropertyName = "Price";
+            this.Price.FillWeight = 32.40876F;
+            this.Price.HeaderText = "Đơn Giá";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TotalAmount.FillWeight = 32.40876F;
+            this.TotalAmount.HeaderText = "Thành Tiền";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.FillWeight = 32.40876F;
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            // 
+            // Choice
+            // 
+            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Choice.HeaderText = "Đặt";
+            this.Choice.MinimumWidth = 6;
+            this.Choice.Name = "Choice";
+            this.Choice.Width = 50;
             // 
             // FrmCusOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1690, 887);
+            this.ClientSize = new System.Drawing.Size(1260, 757);
             this.Controls.Add(this.pnlRoot);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCusOrder";
-            this.Text = "FrmCusOrder";
-            this.Load += new System.EventHandler(this.FrmCusOrder_Load_1);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Order";
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();

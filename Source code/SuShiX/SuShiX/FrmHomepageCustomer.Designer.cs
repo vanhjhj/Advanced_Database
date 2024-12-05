@@ -53,8 +53,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.81F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.19F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.71835F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.28165F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -63,16 +63,17 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(2164, 1291);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 761);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.login2;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1201, 1285);
+            this.pictureBox1.Size = new System.Drawing.Size(675, 757);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -84,21 +85,23 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1210, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(681, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.7F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.3F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(951, 1285);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(581, 757);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::SuShiX.Properties.Resources.sushi_logo;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(945, 298);
+            this.pictureBox2.Size = new System.Drawing.Size(577, 175);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -110,13 +113,14 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pbHomepage, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbHomepage, 0, 2);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 307);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 181);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.89474F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(945, 975);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(577, 574);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -133,11 +137,12 @@
             this.tableLayoutPanel4.Controls.Add(this.btnOrder, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLogout, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(939, 199);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(573, 116);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // btnMenu
@@ -146,9 +151,10 @@
             this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(18, 58);
+            this.btnMenu.Location = new System.Drawing.Point(6, 31);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(151, 83);
+            this.btnMenu.Size = new System.Drawing.Size(101, 54);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Thực đơn";
             this.btnMenu.UseVisualStyleBackColor = false;
@@ -159,9 +165,10 @@
             this.btnAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddress.ForeColor = System.Drawing.Color.White;
-            this.btnAddress.Location = new System.Drawing.Point(205, 58);
+            this.btnAddress.Location = new System.Drawing.Point(120, 31);
+            this.btnAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddress.Name = "btnAddress";
-            this.btnAddress.Size = new System.Drawing.Size(151, 83);
+            this.btnAddress.Size = new System.Drawing.Size(101, 54);
             this.btnAddress.TabIndex = 1;
             this.btnAddress.Text = "Địa chỉ";
             this.btnAddress.UseVisualStyleBackColor = false;
@@ -172,9 +179,10 @@
             this.btnUpdateIn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateIn4.Location = new System.Drawing.Point(392, 58);
+            this.btnUpdateIn4.Location = new System.Drawing.Point(234, 31);
+            this.btnUpdateIn4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdateIn4.Name = "btnUpdateIn4";
-            this.btnUpdateIn4.Size = new System.Drawing.Size(151, 83);
+            this.btnUpdateIn4.Size = new System.Drawing.Size(101, 54);
             this.btnUpdateIn4.TabIndex = 2;
             this.btnUpdateIn4.Text = "Cập nhật thông tin";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
@@ -186,9 +194,10 @@
             this.btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(579, 58);
+            this.btnOrder.Location = new System.Drawing.Point(348, 31);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(151, 83);
+            this.btnOrder.Size = new System.Drawing.Size(101, 54);
             this.btnOrder.TabIndex = 3;
             this.btnOrder.Text = "Đặt món";
             this.btnOrder.UseVisualStyleBackColor = false;
@@ -200,9 +209,10 @@
             this.btnLogout.BackColor = System.Drawing.Color.Black;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(768, 58);
+            this.btnLogout.Location = new System.Drawing.Point(464, 31);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(151, 83);
+            this.btnLogout.Size = new System.Drawing.Size(101, 54);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -213,9 +223,10 @@
             this.pbHomepage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbHomepage.Enabled = false;
             this.pbHomepage.Image = global::SuShiX.Properties.Resources.homepage;
-            this.pbHomepage.Location = new System.Drawing.Point(89, 211);
+            this.pbHomepage.Location = new System.Drawing.Point(2, 122);
+            this.pbHomepage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbHomepage.Name = "pbHomepage";
-            this.pbHomepage.Size = new System.Drawing.Size(767, 552);
+            this.pbHomepage.Size = new System.Drawing.Size(573, 328);
             this.pbHomepage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHomepage.TabIndex = 1;
             this.pbHomepage.TabStop = false;
@@ -226,23 +237,24 @@
             this.lbHomepage.AutoSize = true;
             this.lbHomepage.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHomepage.ForeColor = System.Drawing.Color.Black;
-            this.lbHomepage.Location = new System.Drawing.Point(64, 855);
+            this.lbHomepage.Location = new System.Drawing.Point(6, 502);
+            this.lbHomepage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbHomepage.Name = "lbHomepage";
             this.lbHomepage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbHomepage.Size = new System.Drawing.Size(816, 33);
+            this.lbHomepage.Size = new System.Drawing.Size(564, 21);
             this.lbHomepage.TabIndex = 2;
             this.lbHomepage.Text = "~Đặt món ngay để thưởng thức những món ăn tuyệt hảo của chúng tôi~";
             // 
             // FrmHomepageCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2164, 1291);
+            this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmHomepageCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHomepageCustomer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmHomepageCustomer_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
