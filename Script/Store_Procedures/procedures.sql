@@ -573,3 +573,69 @@ BEGIN
 	CLOSE cur
 	DEALLOCATe cur
 END
+GO
+
+-- Quản Lý Thống Kê
+GO
+CREATE OR ALTER PROCEDURE USP_QuanLyThongKe
+    @MaTK VARCHAR(10),
+    @NgayBD DATETIME,
+    @NgayKT DATETIME,
+    @TongSoLuongBan INT OUTPUT, 
+    @TongDoanhThu BIGINT OUTPUT
+AS
+BEGIN
+    BEGIN TRY
+        -- Kiểm tra userID hợp lệ
+        IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
+        BEGIN
+            ;THROW 60000, N'UserID không hợp lệ hoặc không tồn tại.', 1;
+        END
+
+        -- Lấy thông tin chi nhánh từ userID
+        DECLARE @MaCN NVARCHAR(10);
+        SELECT @MaCN = NV.MaCN
+        FROM NhanVien NV
+        JOIN ChiNhanh CN ON CN.MaCN = NV.MaCN
+        WHERE MaTK = @MaTK;
+
+        -- Kiểm tra chi nhánh hợp lệ
+        IF @MaCN IS NULL
+        BEGIN
+            ;THROW 60001, N'Nhân viên không thuộc chi nhánh nào.', 1;
+        END
+
+        -- Kiểm tra điều kiện ngày
+        IF @NgayKT < @NgayBD
+        BEGIN
+            ;THROW 60002, N'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.', 1;
+        END
+
+        -- Thống kê theo món ăn
+        SELECT MA.TenMA AS DishName, 
+               SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
+               SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
+        FROM MonAn MA
+        JOIN CTPD ON MA.MaMA = CTPD.MaMA
+        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+        WHERE PD.MaCN = @MaCN 
+        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT 
+        GROUP BY MA.MaMA, MA.TenMA
+        ORDER BY Revenue DESC;
+
+        -- Thống kê tổng
+        SELECT @TongSoLuongBan = SUM(ISNULL(CTPD.SoLuong, 0)),
+               @TongDoanhThu = CAST(SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS BIGINT)
+        FROM CTPD
+        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+        WHERE PD.MaCN = @MaCN 
+          AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT;
+
+    END TRY
+    BEGIN CATCH
+        THROW;
+    END CATCH
+END
+GO

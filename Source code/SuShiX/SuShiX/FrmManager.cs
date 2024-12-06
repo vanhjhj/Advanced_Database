@@ -60,5 +60,20 @@ namespace SuShiX
             frmManageMenu.ShowDialog();
             this.Close();
         }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của FrmManagerStatistics và truyền userID
+            FrmManagerStatistics frmManagerStatistics = new FrmManagerStatistics(userID);
+
+            // Ẩn form hiện tại
+            this.Hide();
+
+            // Hiển thị FrmManagerStatistics
+            frmManagerStatistics.ShowDialog();
+
+            // Đóng form hiện tại sau khi FrmManagerStatistics đóng
+            this.Close();
+        }
     }
 }
