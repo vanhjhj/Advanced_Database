@@ -37,7 +37,6 @@
             this.pbReturn = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnAddMenu = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.MaMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,11 +161,9 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.btnSave, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnAddMenu, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnSave, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 463);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -182,27 +179,13 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(455, 24);
+            this.btnSave.Location = new System.Drawing.Point(268, 24);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(210, 61);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Lưu thay đổi";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnAddMenu
-            // 
-            this.btnAddMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnAddMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMenu.ForeColor = System.Drawing.Color.White;
-            this.btnAddMenu.Location = new System.Drawing.Point(81, 24);
-            this.btnAddMenu.Name = "btnAddMenu";
-            this.btnAddMenu.Size = new System.Drawing.Size(210, 61);
-            this.btnAddMenu.TabIndex = 0;
-            this.btnAddMenu.Text = "Thêm món ăn";
-            this.btnAddMenu.UseVisualStyleBackColor = false;
-            this.btnAddMenu.Click += new System.EventHandler(this.btnAddMenu_Click);
             // 
             // pictureBox2
             // 
@@ -218,6 +201,7 @@
             // 
             // MaMA
             // 
+            this.MaMA.DataPropertyName = "MaMA";
             this.MaMA.HeaderText = "Mã món ăn";
             this.MaMA.Name = "MaMA";
             this.MaMA.ReadOnly = true;
@@ -226,6 +210,7 @@
             // TenMA
             // 
             this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMA.DataPropertyName = "TenMA";
             this.TenMA.FillWeight = 50F;
             this.TenMA.HeaderText = "Tên món ăn";
             this.TenMA.MinimumWidth = 8;
@@ -235,6 +220,7 @@
             // TinhTrangPhucVu
             // 
             this.TinhTrangPhucVu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.TinhTrangPhucVu.DataPropertyName = "TinhTrangPhucVu";
             this.TinhTrangPhucVu.FillWeight = 48.56065F;
             this.TinhTrangPhucVu.HeaderText = "Tình trạng phục vụ";
             this.TinhTrangPhucVu.Items.AddRange(new object[] {
@@ -249,6 +235,7 @@
             // TinhTrangGiaoHang
             // 
             this.TinhTrangGiaoHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.TinhTrangGiaoHang.DataPropertyName = "TinhTrangGiaoHang";
             this.TinhTrangGiaoHang.FillWeight = 44.71399F;
             this.TinhTrangGiaoHang.HeaderText = "Tình trạng giao hàng";
             this.TinhTrangGiaoHang.Items.AddRange(new object[] {
@@ -304,7 +291,6 @@
         private System.Windows.Forms.PictureBox pbReturn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnAddMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaMA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMA;
         private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangPhucVu;

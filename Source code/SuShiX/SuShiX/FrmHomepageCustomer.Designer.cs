@@ -184,7 +184,7 @@
             this.btnUpdateIn4.Name = "btnUpdateIn4";
             this.btnUpdateIn4.Size = new System.Drawing.Size(101, 54);
             this.btnUpdateIn4.TabIndex = 2;
-            this.btnUpdateIn4.Text = "Cập nhật thông tin";
+            this.btnUpdateIn4.Text = "Thông tin cá nhân";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
             this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
             // 

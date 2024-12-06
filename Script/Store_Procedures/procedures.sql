@@ -520,6 +520,38 @@ BEGIN
 END
 GO
 
+--Chủ chi nhánh lấy danh sách thực đơn và tình trạng thực đơn của chi nhánh
+use QUAN_LY_NHA_HANG
+go
+CREATE OR ALTER PROCEDURE USP_QuanLiXemThucDonChiNhanh
+	@MaTK VARCHAR(10)
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại', 1
+
+	--Kiểm tra tài khoản có phải là quản lý
+	IF NOT EXISTS (SELECT 1 FROM ChiNhanh WHERE QuanLy = @MaTK)
+		THROW 50000, N'Tài khoản không phải là quản lý của chi nhánh', 1
+
+	--Nếu là quản lí, lấy mã chi nhánh mà người đó quản lý
+	DECLARE @MaCN VARCHAR(10)
+	SELECT @MaCN = MaCN
+	FROM ChiNhanh 
+	WHERE QuanLy = @MaTK
+
+	--Lấy ra mã món, tên món, tình trạng phục vụ, tình trạng giao hàng
+	SELECT ma.MaMA, ma.TenMA, td.TinhTrangPhucVu, td.TinhTrangGiaoHang
+	FROM ThucDon td 
+	JOIN MonAn ma ON td.MaMA = ma.MaMA
+	WHERE td.MaCN = @MaCN
+END
+GO
+
+exec USP_QuanLiXemThucDonChiNhanh 'NV0000'
+
+--Tạo kiểu dữ liệu để cập nhật thực đơn
 
 CREATE TYPE dbo.ThucDonThayDoi AS TABLE
 (

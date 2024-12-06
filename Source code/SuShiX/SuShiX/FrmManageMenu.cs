@@ -43,34 +43,16 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    // Sử dụng tham số hóa truy vấn
-                    string query = "SELECT ma.MaMA, ma.TenMA, td.TinhTrangPhucVu, td.TinhTrangGiaoHang\n" +
-                                   "FROM ThucDon td\n" +
-                                   "JOIN ChiNhanh cn ON td.MaCN = cn.MaCN\n" +
-                                   "JOIN MonAn ma ON td.MaMA = ma.MaMA\n" +
-                                   "WHERE cn.QuanLy = @UserID";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_QuanLiXemThucDonChiNhanh", conn))
                     {
-                        // Truyền giá trị userID vào tham số
-                        cmd.Parameters.AddWithValue("@UserID", this.UserID);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaTK", userID);
+                        
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
-                            // Xóa dữ liệu cũ trong DataGridView (nếu cần)
-                            dataGridView1.Rows.Clear();
-                            
-                            // Điền dữ liệu vào DataGridView
-                            while (reader.Read())
-                            { 
-                                dataGridView1.Rows.Add(
-                                    reader["MaMA"].ToString(),
-                                    reader["TenMA"].ToString(),
-                                    reader["TinhTrangPhucVu"].ToString(),
-                                    reader["TinhTrangGiaoHang"].ToString(),
-                                    false 
-                                );
-                            }
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dataGridView1.DataSource = dt;
                         }
                     }
                 }
@@ -169,13 +151,6 @@ namespace SuShiX
             this.Close();
         }
 
-        private void btnAddMenu_Click(object sender, EventArgs e)
-        {
-            FrmAddMenuItem frmAddMenuItem = new FrmAddMenuItem(userID);
-            this.Hide();
-            frmAddMenuItem.ShowDialog();
-            this.Close();
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
