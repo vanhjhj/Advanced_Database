@@ -245,7 +245,7 @@ namespace SuShiX
                         SqlParameter tvpParameter = new SqlParameter("@CTPD", SqlDbType.Structured)
                         {
                             TypeName = "dbo.CTPDType",  // Tên kiểu TVP đã tạo trong SQL Server
-                            Value = dtCTPD  // DataTable chứa danh sách món ăn
+                            Value = dtCTPD
                         };
                         cmd.Parameters.Add(tvpParameter);
 
