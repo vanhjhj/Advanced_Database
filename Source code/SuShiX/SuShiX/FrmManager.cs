@@ -71,6 +71,7 @@ namespace SuShiX
             FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
             this.Hide();
             frmManageEmployee.ShowDialog();
+        }
         private void btnStatistics_Click(object sender, EventArgs e)
         {
             // Tạo một instance của FrmManagerStatistics và truyền userID

@@ -43,11 +43,6 @@
             this.TinhTrangPhucVu = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TinhTrangGiaoHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pbReturn = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnAddMenu = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
