@@ -131,6 +131,12 @@
     <Compile Include="FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManagerStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManagerStatistics.Designer.cs">
+      <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddEmployee.resx">
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManager.resx">
       <DependentUpon>FrmManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManagerStatistics.resx">
+      <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

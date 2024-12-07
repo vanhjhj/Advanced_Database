@@ -520,6 +520,38 @@ BEGIN
 END
 GO
 
+--Chủ chi nhánh lấy danh sách thực đơn và tình trạng thực đơn của chi nhánh
+use QUAN_LY_NHA_HANG
+go
+CREATE OR ALTER PROCEDURE USP_QuanLiXemThucDonChiNhanh
+	@MaTK VARCHAR(10)
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại', 1
+
+	--Kiểm tra tài khoản có phải là quản lý
+	IF NOT EXISTS (SELECT 1 FROM ChiNhanh WHERE QuanLy = @MaTK)
+		THROW 50000, N'Tài khoản không phải là quản lý của chi nhánh', 1
+
+	--Nếu là quản lí, lấy mã chi nhánh mà người đó quản lý
+	DECLARE @MaCN VARCHAR(10)
+	SELECT @MaCN = MaCN
+	FROM ChiNhanh 
+	WHERE QuanLy = @MaTK
+
+	--Lấy ra mã món, tên món, tình trạng phục vụ, tình trạng giao hàng
+	SELECT ma.MaMA, ma.TenMA, td.TinhTrangPhucVu, td.TinhTrangGiaoHang
+	FROM ThucDon td 
+	JOIN MonAn ma ON td.MaMA = ma.MaMA
+	WHERE td.MaCN = @MaCN
+END
+GO
+
+exec USP_QuanLiXemThucDonChiNhanh 'NV0000'
+
+--Tạo kiểu dữ liệu để cập nhật thực đơn
 
 CREATE TYPE dbo.ThucDonThayDoi AS TABLE
 (
@@ -573,3 +605,69 @@ BEGIN
 	CLOSE cur
 	DEALLOCATe cur
 END
+GO
+
+-- Quản Lý Thống Kê
+GO
+CREATE OR ALTER PROCEDURE USP_QuanLyThongKe
+    @MaTK VARCHAR(10),
+    @NgayBD DATETIME,
+    @NgayKT DATETIME,
+    @TongSoLuongBan INT OUTPUT, 
+    @TongDoanhThu BIGINT OUTPUT
+AS
+BEGIN
+    BEGIN TRY
+        -- Kiểm tra userID hợp lệ
+        IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
+        BEGIN
+            ;THROW 60000, N'UserID không hợp lệ hoặc không tồn tại.', 1;
+        END
+
+        -- Lấy thông tin chi nhánh từ userID
+        DECLARE @MaCN NVARCHAR(10);
+        SELECT @MaCN = NV.MaCN
+        FROM NhanVien NV
+        JOIN ChiNhanh CN ON CN.MaCN = NV.MaCN
+        WHERE MaTK = @MaTK;
+
+        -- Kiểm tra chi nhánh hợp lệ
+        IF @MaCN IS NULL
+        BEGIN
+            ;THROW 60001, N'Nhân viên không thuộc chi nhánh nào.', 1;
+        END
+
+        -- Kiểm tra điều kiện ngày
+        IF @NgayKT < @NgayBD
+        BEGIN
+            ;THROW 60002, N'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.', 1;
+        END
+
+        -- Thống kê theo món ăn
+        SELECT MA.TenMA AS DishName, 
+               SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
+               SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
+        FROM MonAn MA
+        JOIN CTPD ON MA.MaMA = CTPD.MaMA
+        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+        WHERE PD.MaCN = @MaCN 
+        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT 
+        GROUP BY MA.MaMA, MA.TenMA
+        ORDER BY Revenue DESC;
+
+        -- Thống kê tổng
+        SELECT @TongSoLuongBan = SUM(ISNULL(CTPD.SoLuong, 0)),
+               @TongDoanhThu = CAST(SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS BIGINT)
+        FROM CTPD
+        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+        WHERE PD.MaCN = @MaCN 
+          AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT;
+
+    END TRY
+    BEGIN CATCH
+        THROW;
+    END CATCH
+END
+GO

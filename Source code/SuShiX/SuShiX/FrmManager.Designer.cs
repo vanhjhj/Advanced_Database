@@ -175,6 +175,7 @@
             this.btnStatistics.TabIndex = 2;
             this.btnStatistics.Text = "Thống kê doanh thu";
             this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnManageMenu
             // 
@@ -236,7 +237,8 @@
             // 
             // FrmManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 744);
             this.Controls.Add(this.tableLayoutPanel1);
