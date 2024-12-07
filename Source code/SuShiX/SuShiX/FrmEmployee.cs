@@ -15,16 +15,13 @@ namespace SuShiX
             private set { userID = value; }
         }
 
-        public FrmEmployee()
-        {
-            InitializeComponent();
-        }
-
         // Constructor nhận userID khi khởi tạo form
         public FrmEmployee(string userID)
         {
             InitializeComponent();
             this.UserID = userID;
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
 
             // Sử dụng userID để thực hiện các tác vụ
             LoadEmployeeData();
@@ -40,11 +37,20 @@ namespace SuShiX
             // Thực thi truy vấn và hiển thị dữ liệu
         }
 
-        // Ví dụ một hàm khác sử dụng userID
-        private void SomeOtherFunction()
+        private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            // Bạn có thể sử dụng UserID ở đây mà không lo bị sửa đổi ngoài ý muốn
-            Console.WriteLine($"User ID hiện tại là: {UserID}");
+            this.Hide();
+            FrmEmployeeOrder frmEmployeeOrder = new FrmEmployeeOrder(userID);
+            frmEmployeeOrder.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            this.Close();
         }
     }
 }

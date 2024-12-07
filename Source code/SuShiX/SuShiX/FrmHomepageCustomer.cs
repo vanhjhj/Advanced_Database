@@ -17,11 +17,8 @@ namespace SuShiX
         {
             InitializeComponent();
             this.userID = userID;
-        }
-
-        private void FrmHomepageCustomer_Load(object sender, EventArgs e)
-        {
-
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

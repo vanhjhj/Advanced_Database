@@ -15,10 +15,6 @@ namespace SuShiX
             private set { userID = value; }
         }
 
-        public FrmManager()
-        {
-            InitializeComponent();
-        }
 
         // Constructor nhận userID khi khởi tạo form
         public FrmManager(string userID)
@@ -26,8 +22,10 @@ namespace SuShiX
             InitializeComponent();
             this.UserID = userID;
 
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
             // Sử dụng userID để thực hiện các tác vụ
-            LoadManagerData();
+            //LoadManagerData();
         }
 
         // Hàm tải dữ liệu quản lý dựa trên userID
@@ -52,6 +50,40 @@ namespace SuShiX
             this.Hide();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void btnManageMenu_Click(object sender, EventArgs e)
+        {
+            FrmManageMenu frmManageMenu = new FrmManageMenu(userID);
+            this.Hide();
+            frmManageMenu.ShowDialog();
+            this.Close();
+        }
+
+        private void FrmManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManageIn4Employee_Click(object sender, EventArgs e)
+        {
+            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
+            this.Hide();
+            frmManageEmployee.ShowDialog();
+        }
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của FrmManagerStatistics và truyền userID
+            FrmManagerStatistics frmManagerStatistics = new FrmManagerStatistics(userID);
+
+            // Ẩn form hiện tại
+            this.Hide();
+
+            // Hiển thị FrmManagerStatistics
+            frmManagerStatistics.ShowDialog();
+
+            // Đóng form hiện tại sau khi FrmManagerStatistics đóng
             this.Close();
         }
     }

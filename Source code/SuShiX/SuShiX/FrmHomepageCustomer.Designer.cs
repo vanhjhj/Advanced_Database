@@ -71,9 +71,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.login2;
             this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(675, 757);
+            this.pictureBox1.Size = new System.Drawing.Size(674, 757);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -85,13 +85,13 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(681, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(680, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.7F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.3F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(581, 757);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(582, 757);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pictureBox2
@@ -99,9 +99,9 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::SuShiX.Properties.Resources.sushi_logo;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(577, 175);
+            this.pictureBox2.Size = new System.Drawing.Size(578, 175);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -114,7 +114,7 @@
             this.tableLayoutPanel3.Controls.Add(this.pbHomepage, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbHomepage, 0, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 181);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
@@ -138,7 +138,7 @@
             this.tableLayoutPanel4.Controls.Add(this.btnLogout, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -152,7 +152,7 @@
             this.btnMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Location = new System.Drawing.Point(6, 31);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(101, 54);
             this.btnMenu.TabIndex = 0;
@@ -166,7 +166,7 @@
             this.btnAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddress.ForeColor = System.Drawing.Color.White;
             this.btnAddress.Location = new System.Drawing.Point(120, 31);
-            this.btnAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddress.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddress.Name = "btnAddress";
             this.btnAddress.Size = new System.Drawing.Size(101, 54);
             this.btnAddress.TabIndex = 1;
@@ -180,11 +180,11 @@
             this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
             this.btnUpdateIn4.Location = new System.Drawing.Point(234, 31);
-            this.btnUpdateIn4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateIn4.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateIn4.Name = "btnUpdateIn4";
             this.btnUpdateIn4.Size = new System.Drawing.Size(101, 54);
             this.btnUpdateIn4.TabIndex = 2;
-            this.btnUpdateIn4.Text = "Cập nhật thông tin";
+            this.btnUpdateIn4.Text = "Thông tin cá nhân";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
             this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
             // 
@@ -195,7 +195,7 @@
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.ForeColor = System.Drawing.Color.White;
             this.btnOrder.Location = new System.Drawing.Point(348, 31);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(101, 54);
             this.btnOrder.TabIndex = 3;
@@ -210,7 +210,7 @@
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Location = new System.Drawing.Point(464, 31);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(101, 54);
             this.btnLogout.TabIndex = 4;
@@ -224,7 +224,7 @@
             this.pbHomepage.Enabled = false;
             this.pbHomepage.Image = global::SuShiX.Properties.Resources.homepage;
             this.pbHomepage.Location = new System.Drawing.Point(2, 122);
-            this.pbHomepage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbHomepage.Margin = new System.Windows.Forms.Padding(2);
             this.pbHomepage.Name = "pbHomepage";
             this.pbHomepage.Size = new System.Drawing.Size(573, 328);
             this.pbHomepage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,11 +251,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmHomepageCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHomepageCustomer";
-            this.Load += new System.EventHandler(this.FrmHomepageCustomer_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
