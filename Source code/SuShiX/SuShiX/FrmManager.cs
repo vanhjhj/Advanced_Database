@@ -61,6 +61,17 @@ namespace SuShiX
             this.Close();
         }
 
+        private void FrmManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManageIn4Employee_Click(object sender, EventArgs e)
+        {
+            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
+            this.Hide();
+            frmManageEmployee.ShowDialog();
+        }
         private void btnStatistics_Click(object sender, EventArgs e)
         {
             // Tạo một instance của FrmManagerStatistics và truyền userID
