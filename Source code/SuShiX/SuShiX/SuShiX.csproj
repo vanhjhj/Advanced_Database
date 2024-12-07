@@ -47,11 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="FrmAddEmployee.cs" />
+    <Compile Include="FrmAddEmployee.Designer.cs">
+      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAssignEmployee.cs" />
+    <Compile Include="FrmAssignEmployee.Designer.cs">
+      <DependentUpon>FrmAssignEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCusOrder.cs">
       <SubType>Form</SubType>
@@ -77,6 +85,12 @@
     <Compile Include="FrmEmployee.Designer.cs">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEmployeeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployeeOrder.Designer.cs">
+      <DependentUpon>FrmEmployeeOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHomepageCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,16 +103,38 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManageEmployee.cs" />
+    <Compile Include="FrmManageEmployee.Designer.cs">
+      <DependentUpon>FrmManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManageIn4Employee.cs" />
+    <Compile Include="FrmManageIn4Employee.Designer.cs">
+      <DependentUpon>FrmManageIn4Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManageMenu.cs" />
+    <Compile Include="FrmManageMenu.Designer.cs">
+      <DependentUpon>FrmManageMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManagerStatistics.cs" />
+    <Compile Include="FrmManagerStatistics.Designer.cs">
+      <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddEmployee.resx">
+      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAssignEmployee.resx">
+      <DependentUpon>FrmAssignEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCusOrder.resx">
       <DependentUpon>FrmCusOrder.cs</DependentUpon>
@@ -112,14 +148,29 @@
     <EmbeddedResource Include="FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployeeOrder.resx">
+      <DependentUpon>FrmEmployeeOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHomepageCustomer.resx">
       <DependentUpon>FrmHomepageCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageEmployee.resx">
+      <DependentUpon>FrmManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageIn4Employee.resx">
+      <DependentUpon>FrmManageIn4Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageMenu.resx">
+      <DependentUpon>FrmManageMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmManager.resx">
       <DependentUpon>FrmManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManagerStatistics.resx">
+      <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
