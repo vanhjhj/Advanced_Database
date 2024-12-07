@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
-    <Compile Include="FrmAddEmployee.cs" />
+    <Compile Include="FrmAddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmAddEmployee.Designer.cs">
       <DependentUpon>FrmAddEmployee.cs</DependentUpon>
     </Compile>
@@ -57,7 +59,9 @@
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAssignEmployee.cs" />
+    <Compile Include="FrmAssignEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmAssignEmployee.Designer.cs">
       <DependentUpon>FrmAssignEmployee.cs</DependentUpon>
     </Compile>
@@ -103,15 +107,21 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManageEmployee.cs" />
+    <Compile Include="FrmManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmManageEmployee.Designer.cs">
       <DependentUpon>FrmManageEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManageIn4Employee.cs" />
+    <Compile Include="FrmManageIn4Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmManageIn4Employee.Designer.cs">
       <DependentUpon>FrmManageIn4Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManageMenu.cs" />
+    <Compile Include="FrmManageMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmManageMenu.Designer.cs">
       <DependentUpon>FrmManageMenu.cs</DependentUpon>
     </Compile>
@@ -121,7 +131,9 @@
     <Compile Include="FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManagerStatistics.cs" />
+    <Compile Include="FrmManagerStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmManagerStatistics.Designer.cs">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </Compile>

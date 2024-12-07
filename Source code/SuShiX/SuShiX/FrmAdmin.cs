@@ -25,6 +25,8 @@ namespace SuShiX
         {
             InitializeComponent();
             this.UserID = userID;
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
 
             // Sử dụng userID để thực hiện các tác vụ
             LoadAdminData();

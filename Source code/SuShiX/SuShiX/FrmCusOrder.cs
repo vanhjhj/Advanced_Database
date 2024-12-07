@@ -38,6 +38,8 @@ namespace SuShiX
         {
             InitializeComponent();
             this.userID = userID;
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
 
             // Đảm bảo khi form mở cbbOrderType chưa được chọn
             cbbOrderType.SelectedItem = null;
@@ -47,6 +49,8 @@ namespace SuShiX
 
             // Lưu thời gian truy cập khi form mở
             timeAccess = DateTime.Now;
+
+            dgvOrderDetails.RowHeadersVisible = false;
         }
 
         // Hàm bật tất cả các điều khiển

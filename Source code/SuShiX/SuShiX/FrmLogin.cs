@@ -16,6 +16,8 @@ namespace SuShiX
         public FrmLogin()
         {
             InitializeComponent();
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
