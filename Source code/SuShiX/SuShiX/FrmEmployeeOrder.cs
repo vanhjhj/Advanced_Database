@@ -252,7 +252,6 @@ namespace SuShiX
                         // Thực thi thủ tục
                         cmd.ExecuteNonQuery();
 
-                        // Thông báo thành công
                         MessageBox.Show("Đặt bàn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
