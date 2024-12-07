@@ -158,8 +158,6 @@ BEGIN
 END
 GO
 
-
-
 -- Lấy thông tin chi nhánh
 GO
 CREATE OR ALTER PROCEDURE USP_ThongTinChiNhanh 
@@ -669,5 +667,94 @@ BEGIN
     BEGIN CATCH
         THROW;
     END CATCH
+END
+GO
+
+-- Thực đơn cho nhân viên xem khi lập phiếu
+GO
+CREATE OR ALTER PROCEDURE USP_ThucDonChoDatBanTrucTiep
+	@TkLap VARCHAR(10), 
+	@TenCN NVARCHAR(50) OUTPUT
+AS
+BEGIN
+	-- Kiểm tra tài khoản lập có tồn tại và có là nhân viên không
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @TkLap)
+	BEGIN
+		;THROW 50000, N'Tài khoản lập không tồn tại hoặc không phải là nhân viên', 1
+	END
+
+	-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
+	DECLARE @MaCN VARCHAR(10);
+
+	SELECT @MaCN = CN.MaCN, @TenCN = CN.TenCN
+	FROM ChiNhanh CN
+	JOIN NhanVien NV ON NV.MaCN = CN.MaCN
+	WHERE NV.MaTK = @TkLap;
+
+	-- Lấy ra thực đơn của chi nhánh nhân viên làm việc
+	SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, MA.GiaHienTai AS Price
+	FROM Muc 
+	JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
+	JOIN ThucDon TD ON TD.MaMA = MA.MaMA
+	JOIN ChiNhanh CN ON CN.MaCN = TD.MaCN
+	WHERE CN.MaCN = @MaCN AND TD.TinhTrangPhucVu = N'Có';
+END
+GO
+
+-- Lập Phiếu Đặt Bàn Trực Tiếp
+GO
+CREATE OR ALTER PROCEDURE USP_DatBanTrucTiep
+	@TkLap VARCHAR(10),
+	@CTPD dbo.CTPDType READONLY 
+AS
+BEGIN
+	DECLARE @MaCN VARCHAR(10);
+
+	-- Lấy ra mã chi nhánh của nhân viên
+	SELECT @MaCN = NV.MaCN
+	FROM NhanVien NV
+	WHERE NV.MaTK = @TkLap;
+
+	-- Biến để lưu MaPhieu mới
+    DECLARE @MaPhieu VARCHAR(10);
+
+    -- Tạo mã phiếu mới tự động
+    DECLARE @MaxMaPhieu INT;
+    SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
+    FROM PhieuDat
+	WHERE MaPhieu LIKE 'PDTT%';
+
+    SET @MaPhieu = 'PDTT' + FORMAT(@MaxMaPhieu + 1, '0000');
+
+	-- Bước 1: Nhập dữ liệu vào bảng PhieuDat
+    INSERT INTO PhieuDat (MaPhieu, TinhTrangThanhToan, LoaiPD, MaCN, TkLap)
+    VALUES (@MaPhieu, N'Chưa Thanh Toán', N'Trực Tiếp', @MaCN, @TkLap);
+
+    -- Bước 2: Nhập dữ liệu vào bảng CTPD
+    DECLARE @DishName NVARCHAR(50), @SoLuong INT, @DonGia INT, @ThanhTien INT, @GhiChuCTPD NVARCHAR(200);
+    DECLARE @MaMA VARCHAR(10); -- Mã món ăn
+
+	-- Lặp qua tất cả các món ăn được chọn trong TVP
+    DECLARE cur CURSOR FOR
+    SELECT DishName, Amount, Price, TotalAmount, Note
+    FROM @CTPD;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+
+    -- Lặp qua từng món ăn trong danh sách
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy MaMA từ bảng MonAn dựa trên TenMA
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @DishName;
+
+        INSERT INTO CTPD (MaPhieu, MaMA, SoLuong, DonGia, ThanhTien, GhiChu)
+        VALUES (@MaPhieu, @MaMA, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD);
+
+        FETCH NEXT FROM cur INTO @DishName, @SoLuong, @DonGia, @ThanhTien, @GhiChuCTPD;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
 END
 GO
