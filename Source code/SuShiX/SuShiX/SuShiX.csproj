@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="FrmAddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddEmployee.Designer.cs">
+      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddMenuItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     </Compile>
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAssignEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAssignEmployee.Designer.cs">
+      <DependentUpon>FrmAssignEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCusOrder.cs">
       <SubType>Form</SubType>
@@ -95,6 +107,18 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageEmployee.Designer.cs">
+      <DependentUpon>FrmManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManageIn4Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageIn4Employee.Designer.cs">
+      <DependentUpon>FrmManageIn4Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmManageMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +133,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddEmployee.resx">
+      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAddMenuItem.resx">
       <DependentUpon>FrmAddMenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAssignEmployee.resx">
+      <DependentUpon>FrmAssignEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCusOrder.resx">
       <DependentUpon>FrmCusOrder.cs</DependentUpon>
@@ -132,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageEmployee.resx">
+      <DependentUpon>FrmManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageIn4Employee.resx">
+      <DependentUpon>FrmManageIn4Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageMenu.resx">
       <DependentUpon>FrmManageMenu.cs</DependentUpon>

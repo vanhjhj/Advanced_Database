@@ -60,5 +60,18 @@ namespace SuShiX
             frmManageMenu.ShowDialog();
             this.Close();
         }
+
+        private void FrmManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManageIn4Employee_Click(object sender, EventArgs e)
+        {
+            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
+            this.Hide();
+            frmManageEmployee.ShowDialog();
+            this.Close();
+        }
     }
 }

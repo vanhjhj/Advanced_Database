@@ -185,5 +185,9 @@ namespace SuShiX
             LoadMenuData();
         }
 
+        private void FrmManageMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
