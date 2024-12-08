@@ -670,6 +670,52 @@ BEGIN
 END
 GO
 
+-- Xem thông tin chủ chi nhánh/nhân viên
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVien
+    @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
+AS
+BEGIN
+    SELECT TK.TenTK,TK.MatKhau,
+           NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi, NV.MaBP, NV.MaCN
+    FROM TaiKhoan TK
+	JOIN NhanVien NV ON TK.MaTK = NV.MaTK
+    WHERE TK.MaTK = @MaTK
+END;
+GO
+
+--Chỉnh sửa thông tin chủ chi nhánh/nhân viên
+GO 
+CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVien
+	@MaTK VARCHAR(10),    
+    @TenTK VARCHAR(50),   
+    @MatKhau VARCHAR(20), 
+	@Hoten NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@SDT VARCHAR(10),
+	@DiaChi NVARCHAR(200)
+AS
+BEGIN
+	IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK AND MaTK != @MaTK)
+    BEGIN
+        ;THROW 50000, 'Tên tài khoản đã tồn tại.', 1;
+    END
+	IF EXISTS (SELECT 1 FROM NhanVien WHERE SDT = @SDT AND MaTK!=@MaTK)
+    BEGIN
+        ;THROW 50000, 'Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.', 1;
+    END
+
+	UPDATE TaiKhoan
+	SET TenTK=@TenTK, MatKhau=@MatKhau
+	WHERE MaTK=@MaTK;
+
+	UPDATE NhanVien
+	SET Hoten=@Hoten, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, SDT=@SDT, DiaChi=@DiaChi
+	WHERE MaTK=@MaTK;
+END;
+GO
+
 -- Thực đơn cho nhân viên xem khi lập phiếu
 GO
 CREATE OR ALTER PROCEDURE USP_ThucDonChoDatBanTrucTiep
