@@ -52,5 +52,21 @@ namespace SuShiX
             frmLogin.ShowDialog();
             this.Close();
         }
+
+        private void btnUpdateOfflineOrder_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUpdateOnlineOrders frmUpdateOnlineOrders = new FrmUpdateOnlineOrders(userID);
+            frmUpdateOnlineOrders.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdateOnlineOrder_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUpdateOnlineOrders frmUpdateOnlineOrders = new FrmUpdateOnlineOrders(userID);
+            frmUpdateOnlineOrders.ShowDialog();
+            this.Close();
+        }
     }
 }

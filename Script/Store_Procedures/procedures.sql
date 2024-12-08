@@ -758,3 +758,218 @@ BEGIN
     DEALLOCATE cur;
 END
 GO
+
+-- Lấy danh sách phiếu đặt online của khách hàng qua số điện thoại
+GO
+CREATE OR ALTER PROCEDURE USP_DanhSachDatOnline
+    @LoaiPhieuDat NVARCHAR(20),
+    @MaTKNhanVien VARCHAR(10),
+    @SDTKhachHang VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaPhieuResult TABLE (MaPhieu VARCHAR(50));
+
+    IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+    BEGIN
+        INSERT INTO @MaPhieuResult (MaPhieu)
+        SELECT PD.MaPhieu
+        FROM KhachHang KH
+        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+    END
+    ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+    BEGIN
+        INSERT INTO @MaPhieuResult (MaPhieu)
+        SELECT PD.MaPhieu
+        FROM KhachHang KH
+        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+    END
+
+    -- Kiểm tra kết quả và ném lỗi nếu không tìm thấy bản ghi nào
+    IF NOT EXISTS (SELECT 1 FROM @MaPhieuResult)
+    BEGIN
+        ;THROW 50000, N'Không tìm thấy phiếu đặt nào với thông tin đã cung cấp hoặc nhân viên không thuộc chi nhánh mà khách hàng đặt.', 1;
+    END
+
+    -- Trả kết quả nếu có
+    SELECT MaPhieu FROM @MaPhieuResult;
+END
+GO
+
+-- Lấy ra chi tiết phiếu đặt online
+CREATE OR ALTER PROCEDURE USP_CTPD_Online
+	@MaPhieu VARCHAR(10),
+	@MaTKNhanVien VARCHAR(10),
+	@GhiChu NVARCHAR(200) OUTPUT,
+	@SLKhach INT OUTPUT,
+	@ThoiGianDen DateTime OUTPUT,
+	@DiaChi NVARCHAR(200) OUTPUT,
+	@SDTNguoiNhan VARCHAR(10) OUTPUT
+AS
+BEGIN
+	DECLARE @LoaiPhieuDat NVARCHAR(20);
+	SELECT @LoaiPhieuDat = LoaiPD
+	FROM PhieuDat 
+	WHERE MaPhieu = @MaPhieu;
+
+	IF @LoaiPhieuDat = N'Trực Tuyến'
+    BEGIN
+		-- Lấy ra số lượng khách, thời gian đến
+        SELECT @SLKhach = SLKhach, @ThoiGianDen = ThoiGianDen, 
+			   @DiaChi = NULL, @SDTNguoiNhan = NULL,
+			   @GhiChu = GhiChu
+		FROM PhieuDatBanTrucTuyen
+		WHERE MaPhieu = @MaPhieu;
+
+		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
+		DECLARE @MaCNTT VARCHAR(10);
+
+		SELECT @MaCNTT = CN.MaCN
+		FROM ChiNhanh CN
+		JOIN NhanVien NV ON NV.MaCN = CN.MaCN
+		WHERE NV.MaTK = @MaTKNhanVien;
+
+		-- Những món đã đặt
+		SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, CTPD.SoLuong AS Amount,
+			   CTPD.DonGia AS Price, CTPD.ThanhTien AS TotalAmount, CTPD.GhiChu AS Note
+		FROM PhieuDatBanTrucTuyen PDTT
+		JOIN CTPD ON PDTT.MaPhieu = CTPD.MaPhieu
+		JOIN MonAn MA ON MA.MaMA = CTPD.MaMA
+		JOIN Muc ON MA.MaMuc = Muc.MaMuc
+		WHERE PDTT.MaPhieu = @MaPhieu
+
+		UNION
+
+		-- Lấy ra thực đơn của chi nhánh nhân viên làm việc
+		SELECT DISTINCT MA.TenMA AS DishName, Muc.TenMuc AS DishType, NULL AS Amount, 
+						MA.GiaHienTai AS Price, NULL AS TotalAmount, NULL AS Note
+		FROM Muc 
+		JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
+		JOIN ThucDon TD ON TD.MaMA = MA.MaMA
+		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
+		WHERE PD.MaCN = @MaCNTT AND TD.TinhTrangPhucVu = N'Có'
+    END
+    ELSE IF @LoaiPhieuDat = N'Giao Hàng'
+    BEGIN
+		-- Lấy ra Địa chỉ, số điện thoại người nhận
+        SELECT @DiaChi = DiaChi, @SDTNguoiNhan = SDTNguoiNhan,
+			   @SLKhach = NULL, @ThoiGianDen = NULL,
+			   @GhiChu = GhiChuGH
+		FROM PhieuDatGiaoHang
+		WHERE MaPhieu = @MaPhieu;
+
+		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
+		DECLARE @MaCNGH VARCHAR(10);
+
+		SELECT @MaCNGH = CN.MaCN
+		FROM ChiNhanh CN
+		JOIN NhanVien NV ON NV.MaCN = CN.MaCN
+		WHERE NV.MaTK = @MaTKNhanVien;
+
+		SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, CTPD.SoLuong AS Amount,
+			   CTPD.DonGia AS Price, CTPD.ThanhTien AS TotalAmount, CTPD.GhiChu AS Note
+		FROM PhieuDatGiaoHang PDGH
+		JOIN CTPD ON PDGH.MaPhieu = CTPD.MaPhieu
+		JOIN MonAn MA ON MA.MaMA = CTPD.MaMA
+		JOIN Muc ON MA.MaMuc = Muc.MaMuc
+		WHERE PDGH.MaPhieu = @MaPhieu
+
+		UNION
+
+		-- Lấy ra thực đơn của chi nhánh nhân viên làm việc
+		SELECT DISTINCT MA.TenMA AS DishName, Muc.TenMuc AS DishType, NULL AS Amount, 
+						MA.GiaHienTai AS Price, NULL AS TotalAmount, NULL AS Note
+		FROM Muc 
+		JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
+		JOIN ThucDon TD ON TD.MaMA = MA.MaMA
+		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
+		WHERE PD.MaCN = @MaCNGH AND TD.TinhTrangGiaoHang = N'Có';
+    END
+END
+GO
+
+-- Cập nhật phiếu đặt online
+CREATE OR ALTER PROCEDURE USP_CapNhatPhieuDatOnline
+    @Maphieu VARCHAR(10),
+    @LoaiPhieuDat NVARCHAR(20),
+    @GhiChu NVARCHAR(200),
+    @SLKhach INT,
+    @ThoiGianDen DATETIME,
+    @DiaChi NVARCHAR(200),
+    @SDTNguoiNhan VARCHAR(10),
+    @CTPD dbo.CTPDType READONLY
+AS
+BEGIN
+    -- Kiểm tra loại phiếu đặt để xử lý logic khác nhau
+    IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+    BEGIN
+        -- Cập nhật bảng Phiếu Đặt Giao Hàng
+        UPDATE PhieuDatGiaoHang
+        SET DiaChi = @DiaChi, SDTNguoiNhan = @SDTNguoiNhan, GhiChuGH = @GhiChu
+        WHERE MaPhieu = @Maphieu;
+    END
+    
+    ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+    BEGIN
+        -- Cập nhật bảng Phiếu Đặt Bàn Trực Tuyến
+        UPDATE PhieuDatBanTrucTuyen
+        SET SLKhach = @SLKhach, ThoiGianDen = @ThoiGianDen, GhiChu = @GhiChu
+        WHERE MaPhieu = @Maphieu;
+    END
+
+    -- Cập nhật chi tiết phiếu đặt (CTPD)
+	-- Xóa hết các món cũ để nhập lại từ đầu
+	DELETE FROM CTPD WHERE MaPhieu = @Maphieu;
+    
+	-- Lặp qua từng món ăn trong @CTPD
+    DECLARE @MaMA NVARCHAR(50), @Amount INT, @Price INT, @TotalAmount INT, @Note NVARCHAR(200);
+
+    DECLARE c CURSOR FOR
+        SELECT DishName, Amount, Price, TotalAmount, Note FROM @CTPD
+        WHERE Amount IS NOT NULL AND Amount > 0;
+    
+    OPEN c;
+    FETCH NEXT FROM c INTO @MaMA, @Amount, @Price, @TotalAmount, @Note;
+    
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy MaMA từ TenMA
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @MaMA;
+		-- Nếu không có, thêm mới vào CTPD
+        INSERT INTO CTPD (MaPhieu, MaMA, SoLuong, DonGia, ThanhTien, GhiChu)
+        VALUES (@Maphieu, @MaMA, @Amount, @Price, @TotalAmount, @Note);
+        
+        FETCH NEXT FROM c INTO @MaMA, @Amount, @Price, @TotalAmount, @Note;
+    END
+
+    CLOSE c;
+    DEALLOCATE c;
+
+    -- Xóa các món ăn mà khách hàng không đặt nữa
+    DELETE FROM CTPD
+    WHERE MaPhieu = @Maphieu
+    AND MaMA NOT IN (SELECT MaMA FROM @CTPD WHERE Amount IS NOT NULL AND Amount > 0);
+
+    -- Kiểm tra xem có còn món ăn nào trong CTPD cho phiếu đặt này không
+    IF NOT EXISTS (SELECT 1 FROM CTPD WHERE MaPhieu = @Maphieu)
+    BEGIN
+        -- Nếu không còn món nào, xóa phiếu đặt ở các bảng liên quan
+        IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+        BEGIN
+            DELETE FROM PhieuDatBanTrucTuyen WHERE MaPhieu = @Maphieu;
+        END
+        ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+        BEGIN
+            DELETE FROM PhieuDatGiaoHang WHERE MaPhieu = @Maphieu;
+        END
+
+        -- Xóa phiếu đặt tổng ở bảng PhieuDat
+        DELETE FROM PhieuDat WHERE MaPhieu = @Maphieu;
+    END
+END;
+GO
