@@ -11,16 +11,13 @@ using System.Windows.Forms;
 
 namespace SuShiX
 {
-    public partial class FrmManageIn4Employee : Form
+    public partial class FrmUpdateIn4Employee : Form
     {
         // Biến private lưu trữ userID
         private string userID;
 
         // Connection string cho cơ sở dữ liệu
         private string connectionString = AppConfig.connectionString;
-
-        //Biến private lưu trữ mã nhân viên
-        private string employeeID;
 
         // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
         public string UserID
@@ -29,32 +26,21 @@ namespace SuShiX
             private set { userID = value; }
         }
 
-        public FrmManageIn4Employee(string userID, string employeeID)
+        public FrmUpdateIn4Employee(string userID)
         {
             InitializeComponent();
             this.UserID = userID;
             this.Width = AppConfig.formWidth;
             this.Height = AppConfig.formHeight;
-            this.employeeID = employeeID;
             LoadEmployeeData();
-        }
-
-        private void FrmManageIn4Employee_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
+            FrmManager frmManager = new FrmManager(userID);
             this.Hide();
-            frmManageEmployee.ShowDialog();
+            frmManager.ShowDialog();
             this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UpdateEmployeeInfo();
         }
 
         private void LoadEmployeeData()
@@ -66,14 +52,14 @@ namespace SuShiX
                     conn.Open();
 
                     // Tạo đối tượng SqlCommand để gọi thủ tục
-                    using (SqlCommand cmd = new SqlCommand("USP_XemThongTinNhanVienTuQuanLy", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_XemThongTinNhanVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         // Thêm tham số @MaTK
                         cmd.Parameters.Add(new SqlParameter("@MaTK", SqlDbType.NVarChar)
                         {
-                            Value = this.employeeID
+                            Value = this.UserID
                         });
 
                         // Thực thi lệnh và lấy dữ liệu
@@ -81,13 +67,15 @@ namespace SuShiX
                         {
                             if (reader.Read())
                             {
-                                txbEmployeeID.Text = this.employeeID;
+                                // Gán dữ liệu vào các textbox
+                                txbUsername.Text = reader["TenTK"].ToString();
+                                txbPassword.Text = reader["MatKhau"].ToString();
                                 txbFullName.Text = reader["Hoten"].ToString();
-                                dtpDateOfBirth.Value = reader["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(reader["NgaySinh"]) : new DateTime(1900, 1, 1);
+                                dtpDateOfBirth.Value = reader["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(reader["NgaySinh"]) : DateTime.Now;
                                 cbbGender.Text = reader["GioiTinh"].ToString();
                                 txbPhoneNumber.Text = reader["SDT"].ToString();
-                                dtpStartDate.Value = reader["NgayVaoLam"] != DBNull.Value ? Convert.ToDateTime(reader["NgayVaoLam"]) : new DateTime(1900, 1, 1);
-                                dtpEndDate.Value = reader["NgayNghiViec"] != DBNull.Value ? Convert.ToDateTime(reader["NgayNghiViec"]) : new DateTime(1900, 1, 1);
+                                txbStartDate.Text = reader["NgayVaoLam"] != DBNull.Value && DateTime.TryParse(reader["NgayVaoLam"].ToString(), out DateTime NgayVaoLam)? NgayVaoLam.ToString("dd/MM/yyyy"): "";
+                                txbEndDate.Text = reader["NgayNghiViec"] != DBNull.Value && DateTime.TryParse(reader["NgayNghiViec"].ToString(), out DateTime NgayNghiViec) ? NgayNghiViec.ToString("dd/MM/yyyy") : "";
                                 txbDepartment.Text = reader["MaBP"].ToString();
                                 txbBranch.Text = reader["MaCN"].ToString();
                             }
@@ -114,23 +102,17 @@ namespace SuShiX
                     conn.Open();
 
                     // Gọi thủ tục cập nhật thông tin khách hàng
-                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatThongTinNhanVienTuQuanLy", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatThongTinNhanVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         // Thêm các tham số
-                        cmd.Parameters.AddWithValue("@MaTK", this.employeeID);
+                        cmd.Parameters.AddWithValue("@MaTK", userID);
+                        cmd.Parameters.AddWithValue("@TenTK", txbUsername.Text.Trim());
+                        cmd.Parameters.AddWithValue("@MatKhau", txbPassword.Text.Trim());
                         cmd.Parameters.AddWithValue("@Hoten", txbFullName.Text.Trim());
                         cmd.Parameters.AddWithValue("@NgaySinh", dtpDateOfBirth.Value);
                         cmd.Parameters.AddWithValue("@GioiTinh", cbbGender.SelectedItem.ToString());
-                        if (dtpEndDate.Value == new DateTime(1900, 1, 1))
-                        {
-                            cmd.Parameters.AddWithValue("@NgayNghiViec", DBNull.Value);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@NgayNghiViec", dtpEndDate.Value);
-                        }
                         cmd.Parameters.AddWithValue("@SDT", txbPhoneNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@DiaChi", txbAddress.Text.Trim());
 
@@ -158,6 +140,50 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmUpdateIn4Employee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbDisplayPassword_Click(object sender, EventArgs e)
+        {
+            if (txbPassword.UseSystemPasswordChar)
+            {
+                txbPassword.UseSystemPasswordChar = false;
+                pbDisplayPassword.Image = Properties.Resources.eye_open; // Icon mắt mở
+            }
+            else
+            {
+                txbPassword.UseSystemPasswordChar = true;
+                pbDisplayPassword.Image = Properties.Resources.eye_close; // Icon mắt đóng
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateEmployeeInfo();
+        }
+
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbFullName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -163,5 +163,13 @@ namespace SuShiX
             endDate = dtpEndDate.Value;
             LoadBranchStatistics();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FrmManager frmManager = new FrmManager(userID);
+            this.Hide();
+            frmManager.ShowDialog();
+            this.Close();
+        }
     }
 }

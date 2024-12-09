@@ -143,6 +143,12 @@
     <Compile Include="FrmUpdateOrders.Designer.cs">
       <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateIn4Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateIn4Employee.Designer.cs">
+      <DependentUpon>FrmUpdateIn4Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddEmployee.resx">
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateOrders.resx">
       <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateIn4Employee.resx">
+      <DependentUpon>FrmUpdateIn4Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
