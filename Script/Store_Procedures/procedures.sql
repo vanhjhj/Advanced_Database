@@ -696,6 +696,46 @@ BEGIN
 END;
 GO 
 
+--Xem thông tin nhân viên(từ người quản lý)
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienTuQuanLy
+    @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
+AS
+BEGIN
+    SELECT NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi, NV.MaBP, NV.MaCN
+    FROM NhanVien NV
+    WHERE NV.MaTK = @MaTK
+END;
+GO
+
+--Cập nhật thông tin nhân viên(từ người quản lý)
+GO 
+CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVienTuQuanLy
+	@MaTK VARCHAR(10),    
+	@Hoten NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@NgayNghiViec DATETIME,
+	@SDT VARCHAR(10),
+	@DiaChi NVARCHAR(200)
+AS
+BEGIN
+	IF EXISTS (SELECT 1 FROM NhanVien WHERE SDT = @SDT AND MaTK!=@MaTK)
+    BEGIN
+        ;THROW 50000, 'Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.', 1;
+    END
+
+	IF @NgayNghiViec<(SELECT NgayVaoLam FROM NhanVien WHERE MaTK=@MaTK)
+	BEGIN
+        ;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng điền ngày khác', 1;
+    END
+
+	UPDATE NhanVien
+	SET Hoten=@Hoten, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, SDT=@SDT, DiaChi=@DiaChi, NgayNghiViec=@NgayNghiViec 
+	WHERE MaTK=@MaTK;
+END;
+GO
+
 -- Xem thông tin chủ chi nhánh/nhân viên
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVien

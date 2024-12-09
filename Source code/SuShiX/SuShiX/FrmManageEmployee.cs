@@ -105,6 +105,7 @@ namespace SuShiX
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }
             }
+            MessageBox.Show($"Bạn cần chọn nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -229,6 +230,7 @@ namespace SuShiX
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }
             }
+            MessageBox.Show($"Bạn cần chọn nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
     }
