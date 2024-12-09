@@ -1,6 +1,6 @@
 ﻿namespace SuShiX
 {
-    partial class FrmManageMenu
+    partial class FrmPromotionManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +34,15 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MaMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrangPhucVu = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TinhTrangGiaoHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pbReturn = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TenLoaiThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpTang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -67,7 +67,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 761);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -132,13 +132,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Edit,
-            this.MaMA,
-            this.TenMA,
-            this.TinhTrangPhucVu,
-            this.TinhTrangGiaoHang});
+            this.TenLoaiThe,
+            this.ChietKhau,
+            this.GiamGia,
+            this.SpTang});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(50, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -148,65 +149,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Edit.FillWeight = 40F;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 69;
-            // 
-            // MaMA
-            // 
-            this.MaMA.DataPropertyName = "MaMA";
-            this.MaMA.HeaderText = "Mã món ăn";
-            this.MaMA.MinimumWidth = 8;
-            this.MaMA.Name = "MaMA";
-            this.MaMA.ReadOnly = true;
-            this.MaMA.Visible = false;
-            this.MaMA.Width = 150;
-            // 
-            // TenMA
-            // 
-            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMA.DataPropertyName = "TenMA";
-            this.TenMA.FillWeight = 50F;
-            this.TenMA.HeaderText = "Tên món ăn";
-            this.TenMA.MinimumWidth = 8;
-            this.TenMA.Name = "TenMA";
-            this.TenMA.ReadOnly = true;
-            // 
-            // TinhTrangPhucVu
-            // 
-            this.TinhTrangPhucVu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TinhTrangPhucVu.DataPropertyName = "TinhTrangPhucVu";
-            this.TinhTrangPhucVu.FillWeight = 48.56065F;
-            this.TinhTrangPhucVu.HeaderText = "Tình trạng phục vụ";
-            this.TinhTrangPhucVu.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangPhucVu.MinimumWidth = 8;
-            this.TinhTrangPhucVu.Name = "TinhTrangPhucVu";
-            this.TinhTrangPhucVu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangPhucVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangPhucVu.Width = 120;
-            // 
-            // TinhTrangGiaoHang
-            // 
-            this.TinhTrangGiaoHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TinhTrangGiaoHang.DataPropertyName = "TinhTrangGiaoHang";
-            this.TinhTrangGiaoHang.FillWeight = 44.71399F;
-            this.TinhTrangGiaoHang.HeaderText = "Tình trạng giao hàng";
-            this.TinhTrangGiaoHang.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangGiaoHang.MinimumWidth = 8;
-            this.TinhTrangGiaoHang.Name = "TinhTrangGiaoHang";
-            this.TinhTrangGiaoHang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangGiaoHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangGiaoHang.Width = 116;
             // 
             // pbReturn
             // 
@@ -259,16 +201,67 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // FrmManageMenu
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.FillWeight = 40F;
+            this.Edit.HeaderText = "Chỉnh sửa";
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 85;
+            // 
+            // TenLoaiThe
+            // 
+            this.TenLoaiThe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenLoaiThe.DataPropertyName = "TenLoaiThe";
+            this.TenLoaiThe.HeaderText = "Tên loại thẻ";
+            this.TenLoaiThe.MinimumWidth = 8;
+            this.TenLoaiThe.Name = "TenLoaiThe";
+            this.TenLoaiThe.ReadOnly = true;
+            this.TenLoaiThe.Width = 104;
+            // 
+            // ChietKhau
+            // 
+            this.ChietKhau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ChietKhau.DataPropertyName = "ChietKhau";
+            this.ChietKhau.FillWeight = 50F;
+            this.ChietKhau.HeaderText = "Chiết khấu";
+            this.ChietKhau.MinimumWidth = 8;
+            this.ChietKhau.Name = "ChietKhau";
+            this.ChietKhau.Width = 99;
+            // 
+            // GiamGia
+            // 
+            this.GiamGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.GiamGia.DataPropertyName = "GiamGia";
+            this.GiamGia.FillWeight = 48.56065F;
+            this.GiamGia.HeaderText = "Giảm giá";
+            this.GiamGia.MinimumWidth = 8;
+            this.GiamGia.Name = "GiamGia";
+            this.GiamGia.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GiamGia.Width = 87;
+            // 
+            // SpTang
+            // 
+            this.SpTang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SpTang.DataPropertyName = "SpTang";
+            this.SpTang.FillWeight = 44.71399F;
+            this.SpTang.HeaderText = "Sản phẩm tặng";
+            this.SpTang.MinimumWidth = 8;
+            this.SpTang.Name = "SpTang";
+            this.SpTang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // FrmPromotionManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FrmManageMenu";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FrmPromotionManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu";
+            this.Text = "Promotion";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -290,14 +283,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pbReturn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Edit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaMA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMA;
-        private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangPhucVu;
-        private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangGiaoHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiThe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChietKhau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiamGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpTang;
     }
 }

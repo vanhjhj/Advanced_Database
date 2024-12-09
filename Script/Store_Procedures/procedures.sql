@@ -1239,3 +1239,49 @@ BEGIN
     END
 END;
 GO
+
+--Tạo kiểu dữ liệu để cập nhật Loại thẻ
+CREATE TYPE dbo.LoaiTheThayDoi AS TABLE
+(
+	TenLoaiThe VARCHAR(10),
+	ChietKhau INT,
+	GiamGia INT,
+	SpTang NVARCHAR(200)
+)
+
+use QUAN_LY_NHA_HANG
+--Admin cập nhật Loại thẻ
+GO
+CREATE OR ALTER PROCEDURE USP_CapNhatLoaiThe
+	@MaTK VARCHAR(10),
+	@LoaiTheThayDoi dbo.LoaiTheThayDoi READONLY
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại', 1
+
+	--Khai báo cursor
+	DECLARE cur CURSOR FOR
+	SELECT TenLoaiThe, ChietKhau, GiamGia, SpTang
+	FROM @LoaiTheThayDoi
+
+	--Khai báo các biến dùng để duyệt
+	DECLARE @TenLoaiThe VARCHAR(10), @ChietKhau INT, @GiamGia INT, @SpTang NVARCHAR(200)
+
+	--Duyệt qua cursor
+	OPEN cur
+	FETCH NEXT FROM cur INTO @TenLoaiThe, @ChietKhau, @GiamGia, @SpTang
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		UPDATE LoaiThe
+		SET ChietKhau = @ChietKhau, GiamGia = @GiamGia, SpTang = @SpTang
+		WHERE TenLoaiThe = @TenLoaiThe
+		FETCH NEXT FROM cur INTO @TenLoaiThe, @ChietKhau, @GiamGia, @SpTang
+	END
+
+	CLOSE cur
+	DEALLOCATe cur
+END
+GO

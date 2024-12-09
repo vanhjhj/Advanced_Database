@@ -143,6 +143,12 @@
     <Compile Include="FrmManagerStatistics.Designer.cs">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPromotionManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPromotionManagement.Designer.cs">
+      <DependentUpon>FrmPromotionManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCusOrder.resx">
       <DependentUpon>FrmCusOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCusRegister.resx">
       <DependentUpon>FrmCusRegister.cs</DependentUpon>
@@ -205,8 +212,12 @@
     <EmbeddedResource Include="FrmManagerStatistics.resx">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPromotionManagement.resx">
+      <DependentUpon>FrmPromotionManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateOrders.resx">
       <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateIn4Employee.resx">
       <DependentUpon>FrmUpdateIn4Employee.cs</DependentUpon>

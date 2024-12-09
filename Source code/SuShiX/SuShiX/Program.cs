@@ -17,11 +17,13 @@ namespace SuShiX
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FrmLogin());
+            //Application.Run(new FrmLogin());
             //Application.Run(new FrmEmployee("NV0020"));
 
             //Application.Run(new FrmManager("NV0000"));
             //Application.Run(new FrmCreateAndReissueCard());
+            Application.Run(new FrmPromotionManagement("NV0000"));
+
         }
     }
 }
