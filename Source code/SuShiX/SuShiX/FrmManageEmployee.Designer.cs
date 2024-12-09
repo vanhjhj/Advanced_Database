@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,8 +43,9 @@
             this.btnAssign = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
+            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MaTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayVaoLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +145,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(3, 2);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 38);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -274,108 +274,92 @@
             // 
             // dgvEmployee
             // 
-            this.dgvEmployee.AllowUserToDeleteRows = false;
-            this.dgvEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Choice,
             this.MaTK,
-            this.Hoten,
+            this.HoTen,
             this.NgaySinh,
             this.GioiTinh,
             this.NgayVaoLam,
             this.NgayNghiViec,
             this.SDT,
             this.DiaChi});
-            this.dgvEmployee.Location = new System.Drawing.Point(3, 54);
-            this.dgvEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEmployee.Location = new System.Drawing.Point(3, 55);
             this.dgvEmployee.Name = "dgvEmployee";
-            this.dgvEmployee.RowHeadersWidth = 62;
-            this.dgvEmployee.RowTemplate.Height = 28;
-            this.dgvEmployee.Size = new System.Drawing.Size(694, 389);
+            this.dgvEmployee.Size = new System.Drawing.Size(694, 387);
             this.dgvEmployee.TabIndex = 2;
-            this.dgvEmployee.TabStop = false;
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
+            // 
+            // Choice
+            // 
+            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Choice.HeaderText = "Chọn";
+            this.Choice.Name = "Choice";
+            this.Choice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Choice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Choice.Width = 67;
             // 
             // MaTK
             // 
-            this.MaTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaTK.FillWeight = 40F;
+            this.MaTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MaTK.DataPropertyName = "MaTK";
             this.MaTK.HeaderText = "Mã TK";
-            this.MaTK.MinimumWidth = 8;
             this.MaTK.Name = "MaTK";
-            this.MaTK.ReadOnly = true;
+            this.MaTK.Width = 80;
             // 
-            // Hoten
+            // HoTen
             // 
-            this.Hoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Hoten.HeaderText = "Họ tên";
-            this.Hoten.MinimumWidth = 8;
-            this.Hoten.Name = "Hoten";
-            this.Hoten.ReadOnly = true;
+            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.Width = 75;
             // 
             // NgaySinh
             // 
-            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgaySinh.FillWeight = 40F;
+            this.NgaySinh.DataPropertyName = "NgaySinh";
             this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.MinimumWidth = 8;
             this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
             // 
             // GioiTinh
             // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GioiTinh.FillWeight = 35F;
+            this.GioiTinh.DataPropertyName = "GioiTinh";
             this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.MinimumWidth = 8;
             this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
             // 
             // NgayVaoLam
             // 
-            this.NgayVaoLam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgayVaoLam.FillWeight = 90F;
+            this.NgayVaoLam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.NgayVaoLam.DataPropertyName = "NgayVaoLam";
             this.NgayVaoLam.HeaderText = "Ngày vào làm";
-            this.NgayVaoLam.MinimumWidth = 8;
             this.NgayVaoLam.Name = "NgayVaoLam";
-            this.NgayVaoLam.ReadOnly = true;
+            this.NgayVaoLam.Width = 118;
             // 
             // NgayNghiViec
             // 
-            this.NgayNghiViec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgayNghiViec.FillWeight = 95F;
-            this.NgayNghiViec.HeaderText = "Ngày nghỉ Việc";
-            this.NgayNghiViec.MinimumWidth = 8;
+            this.NgayNghiViec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.NgayNghiViec.DataPropertyName = "NgayNghiViec";
+            this.NgayNghiViec.HeaderText = "Ngày nghỉ việc";
             this.NgayNghiViec.Name = "NgayNghiViec";
-            this.NgayNghiViec.ReadOnly = true;
+            this.NgayNghiViec.Width = 123;
             // 
             // SDT
             // 
-            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SDT.FillWeight = 35F;
+            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SDT.DataPropertyName = "SDT";
             this.SDT.HeaderText = "SDT";
-            this.SDT.MinimumWidth = 8;
             this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
+            this.SDT.Width = 63;
             // 
             // DiaChi
             // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.FillWeight = 75F;
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DiaChi.DataPropertyName = "DiaChi";
             this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 8;
             this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Width = 76;
             // 
             // FrmManageEmployee
             // 
@@ -387,8 +371,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmManageEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmManageEmployee";
-            this.Load += new System.EventHandler(this.FrmManageEmployee_Load);
+            this.Text = "ManageEmployee";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -419,10 +402,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button btnAssign;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.DataGridView dgvEmployee;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvEmployee;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayVaoLam;

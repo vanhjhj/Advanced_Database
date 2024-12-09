@@ -508,7 +508,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCustomer";
+            this.Text = "Customer";
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.pnlRoot.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

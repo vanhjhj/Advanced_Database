@@ -37,9 +37,9 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
-            this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.btnCreateVoice = new System.Windows.Forms.Button();
+            this.btnUpdateOrder = new System.Windows.Forms.Button();
+            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -169,9 +169,9 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.btnCreateOrder, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnUpdateOrder, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.btnCreateVoice, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.btnUpdateOrder, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btnCreateOrder, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -183,40 +183,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 569);
             this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnCreateOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCreateOrder.Location = new System.Drawing.Point(34, 20);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(290, 72);
-            this.btnCreateOrder.TabIndex = 0;
-            this.btnCreateOrder.Text = "Lập Phiếu Đặt";
-            this.btnCreateOrder.UseVisualStyleBackColor = false;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
-            // 
-            // btnUpdateOrder
-            // 
-            this.btnUpdateOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnUpdateOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUpdateOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnUpdateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateOrder.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateOrder.Location = new System.Drawing.Point(34, 133);
-            this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(290, 72);
-            this.btnUpdateOrder.TabIndex = 1;
-            this.btnUpdateOrder.Text = "Cập Nhật Phiếu Đặt";
-            this.btnUpdateOrder.UseVisualStyleBackColor = false;
-            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
             // 
             // btnCreateVoice
             // 
@@ -234,6 +200,40 @@
             this.btnCreateVoice.Text = "Xuất Hóa Đơn";
             this.btnCreateVoice.UseVisualStyleBackColor = false;
             // 
+            // btnUpdateOrder
+            // 
+            this.btnUpdateOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnUpdateOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpdateOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateOrder.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateOrder.Location = new System.Drawing.Point(34, 246);
+            this.btnUpdateOrder.Name = "btnUpdateOrder";
+            this.btnUpdateOrder.Size = new System.Drawing.Size(290, 72);
+            this.btnUpdateOrder.TabIndex = 1;
+            this.btnUpdateOrder.Text = "Cập Nhật Phiếu Đặt";
+            this.btnUpdateOrder.UseVisualStyleBackColor = false;
+            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
+            // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnCreateOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateOrder.ForeColor = System.Drawing.Color.White;
+            this.btnCreateOrder.Location = new System.Drawing.Point(34, 133);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Size = new System.Drawing.Size(290, 72);
+            this.btnCreateOrder.TabIndex = 0;
+            this.btnCreateOrder.Text = "Lập Phiếu Đặt";
+            this.btnCreateOrder.UseVisualStyleBackColor = false;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -243,6 +243,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
@@ -74,15 +75,15 @@
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
+            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
@@ -98,7 +99,6 @@
             this.pnlOrderDetails.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -117,6 +117,19 @@
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlRoot.Size = new System.Drawing.Size(1260, 757);
             this.pnlRoot.TabIndex = 0;
+            // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
             // 
             // pnlOrder
             // 
@@ -626,31 +639,31 @@
             // dgvOrderDetails
             // 
             this.dgvOrderDetails.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Choice,
             this.DishName,
             this.DishType,
             this.Amount,
             this.Price,
             this.TotalAmount,
-            this.Note,
-            this.Choice});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Note});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvOrderDetails.Location = new System.Drawing.Point(3, 3);
@@ -662,6 +675,14 @@
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
+            // 
+            // Choice
+            // 
+            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Choice.HeaderText = "Đặt";
+            this.Choice.MinimumWidth = 6;
+            this.Choice.Name = "Choice";
+            this.Choice.Width = 50;
             // 
             // DishName
             // 
@@ -724,27 +745,6 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             // 
-            // Choice
-            // 
-            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Choice.HeaderText = "Đặt";
-            this.Choice.MinimumWidth = 6;
-            this.Choice.Name = "Choice";
-            this.Choice.Width = 50;
-            // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
-            // 
             // FrmCusOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -756,10 +756,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCusOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order";
+            this.Text = "7";
             this.Load += new System.EventHandler(this.FrmCusOrder_Load);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
@@ -778,7 +779,6 @@
             this.pnlOrderDetails.ResumeLayout(false);
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -830,12 +830,12 @@
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvOrderDetails;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
     }
 }

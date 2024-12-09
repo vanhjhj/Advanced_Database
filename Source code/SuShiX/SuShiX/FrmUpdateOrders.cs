@@ -31,6 +31,7 @@ namespace SuShiX
             this.Height = AppConfig.formHeight;
             DisableAllControls();
             LoadBranchName();
+            dgvOrderDetails.RowHeadersVisible = false;
         }
         private void DisableAllControls()
         {
@@ -50,7 +51,8 @@ namespace SuShiX
             lblOrderType.Enabled = true;
             cbbOrderType.Enabled = true;
             btnExit.Enabled = true;
-            btnUpdateOrder.Enabled = true;
+            btnUpdateOrder.Enabled = false;
+            dgvOrderDetails.Enabled = false;
         }
 
         private void LoadBranchName()
@@ -165,6 +167,7 @@ namespace SuShiX
                 MessageBox.Show($"Lỗi khi tải thông tin phiếu đặt của khách hàng: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void txbTelephoneNum_Leave(object sender, EventArgs e)
         {
@@ -354,6 +357,8 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi tải chi tiết phiếu đặt: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            dgvOrderDetails.Enabled = true;
         }
         private void cbbOrderList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -444,8 +449,28 @@ namespace SuShiX
                         dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].Value = DBNull.Value;
                         dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"].Value = DBNull.Value;                        
                     }
+
+                    // Update the button state.
+                    UpdateButtonState();
                 }
             }
+        }
+
+        private void UpdateButtonState()
+        {
+            // Đếm số lượng ô "Choice" được chọn
+            int selectedCount = 0;
+            foreach (DataGridViewRow row in dgvOrderDetails.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["Choice"] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    selectedCount++;
+                }
+            }
+
+            // Kiểm tra điều kiện bật/tắt nút "Order"
+            btnUpdateOrder.Enabled = selectedCount > 0; // Bật nút Order nếu có ít nhất 1 ô được chọn, ngược lại tắt
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
