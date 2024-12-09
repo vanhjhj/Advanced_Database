@@ -559,7 +559,7 @@ CREATE TYPE dbo.ThucDonThayDoi AS TABLE
 )
 
 --Quản lí chi nhánh cập nhật thực đơn (trạng thái phục vụ và trạng thái giao hàng)
-
+GO
 CREATE OR ALTER PROCEDURE USP_CapNhatThucDon
 	@MaTK VARCHAR(10),
 	@ThucDonThayDoi dbo.ThucDonThayDoi READONLY
@@ -727,7 +727,7 @@ BEGIN
 
 	IF @NgayNghiViec<(SELECT NgayVaoLam FROM NhanVien WHERE MaTK=@MaTK)
 	BEGIN
-        ;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng điền ngày khác', 1;
+        ;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng điền ngày khác.', 1;
     END
 
 	UPDATE NhanVien
@@ -735,6 +735,37 @@ BEGIN
 	WHERE MaTK=@MaTK;
 END;
 GO
+
+--Điều động nhân viên sang chi nhánh khác
+GO
+CREATE OR ALTER PROCEDURE USP_DieuDongNhanVien
+	@MaTK VARCHAR(10),
+	@MaTKNV VARCHAR(10),
+	@TenCNMoi NVARCHAR(50),
+	@NgayBD DATETIME,
+	@NgayKT DATETIME
+AS
+BEGIN
+	IF @TenCNMoi =(SELECT TenCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+	BEGIN
+        ;THROW 50000, 'Tên chi nhánh mới phải khác chi nhánh cũ. Vui lòng điền chi nhánh khác.', 1;
+    END
+
+	IF @NgayBD<(SELECT NgayVaoLam FROM NhanVien WHERE MaTK=@MaTKNV)
+	BEGIN
+        ;THROW 50000, 'Ngày bắt đầu phải sau ngày vào làm. Vui lòng điền ngày khác.', 1;
+    END
+
+	IF (@NgayBD>@NgayKT)
+	BEGIN
+        ;THROW 50000, 'Ngày kết thúc phải sau ngày bắt đầu. Vui lòng điền ngày khác', 1;
+    END
+
+	DECLARE @MaCN VARCHAR(10)
+	SET @MaCN=(SELECT MaCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+
+	INSERT INTO LichSuDieuDong(MaCN,MaTkNV,NgayBD,NgayKT) VALUES (@MaCN,@MaTKNV,@NgayBD,@NgayKT)
+END;
 
 -- Xem thông tin chủ chi nhánh/nhân viên
 GO

@@ -36,17 +36,17 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbLastBranch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txbEmployeeID = new System.Windows.Forms.TextBox();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbbNewBranch = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -159,16 +159,16 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker2, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.dtpEndDate, 1, 4);
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel5.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.textBox3, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.txbLastBranch, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker1, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.txbEmployeeID, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.dtpStartDate, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.cbbNewBranch, 1, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -181,14 +181,14 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(683, 422);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(362, 361);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(231, 35);
-            this.dateTimePicker2.TabIndex = 11;
+            this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEndDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEndDate.Location = new System.Drawing.Point(362, 361);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(231, 35);
+            this.dtpEndDate.TabIndex = 11;
             // 
             // label5
             // 
@@ -212,47 +212,38 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Ngày bắt đầu";
             // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(361, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(234, 35);
-            this.textBox3.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(73, 196);
+            this.label3.Location = new System.Drawing.Point(71, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 27);
+            this.label3.Size = new System.Drawing.Size(131, 27);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Mã CN mới";
+            this.label3.Text = "Tên CN mới";
             // 
-            // textBox2
+            // txbLastBranch
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(361, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(234, 35);
-            this.textBox2.TabIndex = 3;
+            this.txbLastBranch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbLastBranch.Enabled = false;
+            this.txbLastBranch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbLastBranch.Location = new System.Drawing.Point(361, 108);
+            this.txbLastBranch.Name = "txbLastBranch";
+            this.txbLastBranch.ReadOnly = true;
+            this.txbLastBranch.Size = new System.Drawing.Size(234, 35);
+            this.txbLastBranch.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(80, 112);
+            this.label2.Location = new System.Drawing.Point(78, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 27);
+            this.label2.Size = new System.Drawing.Size(117, 27);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Mã CN cũ";
+            this.label2.Text = "Tên CN cũ";
             // 
             // label1
             // 
@@ -265,25 +256,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã TK NV";
             // 
-            // textBox1
+            // txbEmployeeID
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(361, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(234, 35);
-            this.textBox1.TabIndex = 1;
+            this.txbEmployeeID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbEmployeeID.Enabled = false;
+            this.txbEmployeeID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEmployeeID.Location = new System.Drawing.Point(361, 24);
+            this.txbEmployeeID.Name = "txbEmployeeID";
+            this.txbEmployeeID.ReadOnly = true;
+            this.txbEmployeeID.Size = new System.Drawing.Size(234, 35);
+            this.txbEmployeeID.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(362, 276);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(231, 35);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStartDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Location = new System.Drawing.Point(362, 276);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(231, 35);
+            this.dtpStartDate.TabIndex = 10;
             // 
             // button1
             // 
@@ -298,6 +289,16 @@
             this.button1.Text = "Lưu thông tin";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbbNewBranch
+            // 
+            this.cbbNewBranch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbbNewBranch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbNewBranch.FormattingEnabled = true;
+            this.cbbNewBranch.Location = new System.Drawing.Point(361, 192);
+            this.cbbNewBranch.Name = "cbbNewBranch";
+            this.cbbNewBranch.Size = new System.Drawing.Size(234, 35);
+            this.cbbNewBranch.TabIndex = 12;
             // 
             // FrmAssignEmployee
             // 
@@ -334,14 +335,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbLastBranch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbEmployeeID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.ComboBox cbbNewBranch;
     }
 }
