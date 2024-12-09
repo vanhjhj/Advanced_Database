@@ -105,6 +105,30 @@ namespace SuShiX
             {
                 // Enable trường số điện thoại khách hàng
                 txbTelephoneNum.Enabled = true;
+                if(selectedOrderType == "Đặt Bàn Trực Tuyến")
+                {
+                    txbTelephoneNum.Text = string.Empty;
+                    txbGeneralNote.Text = string.Empty;
+                    cbbOrderList.DataSource = null;
+                    nudCusNumber.Value = 0;
+                    dtpArrivalTime.Value = DateTime.Now;
+                    txbReceiverAddress.Text = string.Empty;
+                    txbReceiverPhoneNumber.Text = string.Empty;
+                    dgvOrderDetails.DataSource = null;
+                    pnlShipping.Enabled = false;
+                }
+                else if (selectedOrderType == "Giao Hàng Tận Nơi")
+                {
+                    txbTelephoneNum.Text = string.Empty;
+                    txbGeneralNote.Text = string.Empty;
+                    cbbOrderList.DataSource = null;
+                    nudCusNumber.Value = 0;
+                    dtpArrivalTime.Value = DateTime.Now;
+                    txbReceiverAddress.Text = string.Empty;
+                    txbReceiverPhoneNumber.Text = string.Empty;
+                    dgvOrderDetails.DataSource = null;
+                    pnlBookingOnline.Enabled = false;
+                }
             }
             else
             {
@@ -113,7 +137,15 @@ namespace SuShiX
                 pnlBookingOnline.Enabled = false;
                 pnlShipping.Enabled = false;
                 cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
+                // Chỉnh tất cả các giá trị của các điều khiển về rỗng
+                txbTelephoneNum.Text = string.Empty;
+                txbGeneralNote.Text = string.Empty;
+                cbbOrderList.DataSource = null;
+                nudCusNumber.Value = 0;
+                dtpArrivalTime.Value = DateTime.Now;
+                txbReceiverAddress.Text = string.Empty;
+                txbReceiverPhoneNumber.Text = string.Empty;
+                dgvOrderDetails.DataSource = null;
                 LoadOrderList();
             }
         }
@@ -202,7 +234,6 @@ namespace SuShiX
 
             if (string.IsNullOrEmpty(selectedOrderID))
             {
-                MessageBox.Show("Vui lòng chọn một phiếu đặt để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
