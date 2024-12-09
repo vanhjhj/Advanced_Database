@@ -117,7 +117,7 @@
             this.txbReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 30);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 26);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -192,7 +192,7 @@
             this.nudCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCusNumber.Location = new System.Drawing.Point(0, 0);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(283, 30);
+            this.nudCusNumber.Size = new System.Drawing.Size(283, 26);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
@@ -209,7 +209,7 @@
             this.dtpArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpArrivalTime.Location = new System.Drawing.Point(0, 0);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 30);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 26);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // lblReceiverPhoneNumber
@@ -531,7 +531,7 @@
             this.cbbOrderList.FormattingEnabled = true;
             this.cbbOrderList.Location = new System.Drawing.Point(601, 72);
             this.cbbOrderList.Name = "cbbOrderList";
-            this.cbbOrderList.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderList.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderList.TabIndex = 20;
             this.cbbOrderList.SelectedIndexChanged += new System.EventHandler(this.cbbOrderList_SelectedIndexChanged);
             // 
@@ -541,7 +541,7 @@
             this.lblOrderList.AutoSize = true;
             this.lblOrderList.Location = new System.Drawing.Point(405, 75);
             this.lblOrderList.Name = "lblOrderList";
-            this.lblOrderList.Size = new System.Drawing.Size(176, 22);
+            this.lblOrderList.Size = new System.Drawing.Size(138, 19);
             this.lblOrderList.TabIndex = 19;
             this.lblOrderList.Text = "Danh Sách Phiếu Đặt";
             // 
@@ -550,7 +550,7 @@
             this.txbTelephoneNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTelephoneNum.Location = new System.Drawing.Point(197, 72);
             this.txbTelephoneNum.Name = "txbTelephoneNum";
-            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 30);
+            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 26);
             this.txbTelephoneNum.TabIndex = 18;
             this.txbTelephoneNum.Leave += new System.EventHandler(this.txbTelephoneNum_Leave);
             // 
@@ -569,7 +569,7 @@
             this.txbBranchName.Location = new System.Drawing.Point(197, 10);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 26);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbOrderType
@@ -582,7 +582,7 @@
             "Đặt Bàn Trực Tiếp"});
             this.cbbOrderType.Location = new System.Drawing.Point(601, 10);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -592,7 +592,7 @@
             this.lblGeneralNote.AutoSize = true;
             this.lblGeneralNote.Location = new System.Drawing.Point(16, 156);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
+            this.lblGeneralNote.Size = new System.Drawing.Size(59, 19);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -602,7 +602,7 @@
             this.lblBranchName.AutoSize = true;
             this.lblBranchName.Location = new System.Drawing.Point(16, 13);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
+            this.lblBranchName.Size = new System.Drawing.Size(101, 19);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -612,7 +612,7 @@
             this.lblTelephoneNum.AutoSize = true;
             this.lblTelephoneNum.Location = new System.Drawing.Point(16, 75);
             this.lblTelephoneNum.Name = "lblTelephoneNum";
-            this.lblTelephoneNum.Size = new System.Drawing.Size(158, 22);
+            this.lblTelephoneNum.Size = new System.Drawing.Size(122, 19);
             this.lblTelephoneNum.TabIndex = 1;
             this.lblTelephoneNum.Text = "Số Điện Thoại Đặt";
             // 
@@ -622,7 +622,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(405, 13);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -655,7 +655,7 @@
             // 
             // FrmUpdateOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.pnlRoot);
