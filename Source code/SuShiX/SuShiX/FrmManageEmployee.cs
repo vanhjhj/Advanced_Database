@@ -89,12 +89,22 @@ namespace SuShiX
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAssign_Click(object sender, EventArgs e)
         {
-            FrmAssignEmployee frmAssignEmployee = new FrmAssignEmployee(UserID);
-            this.Hide();
-            frmAssignEmployee.ShowDialog();
-            this.Close();
+            foreach (DataGridViewRow row in dgvEmployee.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Edit"].Value))
+                {
+                    string selectedMaTK = row.Cells["MaTK"].Value.ToString();
+
+                    FrmAssignEmployee frmAssignEmployee = new FrmAssignEmployee(UserID, selectedMaTK);
+                    this.Hide();
+                    frmAssignEmployee.ShowDialog();
+                    this.Close();
+
+                    break; // Dừng vòng lặp khi đã tìm được dòng được chọn
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

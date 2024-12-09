@@ -247,7 +247,7 @@
             this.btnAssign.TabIndex = 1;
             this.btnAssign.Text = "Điều động";
             this.btnAssign.UseVisualStyleBackColor = false;
-            this.btnAssign.Click += new System.EventHandler(this.button1_Click);
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
             // btnUpdate
             // 
