@@ -33,6 +33,7 @@
             this.lbMessage = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.pbReturn = new System.Windows.Forms.PictureBox();
+            this.lbRegister = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbReturn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,12 +84,24 @@
             this.pbReturn.TabStop = false;
             this.pbReturn.Click += new System.EventHandler(this.pbReturn_Click);
             // 
+            // lbRegister
+            // 
+            this.lbRegister.AutoSize = true;
+            this.lbRegister.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRegister.Location = new System.Drawing.Point(198, 151);
+            this.lbRegister.Name = "lbRegister";
+            this.lbRegister.Size = new System.Drawing.Size(104, 15);
+            this.lbRegister.TabIndex = 21;
+            this.lbRegister.Text = "Đăng ký tài khoản";
+            this.lbRegister.Click += new System.EventHandler(this.lbRegister_Click);
+            // 
             // FrmCreateAndReissueCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(484, 261);
+            this.Controls.Add(this.lbRegister);
             this.Controls.Add(this.pbReturn);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lbMessage);
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.PictureBox pbReturn;
+        private System.Windows.Forms.Label lbRegister;
     }
 }

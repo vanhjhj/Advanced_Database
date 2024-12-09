@@ -34,15 +34,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
+            this.btnUpdateCardRank = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.btnCreateVoice = new System.Windows.Forms.Button();
             this.btnCreateCard = new System.Windows.Forms.Button();
             this.btnReissueCard = new System.Windows.Forms.Button();
-            this.btnUpdateCardRank = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -141,21 +141,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(191, 569);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogout.BackColor = System.Drawing.Color.Black;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(26, 176);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(139, 72);
-            this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "Đăng xuất";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // btnUpdateIn4
             // 
             this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -170,6 +155,36 @@
             this.btnUpdateIn4.Text = "Cập nhật thông tin";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
             this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
+            // 
+            // btnUpdateCardRank
+            // 
+            this.btnUpdateCardRank.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateCardRank.BackColor = System.Drawing.Color.Black;
+            this.btnUpdateCardRank.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateCardRank.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateCardRank.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCardRank.Location = new System.Drawing.Point(26, 91);
+            this.btnUpdateCardRank.Name = "btnUpdateCardRank";
+            this.btnUpdateCardRank.Size = new System.Drawing.Size(139, 72);
+            this.btnUpdateCardRank.TabIndex = 5;
+            this.btnUpdateCardRank.Text = "Cập nhật hạng thẻ";
+            this.btnUpdateCardRank.UseVisualStyleBackColor = false;
+            this.btnUpdateCardRank.Click += new System.EventHandler(this.btnUpdateCardRank_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogout.BackColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(26, 176);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(139, 72);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -276,25 +291,11 @@
             this.btnReissueCard.UseVisualStyleBackColor = false;
             this.btnReissueCard.Click += new System.EventHandler(this.btnReissueCard_Click);
             // 
-            // btnUpdateCardRank
-            // 
-            this.btnUpdateCardRank.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateCardRank.BackColor = System.Drawing.Color.Black;
-            this.btnUpdateCardRank.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdateCardRank.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCardRank.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateCardRank.Location = new System.Drawing.Point(26, 91);
-            this.btnUpdateCardRank.Name = "btnUpdateCardRank";
-            this.btnUpdateCardRank.Size = new System.Drawing.Size(139, 72);
-            this.btnUpdateCardRank.TabIndex = 5;
-            this.btnUpdateCardRank.Text = "Cập nhật hạng thẻ";
-            this.btnUpdateCardRank.UseVisualStyleBackColor = false;
-            this.btnUpdateCardRank.Click += new System.EventHandler(this.btnUpdateCardRank_Click);
-            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

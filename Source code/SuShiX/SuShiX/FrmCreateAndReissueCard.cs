@@ -14,10 +14,13 @@ namespace SuShiX
     {
 
         public string userName { get; set; }
+        FrmEmployee FrmEmployee;
 
-        public FrmCreateAndReissueCard()
+        public FrmCreateAndReissueCard(FrmEmployee parentForm)
         {
             InitializeComponent();
+            this.FrmEmployee = parentForm;
+            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -36,6 +39,21 @@ namespace SuShiX
         private void pbReturn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void lbRegister_Click(object sender, EventArgs e)
+        {
+
+            FrmCusRegister registerForm = new FrmCusRegister();
+            this.Hide();
+            registerForm.ShowDialog();
+
+            if (FrmEmployee != null)
+            {
+                FrmEmployee.Close();
+            }
+
             this.Close();
         }
     }

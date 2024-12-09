@@ -68,7 +68,7 @@ namespace SuShiX
 
         private void btnCreateCard_Click(object sender, EventArgs e)
         {
-            FrmCreateAndReissueCard frmCreateAndReissueCard = new FrmCreateAndReissueCard();
+            FrmCreateAndReissueCard frmCreateAndReissueCard = new FrmCreateAndReissueCard(this);
 
             if(frmCreateAndReissueCard.ShowDialog() == DialogResult.OK)
             {
@@ -109,7 +109,7 @@ namespace SuShiX
 
         private void btnReissueCard_Click(object sender, EventArgs e)
         {
-            FrmCreateAndReissueCard frmCreateAndReissueCard = new FrmCreateAndReissueCard();
+            FrmCreateAndReissueCard frmCreateAndReissueCard = new FrmCreateAndReissueCard(this);
 
             if (frmCreateAndReissueCard.ShowDialog() == DialogResult.OK)
             {
