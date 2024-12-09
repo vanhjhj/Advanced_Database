@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SuShiX
 {
-    public partial class FrmUpdateOnlineOrders : Form
+    public partial class FrmUpdateOrders : Form
     {
         // Biến private lưu trữ userID
         private string userID;
@@ -23,7 +23,7 @@ namespace SuShiX
             get { return userID; }
             private set { userID = value; }
         }
-        public FrmUpdateOnlineOrders(string userID)
+        public FrmUpdateOrders(string userID)
         {
             InitializeComponent();
             this.UserID = userID;
@@ -99,10 +99,20 @@ namespace SuShiX
                 // Nếu chưa chọn loại phiếu đặt, tắt tất cả các điều khiển
                 DisableAllControls();
             }
-            else
+            else if (selectedOrderType != "Đặt Bàn Trực Tiếp")
             {
                 // Enable trường số điện thoại khách hàng
                 txbTelephoneNum.Enabled = true;
+            }
+            else
+            {
+                txbTelephoneNum.Enabled = false;
+                txbTelephoneNum.Text = string.Empty;
+                pnlBookingOnline.Enabled = false;
+                pnlShipping.Enabled = false;
+                cbbOrderList.Enabled = true;
+                txbGeneralNote.Enabled = true;
+                LoadOrderList();
             }
         }
 
@@ -117,7 +127,7 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDatOnline", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDat", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
@@ -199,7 +209,7 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("USP_CTPD_Online", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_CTPD_ThucDon", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -360,6 +370,7 @@ namespace SuShiX
                     var amountCell = dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"];
                     var priceCell = dgvOrderDetails.Rows[e.RowIndex].Cells["Price"];
                     var totalAmountCell = dgvOrderDetails.Rows[e.RowIndex].Cells["TotalAmount"];
+                    var noteCell = dgvOrderDetails.Rows[e.RowIndex].Cells["Note"];
 
                     // Check if a value has been entered for Amount.
                     if (amountCell.Value != null)
@@ -373,6 +384,11 @@ namespace SuShiX
                                 decimal price = Convert.ToDecimal(priceCell.Value);
                                 totalAmountCell.Value = amount * price;
                             }
+                        }
+                        else if (amountCell.Value == DBNull.Value)
+                        {
+                            totalAmountCell.Value = DBNull.Value;
+                            noteCell.Value = DBNull.Value;
                         }
                         else
                         {
@@ -485,7 +501,7 @@ namespace SuShiX
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("USP_CapNhatPhieuDatOnline", conn)
+                    SqlCommand cmd = new SqlCommand("USP_CapNhatPhieuDat", conn)
                     {
                         CommandType = CommandType.StoredProcedure
                     };

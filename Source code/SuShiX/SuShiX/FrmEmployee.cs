@@ -53,19 +53,11 @@ namespace SuShiX
             this.Close();
         }
 
-        private void btnUpdateOfflineOrder_Click(object sender, EventArgs e)
+        private void btnUpdateOrder_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmUpdateOnlineOrders frmUpdateOnlineOrders = new FrmUpdateOnlineOrders(userID);
-            frmUpdateOnlineOrders.ShowDialog();
-            this.Close();
-        }
-
-        private void btnUpdateOnlineOrder_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmUpdateOnlineOrders frmUpdateOnlineOrders = new FrmUpdateOnlineOrders(userID);
-            frmUpdateOnlineOrders.ShowDialog();
+            FrmUpdateOrders frmUpdateOrders = new FrmUpdateOrders(userID);
+            frmUpdateOrders.ShowDialog();
             this.Close();
         }
     }

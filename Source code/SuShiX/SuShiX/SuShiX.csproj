@@ -137,11 +137,11 @@
     <Compile Include="FrmManagerStatistics.Designer.cs">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUpdateOnlineOrders.cs">
+    <Compile Include="FrmUpdateOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUpdateOnlineOrders.Designer.cs">
-      <DependentUpon>FrmUpdateOnlineOrders.cs</DependentUpon>
+    <Compile Include="FrmUpdateOrders.Designer.cs">
+      <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,8 +190,8 @@
     <EmbeddedResource Include="FrmManagerStatistics.resx">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUpdateOnlineOrders.resx">
-      <DependentUpon>FrmUpdateOnlineOrders.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUpdateOrders.resx">
+      <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace SuShiX
 {
-    partial class FrmUpdateOnlineOrders
+    partial class FrmUpdateOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -251,7 +251,7 @@
             this.btnUpdateOrder.Name = "btnUpdateOrder";
             this.btnUpdateOrder.Size = new System.Drawing.Size(78, 173);
             this.btnUpdateOrder.TabIndex = 0;
-            this.btnUpdateOrder.Text = "Lập Phiếu";
+            this.btnUpdateOrder.Text = "Cập Nhật";
             this.btnUpdateOrder.UseVisualStyleBackColor = false;
             this.btnUpdateOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
@@ -529,9 +529,6 @@
             // 
             this.cbbOrderList.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbOrderList.FormattingEnabled = true;
-            this.cbbOrderList.Items.AddRange(new object[] {
-            "Đặt Bàn Trực Tuyến",
-            "Giao Hàng Tận Nơi"});
             this.cbbOrderList.Location = new System.Drawing.Point(601, 72);
             this.cbbOrderList.Name = "cbbOrderList";
             this.cbbOrderList.Size = new System.Drawing.Size(186, 30);
@@ -581,7 +578,8 @@
             this.cbbOrderType.FormattingEnabled = true;
             this.cbbOrderType.Items.AddRange(new object[] {
             "Đặt Bàn Trực Tuyến",
-            "Giao Hàng Tận Nơi"});
+            "Giao Hàng Tận Nơi",
+            "Đặt Bàn Trực Tiếp"});
             this.cbbOrderType.Location = new System.Drawing.Point(601, 10);
             this.cbbOrderType.Name = "cbbOrderType";
             this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
@@ -655,7 +653,7 @@
             this.pnlShipping.Size = new System.Drawing.Size(419, 82);
             this.pnlShipping.TabIndex = 1;
             // 
-            // FrmUpdateOnlineOrders
+            // FrmUpdateOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -663,9 +661,9 @@
             this.Controls.Add(this.pnlRoot);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmUpdateOnlineOrders";
+            this.Name = "FrmUpdateOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmUpdateOnlineOrders";
+            this.Text = "FrmUpdateOrders";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

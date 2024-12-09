@@ -38,8 +38,7 @@
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateOrder = new System.Windows.Forms.Button();
-            this.btnUpdateOnlineOrder = new System.Windows.Forms.Button();
-            this.btnUpdateOfflineOrder = new System.Windows.Forms.Button();
+            this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.btnCreateVoice = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -171,8 +170,7 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.btnCreateOrder, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnUpdateOnlineOrder, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.btnUpdateOfflineOrder, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btnUpdateOrder, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.btnCreateVoice, 0, 3);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
@@ -203,39 +201,22 @@
             this.btnCreateOrder.UseVisualStyleBackColor = false;
             this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
-            // btnUpdateOnlineOrder
+            // btnUpdateOrder
             // 
-            this.btnUpdateOnlineOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateOnlineOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnUpdateOnlineOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUpdateOnlineOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnUpdateOnlineOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateOnlineOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateOnlineOrder.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateOnlineOrder.Location = new System.Drawing.Point(34, 133);
-            this.btnUpdateOnlineOrder.Name = "btnUpdateOnlineOrder";
-            this.btnUpdateOnlineOrder.Size = new System.Drawing.Size(290, 72);
-            this.btnUpdateOnlineOrder.TabIndex = 1;
-            this.btnUpdateOnlineOrder.Text = "Cập Nhật Phiếu Đặt Online";
-            this.btnUpdateOnlineOrder.UseVisualStyleBackColor = false;
-            this.btnUpdateOnlineOrder.Click += new System.EventHandler(this.btnUpdateOnlineOrder_Click);
-            // 
-            // btnUpdateOfflineOrder
-            // 
-            this.btnUpdateOfflineOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateOfflineOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnUpdateOfflineOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUpdateOfflineOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnUpdateOfflineOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateOfflineOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateOfflineOrder.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateOfflineOrder.Location = new System.Drawing.Point(34, 246);
-            this.btnUpdateOfflineOrder.Name = "btnUpdateOfflineOrder";
-            this.btnUpdateOfflineOrder.Size = new System.Drawing.Size(290, 72);
-            this.btnUpdateOfflineOrder.TabIndex = 2;
-            this.btnUpdateOfflineOrder.Text = "Cập Nhật Phiếu Đặt Offline";
-            this.btnUpdateOfflineOrder.UseVisualStyleBackColor = false;
-            this.btnUpdateOfflineOrder.Click += new System.EventHandler(this.btnUpdateOfflineOrder_Click);
+            this.btnUpdateOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnUpdateOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpdateOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateOrder.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateOrder.Location = new System.Drawing.Point(34, 133);
+            this.btnUpdateOrder.Name = "btnUpdateOrder";
+            this.btnUpdateOrder.Size = new System.Drawing.Size(290, 72);
+            this.btnUpdateOrder.TabIndex = 1;
+            this.btnUpdateOrder.Text = "Cập Nhật Phiếu Đặt";
+            this.btnUpdateOrder.UseVisualStyleBackColor = false;
+            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
             // 
             // btnCreateVoice
             // 
@@ -285,9 +266,8 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdateIn4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Button btnUpdateOfflineOrder;
         private System.Windows.Forms.Button btnCreateOrder;
-        private System.Windows.Forms.Button btnUpdateOnlineOrder;
+        private System.Windows.Forms.Button btnUpdateOrder;
         private System.Windows.Forms.Button btnCreateVoice;
     }
 }

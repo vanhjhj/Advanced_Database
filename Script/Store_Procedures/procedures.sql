@@ -395,9 +395,10 @@ BEGIN
 	-- Trả về mã thẻ
 	SET @MaThe = @NewMaThe
 END
-
+GO
 
 --Cấp lại thẻ thành viên cho khách hàng
+GO
 CREATE OR ALTER PROCEDURE USP_CapLaiTheThanhVien
 	@TkLap VARCHAR(10),
 	@TenTKKH VARCHAR(50),
@@ -455,8 +456,8 @@ BEGIN
 END
 GO
 
-
 --Cập nhật lại hạng thẻ cho khách hàng
+GO
 CREATE OR ALTER PROCEDURE USP_CapNhatHangTheThanhVien
 AS
 BEGIN
@@ -519,8 +520,7 @@ END
 GO
 
 --Chủ chi nhánh lấy danh sách thực đơn và tình trạng thực đơn của chi nhánh
-use QUAN_LY_NHA_HANG
-go
+GO
 CREATE OR ALTER PROCEDURE USP_QuanLiXemThucDonChiNhanh
 	@MaTK VARCHAR(10)
 AS
@@ -547,8 +547,6 @@ BEGIN
 END
 GO
 
-exec USP_QuanLiXemThucDonChiNhanh 'NV0000'
-
 --Tạo kiểu dữ liệu để cập nhật thực đơn
 
 CREATE TYPE dbo.ThucDonThayDoi AS TABLE
@@ -559,7 +557,7 @@ CREATE TYPE dbo.ThucDonThayDoi AS TABLE
 )
 
 --Quản lí chi nhánh cập nhật thực đơn (trạng thái phục vụ và trạng thái giao hàng)
-
+GO
 CREATE OR ALTER PROCEDURE USP_CapNhatThucDon
 	@MaTK VARCHAR(10),
 	@ThucDonThayDoi dbo.ThucDonThayDoi READONLY
@@ -761,7 +759,7 @@ GO
 
 -- Lấy danh sách phiếu đặt online của khách hàng qua số điện thoại
 GO
-CREATE OR ALTER PROCEDURE USP_DanhSachDatOnline
+CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
     @MaTKNhanVien VARCHAR(10),
     @SDTKhachHang VARCHAR(10)
@@ -789,6 +787,16 @@ BEGIN
         WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
+	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
+	BEGIN
+		INSERT INTO @MaPhieuResult (MaPhieu)
+        SELECT PD.MaPhieu
+        FROM KhachHang KH
+        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+        WHERE NV.MaTK = @MaTKNhanVien
+        AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+	END
 
     -- Kiểm tra kết quả và ném lỗi nếu không tìm thấy bản ghi nào
     IF NOT EXISTS (SELECT 1 FROM @MaPhieuResult)
@@ -801,8 +809,8 @@ BEGIN
 END
 GO
 
--- Lấy ra chi tiết phiếu đặt online
-CREATE OR ALTER PROCEDURE USP_CTPD_Online
+-- Lấy ra chi tiết phiếu đặt và thực đơn
+CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
 	@MaPhieu VARCHAR(10),
 	@MaTKNhanVien VARCHAR(10),
 	@GhiChu NVARCHAR(200) OUTPUT,
@@ -827,9 +835,9 @@ BEGIN
 		WHERE MaPhieu = @MaPhieu;
 
 		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
-		DECLARE @MaCNTT VARCHAR(10);
+		DECLARE @MaCNOL VARCHAR(10);
 
-		SELECT @MaCNTT = CN.MaCN
+		SELECT @MaCNOL = CN.MaCN
 		FROM ChiNhanh CN
 		JOIN NhanVien NV ON NV.MaCN = CN.MaCN
 		WHERE NV.MaTK = @MaTKNhanVien;
@@ -852,7 +860,7 @@ BEGIN
 		JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
 		JOIN ThucDon TD ON TD.MaMA = MA.MaMA
 		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
-		WHERE PD.MaCN = @MaCNTT AND TD.TinhTrangPhucVu = N'Có'
+		WHERE PD.MaCN = @MaCNOL AND TD.TinhTrangPhucVu = N'Có'
     END
     ELSE IF @LoaiPhieuDat = N'Giao Hàng'
     BEGIN
@@ -890,11 +898,48 @@ BEGIN
 		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
 		WHERE PD.MaCN = @MaCNGH AND TD.TinhTrangGiaoHang = N'Có';
     END
+
+	ELSE IF @LoaiPhieuDat = N'Trực Tiếp'
+    BEGIN
+		-- Lấy ra Địa chỉ, số điện thoại người nhận
+        SELECT @DiaChi = NULL, @SDTNguoiNhan = NULL,
+			   @SLKhach = NULL, @ThoiGianDen = NULL,
+			   @GhiChu = NULL
+		FROM PhieuDat
+		WHERE MaPhieu = @MaPhieu;
+
+		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
+		DECLARE @MaCNTT VARCHAR(10);
+
+		SELECT @MaCNTT = CN.MaCN
+		FROM ChiNhanh CN
+		JOIN NhanVien NV ON NV.MaCN = CN.MaCN
+		WHERE NV.MaTK = @MaTKNhanVien;
+
+		SELECT MA.TenMA AS DishName, Muc.TenMuc AS DishType, CTPD.SoLuong AS Amount,
+			   CTPD.DonGia AS Price, CTPD.ThanhTien AS TotalAmount, CTPD.GhiChu AS Note
+		FROM PhieuDat PD
+		JOIN CTPD ON PD.MaPhieu = CTPD.MaPhieu
+		JOIN MonAn MA ON MA.MaMA = CTPD.MaMA
+		JOIN Muc ON MA.MaMuc = Muc.MaMuc
+		WHERE PD.MaPhieu = @MaPhieu
+
+		UNION
+
+		-- Lấy ra thực đơn của chi nhánh nhân viên làm việc
+		SELECT DISTINCT MA.TenMA AS DishName, Muc.TenMuc AS DishType, NULL AS Amount, 
+						MA.GiaHienTai AS Price, NULL AS TotalAmount, NULL AS Note
+		FROM Muc 
+		JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
+		JOIN ThucDon TD ON TD.MaMA = MA.MaMA
+		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
+		WHERE PD.MaCN = @MaCNTT AND TD.TinhTrangPhucVu = N'Có';
+    END
 END
 GO
 
 -- Cập nhật phiếu đặt online
-CREATE OR ALTER PROCEDURE USP_CapNhatPhieuDatOnline
+CREATE OR ALTER PROCEDURE USP_CapNhatPhieuDat
     @Maphieu VARCHAR(10),
     @LoaiPhieuDat NVARCHAR(20),
     @GhiChu NVARCHAR(200),
