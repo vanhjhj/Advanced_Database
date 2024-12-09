@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SuShiX
 {
-    public partial class FrmAddEmployee : Form
+    public partial class AddEmployee : Form
     {
         // Biến private lưu trữ userID
         private string userID;
@@ -25,7 +25,7 @@ namespace SuShiX
             get { return userID; }
             private set { userID = value; }
         }
-        public FrmAddEmployee(string userID)
+        public AddEmployee(string userID)
         {
             InitializeComponent();
             this.UserID = userID;

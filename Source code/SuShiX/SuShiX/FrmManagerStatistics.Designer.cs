@@ -39,19 +39,19 @@
             this.pnlStatistics = new System.Windows.Forms.TableLayoutPanel();
             this.pnlStatisticsInfo = new System.Windows.Forms.TableLayoutPanel();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.txbBranchName = new System.Windows.Forms.TextBox();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.lblBranchName = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.txbBranchName = new System.Windows.Forms.TextBox();
             this.dgvStatistics = new System.Windows.Forms.DataGridView();
             this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.pbStatisticsImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pbStatisticsImage = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -59,10 +59,10 @@
             this.pnlStatistics.SuspendLayout();
             this.pnlStatisticsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistics)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStatisticsImage)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatisticsImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -124,11 +124,11 @@
             // 
             this.txbTotalRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalRevenue.Location = new System.Drawing.Point(474, 57);
+            this.txbTotalRevenue.Location = new System.Drawing.Point(474, 62);
             this.txbTotalRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalRevenue.Name = "txbTotalRevenue";
             this.txbTotalRevenue.ReadOnly = true;
-            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 35);
+            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 26);
             this.txbTotalRevenue.TabIndex = 9;
             this.txbTotalRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -137,11 +137,11 @@
             this.txbTotalAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txbTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(100, 57);
+            this.txbTotalAmount.Location = new System.Drawing.Point(100, 62);
             this.txbTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(177, 35);
+            this.txbTotalAmount.Size = new System.Drawing.Size(177, 26);
             this.txbTotalAmount.TabIndex = 8;
             this.txbTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -229,23 +229,11 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(556, 32);
+            this.dtpEndDate.Location = new System.Drawing.Point(556, 33);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(138, 35);
+            this.dtpEndDate.Size = new System.Drawing.Size(138, 26);
             this.dtpEndDate.TabIndex = 10;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
-            // 
-            // txbBranchName
-            // 
-            this.txbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbBranchName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBranchName.Location = new System.Drawing.Point(37, 33);
-            this.txbBranchName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbBranchName.Name = "txbBranchName";
-            this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(177, 35);
-            this.txbBranchName.TabIndex = 8;
-            this.txbBranchName.TabStop = false;
             // 
             // lblEndDate
             // 
@@ -293,11 +281,23 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(306, 32);
+            this.dtpStartDate.Location = new System.Drawing.Point(306, 33);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(138, 35);
+            this.dtpStartDate.Size = new System.Drawing.Size(138, 26);
             this.dtpStartDate.TabIndex = 9;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+            // 
+            // txbBranchName
+            // 
+            this.txbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbBranchName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbBranchName.Location = new System.Drawing.Point(37, 33);
+            this.txbBranchName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbBranchName.Name = "txbBranchName";
+            this.txbBranchName.ReadOnly = true;
+            this.txbBranchName.Size = new System.Drawing.Size(177, 26);
+            this.txbBranchName.TabIndex = 8;
+            this.txbBranchName.TabStop = false;
             // 
             // dgvStatistics
             // 
@@ -342,6 +342,31 @@
             this.Revenue.ReadOnly = true;
             this.Revenue.Width = 240;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.75F));
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(752, 47);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // pbLogo
             // 
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -368,34 +393,9 @@
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.75F));
-            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(752, 47);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FrmManagerStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 753);
@@ -404,7 +404,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmManagerStatistics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmManagerStatistics";
+            this.Text = "Statistics";
             this.pnlRoot.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -414,10 +414,10 @@
             this.pnlStatisticsInfo.ResumeLayout(false);
             this.pnlStatisticsInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistics)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStatisticsImage)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatisticsImage)).EndInit();
             this.ResumeLayout(false);
 
         }

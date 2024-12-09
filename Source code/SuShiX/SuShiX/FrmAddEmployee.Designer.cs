@@ -1,6 +1,6 @@
 ﻿namespace SuShiX
 {
-    partial class FrmAddEmployee
+    partial class AddEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -130,10 +130,10 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 4;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.69767F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.33721F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.38953F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.43023F));
             this.tableLayoutPanel5.Controls.Add(this.dateTimePicker3, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.dateTimePicker2, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.label8, 2, 3);
@@ -163,28 +163,28 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePicker3.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(488, 41);
+            this.dateTimePicker3.Location = new System.Drawing.Point(460, 41);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(192, 26);
+            this.dateTimePicker3.Size = new System.Drawing.Size(222, 26);
             this.dateTimePicker3.TabIndex = 2;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(144, 257);
+            this.dateTimePicker2.Location = new System.Drawing.Point(111, 257);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(192, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(222, 26);
             this.dateTimePicker2.TabIndex = 5;
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(369, 368);
+            this.label8.Location = new System.Drawing.Point(361, 368);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 19);
             this.label8.TabIndex = 14;
@@ -192,19 +192,19 @@
             // 
             // textBox7
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(144, 365);
+            this.textBox7.Location = new System.Drawing.Point(111, 365);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(192, 26);
+            this.textBox7.Size = new System.Drawing.Size(222, 26);
             this.textBox7.TabIndex = 7;
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(43, 368);
+            this.label7.Location = new System.Drawing.Point(3, 368);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 19);
             this.label7.TabIndex = 12;
@@ -212,19 +212,19 @@
             // 
             // textBox6
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(488, 257);
+            this.textBox6.Location = new System.Drawing.Point(460, 257);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(192, 26);
+            this.textBox6.Size = new System.Drawing.Size(222, 26);
             this.textBox6.TabIndex = 6;
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(392, 260);
+            this.label6.Location = new System.Drawing.Point(361, 260);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 19);
             this.label6.TabIndex = 10;
@@ -232,10 +232,10 @@
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 260);
+            this.label5.Location = new System.Drawing.Point(3, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 19);
             this.label5.TabIndex = 8;
@@ -243,10 +243,10 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(365, 152);
+            this.label4.Location = new System.Drawing.Point(361, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 19);
             this.label4.TabIndex = 6;
@@ -254,10 +254,10 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 152);
+            this.label3.Location = new System.Drawing.Point(3, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 19);
             this.label3.TabIndex = 4;
@@ -265,10 +265,10 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(377, 44);
+            this.label2.Location = new System.Drawing.Point(361, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 2;
@@ -276,10 +276,10 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 44);
+            this.label1.Location = new System.Drawing.Point(3, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 0;
@@ -287,43 +287,43 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 41);
+            this.textBox1.Location = new System.Drawing.Point(111, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 26);
+            this.textBox1.Size = new System.Drawing.Size(222, 26);
             this.textBox1.TabIndex = 1;
             // 
             // comboBox1
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.comboBox1.Location = new System.Drawing.Point(144, 148);
+            this.comboBox1.Location = new System.Drawing.Point(111, 148);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 27);
+            this.comboBox1.Size = new System.Drawing.Size(222, 27);
             this.comboBox1.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(487, 149);
+            this.dateTimePicker1.Location = new System.Drawing.Point(460, 149);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(193, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(222, 26);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // comboBox2
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(487, 364);
+            this.comboBox2.Location = new System.Drawing.Point(460, 365);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(193, 27);
+            this.comboBox2.Size = new System.Drawing.Size(222, 27);
             this.comboBox2.TabIndex = 8;
             // 
             // button1
@@ -345,7 +345,7 @@
             this.pictureBox3.Image = global::SuShiX.Properties.Resources.return_button;
             this.pictureBox3.Location = new System.Drawing.Point(3, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 38);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
@@ -375,14 +375,14 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmAddEmployee
+            // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FrmAddEmployee";
+            this.Name = "AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddEmployee";
             this.Load += new System.EventHandler(this.FrmAddEmployee_Load);

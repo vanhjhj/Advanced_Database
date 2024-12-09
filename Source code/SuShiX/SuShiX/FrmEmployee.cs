@@ -24,7 +24,7 @@ namespace SuShiX
             this.Height = AppConfig.formHeight;
 
             // Sử dụng userID để thực hiện các tác vụ
-            LoadEmployeeData();
+           // LoadEmployeeData();
         }
 
         // Hàm tải dữ liệu Employee dựa trên userID
