@@ -71,6 +71,7 @@ namespace SuShiX
             FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
             this.Hide();
             frmManageEmployee.ShowDialog();
+            this.Close();
         }
         private void btnStatistics_Click(object sender, EventArgs e)
         {
@@ -84,6 +85,14 @@ namespace SuShiX
             frmManagerStatistics.ShowDialog();
 
             // Đóng form hiện tại sau khi FrmManagerStatistics đóng
+            this.Close();
+        }
+
+        private void btnUpdateIn4_Click(object sender, EventArgs e)
+        {
+            FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+            this.Hide();
+            frmUpdateIn4Employee.ShowDialog();
             this.Close();
         }
     }

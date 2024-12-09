@@ -668,6 +668,214 @@ BEGIN
 END
 GO
 
+--Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaMotBoPhan
+	@MaTK VARCHAR(10),
+	@TenBP NVARCHAR(50)
+AS
+BEGIN
+	SELECT NV.MaTK, NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi
+	FROM NhanVien NV JOIN ChiNhanh CN ON NV.MaCN=CN.MaCN
+	JOIN BoPhan BP ON NV.MaBP=BP.MaBP
+	WHERE BP.TenBP=@TenBP AND CN.QuanLy=@MaTK 
+END;
+GO 
+
+--Xem thông tin tất cả nhân viên thuộc tất cả bộ phận 
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaTatCaBoPhan
+	@MaTK VARCHAR(10)
+AS
+BEGIN
+	SELECT NV.MaTK, NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi
+	FROM NhanVien NV JOIN ChiNhanh CN ON NV.MaCN=CN.MaCN
+	WHERE CN.QuanLy=@MaTK 
+END;
+GO 
+
+--Xem thông tin nhân viên(từ người quản lý)
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienTuQuanLy
+    @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
+AS
+BEGIN
+    SELECT NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi, NV.MaBP, NV.MaCN
+    FROM NhanVien NV
+    WHERE NV.MaTK = @MaTK
+END;
+GO
+
+--Cập nhật thông tin nhân viên(từ người quản lý)
+GO 
+CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVienTuQuanLy
+	@MaTK VARCHAR(10),    
+	@Hoten NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@NgayNghiViec DATETIME,
+	@SDT VARCHAR(10),
+	@DiaChi NVARCHAR(200)
+AS
+BEGIN
+	IF EXISTS (SELECT 1 FROM NhanVien WHERE SDT = @SDT AND MaTK!=@MaTK)
+    BEGIN
+        ;THROW 50000, 'Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.', 1;
+    END
+
+	IF @NgayNghiViec<(SELECT NgayVaoLam FROM NhanVien WHERE MaTK=@MaTK)
+	BEGIN
+        ;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng điền ngày khác.', 1;
+    END
+
+	UPDATE NhanVien
+	SET Hoten=@Hoten, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, SDT=@SDT, DiaChi=@DiaChi, NgayNghiViec=@NgayNghiViec 
+	WHERE MaTK=@MaTK;
+END;
+GO
+
+--Điều động nhân viên sang chi nhánh khác
+GO
+CREATE OR ALTER PROCEDURE USP_DieuDongNhanVien
+	@MaTK VARCHAR(10),
+	@MaTKNV VARCHAR(10),
+	@TenCNMoi NVARCHAR(50),
+	@NgayBD DATETIME,
+	@NgayKT DATETIME
+AS
+BEGIN
+	IF @TenCNMoi =(SELECT TenCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+	BEGIN
+        ;THROW 50000, 'Tên chi nhánh mới phải khác chi nhánh cũ. Vui lòng điền chi nhánh khác.', 1;
+    END
+
+	IF @NgayBD<(SELECT NgayVaoLam FROM NhanVien WHERE MaTK=@MaTKNV)
+	BEGIN
+        ;THROW 50000, 'Ngày bắt đầu phải sau ngày vào làm. Vui lòng điền ngày khác.', 1;
+    END
+
+	IF (@NgayKT<>NULL)
+	BEGIN
+		IF (@NgayBD>@NgayKT)
+		BEGIN
+			;THROW 50000, 'Ngày kết thúc phải sau ngày bắt đầu. Vui lòng điền ngày khác', 1;
+		END
+	END
+
+	DECLARE @MaCN VARCHAR(10)
+	SET @MaCN=(SELECT MaCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+
+	INSERT INTO LichSuDieuDong(MaCN,MaTkNV,NgayBD,NgayKT) VALUES (@MaCN,@MaTKNV,@NgayBD,@NgayKT)
+END;
+
+--Thêm nhân viên mới
+GO
+CREATE OR ALTER PROCEDURE USP_ThemNhanVien
+	@MaTK VARCHAR(10),
+    @TenTK VARCHAR(50),
+    @MatKhau VARCHAR(20),
+    @HoTen NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@NgayVaoLam DATETIME,
+	@NgayNghiViec DATETIME,
+    @SDT VARCHAR(10),
+    @DiaChi NVARCHAR(200),
+	@TenBP NVARCHAR(50)
+AS
+BEGIN
+    -- Kiểm tra sự tồn tại của các trường
+    IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK)
+    BEGIN
+        ;THROW 50000, 'Tên tài khoản đã tồn tại. Vui lòng nhập tên khác.', 1;
+    END
+
+	IF DATEDIFF(YEAR,@NgaySinh, GETDATE()) < 18
+	BEGIN
+        ;THROW 50000, 'Nhân viên phải có độ tuổi từ 18 trở lên. Vui lòng nhập ngày sinh khác.', 1;
+    END
+
+	IF @NgayVaoLam < GETDATE()
+	BEGIN
+        ;THROW 50000, 'Ngày vào làm phải bắt đầu từ sau ngày hiện tại. Vui lòng nhập ngày khác.', 1;
+    END
+
+	IF @NgayNghiViec <> NULL
+	BEGIN
+		IF @NgayNghiViec<@NgayVaoLam
+		BEGIN
+			;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng nhập ngày khác.', 1;
+		END
+	END
+
+	DECLARE @MaBP VARCHAR(10)
+	SET @MaBP=(SELECT MaBP FROM BoPhan WHERE TenBP=@TenBP)
+
+	DECLARE @MaCN VARCHAR(10)
+	SET @MaCN=(SELECT MaCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+
+    DECLARE @MaxMaTK INT, @NewMaTK VARCHAR(10);
+    SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
+    FROM TaiKhoan;
+
+    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '0000');
+
+    -- Thêm vào bảng TaiKhoan
+    INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
+    VALUES (@NewMaTK, @TenTK, @MatKhau, N'Nhân Viên');
+
+    -- Thêm vào bảng NhanVien
+    INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, GioiTinh, NgayVaoLam, NgayNghiViec, SDT, DiaChi, MaBP, MaCN)
+    VALUES (@NewMaTK, @HoTen, @NgaySinh, @GioiTinh, @NgayVaoLam, @NgayNghiViec, @SDT, @DiaChi, @MaBP, @MaCN);
+END
+GO
+
+-- Xem thông tin chủ chi nhánh/nhân viên
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVien
+    @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
+AS
+BEGIN
+    SELECT TK.TenTK,TK.MatKhau,
+           NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi, NV.MaBP, NV.MaCN
+    FROM TaiKhoan TK
+	JOIN NhanVien NV ON TK.MaTK = NV.MaTK
+    WHERE TK.MaTK = @MaTK
+END;
+GO
+
+--Chỉnh sửa thông tin chủ chi nhánh/nhân viên
+GO 
+CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVien
+	@MaTK VARCHAR(10),    
+    @TenTK VARCHAR(50),   
+    @MatKhau VARCHAR(20), 
+	@Hoten NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@SDT VARCHAR(10),
+	@DiaChi NVARCHAR(200)
+AS
+BEGIN
+	IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK AND MaTK != @MaTK)
+    BEGIN
+        ;THROW 50000, 'Tên tài khoản đã tồn tại.', 1;
+    END
+	IF EXISTS (SELECT 1 FROM NhanVien WHERE SDT = @SDT AND MaTK!=@MaTK)
+    BEGIN
+        ;THROW 50000, 'Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.', 1;
+    END
+
+	UPDATE TaiKhoan
+	SET TenTK=@TenTK, MatKhau=@MatKhau
+	WHERE MaTK=@MaTK;
+
+	UPDATE NhanVien
+	SET Hoten=@Hoten, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, SDT=@SDT, DiaChi=@DiaChi
+	WHERE MaTK=@MaTK;
+END;
+GO
+
 -- Thực đơn cho nhân viên xem khi lập phiếu
 GO
 CREATE OR ALTER PROCEDURE USP_ThucDonChoDatBanTrucTiep

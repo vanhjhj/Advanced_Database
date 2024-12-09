@@ -38,11 +38,11 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MaMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrangPhucVu = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TinhTrangGiaoHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -134,11 +134,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Edit,
             this.MaMA,
             this.TenMA,
             this.TinhTrangPhucVu,
-            this.TinhTrangGiaoHang,
-            this.Edit});
+            this.TinhTrangGiaoHang});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(50, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -147,61 +147,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(700, 454);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
-            // 
-            // MaMA
-            // 
-            this.MaMA.HeaderText = "Mã món ăn";
-            this.MaMA.MinimumWidth = 8;
-            this.MaMA.Name = "MaMA";
-            this.MaMA.ReadOnly = true;
-            this.MaMA.Visible = false;
-            this.MaMA.Width = 150;
-            // 
-            // TenMA
-            // 
-            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMA.FillWeight = 50F;
-            this.TenMA.HeaderText = "Tên món ăn";
-            this.TenMA.MinimumWidth = 8;
-            this.TenMA.Name = "TenMA";
-            this.TenMA.ReadOnly = true;
-            // 
-            // TinhTrangPhucVu
-            // 
-            this.TinhTrangPhucVu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TinhTrangPhucVu.FillWeight = 48.56065F;
-            this.TinhTrangPhucVu.HeaderText = "Tình trạng phục vụ";
-            this.TinhTrangPhucVu.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangPhucVu.MinimumWidth = 8;
-            this.TinhTrangPhucVu.Name = "TinhTrangPhucVu";
-            this.TinhTrangPhucVu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangPhucVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangPhucVu.Width = 189;
-            // 
-            // TinhTrangGiaoHang
-            // 
-            this.TinhTrangGiaoHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TinhTrangGiaoHang.FillWeight = 44.71399F;
-            this.TinhTrangGiaoHang.HeaderText = "Tình trạng giao hàng";
-            this.TinhTrangGiaoHang.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangGiaoHang.MinimumWidth = 8;
-            this.TinhTrangGiaoHang.Name = "TinhTrangGiaoHang";
-            this.TinhTrangGiaoHang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangGiaoHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangGiaoHang.Width = 182;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Edit.FillWeight = 40F;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 104;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pbReturn
             // 
@@ -254,13 +200,24 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Edit.FillWeight = 40F;
+            this.Edit.HeaderText = "Chỉnh sửa";
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 76;
+            // 
             // MaMA
             // 
             this.MaMA.DataPropertyName = "MaMA";
             this.MaMA.HeaderText = "Mã món ăn";
+            this.MaMA.MinimumWidth = 8;
             this.MaMA.Name = "MaMA";
             this.MaMA.ReadOnly = true;
             this.MaMA.Visible = false;
+            this.MaMA.Width = 150;
             // 
             // TenMA
             // 
@@ -302,18 +259,9 @@
             this.TinhTrangGiaoHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.TinhTrangGiaoHang.Width = 116;
             // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Edit.FillWeight = 40F;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 69;
-            // 
             // FrmManageMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -321,7 +269,6 @@
             this.Name = "FrmManageMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.FrmManageMenu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -347,10 +294,10 @@
         private System.Windows.Forms.PictureBox pbReturn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Edit;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaMA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMA;
         private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangPhucVu;
         private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangGiaoHang;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Edit;
     }
 }

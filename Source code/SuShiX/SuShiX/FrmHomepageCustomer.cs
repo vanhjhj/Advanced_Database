@@ -44,5 +44,10 @@ namespace SuShiX
             frmCusOrder.ShowDialog();
             this.Close();
         }
+
+        private void FrmHomepageCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
