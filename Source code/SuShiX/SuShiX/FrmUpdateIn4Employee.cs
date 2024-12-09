@@ -165,5 +165,25 @@ namespace SuShiX
         {
             UpdateEmployeeInfo();
         }
+
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbFullName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

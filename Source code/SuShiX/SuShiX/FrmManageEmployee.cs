@@ -34,6 +34,7 @@ namespace SuShiX
             this.Width = AppConfig.formWidth;
             this.Height = AppConfig.formHeight;
             LoadComboBoxData();
+            dgvEmployee.RowHeadersVisible = false;
         }
 
         private void FrmManageEmployee_Load(object sender, EventArgs e)
@@ -174,7 +175,7 @@ namespace SuShiX
                         {
                             Name = "Edit",
                             HeaderText = "Chọn",
-                            Width = 35
+                            Width = 45
                         };
                         dgvEmployee.Columns.Add(checkBoxColumn);
 
