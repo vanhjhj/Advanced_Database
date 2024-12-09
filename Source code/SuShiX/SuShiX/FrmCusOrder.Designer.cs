@@ -757,6 +757,7 @@
             this.Name = "FrmCusOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
+            this.Load += new System.EventHandler(this.FrmCusOrder_Load);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();

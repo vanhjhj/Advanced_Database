@@ -670,6 +670,32 @@ BEGIN
 END
 GO
 
+--Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaMotBoPhan
+	@MaTK VARCHAR(10),
+	@TenBP NVARCHAR(50)
+AS
+BEGIN
+	SELECT NV.MaTK, NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi
+	FROM NhanVien NV JOIN ChiNhanh CN ON NV.MaCN=CN.MaCN
+	JOIN BoPhan BP ON NV.MaBP=BP.MaBP
+	WHERE BP.TenBP=@TenBP AND CN.QuanLy=@MaTK 
+END;
+GO 
+
+--Xem thông tin tất cả nhân viên thuộc tất cả bộ phận 
+GO
+CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaTatCaBoPhan
+	@MaTK VARCHAR(10)
+AS
+BEGIN
+	SELECT NV.MaTK, NV.Hoten, NV.NgaySinh, NV.GioiTinh, NV.NgayVaoLam, NV.NgayNghiViec, NV.SDT, NV.DiaChi
+	FROM NhanVien NV JOIN ChiNhanh CN ON NV.MaCN=CN.MaCN
+	WHERE CN.QuanLy=@MaTK 
+END;
+GO 
+
 -- Xem thông tin chủ chi nhánh/nhân viên
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVien
