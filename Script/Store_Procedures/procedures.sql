@@ -16,15 +16,22 @@ BEGIN
         WHERE TenTK = @TenTK AND MatKhau = @MatKhau
     )
     BEGIN
-        -- Lấy MaTK, LoaiTK và TenBP nếu tài khoản tồn tại
-        SELECT 
-            @MaTK = TK.MaTK,
-            @LoaiTK = TK.LoaiTK,
-            @TenBP = BP.TenBP
-        FROM TaiKhoan TK
-        LEFT JOIN NhanVien NV ON TK.MaTK = NV.MaTK
-        LEFT JOIN BoPhan BP ON NV.MaBP = BP.MaBP
-        WHERE TK.TenTK = @TenTK AND TK.MatKhau = @MatKhau;
+        IF N'Khách Hàng' = (SELECT LoaiTK FROM TaiKhoan WHERE TenTK = @TenTK AND MatKhau = @MatKhau)
+		BEGIN
+			SELECT @MaTK = MaTK, @LoaiTK = LoaiTK
+			FROM TaiKhoan
+			WHERE TenTK = @TenTK AND MatKhau = @MatKhau;
+		END
+		
+		ELSE
+		BEGIN
+			SELECT @MaTK = TK.MaTK, @TenBP = BP.TenBP, @LoaiTK = LoaiTK
+			FROM TaiKhoan TK
+			JOIN NhanVien NV ON TK.MaTK = NV.MaTK
+			JOIN BoPhan BP ON BP.MaBP = NV.MaBP
+			WHERE TenTK = @TenTK AND MatKhau = @MatKhau
+			AND NV.NgayNghiViec IS NULL;
+		END
     END
     ELSE
     BEGIN
