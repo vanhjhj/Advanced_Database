@@ -147,7 +147,7 @@
             // 
             this.pbReturn.Image = ((System.Drawing.Image)(resources.GetObject("pbReturn.Image")));
             this.pbReturn.Location = new System.Drawing.Point(10, 10);
-            this.pbReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbReturn.Margin = new System.Windows.Forms.Padding(4);
             this.pbReturn.Name = "pbReturn";
             this.pbReturn.Size = new System.Drawing.Size(40, 40);
             this.pbReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -399,7 +399,6 @@
             this.Name = "FrmCusRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
-            this.Load += new System.EventHandler(this.FrmCusRegister_Load);
             this.pnlRoot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoRegister)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
