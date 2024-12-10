@@ -1141,7 +1141,13 @@ BEGIN
 		JOIN MonAn MA ON Muc.MaMuc = MA.MaMuc
 		JOIN ThucDon TD ON TD.MaMA = MA.MaMA
 		JOIN PhieuDat PD ON PD.MaCN = TD.MaCN
-		WHERE PD.MaCN = @MaCNTT AND TD.TinhTrangPhucVu = N'Có';
+		WHERE PD.MaCN = @MaCNTT AND TD.TinhTrangPhucVu = N'Có'
+		AND MA.TenMA NOT IN (SELECT MA.TenMA
+							 FROM PhieuDat PD
+							 JOIN CTPD ON PD.MaPhieu = CTPD.MaPhieu
+							 JOIN MonAn MA ON MA.MaMA = CTPD.MaMA
+							 JOIN Muc ON MA.MaMuc = Muc.MaMuc
+							 WHERE PD.MaPhieu = @MaPhieu)
     END
 END
 GO
