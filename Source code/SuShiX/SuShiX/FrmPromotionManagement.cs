@@ -11,31 +11,31 @@ using System.Windows.Forms;
 
 namespace SuShiX
 {
-    public partial class FrmManageMenu : Form
+    public partial class FrmPromotionManagement : Form
     {
+
         // Biến private lưu trữ userID
         private string userID;
-
         // Connection string cho cơ sở dữ liệu
         private string connectionString = AppConfig.connectionString;
-
         // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
         public string UserID
         {
             get { return userID; }
             private set { userID = value; }
         }
-        public FrmManageMenu(string userID)
+
+        public FrmPromotionManagement(string userID)
         {
             InitializeComponent();
             this.UserID = userID;
             this.Width = AppConfig.formWidth;
             this.Height = AppConfig.formHeight;
-            LoadMenuData();
+            LoadData();
             dataGridView1.RowHeadersVisible = false;
         }
 
-        private void LoadMenuData()
+        private void LoadData()
         {
             try
             {
@@ -43,11 +43,10 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("USP_QuanLiXemThucDonChiNhanh", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@MaTK", userID);
+                    string query = "SELECT * FROM LoaiThe";
 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
@@ -66,102 +65,6 @@ namespace SuShiX
             btnSave.Enabled = false;
         }
 
-        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            // Kiểm tra nếu cột đang chỉnh sửa không phải là cột "Edit"
-            if (dataGridView1.Columns[e.ColumnIndex].Name != "Edit")
-            {
-                // Lấy trạng thái checkbox từ cột "Edit" của hàng hiện tại
-                bool isEditable = (bool)(dataGridView1.Rows[e.RowIndex].Cells["Edit"].Value ?? false);
-
-                // Nếu checkbox chưa được chọn, hủy chỉnh sửa
-                if (!isEditable)
-                {
-                    MessageBox.Show("Bạn cần chọn 'Chỉnh sửa' để thay đổi các trường!", "Thông báo");
-                    e.Cancel = true;
-                }
-            }
-        }
-
-        private void HandleSaveChanges()
-        {
-            // Tạo DataTable để lưu trữ dữ liệu cần cập nhật
-            DataTable dtUpdateMenu = new DataTable();
-            dtUpdateMenu.Columns.Add("MaMA", typeof(string));
-            dtUpdateMenu.Columns.Add("TinhTrangPhucVu", typeof(string));
-            dtUpdateMenu.Columns.Add("TinhTrangGiaoHang", typeof(string));
-
-            bool hasChanges = false;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                // Kiểm tra nếu hàng đó đang được chỉnh sửa
-                if (row.Cells["Edit"].Value != null && (bool)row.Cells["Edit"].Value)
-                {
-                    hasChanges = true;
-                    // Thêm dòng vào DataTable
-                    dtUpdateMenu.Rows.Add(
-                        row.Cells["MaMA"].Value.ToString(),
-                        row.Cells["TinhTrangPhucVu"].Value.ToString(),
-                        row.Cells["TinhTrangGiaoHang"].Value.ToString());
-                }
-            }
-
-            if (!hasChanges)
-            {
-                MessageBox.Show("Không có thay đổi nào được thực hiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    //Gọi stored procedure cập nhật thực đơn
-                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatThucDon", connection))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@MaTK", userID);
-
-                        SqlParameter tvpParam = new SqlParameter("@ThucDonThayDoi", SqlDbType.Structured)
-                        {
-                            TypeName = "dbo.ThucDonThayDoi",
-                            Value = dtUpdateMenu
-                        };
-                        cmd.Parameters.Add(tvpParam);
-
-                        cmd.ExecuteNonQuery();
-
-                        // Thông báo thành công
-                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
-
-
-        private void pbReturn_Click(object sender, EventArgs e)
-        {
-            FrmManager frmManager = new FrmManager(userID);
-            this.Hide();
-            frmManager.ShowDialog();
-            this.Close();
-        }
-
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // Xử lý lưu thay đổi
-            HandleSaveChanges();
-            // Tải lại dữ liệu
-            LoadMenuData();
-        }
 
         //Hàm cập nhật trạng thái nút khi có dữ liệu được chọn
         private void UpdateButtonStatus()
@@ -179,6 +82,70 @@ namespace SuShiX
 
             // Cập nhật trạng thái của các nút
             btnSave.Enabled = isSelected;
+        }
+
+        private void HandleSaveChanges()
+        {
+            // Tạo DataTable để lưu trữ dữ liệu cần cập nhật
+            DataTable dtUpdateMenu = new DataTable();
+            dtUpdateMenu.Columns.Add("TenLoaiThe", typeof(string));
+            dtUpdateMenu.Columns.Add("ChieuKhau", typeof(string));
+            dtUpdateMenu.Columns.Add("GiamGia", typeof(string));
+            dtUpdateMenu.Columns.Add("SpTang", typeof(string));
+
+            bool hasChanges = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Kiểm tra nếu hàng đó đang được chỉnh sửa
+                if (row.Cells["Edit"].Value != null && (bool)row.Cells["Edit"].Value)
+                {
+                    hasChanges = true;
+                    // Thêm dòng vào DataTable
+                    dtUpdateMenu.Rows.Add(
+                        row.Cells["TenLoaiThe"].Value.ToString(),
+                        row.Cells["ChietKhau"].Value.ToString(),
+                        row.Cells["GiamGia"].Value.ToString(),
+                        row.Cells["SpTang"].Value.ToString());
+                }
+            }
+
+            if (!hasChanges)
+            {
+                MessageBox.Show("Không có thay đổi nào được thực hiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    //Gọi stored procedure cập nhật thực đơn
+                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatLoaiThe", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@MaTK", userID);
+
+                        SqlParameter tvpParam = new SqlParameter("@LoaiTheThayDoi", SqlDbType.Structured)
+                        {
+                            TypeName = "dbo.LoaiTheThayDoi",
+                            Value = dtUpdateMenu
+                        };
+                        cmd.Parameters.Add(tvpParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        // Thông báo thành công
+                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -200,39 +167,34 @@ namespace SuShiX
             }
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void pbReturn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
+            // Kiểm tra nếu cột đang chỉnh sửa không phải là cột "Edit"
+            if (dataGridView1.Columns[e.ColumnIndex].Name != "Edit")
+            {
+                // Lấy trạng thái checkbox từ cột "Edit" của hàng hiện tại
+                bool isEditable = (bool)(dataGridView1.Rows[e.RowIndex].Cells["Edit"].Value ?? false);
 
+                // Nếu checkbox chưa được chọn, hủy chỉnh sửa
+                if (!isEditable)
+                {
+                    MessageBox.Show("Bạn cần chọn 'Chỉnh sửa' để thay đổi các trường!", "Thông báo");
+                    e.Cancel = true;
+                }
+            }
         }
 
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            // Xử lý lưu thay đổi
+            HandleSaveChanges();
+            // Tải lại dữ liệu
+            LoadData();
         }
     }
 }
