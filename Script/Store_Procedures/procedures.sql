@@ -754,16 +754,81 @@ BEGIN
         ;THROW 50000, 'Ngày bắt đầu phải sau ngày vào làm. Vui lòng điền ngày khác.', 1;
     END
 
-	IF (@NgayBD>@NgayKT)
+	IF (@NgayKT<>NULL)
 	BEGIN
-        ;THROW 50000, 'Ngày kết thúc phải sau ngày bắt đầu. Vui lòng điền ngày khác', 1;
-    END
+		IF (@NgayBD>@NgayKT)
+		BEGIN
+			;THROW 50000, 'Ngày kết thúc phải sau ngày bắt đầu. Vui lòng điền ngày khác', 1;
+		END
+	END
 
 	DECLARE @MaCN VARCHAR(10)
 	SET @MaCN=(SELECT MaCN FROM ChiNhanh WHERE QuanLy=@MaTK)
 
 	INSERT INTO LichSuDieuDong(MaCN,MaTkNV,NgayBD,NgayKT) VALUES (@MaCN,@MaTKNV,@NgayBD,@NgayKT)
 END;
+
+--Thêm nhân viên mới
+GO
+CREATE OR ALTER PROCEDURE USP_ThemNhanVien
+	@MaTK VARCHAR(10),
+    @TenTK VARCHAR(50),
+    @MatKhau VARCHAR(20),
+    @HoTen NVARCHAR(50),
+	@NgaySinh DATETIME,
+    @GioiTinh NVARCHAR(3),
+	@NgayVaoLam DATETIME,
+	@NgayNghiViec DATETIME,
+    @SDT VARCHAR(10),
+    @DiaChi NVARCHAR(200),
+	@TenBP NVARCHAR(50)
+AS
+BEGIN
+    -- Kiểm tra sự tồn tại của các trường
+    IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenTK = @TenTK)
+    BEGIN
+        ;THROW 50000, 'Tên tài khoản đã tồn tại. Vui lòng nhập tên khác.', 1;
+    END
+
+	IF DATEDIFF(YEAR,@NgaySinh, GETDATE()) < 18
+	BEGIN
+        ;THROW 50000, 'Nhân viên phải có độ tuổi từ 18 trở lên. Vui lòng nhập ngày sinh khác.', 1;
+    END
+
+	IF @NgayVaoLam < GETDATE()
+	BEGIN
+        ;THROW 50000, 'Ngày vào làm phải bắt đầu từ sau ngày hiện tại. Vui lòng nhập ngày khác.', 1;
+    END
+
+	IF @NgayNghiViec <> NULL
+	BEGIN
+		IF @NgayNghiViec<@NgayVaoLam
+		BEGIN
+			;THROW 50000, 'Ngày nghỉ việc phải sau ngày vào làm. Vui lòng nhập ngày khác.', 1;
+		END
+	END
+
+	DECLARE @MaBP VARCHAR(10)
+	SET @MaBP=(SELECT MaBP FROM BoPhan WHERE TenBP=@TenBP)
+
+	DECLARE @MaCN VARCHAR(10)
+	SET @MaCN=(SELECT MaCN FROM ChiNhanh WHERE QuanLy=@MaTK)
+
+    DECLARE @MaxMaTK INT, @NewMaTK VARCHAR(10);
+    SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
+    FROM TaiKhoan;
+
+    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '0000');
+
+    -- Thêm vào bảng TaiKhoan
+    INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
+    VALUES (@NewMaTK, @TenTK, @MatKhau, N'Nhân Viên');
+
+    -- Thêm vào bảng NhanVien
+    INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, GioiTinh, NgayVaoLam, NgayNghiViec, SDT, DiaChi, MaBP, MaCN)
+    VALUES (@NewMaTK, @HoTen, @NgaySinh, @GioiTinh, @NgayVaoLam, @NgayNghiViec, @SDT, @DiaChi, @MaBP, @MaCN);
+END
+GO
 
 -- Xem thông tin chủ chi nhánh/nhân viên
 GO

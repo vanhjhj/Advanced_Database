@@ -152,14 +152,7 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@MaTK", this.userID);
                         cmd.Parameters.AddWithValue("@MaTKNV", this.employeeID);
                         cmd.Parameters.AddWithValue("@TenCNMoi", cbbNewBranch.Text.Trim());
-                        if (dtpStartDate.Value == new DateTime(1900, 1, 1))
-                        {
-                            cmd.Parameters.AddWithValue("@NgayBD", DBNull.Value);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@NgayBD", dtpStartDate.Value);
-                        }
+                        cmd.Parameters.AddWithValue("@NgayBD", dtpStartDate.Value);
                         if (dtpEndDate.Value == new DateTime(1900, 1, 1))
                         {
                             cmd.Parameters.AddWithValue("@NgayKT", DBNull.Value);

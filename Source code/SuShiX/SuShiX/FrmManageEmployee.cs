@@ -243,5 +243,10 @@ namespace SuShiX
                 }
             }
         }
+
+        private void FrmManageEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,11 +124,11 @@
             // 
             this.txbTotalRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalRevenue.Location = new System.Drawing.Point(474, 62);
+            this.txbTotalRevenue.Location = new System.Drawing.Point(474, 57);
             this.txbTotalRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalRevenue.Name = "txbTotalRevenue";
             this.txbTotalRevenue.ReadOnly = true;
-            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 26);
+            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 35);
             this.txbTotalRevenue.TabIndex = 9;
             this.txbTotalRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -137,11 +137,11 @@
             this.txbTotalAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txbTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(100, 62);
+            this.txbTotalAmount.Location = new System.Drawing.Point(100, 57);
             this.txbTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(177, 26);
+            this.txbTotalAmount.Size = new System.Drawing.Size(177, 35);
             this.txbTotalAmount.TabIndex = 8;
             this.txbTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -229,9 +229,9 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(556, 33);
+            this.dtpEndDate.Location = new System.Drawing.Point(556, 32);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(138, 26);
+            this.dtpEndDate.Size = new System.Drawing.Size(138, 35);
             this.dtpEndDate.TabIndex = 10;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
@@ -281,9 +281,9 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(306, 33);
+            this.dtpStartDate.Location = new System.Drawing.Point(306, 32);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(138, 26);
+            this.dtpStartDate.Size = new System.Drawing.Size(138, 35);
             this.dtpStartDate.TabIndex = 9;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
@@ -295,7 +295,7 @@
             this.txbBranchName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(177, 26);
+            this.txbBranchName.Size = new System.Drawing.Size(177, 35);
             this.txbBranchName.TabIndex = 8;
             this.txbBranchName.TabStop = false;
             // 
@@ -395,7 +395,7 @@
             // 
             // FrmManagerStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 753);
