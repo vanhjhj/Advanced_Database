@@ -158,9 +158,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(274, 8);
+            this.label1.Location = new System.Drawing.Point(220, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 31);
+            this.label1.Size = new System.Drawing.Size(360, 47);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh sách nhân viên";
             // 
@@ -205,7 +205,7 @@
             this.cbbDepartment.Location = new System.Drawing.Point(558, 2);
             this.cbbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbDepartment.Name = "cbbDepartment";
-            this.cbbDepartment.Size = new System.Drawing.Size(133, 27);
+            this.cbbDepartment.Size = new System.Drawing.Size(133, 35);
             this.cbbDepartment.TabIndex = 0;
             this.cbbDepartment.SelectedValueChanged += new System.EventHandler(this.cbbDepartment_SelectedValueChanged);
             // 
@@ -288,6 +288,7 @@
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmployee.Location = new System.Drawing.Point(3, 55);
             this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.RowHeadersWidth = 62;
             this.dgvEmployee.Size = new System.Drawing.Size(694, 387);
             this.dgvEmployee.TabIndex = 2;
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
@@ -296,74 +297,84 @@
             // 
             this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Choice.HeaderText = "Chọn";
+            this.Choice.MinimumWidth = 8;
             this.Choice.Name = "Choice";
             this.Choice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Choice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Choice.Width = 67;
             // 
             // MaTK
             // 
             this.MaTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.MaTK.DataPropertyName = "MaTK";
             this.MaTK.HeaderText = "Mã TK";
+            this.MaTK.MinimumWidth = 8;
             this.MaTK.Name = "MaTK";
-            this.MaTK.Width = 80;
+            this.MaTK.Width = 117;
             // 
             // HoTen
             // 
             this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.HoTen.DataPropertyName = "HoTen";
             this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.MinimumWidth = 8;
             this.HoTen.Name = "HoTen";
-            this.HoTen.Width = 75;
+            this.HoTen.Width = 113;
             // 
             // NgaySinh
             // 
             this.NgaySinh.DataPropertyName = "NgaySinh";
             this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 8;
             this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.Width = 150;
             // 
             // GioiTinh
             // 
             this.GioiTinh.DataPropertyName = "GioiTinh";
             this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.MinimumWidth = 8;
             this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.Width = 150;
             // 
             // NgayVaoLam
             // 
             this.NgayVaoLam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.NgayVaoLam.DataPropertyName = "NgayVaoLam";
             this.NgayVaoLam.HeaderText = "Ngày vào làm";
+            this.NgayVaoLam.MinimumWidth = 8;
             this.NgayVaoLam.Name = "NgayVaoLam";
-            this.NgayVaoLam.Width = 118;
+            this.NgayVaoLam.Width = 181;
             // 
             // NgayNghiViec
             // 
             this.NgayNghiViec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.NgayNghiViec.DataPropertyName = "NgayNghiViec";
             this.NgayNghiViec.HeaderText = "Ngày nghỉ việc";
+            this.NgayNghiViec.MinimumWidth = 8;
             this.NgayNghiViec.Name = "NgayNghiViec";
-            this.NgayNghiViec.Width = 123;
+            this.NgayNghiViec.Width = 192;
             // 
             // SDT
             // 
             this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SDT.DataPropertyName = "SDT";
             this.SDT.HeaderText = "SDT";
+            this.SDT.MinimumWidth = 8;
             this.SDT.Name = "SDT";
-            this.SDT.Width = 63;
+            this.SDT.Width = 91;
             // 
             // DiaChi
             // 
             this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.DiaChi.DataPropertyName = "DiaChi";
             this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 8;
             this.DiaChi.Name = "DiaChi";
-            this.DiaChi.Width = 76;
+            this.DiaChi.Width = 117;
             // 
             // FrmManageEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -372,6 +383,7 @@
             this.Name = "FrmManageEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageEmployee";
+            this.Load += new System.EventHandler(this.FrmManageEmployee_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
