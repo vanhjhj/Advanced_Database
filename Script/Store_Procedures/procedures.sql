@@ -1006,8 +1006,7 @@ BEGIN
 	BEGIN
 		INSERT INTO @MaPhieuResult (MaPhieu)
         SELECT PD.MaPhieu
-        FROM KhachHang KH
-        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
         WHERE NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';

@@ -125,8 +125,9 @@ namespace SuShiX
                         using (SqlCommand cmd = new SqlCommand("USP_CapLaiTheThanhVien", connection))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@TenTKKH", userName);
                             cmd.Parameters.AddWithValue("@TkLap", userID);
+                            cmd.Parameters.AddWithValue("@TenTKKH", userName);
+                            
 
                             SqlParameter outputMaThe = new SqlParameter("@MaThe", SqlDbType.VarChar, 10)
                             {
@@ -161,7 +162,6 @@ namespace SuShiX
                 using (SqlCommand cmd = new SqlCommand("USP_CapNhatHangTheThanhVien", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@MaTK", userID);
 
                     try
                     {

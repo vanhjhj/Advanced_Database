@@ -316,69 +316,69 @@
             this.Choice.HeaderText = "Cập nhật";
             this.Choice.MinimumWidth = 6;
             this.Choice.Name = "Choice";
-            this.Choice.Width = 70;
+            this.Choice.Width = 85;
             // 
             // DishName
             // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DishName.DataPropertyName = "DishName";
             this.DishName.FillWeight = 32.40876F;
             this.DishName.HeaderText = "Tên Món";
             this.DishName.MinimumWidth = 6;
             this.DishName.Name = "DishName";
             this.DishName.ReadOnly = true;
-            this.DishName.Width = 83;
+            this.DishName.Width = 110;
             // 
             // DishType
             // 
-            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DishType.DataPropertyName = "DishType";
             this.DishType.FillWeight = 32.40876F;
             this.DishType.HeaderText = "Tên Mục";
             this.DishType.MinimumWidth = 6;
             this.DishType.Name = "DishType";
             this.DishType.ReadOnly = true;
+            this.DishType.Width = 109;
             // 
             // Amount
             // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Amount.DataPropertyName = "Amount";
             this.Amount.FillWeight = 437.9562F;
             this.Amount.HeaderText = "SL";
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
-            this.Amount.Width = 40;
+            this.Amount.Width = 61;
             // 
             // Price
             // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Price.DataPropertyName = "Price";
             this.Price.FillWeight = 32.40876F;
             this.Price.HeaderText = "Đơn Giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 150;
+            this.Price.Width = 107;
             // 
             // TotalAmount
             // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalAmount.DataPropertyName = "TotalAmount";
             this.TotalAmount.FillWeight = 32.40876F;
             this.TotalAmount.HeaderText = "Thành Tiền";
             this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.Width = 150;
+            this.TotalAmount.Width = 127;
             // 
             // Note
             // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Note.DataPropertyName = "Note";
             this.Note.FillWeight = 32.40876F;
             this.Note.HeaderText = "Ghi Chú";
             this.Note.MinimumWidth = 6;
             this.Note.Name = "Note";
-            this.Note.Width = 70;
             // 
             // pnlOrderDetails
             // 
@@ -652,76 +652,6 @@
             this.pnlShipping.Name = "pnlShipping";
             this.pnlShipping.Size = new System.Drawing.Size(419, 82);
             this.pnlShipping.TabIndex = 1;
-            // 
-            // Choice
-            // 
-            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Choice.HeaderText = "Cập nhật";
-            this.Choice.MinimumWidth = 6;
-            this.Choice.Name = "Choice";
-            this.Choice.Width = 85;
-            // 
-            // DishName
-            // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DishName.DataPropertyName = "DishName";
-            this.DishName.FillWeight = 32.40876F;
-            this.DishName.HeaderText = "Tên Món";
-            this.DishName.MinimumWidth = 6;
-            this.DishName.Name = "DishName";
-            this.DishName.ReadOnly = true;
-            this.DishName.Width = 110;
-            // 
-            // DishType
-            // 
-            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DishType.DataPropertyName = "DishType";
-            this.DishType.FillWeight = 32.40876F;
-            this.DishType.HeaderText = "Tên Mục";
-            this.DishType.MinimumWidth = 6;
-            this.DishType.Name = "DishType";
-            this.DishType.ReadOnly = true;
-            this.DishType.Width = 109;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.FillWeight = 437.9562F;
-            this.Amount.HeaderText = "SL";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 61;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.DataPropertyName = "Price";
-            this.Price.FillWeight = 32.40876F;
-            this.Price.HeaderText = "Đơn Giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 107;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TotalAmount.DataPropertyName = "TotalAmount";
-            this.TotalAmount.FillWeight = 32.40876F;
-            this.TotalAmount.HeaderText = "Thành Tiền";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.Width = 127;
-            // 
-            // Note
-            // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Note.DataPropertyName = "Note";
-            this.Note.FillWeight = 32.40876F;
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
             // 
             // FrmUpdateOrders
             // 
