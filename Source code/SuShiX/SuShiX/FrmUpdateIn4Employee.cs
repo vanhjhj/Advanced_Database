@@ -37,10 +37,39 @@ namespace SuShiX
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            FrmManager frmManager = new FrmManager(userID);
-            this.Hide();
-            frmManager.ShowDialog();
-            this.Close();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM ChiNhanh WHERE QuanLy=@UserID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                FrmManager frmManager = new FrmManager(userID);
+                                this.Hide();
+                                frmManager.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                FrmEmployee frmEmployee = new FrmEmployee(userID);
+                                this.Hide();
+                                frmEmployee.ShowDialog();
+                                this.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadEmployeeData()
