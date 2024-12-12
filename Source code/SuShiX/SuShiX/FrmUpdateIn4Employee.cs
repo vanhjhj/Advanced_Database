@@ -51,12 +51,10 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    // Tạo đối tượng SqlCommand để gọi thủ tục
                     using (SqlCommand cmd = new SqlCommand("USP_XemThongTinNhanVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Thêm tham số @MaTK
                         cmd.Parameters.Add(new SqlParameter("@MaTK", SqlDbType.NVarChar)
                         {
                             Value = this.UserID
