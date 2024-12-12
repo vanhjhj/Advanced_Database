@@ -256,6 +256,7 @@
             this.btnCreateVoice.TabIndex = 3;
             this.btnCreateVoice.Text = "Xuất Hóa Đơn";
             this.btnCreateVoice.UseVisualStyleBackColor = false;
+            this.btnCreateVoice.Click += new System.EventHandler(this.btnCreateVoice_Click);
             // 
             // btnCreateCard
             // 
@@ -293,7 +294,7 @@
             // 
             // FrmEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1264, 761);

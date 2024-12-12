@@ -175,5 +175,13 @@ namespace SuShiX
                 }
             }
         }
+
+        private void btnCreateVoice_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInvoice frmInvoice = new FrmInvoice(userID);
+            frmInvoice.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -55,7 +55,6 @@
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlOrderDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
@@ -74,6 +73,7 @@
             this.lblOrderType = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlShipping = new System.Windows.Forms.Panel();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlBookingOnline.SuspendLayout();
@@ -83,7 +83,6 @@
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             this.pnlOrderDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlRoot.SuspendLayout();
             this.pnlOrder.SuspendLayout();
@@ -91,6 +90,7 @@
             this.pnlGeneralOrderInfo.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlShipping.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // lblReceiverAddress
@@ -396,19 +396,6 @@
             this.pnlOrderDetails.Size = new System.Drawing.Size(859, 374);
             this.pnlOrderDetails.TabIndex = 2;
             // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
@@ -640,7 +627,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 94);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -652,6 +639,19 @@
             this.pnlShipping.Name = "pnlShipping";
             this.pnlShipping.Size = new System.Drawing.Size(419, 82);
             this.pnlShipping.TabIndex = 1;
+            // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
             // 
             // FrmUpdateOrders
             // 
@@ -675,7 +675,6 @@
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
             this.pnlOrderDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
@@ -685,6 +684,7 @@
             this.pnlGeneralOrderInfo.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlShipping.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }

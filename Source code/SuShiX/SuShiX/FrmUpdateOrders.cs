@@ -31,7 +31,6 @@ namespace SuShiX
             this.Height = AppConfig.formHeight;
             DisableAllControls();
             LoadBranchName();
-            dgvOrderDetails.RowHeadersVisible = false;
         }
         private void DisableAllControls()
         {

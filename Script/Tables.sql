@@ -176,5 +176,6 @@ CREATE TABLE DanhGia(
 	DiemChatLuongMonAN INT CHECK (DiemChatLuongMonAn BETWEEN 1 AND 5) NOT NULL,
 	DiemGiaCa INT CHECK (DiemGiaCa BETWEEN 1 AND 5) NOT NULL,
 	DiemKhongGianNhaHang INT CHECK (DiemKhongGianNhaHang BETWEEN 1 AND 5) NOT NULL,
+	DiemPhucVu INT CHECK (DiemPhucVu BETWEEN 1 AND 5) NOT NULL,
 	BinhLuan NVARCHAR(200)
 );
