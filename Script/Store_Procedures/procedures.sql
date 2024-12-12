@@ -466,8 +466,13 @@ GO
 --Cập nhật lại hạng thẻ cho khách hàng
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatHangTheThanhVien
+	@MaTK VARCHAR(10)
 AS
 BEGIN
+
+	-- Kiểm tra tài khoản thực hiện có tồn tại và có là nhân viên không
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản thực hiện không tồn tại hoặc không phải là nhân viên', 1
 	
 	--Khai báo cursor, lấy ra các thẻ cần cập nhật
 	DECLARE cur CURSOR FOR

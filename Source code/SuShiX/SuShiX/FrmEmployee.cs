@@ -151,6 +151,10 @@ namespace SuShiX
 
         private void btnUpdateIn4_Click(object sender, EventArgs e)
         {
+            FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(this.userID);
+            this.Hide();
+            frmUpdateIn4Employee.ShowDialog();
+            this.Close();
 
         }
         private void btnUpdateCardRank_Click(object sender, EventArgs e)
