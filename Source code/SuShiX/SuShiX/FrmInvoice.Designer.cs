@@ -31,70 +31,70 @@
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlOrderInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.lblBranchName = new System.Windows.Forms.Label();
             this.pnlGeneralOrderInfo = new System.Windows.Forms.Panel();
+            this.txbCard = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbbOrderList = new System.Windows.Forms.ComboBox();
             this.lblOrderList = new System.Windows.Forms.Label();
             this.txbTelephoneNum = new System.Windows.Forms.TextBox();
             this.cbbOrderType = new System.Windows.Forms.ComboBox();
             this.lblTelephoneNum = new System.Windows.Forms.Label();
             this.lblOrderType = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbCard = new System.Windows.Forms.TextBox();
+            this.lblBranchName = new System.Windows.Forms.Label();
             this.pnlInvoiceInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlInvoiceAndComment = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlInvoicePoint = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
-            this.lblGross = new System.Windows.Forms.Label();
-            this.lblPoint = new System.Windows.Forms.Label();
-            this.txbTotalAmount = new System.Windows.Forms.TextBox();
-            this.txbDiscount = new System.Windows.Forms.TextBox();
-            this.txbGross = new System.Windows.Forms.TextBox();
-            this.txbPoint = new System.Windows.Forms.TextBox();
-            this.pnlEvaluation = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlCommentPoint = new System.Windows.Forms.TableLayoutPanel();
-            this.lblLocationPoint = new System.Windows.Forms.Label();
-            this.lblDishPoint = new System.Windows.Forms.Label();
-            this.lblPricePoint = new System.Windows.Forms.Label();
-            this.lblSpacePoint = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pnlComment = new System.Windows.Forms.TableLayoutPanel();
-            this.lblComment = new System.Windows.Forms.Label();
-            this.txbComment = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvInvoiceDetails = new System.Windows.Forms.DataGridView();
             this.pnlButton = new System.Windows.Forms.TableLayoutPanel();
+            this.btnComment = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnInvoiceCreation = new System.Windows.Forms.Button();
-            this.nudLocationPoint = new System.Windows.Forms.NumericUpDown();
-            this.nudDishPoint = new System.Windows.Forms.NumericUpDown();
-            this.nudPricePoint = new System.Windows.Forms.NumericUpDown();
-            this.nudSpacePoint = new System.Windows.Forms.NumericUpDown();
-            this.nudServicePoint = new System.Windows.Forms.NumericUpDown();
+            this.dgvInvoiceDetails = new System.Windows.Forms.DataGridView();
             this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnComment = new System.Windows.Forms.Button();
+            this.pnlInvoiceAndComment = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlInvoicePoint = new System.Windows.Forms.TableLayoutPanel();
+            this.txbPoint = new System.Windows.Forms.TextBox();
+            this.txbGross = new System.Windows.Forms.TextBox();
+            this.txbDiscount = new System.Windows.Forms.TextBox();
+            this.lblPoint = new System.Windows.Forms.Label();
+            this.lblGross = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.txbTotalAmount = new System.Windows.Forms.TextBox();
+            this.pnlEvaluation = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlCommentPoint = new System.Windows.Forms.TableLayoutPanel();
+            this.nudServicePoint = new System.Windows.Forms.NumericUpDown();
+            this.nudSpacePoint = new System.Windows.Forms.NumericUpDown();
+            this.nudPricePoint = new System.Windows.Forms.NumericUpDown();
+            this.nudDishPoint = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSpacePoint = new System.Windows.Forms.Label();
+            this.lblPricePoint = new System.Windows.Forms.Label();
+            this.lblDishPoint = new System.Windows.Forms.Label();
+            this.lblLocationPoint = new System.Windows.Forms.Label();
+            this.nudLocationPoint = new System.Windows.Forms.NumericUpDown();
+            this.pnlComment = new System.Windows.Forms.TableLayoutPanel();
+            this.txbComment = new System.Windows.Forms.TextBox();
+            this.lblComment = new System.Windows.Forms.Label();
             this.pnlRoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlOrderInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
             this.pnlInvoiceInfo.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.pnlButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).BeginInit();
             this.pnlInvoiceAndComment.SuspendLayout();
             this.pnlInvoicePoint.SuspendLayout();
             this.pnlEvaluation.SuspendLayout();
             this.pnlCommentPoint.SuspendLayout();
-            this.pnlComment.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).BeginInit();
-            this.pnlButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDishPoint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPricePoint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSpacePoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudServicePoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSpacePoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPricePoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDishPoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).BeginInit();
+            this.pnlComment.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -145,19 +145,6 @@
             this.pnlOrderInfo.Size = new System.Drawing.Size(878, 747);
             this.pnlOrderInfo.TabIndex = 1;
             // 
-            // lblBranchName
-            // 
-            this.lblBranchName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblBranchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblBranchName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBranchName.Font = new System.Drawing.Font("Times New Roman", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBranchName.Location = new System.Drawing.Point(7, 3);
-            this.lblBranchName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(864, 38);
-            this.lblBranchName.TabIndex = 1;
-            this.lblBranchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pnlGeneralOrderInfo
             // 
             this.pnlGeneralOrderInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -175,6 +162,24 @@
             this.pnlGeneralOrderInfo.Name = "pnlGeneralOrderInfo";
             this.pnlGeneralOrderInfo.Size = new System.Drawing.Size(866, 97);
             this.pnlGeneralOrderInfo.TabIndex = 2;
+            // 
+            // txbCard
+            // 
+            this.txbCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbCard.Location = new System.Drawing.Point(632, 58);
+            this.txbCard.Name = "txbCard";
+            this.txbCard.Size = new System.Drawing.Size(186, 30);
+            this.txbCard.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(438, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 22);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Thẻ";
             // 
             // cbbOrderList
             // 
@@ -239,23 +244,18 @@
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
-            // label1
+            // lblBranchName
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(438, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 22);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Thẻ";
-            // 
-            // txbCard
-            // 
-            this.txbCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbCard.Location = new System.Drawing.Point(632, 58);
-            this.txbCard.Name = "txbCard";
-            this.txbCard.Size = new System.Drawing.Size(186, 30);
-            this.txbCard.TabIndex = 22;
+            this.lblBranchName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblBranchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBranchName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBranchName.Font = new System.Drawing.Font("Times New Roman", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBranchName.Location = new System.Drawing.Point(7, 3);
+            this.lblBranchName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBranchName.Name = "lblBranchName";
+            this.lblBranchName.Size = new System.Drawing.Size(864, 38);
+            this.lblBranchName.TabIndex = 1;
+            this.lblBranchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlInvoiceInfo
             // 
@@ -271,6 +271,142 @@
             this.pnlInvoiceInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlInvoiceInfo.Size = new System.Drawing.Size(866, 309);
             this.pnlInvoiceInfo.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.41109F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.58891F));
+            this.tableLayoutPanel2.Controls.Add(this.pnlButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dgvInvoiceDetails, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 297F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(854, 297);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pnlButton
+            // 
+            this.pnlButton.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.pnlButton.ColumnCount = 1;
+            this.pnlButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlButton.Controls.Add(this.btnComment, 0, 1);
+            this.pnlButton.Controls.Add(this.btnExit, 0, 2);
+            this.pnlButton.Controls.Add(this.btnInvoiceCreation, 0, 0);
+            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlButton.Location = new System.Drawing.Point(723, 3);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.RowCount = 3;
+            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.pnlButton.Size = new System.Drawing.Size(128, 291);
+            this.pnlButton.TabIndex = 2;
+            // 
+            // btnComment
+            // 
+            this.btnComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnComment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnComment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnComment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnComment.Location = new System.Drawing.Point(6, 102);
+            this.btnComment.Name = "btnComment";
+            this.btnComment.Size = new System.Drawing.Size(116, 87);
+            this.btnComment.TabIndex = 4;
+            this.btnComment.Text = "Gửi Bình Luận";
+            this.btnComment.UseVisualStyleBackColor = false;
+            this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.Location = new System.Drawing.Point(6, 198);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(116, 87);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Quay Lại";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnInvoiceCreation
+            // 
+            this.btnInvoiceCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
+            this.btnInvoiceCreation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnInvoiceCreation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnInvoiceCreation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnInvoiceCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInvoiceCreation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnInvoiceCreation.Location = new System.Drawing.Point(6, 6);
+            this.btnInvoiceCreation.Name = "btnInvoiceCreation";
+            this.btnInvoiceCreation.Size = new System.Drawing.Size(116, 87);
+            this.btnInvoiceCreation.TabIndex = 0;
+            this.btnInvoiceCreation.Text = "Xuất Hóa Đơn";
+            this.btnInvoiceCreation.UseVisualStyleBackColor = false;
+            this.btnInvoiceCreation.Click += new System.EventHandler(this.btnInvoiceCreation_Click);
+            // 
+            // dgvInvoiceDetails
+            // 
+            this.dgvInvoiceDetails.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvInvoiceDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvoiceDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DishName,
+            this.Amount,
+            this.Price,
+            this.TotalAmount});
+            this.dgvInvoiceDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInvoiceDetails.Location = new System.Drawing.Point(3, 3);
+            this.dgvInvoiceDetails.Name = "dgvInvoiceDetails";
+            this.dgvInvoiceDetails.ReadOnly = true;
+            this.dgvInvoiceDetails.RowHeadersWidth = 51;
+            this.dgvInvoiceDetails.RowTemplate.Height = 24;
+            this.dgvInvoiceDetails.Size = new System.Drawing.Size(714, 291);
+            this.dgvInvoiceDetails.TabIndex = 0;
+            // 
+            // DishName
+            // 
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DishName.DataPropertyName = "DishName";
+            this.DishName.HeaderText = "Tên Món";
+            this.DishName.MinimumWidth = 6;
+            this.DishName.Name = "DishName";
+            this.DishName.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Số Lượng";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn Giá";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.DataPropertyName = "TotalAmount";
+            this.TotalAmount.HeaderText = "Thành Tiền";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.Width = 125;
             // 
             // pnlInvoiceAndComment
             // 
@@ -313,38 +449,32 @@
             this.pnlInvoicePoint.Size = new System.Drawing.Size(253, 264);
             this.pnlInvoicePoint.TabIndex = 0;
             // 
-            // lblTotalAmount
+            // txbPoint
             // 
-            this.lblTotalAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalAmount.Location = new System.Drawing.Point(6, 3);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(79, 62);
-            this.lblTotalAmount.TabIndex = 1;
-            this.lblTotalAmount.Text = "Tổng Tiền";
-            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txbPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPoint.Location = new System.Drawing.Point(94, 214);
+            this.txbPoint.Name = "txbPoint";
+            this.txbPoint.ReadOnly = true;
+            this.txbPoint.Size = new System.Drawing.Size(153, 30);
+            this.txbPoint.TabIndex = 12;
             // 
-            // lblDiscount
+            // txbGross
             // 
-            this.lblDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDiscount.Location = new System.Drawing.Point(6, 68);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(79, 62);
-            this.lblDiscount.TabIndex = 3;
-            this.lblDiscount.Text = "Tổng Tiền Giảm";
-            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txbGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbGross.Location = new System.Drawing.Point(94, 149);
+            this.txbGross.Name = "txbGross";
+            this.txbGross.ReadOnly = true;
+            this.txbGross.Size = new System.Drawing.Size(153, 30);
+            this.txbGross.TabIndex = 11;
             // 
-            // lblGross
+            // txbDiscount
             // 
-            this.lblGross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblGross.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGross.Location = new System.Drawing.Point(6, 133);
-            this.lblGross.Name = "lblGross";
-            this.lblGross.Size = new System.Drawing.Size(79, 62);
-            this.lblGross.TabIndex = 5;
-            this.lblGross.Text = "Thành Tiền";
-            this.lblGross.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDiscount.Location = new System.Drawing.Point(94, 84);
+            this.txbDiscount.Name = "txbDiscount";
+            this.txbDiscount.ReadOnly = true;
+            this.txbDiscount.Size = new System.Drawing.Size(153, 30);
+            this.txbDiscount.TabIndex = 10;
             // 
             // lblPoint
             // 
@@ -357,6 +487,39 @@
             this.lblPoint.Text = "Điểm Cộng";
             this.lblPoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblGross
+            // 
+            this.lblGross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblGross.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGross.Location = new System.Drawing.Point(6, 133);
+            this.lblGross.Name = "lblGross";
+            this.lblGross.Size = new System.Drawing.Size(79, 62);
+            this.lblGross.TabIndex = 5;
+            this.lblGross.Text = "Thành Tiền";
+            this.lblGross.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDiscount.Location = new System.Drawing.Point(6, 68);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(79, 62);
+            this.lblDiscount.TabIndex = 3;
+            this.lblDiscount.Text = "Tổng Tiền Giảm";
+            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalAmount.Location = new System.Drawing.Point(6, 3);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(79, 62);
+            this.lblTotalAmount.TabIndex = 1;
+            this.lblTotalAmount.Text = "Tổng Tiền";
+            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // txbTotalAmount
             // 
             this.txbTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -365,33 +528,6 @@
             this.txbTotalAmount.ReadOnly = true;
             this.txbTotalAmount.Size = new System.Drawing.Size(153, 30);
             this.txbTotalAmount.TabIndex = 9;
-            // 
-            // txbDiscount
-            // 
-            this.txbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDiscount.Location = new System.Drawing.Point(94, 84);
-            this.txbDiscount.Name = "txbDiscount";
-            this.txbDiscount.ReadOnly = true;
-            this.txbDiscount.Size = new System.Drawing.Size(153, 30);
-            this.txbDiscount.TabIndex = 10;
-            // 
-            // txbGross
-            // 
-            this.txbGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbGross.Location = new System.Drawing.Point(94, 149);
-            this.txbGross.Name = "txbGross";
-            this.txbGross.ReadOnly = true;
-            this.txbGross.Size = new System.Drawing.Size(153, 30);
-            this.txbGross.TabIndex = 11;
-            // 
-            // txbPoint
-            // 
-            this.txbPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPoint.Location = new System.Drawing.Point(94, 214);
-            this.txbPoint.Name = "txbPoint";
-            this.txbPoint.ReadOnly = true;
-            this.txbPoint.Size = new System.Drawing.Size(153, 30);
-            this.txbPoint.TabIndex = 12;
             // 
             // pnlEvaluation
             // 
@@ -437,230 +573,24 @@
             this.pnlCommentPoint.Size = new System.Drawing.Size(595, 152);
             this.pnlCommentPoint.TabIndex = 0;
             // 
-            // lblLocationPoint
+            // nudServicePoint
             // 
-            this.lblLocationPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblLocationPoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLocationPoint.Location = new System.Drawing.Point(6, 3);
-            this.lblLocationPoint.Name = "lblLocationPoint";
-            this.lblLocationPoint.Size = new System.Drawing.Size(404, 26);
-            this.lblLocationPoint.TabIndex = 2;
-            this.lblLocationPoint.Text = "Điểm Vị Trí";
-            this.lblLocationPoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDishPoint
-            // 
-            this.lblDishPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblDishPoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDishPoint.Location = new System.Drawing.Point(6, 32);
-            this.lblDishPoint.Name = "lblDishPoint";
-            this.lblDishPoint.Size = new System.Drawing.Size(404, 26);
-            this.lblDishPoint.TabIndex = 4;
-            this.lblDishPoint.Text = "Điểm Món Ăn";
-            this.lblDishPoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPricePoint
-            // 
-            this.lblPricePoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblPricePoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPricePoint.Location = new System.Drawing.Point(6, 61);
-            this.lblPricePoint.Name = "lblPricePoint";
-            this.lblPricePoint.Size = new System.Drawing.Size(404, 26);
-            this.lblPricePoint.TabIndex = 6;
-            this.lblPricePoint.Text = "Điểm Giá Cả";
-            this.lblPricePoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSpacePoint
-            // 
-            this.lblSpacePoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblSpacePoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSpacePoint.Location = new System.Drawing.Point(6, 90);
-            this.lblSpacePoint.Name = "lblSpacePoint";
-            this.lblSpacePoint.Size = new System.Drawing.Size(404, 26);
-            this.lblSpacePoint.TabIndex = 8;
-            this.lblSpacePoint.Text = "Điểm Không Gian";
-            this.lblSpacePoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(6, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(404, 30);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Điểm Phục Vụ";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlComment
-            // 
-            this.pnlComment.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
-            this.pnlComment.ColumnCount = 2;
-            this.pnlComment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnlComment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.pnlComment.Controls.Add(this.txbComment, 1, 0);
-            this.pnlComment.Controls.Add(this.lblComment, 0, 0);
-            this.pnlComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlComment.Location = new System.Drawing.Point(3, 161);
-            this.pnlComment.Name = "pnlComment";
-            this.pnlComment.RowCount = 1;
-            this.pnlComment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlComment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlComment.Size = new System.Drawing.Size(595, 100);
-            this.pnlComment.TabIndex = 1;
-            // 
-            // lblComment
-            // 
-            this.lblComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblComment.Location = new System.Drawing.Point(6, 3);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(111, 94);
-            this.lblComment.TabIndex = 8;
-            this.lblComment.Text = "Bình Luận";
-            this.lblComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txbComment
-            // 
-            this.txbComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txbComment.Location = new System.Drawing.Point(126, 6);
-            this.txbComment.Multiline = true;
-            this.txbComment.Name = "txbComment";
-            this.txbComment.Size = new System.Drawing.Size(463, 88);
-            this.txbComment.TabIndex = 18;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.41109F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.58891F));
-            this.tableLayoutPanel2.Controls.Add(this.pnlButton, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dgvInvoiceDetails, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(854, 297);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // dgvInvoiceDetails
-            // 
-            this.dgvInvoiceDetails.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvInvoiceDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInvoiceDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DishName,
-            this.Amount,
-            this.Price,
-            this.TotalAmount});
-            this.dgvInvoiceDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInvoiceDetails.Location = new System.Drawing.Point(3, 3);
-            this.dgvInvoiceDetails.Name = "dgvInvoiceDetails";
-            this.dgvInvoiceDetails.ReadOnly = true;
-            this.dgvInvoiceDetails.RowHeadersWidth = 51;
-            this.dgvInvoiceDetails.RowTemplate.Height = 24;
-            this.dgvInvoiceDetails.Size = new System.Drawing.Size(714, 291);
-            this.dgvInvoiceDetails.TabIndex = 0;
-            // 
-            // pnlButton
-            // 
-            this.pnlButton.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
-            this.pnlButton.ColumnCount = 1;
-            this.pnlButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlButton.Controls.Add(this.btnComment, 0, 1);
-            this.pnlButton.Controls.Add(this.btnExit, 0, 2);
-            this.pnlButton.Controls.Add(this.btnInvoiceCreation, 0, 0);
-            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlButton.Location = new System.Drawing.Point(723, 3);
-            this.pnlButton.Name = "pnlButton";
-            this.pnlButton.RowCount = 3;
-            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.pnlButton.Size = new System.Drawing.Size(128, 291);
-            this.pnlButton.TabIndex = 2;
-            // 
-            // btnInvoiceCreation
-            // 
-            this.btnInvoiceCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
-            this.btnInvoiceCreation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnInvoiceCreation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnInvoiceCreation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnInvoiceCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInvoiceCreation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInvoiceCreation.Location = new System.Drawing.Point(6, 6);
-            this.btnInvoiceCreation.Name = "btnInvoiceCreation";
-            this.btnInvoiceCreation.Size = new System.Drawing.Size(116, 87);
-            this.btnInvoiceCreation.TabIndex = 0;
-            this.btnInvoiceCreation.Text = "Xuất Hóa Đơn";
-            this.btnInvoiceCreation.UseVisualStyleBackColor = false;
-            this.btnInvoiceCreation.Click += new System.EventHandler(this.btnInvoiceCreation_Click);
-            // 
-            // nudLocationPoint
-            // 
-            this.nudLocationPoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudLocationPoint.Location = new System.Drawing.Point(419, 6);
-            this.nudLocationPoint.Maximum = new decimal(new int[] {
+            this.nudServicePoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudServicePoint.Location = new System.Drawing.Point(419, 122);
+            this.nudServicePoint.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.nudLocationPoint.Minimum = new decimal(new int[] {
+            this.nudServicePoint.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudLocationPoint.Name = "nudLocationPoint";
-            this.nudLocationPoint.Size = new System.Drawing.Size(170, 30);
-            this.nudLocationPoint.TabIndex = 19;
-            this.nudLocationPoint.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // nudDishPoint
-            // 
-            this.nudDishPoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudDishPoint.Location = new System.Drawing.Point(419, 35);
-            this.nudDishPoint.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nudDishPoint.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudDishPoint.Name = "nudDishPoint";
-            this.nudDishPoint.Size = new System.Drawing.Size(170, 30);
-            this.nudDishPoint.TabIndex = 20;
-            this.nudDishPoint.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // nudPricePoint
-            // 
-            this.nudPricePoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudPricePoint.Location = new System.Drawing.Point(419, 64);
-            this.nudPricePoint.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nudPricePoint.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPricePoint.Name = "nudPricePoint";
-            this.nudPricePoint.Size = new System.Drawing.Size(170, 30);
-            this.nudPricePoint.TabIndex = 21;
-            this.nudPricePoint.Value = new decimal(new int[] {
+            this.nudServicePoint.Name = "nudServicePoint";
+            this.nudServicePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudServicePoint.TabIndex = 23;
+            this.nudServicePoint.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -689,96 +619,166 @@
             0,
             0});
             // 
-            // nudServicePoint
+            // nudPricePoint
             // 
-            this.nudServicePoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudServicePoint.Location = new System.Drawing.Point(419, 122);
-            this.nudServicePoint.Maximum = new decimal(new int[] {
+            this.nudPricePoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudPricePoint.Location = new System.Drawing.Point(419, 64);
+            this.nudPricePoint.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.nudServicePoint.Minimum = new decimal(new int[] {
+            this.nudPricePoint.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudServicePoint.Name = "nudServicePoint";
-            this.nudServicePoint.Size = new System.Drawing.Size(170, 30);
-            this.nudServicePoint.TabIndex = 23;
-            this.nudServicePoint.Value = new decimal(new int[] {
+            this.nudPricePoint.Name = "nudPricePoint";
+            this.nudPricePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudPricePoint.TabIndex = 21;
+            this.nudPricePoint.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
             // 
-            // DishName
+            // nudDishPoint
             // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DishName.DataPropertyName = "DishName";
-            this.DishName.HeaderText = "Tên Món";
-            this.DishName.MinimumWidth = 6;
-            this.DishName.Name = "DishName";
-            this.DishName.ReadOnly = true;
+            this.nudDishPoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudDishPoint.Location = new System.Drawing.Point(419, 35);
+            this.nudDishPoint.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudDishPoint.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDishPoint.Name = "nudDishPoint";
+            this.nudDishPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudDishPoint.TabIndex = 20;
+            this.nudDishPoint.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
-            // Amount
+            // label6
             // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Số Lượng";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(6, 119);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(404, 30);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Điểm Phục Vụ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Price
+            // lblSpacePoint
             // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Đơn Giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
+            this.lblSpacePoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblSpacePoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSpacePoint.Location = new System.Drawing.Point(6, 90);
+            this.lblSpacePoint.Name = "lblSpacePoint";
+            this.lblSpacePoint.Size = new System.Drawing.Size(404, 26);
+            this.lblSpacePoint.TabIndex = 8;
+            this.lblSpacePoint.Text = "Điểm Không Gian";
+            this.lblSpacePoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TotalAmount
+            // lblPricePoint
             // 
-            this.TotalAmount.DataPropertyName = "TotalAmount";
-            this.TotalAmount.HeaderText = "Thành Tiền";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 125;
+            this.lblPricePoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblPricePoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPricePoint.Location = new System.Drawing.Point(6, 61);
+            this.lblPricePoint.Name = "lblPricePoint";
+            this.lblPricePoint.Size = new System.Drawing.Size(404, 26);
+            this.lblPricePoint.TabIndex = 6;
+            this.lblPricePoint.Text = "Điểm Giá Cả";
+            this.lblPricePoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnExit
+            // lblDishPoint
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(6, 198);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(116, 87);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Quay Lại";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.lblDishPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblDishPoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDishPoint.Location = new System.Drawing.Point(6, 32);
+            this.lblDishPoint.Name = "lblDishPoint";
+            this.lblDishPoint.Size = new System.Drawing.Size(404, 26);
+            this.lblDishPoint.TabIndex = 4;
+            this.lblDishPoint.Text = "Điểm Món Ăn";
+            this.lblDishPoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnComment
+            // lblLocationPoint
             // 
-            this.btnComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
-            this.btnComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnComment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnComment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnComment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnComment.Location = new System.Drawing.Point(6, 102);
-            this.btnComment.Name = "btnComment";
-            this.btnComment.Size = new System.Drawing.Size(116, 87);
-            this.btnComment.TabIndex = 4;
-            this.btnComment.Text = "Gửi Bình Luận";
-            this.btnComment.UseVisualStyleBackColor = false;
-            this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
+            this.lblLocationPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblLocationPoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLocationPoint.Location = new System.Drawing.Point(6, 3);
+            this.lblLocationPoint.Name = "lblLocationPoint";
+            this.lblLocationPoint.Size = new System.Drawing.Size(404, 26);
+            this.lblLocationPoint.TabIndex = 2;
+            this.lblLocationPoint.Text = "Điểm Vị Trí";
+            this.lblLocationPoint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nudLocationPoint
+            // 
+            this.nudLocationPoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudLocationPoint.Location = new System.Drawing.Point(419, 6);
+            this.nudLocationPoint.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudLocationPoint.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudLocationPoint.Name = "nudLocationPoint";
+            this.nudLocationPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudLocationPoint.TabIndex = 19;
+            this.nudLocationPoint.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // pnlComment
+            // 
+            this.pnlComment.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.pnlComment.ColumnCount = 2;
+            this.pnlComment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlComment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.pnlComment.Controls.Add(this.txbComment, 1, 0);
+            this.pnlComment.Controls.Add(this.lblComment, 0, 0);
+            this.pnlComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlComment.Location = new System.Drawing.Point(3, 161);
+            this.pnlComment.Name = "pnlComment";
+            this.pnlComment.RowCount = 1;
+            this.pnlComment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlComment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.pnlComment.Size = new System.Drawing.Size(595, 100);
+            this.pnlComment.TabIndex = 1;
+            // 
+            // txbComment
+            // 
+            this.txbComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txbComment.Location = new System.Drawing.Point(126, 6);
+            this.txbComment.Multiline = true;
+            this.txbComment.Name = "txbComment";
+            this.txbComment.Size = new System.Drawing.Size(463, 88);
+            this.txbComment.TabIndex = 18;
+            // 
+            // lblComment
+            // 
+            this.lblComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblComment.Location = new System.Drawing.Point(6, 3);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(111, 94);
+            this.lblComment.TabIndex = 8;
+            this.lblComment.Text = "Bình Luận";
+            this.lblComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmInvoice
             // 
@@ -797,21 +797,21 @@
             this.pnlGeneralOrderInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.PerformLayout();
             this.pnlInvoiceInfo.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.pnlButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).EndInit();
             this.pnlInvoiceAndComment.ResumeLayout(false);
             this.pnlInvoicePoint.ResumeLayout(false);
             this.pnlInvoicePoint.PerformLayout();
             this.pnlEvaluation.ResumeLayout(false);
             this.pnlCommentPoint.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudServicePoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSpacePoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPricePoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDishPoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).EndInit();
             this.pnlComment.ResumeLayout(false);
             this.pnlComment.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetails)).EndInit();
-            this.pnlButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDishPoint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPricePoint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSpacePoint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudServicePoint)).EndInit();
             this.ResumeLayout(false);
 
         }

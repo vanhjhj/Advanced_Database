@@ -100,51 +100,39 @@ namespace SuShiX
                 // Nếu chưa chọn loại phiếu đặt, tắt tất cả các điều khiển
                 DisableAllControls();
             }
-            else if (selectedOrderType != "Đặt Bàn Trực Tiếp")
-            {
-                // Enable trường số điện thoại khách hàng
-                txbTelephoneNum.Enabled = true;
-                if(selectedOrderType == "Đặt Bàn Trực Tuyến")
-                {
-                    txbTelephoneNum.Text = string.Empty;
-                    txbGeneralNote.Text = string.Empty;
-                    cbbOrderList.DataSource = null;
-                    nudCusNumber.Value = 0;
-                    dtpArrivalTime.Value = DateTime.Now;
-                    txbReceiverAddress.Text = string.Empty;
-                    txbReceiverPhoneNumber.Text = string.Empty;
-                    dgvOrderDetails.DataSource = null;
-                    pnlShipping.Enabled = false;
-                }
-                else if (selectedOrderType == "Giao Hàng Tận Nơi")
-                {
-                    txbTelephoneNum.Text = string.Empty;
-                    txbGeneralNote.Text = string.Empty;
-                    cbbOrderList.DataSource = null;
-                    nudCusNumber.Value = 0;
-                    dtpArrivalTime.Value = DateTime.Now;
-                    txbReceiverAddress.Text = string.Empty;
-                    txbReceiverPhoneNumber.Text = string.Empty;
-                    dgvOrderDetails.DataSource = null;
-                    pnlBookingOnline.Enabled = false;
-                }
-            }
             else
             {
-                txbTelephoneNum.Enabled = false;
-                txbTelephoneNum.Text = string.Empty;
-                pnlBookingOnline.Enabled = false;
-                pnlShipping.Enabled = false;
                 cbbOrderList.Enabled = true;
-                // Chỉnh tất cả các giá trị của các điều khiển về rỗng
                 txbTelephoneNum.Text = string.Empty;
                 txbGeneralNote.Text = string.Empty;
                 cbbOrderList.DataSource = null;
+                
                 nudCusNumber.Value = 0;
                 dtpArrivalTime.Value = DateTime.Now;
+                
                 txbReceiverAddress.Text = string.Empty;
                 txbReceiverPhoneNumber.Text = string.Empty;
+                
                 dgvOrderDetails.DataSource = null;
+                
+                if (selectedOrderType == "Đặt Bàn Trực Tuyến")
+                {
+                    pnlBookingOnline.Enabled = true;
+                    pnlShipping.Enabled = false; 
+                    txbGeneralNote.Enabled = true;
+                }
+                else if (selectedOrderType == "Giao Hàng Tận Nơi")
+                {
+                    pnlBookingOnline.Enabled = false;
+                    pnlShipping.Enabled = true;
+                    txbGeneralNote.Enabled = true;
+                }
+                else
+                {
+                    pnlBookingOnline.Enabled = false;
+                    pnlShipping.Enabled = false;
+                    txbGeneralNote.Enabled = false;
+                }
                 LoadOrderList();
             }
         }
@@ -165,7 +153,6 @@ namespace SuShiX
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
-                        cmd.Parameters.AddWithValue("@SDTKhachHang", phoneNumber);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -199,33 +186,6 @@ namespace SuShiX
             }
         }
 
-
-        private void txbTelephoneNum_Leave(object sender, EventArgs e)
-        {
-            string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
-            dgvOrderDetails.Enabled = true;
-
-            // Kiểm tra loại phiếu đặt và thay đổi trạng thái các điều khiển tương ứng
-            if (selectedOrderType == "Đặt Bàn Trực Tuyến")
-            {
-                // Bật Trực Tuyến
-                pnlBookingOnline.Enabled = true;
-                pnlShipping.Enabled = false;
-                cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
-                LoadOrderList();
-            }
-            else if (selectedOrderType == "Giao Hàng Tận Nơi")
-            {
-                // Bật Giao Hàng
-                pnlShipping.Enabled = true;
-                pnlBookingOnline.Enabled = false;
-                cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
-                LoadOrderList();
-            }
-        }
-
         private void LoadOrderDetails()
         {
             // Lấy giá trị phiếu đặt từ ComboBox cbbOrderList
@@ -251,6 +211,7 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
 
                         // Thêm các tham số đầu ra
+
                         SqlParameter ghiChuParam = new SqlParameter
                         {
                             ParameterName = "@GhiChu",
@@ -284,6 +245,15 @@ namespace SuShiX
                             Direction = ParameterDirection.Output
                         };
                         cmd.Parameters.Add(diaChiParam);
+
+                        SqlParameter sdtKhachHangParam = new SqlParameter
+                        {
+                            ParameterName = "@SDTKhachHang",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 10,
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(sdtKhachHangParam);
 
                         SqlParameter sdtNguoiNhanParam = new SqlParameter
                         {
@@ -353,6 +323,7 @@ namespace SuShiX
                         int? slKhach = slKhachParam.Value as int?;
                         DateTime? thoiGianDen = thoiGianDenParam.Value as DateTime?;
                         string diaChi = diaChiParam.Value as string;
+                        string sdtKhachHang = sdtKhachHangParam.Value as string;
                         string sdtNguoiNhan = sdtNguoiNhanParam.Value as string;
 
                         // Chỉ hiển thị nếu giá trị không phải null
@@ -374,6 +345,11 @@ namespace SuShiX
                         if (!string.IsNullOrEmpty(diaChi))
                         {
                             txbReceiverAddress.Text = diaChi;
+                        }
+
+                        if (!string.IsNullOrEmpty(sdtKhachHang))
+                        {
+                            txbTelephoneNum.Text = sdtKhachHang;
                         }
 
                         if (!string.IsNullOrEmpty(sdtNguoiNhan))
