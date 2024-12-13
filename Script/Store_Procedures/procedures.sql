@@ -1366,6 +1366,14 @@ BEGIN
 	UPDATE dbo.PhieuDat 
 	SET TinhTrangThanhToan = N'Đã Thanh Toán'
 	WHERE MaPhieu = @MaPhieu;
+
+	-- Cộng điểm cho thẻ
+	IF @MaThe IS NOT NULL
+	BEGIN
+		UPDATE dbo.The
+		SET TongDiemDuyTri = TongDiemDuyTri + @DiemCong
+		WHERE MaThe = @MaThe
+	END
 END
 GO
 
