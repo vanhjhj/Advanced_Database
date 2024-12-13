@@ -977,12 +977,11 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt online của khách hàng qua số điện thoại
+-- Lấy danh sách phiếu đặt của loại phiếu đặt
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
-    @MaTKNhanVien VARCHAR(10),
-    @SDTKhachHang VARCHAR(10)
+    @MaTKNhanVien VARCHAR(10)
 AS
 BEGIN
     DECLARE @MaPhieuResult TABLE (MaPhieu VARCHAR(50));
@@ -991,20 +990,18 @@ BEGIN
     BEGIN
         INSERT INTO @MaPhieuResult (MaPhieu)
         SELECT PD.MaPhieu
-        FROM KhachHang KH
-        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        WHERE NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
     ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
     BEGIN
         INSERT INTO @MaPhieuResult (MaPhieu)
         SELECT PD.MaPhieu
-        FROM KhachHang KH
-        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        WHERE NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
 	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
@@ -1036,6 +1033,7 @@ CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
 	@SLKhach INT OUTPUT,
 	@ThoiGianDen DateTime OUTPUT,
 	@DiaChi NVARCHAR(200) OUTPUT,
+	@SDTKhachHang VARCHAR(10) OUTPUT,
 	@SDTNguoiNhan VARCHAR(10) OUTPUT
 AS
 BEGIN
@@ -1047,11 +1045,14 @@ BEGIN
 	IF @LoaiPhieuDat = N'Trực Tuyến'
     BEGIN
 		-- Lấy ra số lượng khách, thời gian đến
-        SELECT @SLKhach = SLKhach, @ThoiGianDen = ThoiGianDen, 
+        SELECT @SDTKhachHang = KH.SDT,
+			   @SLKhach = SLKhach, @ThoiGianDen = ThoiGianDen, 
 			   @DiaChi = NULL, @SDTNguoiNhan = NULL,
 			   @GhiChu = GhiChu
-		FROM PhieuDatBanTrucTuyen
-		WHERE MaPhieu = @MaPhieu;
+		FROM PhieuDatBanTrucTuyen PDTT
+		JOIN dbo.PhieuDat PD ON PD.MaPhieu = PDTT.MaPhieu
+		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+		WHERE PDTT.MaPhieu = @MaPhieu;
 
 		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
 		DECLARE @MaCNOL VARCHAR(10);
@@ -1084,11 +1085,15 @@ BEGIN
     ELSE IF @LoaiPhieuDat = N'Giao Hàng'
     BEGIN
 		-- Lấy ra Địa chỉ, số điện thoại người nhận
-        SELECT @DiaChi = DiaChi, @SDTNguoiNhan = SDTNguoiNhan,
+        SELECT @SDTKhachHang = KH.SDT,
+			   @DiaChi = DiaChi, @SDTNguoiNhan = SDTNguoiNhan,
 			   @SLKhach = NULL, @ThoiGianDen = NULL,
 			   @GhiChu = GhiChuGH
-		FROM PhieuDatGiaoHang
-		WHERE MaPhieu = @MaPhieu;
+		FROM PhieuDatGiaoHang PDGH
+		JOIN dbo.PhieuDat PD ON PD.MaPhieu = PDGH.MaPhieu
+		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+		WHERE PDGH.MaPhieu = @MaPhieu;
+
 
 		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
 		DECLARE @MaCNGH VARCHAR(10);
@@ -1121,7 +1126,8 @@ BEGIN
 	ELSE IF @LoaiPhieuDat = N'Trực Tiếp'
     BEGIN
 		-- Lấy ra Địa chỉ, số điện thoại người nhận
-        SELECT @DiaChi = NULL, @SDTNguoiNhan = NULL,
+        SELECT @SDTKhachHang = NULL,
+			   @DiaChi = NULL, @SDTNguoiNhan = NULL,
 			   @SLKhach = NULL, @ThoiGianDen = NULL,
 			   @GhiChu = NULL
 		FROM PhieuDat
