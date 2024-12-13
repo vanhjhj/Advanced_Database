@@ -1259,7 +1259,6 @@ CREATE TYPE dbo.LoaiTheThayDoi AS TABLE
 	SpTang NVARCHAR(200)
 )
 
-use QUAN_LY_NHA_HANG
 --Admin cập nhật Loại thẻ
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatLoaiThe
