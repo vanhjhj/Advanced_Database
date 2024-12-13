@@ -37,6 +37,7 @@ namespace SuShiX
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            //
             FrmManager frmManager = new FrmManager(userID);
             this.Hide();
             frmManager.ShowDialog();
