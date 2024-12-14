@@ -466,8 +466,13 @@ GO
 --Cập nhật lại hạng thẻ cho khách hàng
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatHangTheThanhVien
+	@MaTK VARCHAR(10)
 AS
 BEGIN
+
+	-- Kiểm tra tài khoản thực hiện có tồn tại và có là nhân viên không
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản thực hiện không tồn tại hoặc không phải là nhân viên', 1
 	
 	--Khai báo cursor, lấy ra các thẻ cần cập nhật
 	DECLARE cur CURSOR FOR
@@ -1056,12 +1061,11 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt online của khách hàng qua số điện thoại
+-- Lấy danh sách phiếu đặt của loại phiếu đặt
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
-    @MaTKNhanVien VARCHAR(10),
-    @SDTKhachHang VARCHAR(10)
+    @MaTKNhanVien VARCHAR(10)
 AS
 BEGIN
     DECLARE @MaPhieuResult TABLE (MaPhieu VARCHAR(50));
@@ -1070,20 +1074,18 @@ BEGIN
     BEGIN
         INSERT INTO @MaPhieuResult (MaPhieu)
         SELECT PD.MaPhieu
-        FROM KhachHang KH
-        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        WHERE NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
     ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
     BEGIN
         INSERT INTO @MaPhieuResult (MaPhieu)
         SELECT PD.MaPhieu
-        FROM KhachHang KH
-        JOIN PhieuDat PD ON KH.MaTK = PD.TkLap
+        FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-        WHERE KH.SDT = @SDTKhachHang AND NV.MaTK = @MaTKNhanVien
+        WHERE NV.MaTK = @MaTKNhanVien
         AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
 	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
@@ -1115,6 +1117,7 @@ CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
 	@SLKhach INT OUTPUT,
 	@ThoiGianDen DateTime OUTPUT,
 	@DiaChi NVARCHAR(200) OUTPUT,
+	@SDTKhachHang VARCHAR(10) OUTPUT,
 	@SDTNguoiNhan VARCHAR(10) OUTPUT
 AS
 BEGIN
@@ -1126,11 +1129,14 @@ BEGIN
 	IF @LoaiPhieuDat = N'Trực Tuyến'
     BEGIN
 		-- Lấy ra số lượng khách, thời gian đến
-        SELECT @SLKhach = SLKhach, @ThoiGianDen = ThoiGianDen, 
+        SELECT @SDTKhachHang = KH.SDT,
+			   @SLKhach = SLKhach, @ThoiGianDen = ThoiGianDen, 
 			   @DiaChi = NULL, @SDTNguoiNhan = NULL,
 			   @GhiChu = GhiChu
-		FROM PhieuDatBanTrucTuyen
-		WHERE MaPhieu = @MaPhieu;
+		FROM PhieuDatBanTrucTuyen PDTT
+		JOIN dbo.PhieuDat PD ON PD.MaPhieu = PDTT.MaPhieu
+		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+		WHERE PDTT.MaPhieu = @MaPhieu;
 
 		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
 		DECLARE @MaCNOL VARCHAR(10);
@@ -1163,11 +1169,15 @@ BEGIN
     ELSE IF @LoaiPhieuDat = N'Giao Hàng'
     BEGIN
 		-- Lấy ra Địa chỉ, số điện thoại người nhận
-        SELECT @DiaChi = DiaChi, @SDTNguoiNhan = SDTNguoiNhan,
+        SELECT @SDTKhachHang = KH.SDT,
+			   @DiaChi = DiaChi, @SDTNguoiNhan = SDTNguoiNhan,
 			   @SLKhach = NULL, @ThoiGianDen = NULL,
 			   @GhiChu = GhiChuGH
-		FROM PhieuDatGiaoHang
-		WHERE MaPhieu = @MaPhieu;
+		FROM PhieuDatGiaoHang PDGH
+		JOIN dbo.PhieuDat PD ON PD.MaPhieu = PDGH.MaPhieu
+		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+		WHERE PDGH.MaPhieu = @MaPhieu;
+
 
 		-- Lấy ra mã, tên chi nhánh của nhân viên đang làm việc
 		DECLARE @MaCNGH VARCHAR(10);
@@ -1200,7 +1210,8 @@ BEGIN
 	ELSE IF @LoaiPhieuDat = N'Trực Tiếp'
     BEGIN
 		-- Lấy ra Địa chỉ, số điện thoại người nhận
-        SELECT @DiaChi = NULL, @SDTNguoiNhan = NULL,
+        SELECT @SDTKhachHang = NULL,
+			   @DiaChi = NULL, @SDTNguoiNhan = NULL,
 			   @SLKhach = NULL, @ThoiGianDen = NULL,
 			   @GhiChu = NULL
 		FROM PhieuDat
@@ -1332,7 +1343,6 @@ CREATE TYPE dbo.LoaiTheThayDoi AS TABLE
 	SpTang NVARCHAR(200)
 )
 
-use QUAN_LY_NHA_HANG
 --Admin cập nhật Loại thẻ
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatLoaiThe
@@ -1366,5 +1376,124 @@ BEGIN
 
 	CLOSE cur
 	DEALLOCATe cur
+END
+GO
+
+-- Lấy ra thẻ cho khách hàng
+GO
+CREATE OR ALTER PROCEDURE USP_LayRaTheCuaKhachHang
+	@SDTKhachHang VARCHAR(10),
+	@MaThe VARCHAR(10) OUTPUT,
+	@GiamGia INT OUTPUT
+AS
+BEGIN
+	IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
+	BEGIN
+		SET @MaThe = NULL
+	END
+
+	ELSE
+	BEGIN
+		SELECT @MaThe = MaThe, @GiamGia = GiamGia
+		FROM dbo.LoaiThe 
+		JOIN dbo.The ON The.TenLoaiThe = LoaiThe.TenLoaiThe
+		JOIN dbo.KhachHang ON MaTK = TkSoHuu
+		WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở'
+	END
+END
+GO
+
+-- Lấy ra chi tiết hóa đơn
+GO
+CREATE OR ALTER PROCEDURE USP_CTHD
+	@MaPhieu VARCHAR(10)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM dbo.PhieuDat WHERE MaPhieu = @MaPhieu)
+	BEGIN
+		;THROW 51000, 'Phiếu Đặt Không Tồn Tại', 1
+	END
+
+	ELSE
+	BEGIN
+		SELECT MA.TenMA AS DishName, CTPD.SoLuong AS Amount, CTPD.DonGia AS Price, CTPD.ThanhTien AS TotalAmount
+		FROM dbo.MonAn MA
+		JOIN dbo.CTPD ON CTPD.MaMA = MA.MaMA
+		JOIN dbo.PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+		WHERE PD.MaPhieu = @MaPhieu
+	END
+END
+GO
+
+-- Tạo hóa đơn
+GO
+CREATE OR ALTER PROCEDURE USP_Xuat_Hoa_Don
+	@MaHD VARCHAR(10) OUTPUT,
+	@TongTien INT,
+	@TongTienDuocGiam INT,
+	@ThanhTien INT,
+	@DiemCong INT,
+	@MaPhieu VARCHAR(10),
+	@MaThe VARCHAR(10)
+AS
+BEGIN
+	IF NOT EXISTS(SELECT 1 FROM dbo.PhieuDat WHERE MaPhieu = @MaPhieu AND TinhTrangThanhToan = N'Chưa Thanh Toán')
+	BEGIN
+		;THROW 50000,'Phiếu Đặt không tồn tại hoặc đã được thanh toán', 1
+	END
+
+	IF @TongTien <= 0 OR @TongTienDuocGiam < 0 OR @ThanhTien < 0 OR @DiemCong < 0
+	BEGIN
+		;THROW 51000,'Thông số không hợp lệ', 1
+	END
+
+	-- Nếu không có trường nào bị trùng lặp, tiếp tục đăng ký
+    DECLARE @MaxMaHD INT, @NewMaHD VARCHAR(10);
+    SELECT @MaxMaHD = ISNULL(MAX(CAST(SUBSTRING(MaHD, 3, LEN(MaHD) - 2) AS INT)), -1)
+    FROM dbo.HoaDon;
+
+    SET @MaHD = 'HD' + FORMAT(@MaxMaHD + 1, '00000');
+
+	INSERT INTO dbo.HoaDon (MaHD, NgayLapHD, TongTien, TongTienDuocGiam, ThanhTien, DiemCong, MaPhieu, MaThe)
+	VALUES (@MaHD, GETDATE(), @TongTien, @TongTienDuocGiam, @ThanhTien, @DiemCong, @MaPhieu, @MaThe);
+
+	UPDATE dbo.PhieuDat 
+	SET TinhTrangThanhToan = N'Đã Thanh Toán'
+	WHERE MaPhieu = @MaPhieu;
+
+	-- Cộng điểm cho thẻ
+	IF @MaThe IS NOT NULL
+	BEGIN
+		UPDATE dbo.The
+		SET TongDiemDuyTri = TongDiemDuyTri + @DiemCong
+		WHERE MaThe = @MaThe
+	END
+END
+GO
+
+-- Tạo đánh giá
+GO
+CREATE OR ALTER PROCEDURE USP_Them_Danh_Gia
+	@MaHD VARCHAR(10),
+	@DiemViTriCN INT,
+	@DiemChatLuongMonAn INT,
+	@DiemGiaCa INT,
+	@DiemKhongGianNhaHang INT,
+	@DiemPhucVu INT,
+	@BinhLuan NVARCHAR(200)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM dbo.HoaDon WHERE MaHD = @MaHD)
+	BEGIN
+		;THROW 55000, 'Không tồn tại hóa đơn', 1;
+	END
+
+	IF @DiemViTriCN < 1 OR @DiemChatLuongMonAn < 1 OR @DiemGiaCa < 1 OR @DiemKhongGianNhaHang < 1 OR @DiemPhucVu < 1
+	BEGIN
+		;THROW 56000, 'Điểm số không hợp lệ', 2;
+	END
+
+	INSERT INTO dbo.DanhGia (MaHD, DiemViTriCN, DiemChatLuongMonAN, DiemGiaCa, DiemKhongGianNhaHang, DiemPhucVu, BinhLuan)
+	VALUES (@MaHD, @DiemViTriCN, @DiemChatLuongMonAn, @DiemGiaCa, @DiemKhongGianNhaHang, @DiemPhucVu, @BinhLuan);
 END
 GO

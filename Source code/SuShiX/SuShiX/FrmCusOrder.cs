@@ -597,8 +597,6 @@ namespace SuShiX
                 MessageBox.Show($"Lỗi khi lưu đơn hàng: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Hàm xử lý sự kiện khi người dùng nhấn Lập Phiếu
         private void btnOrder_Click(object sender, EventArgs e)
         {
             string orderType = cbbOrderType.SelectedItem?.ToString();

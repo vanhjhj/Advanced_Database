@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblReceiverAddress = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbReceiverPhoneNumber = new System.Windows.Forms.TextBox();
@@ -55,9 +55,9 @@
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlOrderDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
@@ -83,9 +83,9 @@
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             this.pnlOrderDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlRoot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
@@ -98,7 +98,7 @@
             this.lblReceiverAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblReceiverAddress.Location = new System.Drawing.Point(6, 3);
             this.lblReceiverAddress.Name = "lblReceiverAddress";
-            this.lblReceiverAddress.Size = new System.Drawing.Size(137, 36);
+            this.lblReceiverAddress.Size = new System.Drawing.Size(137, 56);
             this.lblReceiverAddress.TabIndex = 0;
             this.lblReceiverAddress.Text = "Địa Chỉ Nhận";
             this.lblReceiverAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,9 +107,9 @@
             // 
             this.panel1.Controls.Add(this.txbReceiverPhoneNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(152, 45);
+            this.panel1.Location = new System.Drawing.Point(152, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(261, 31);
+            this.panel1.Size = new System.Drawing.Size(261, 50);
             this.panel1.TabIndex = 3;
             // 
             // txbReceiverPhoneNumber
@@ -127,7 +127,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(152, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 30);
+            this.panel2.Size = new System.Drawing.Size(261, 50);
             this.panel2.TabIndex = 4;
             // 
             // txbReceiverAddress
@@ -136,7 +136,7 @@
             this.txbReceiverAddress.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverAddress.Multiline = true;
             this.txbReceiverAddress.Name = "txbReceiverAddress";
-            this.txbReceiverAddress.Size = new System.Drawing.Size(261, 30);
+            this.txbReceiverAddress.Size = new System.Drawing.Size(261, 50);
             this.txbReceiverAddress.TabIndex = 0;
             // 
             // pnlBookingOnline
@@ -155,7 +155,7 @@
             this.pnlBookingOnline.RowCount = 2;
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlBookingOnline.Size = new System.Drawing.Size(419, 82);
+            this.pnlBookingOnline.Size = new System.Drawing.Size(419, 121);
             this.pnlBookingOnline.TabIndex = 2;
             // 
             // lblArrivalTime
@@ -163,7 +163,7 @@
             this.lblArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblArrivalTime.Location = new System.Drawing.Point(6, 3);
             this.lblArrivalTime.Name = "lblArrivalTime";
-            this.lblArrivalTime.Size = new System.Drawing.Size(115, 36);
+            this.lblArrivalTime.Size = new System.Drawing.Size(115, 56);
             this.lblArrivalTime.TabIndex = 0;
             this.lblArrivalTime.Text = "Thời Gian Đến";
             this.lblArrivalTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +171,9 @@
             // lblCusNumber
             // 
             this.lblCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCusNumber.Location = new System.Drawing.Point(6, 42);
+            this.lblCusNumber.Location = new System.Drawing.Point(6, 62);
             this.lblCusNumber.Name = "lblCusNumber";
-            this.lblCusNumber.Size = new System.Drawing.Size(115, 37);
+            this.lblCusNumber.Size = new System.Drawing.Size(115, 56);
             this.lblCusNumber.TabIndex = 1;
             this.lblCusNumber.Text = "Số Lượng Khách";
             this.lblCusNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,9 +182,9 @@
             // 
             this.pnlCusNumber.Controls.Add(this.nudCusNumber);
             this.pnlCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCusNumber.Location = new System.Drawing.Point(130, 45);
+            this.pnlCusNumber.Location = new System.Drawing.Point(130, 65);
             this.pnlCusNumber.Name = "pnlCusNumber";
-            this.pnlCusNumber.Size = new System.Drawing.Size(283, 31);
+            this.pnlCusNumber.Size = new System.Drawing.Size(283, 50);
             this.pnlCusNumber.TabIndex = 3;
             // 
             // nudCusNumber
@@ -201,7 +201,7 @@
             this.pnlArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlArrivalTime.Location = new System.Drawing.Point(130, 6);
             this.pnlArrivalTime.Name = "pnlArrivalTime";
-            this.pnlArrivalTime.Size = new System.Drawing.Size(283, 30);
+            this.pnlArrivalTime.Size = new System.Drawing.Size(283, 50);
             this.pnlArrivalTime.TabIndex = 4;
             // 
             // dtpArrivalTime
@@ -215,9 +215,9 @@
             // lblReceiverPhoneNumber
             // 
             this.lblReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 42);
+            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 62);
             this.lblReceiverPhoneNumber.Name = "lblReceiverPhoneNumber";
-            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(137, 37);
+            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(137, 56);
             this.lblReceiverPhoneNumber.TabIndex = 1;
             this.lblReceiverPhoneNumber.Text = "Số Điện Thoại Nhận";
             this.lblReceiverPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,7 +236,7 @@
             this.pnlButton.RowCount = 2;
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButton.Size = new System.Drawing.Size(90, 368);
+            this.pnlButton.Size = new System.Drawing.Size(90, 329);
             this.pnlButton.TabIndex = 1;
             // 
             // btnUpdateOrder
@@ -249,7 +249,7 @@
             this.btnUpdateOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpdateOrder.Location = new System.Drawing.Point(6, 6);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(78, 173);
+            this.btnUpdateOrder.Size = new System.Drawing.Size(78, 154);
             this.btnUpdateOrder.TabIndex = 0;
             this.btnUpdateOrder.Text = "Cập Nhật";
             this.btnUpdateOrder.UseVisualStyleBackColor = false;
@@ -263,9 +263,9 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(6, 188);
+            this.btnExit.Location = new System.Drawing.Point(6, 169);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(78, 174);
+            this.btnExit.Size = new System.Drawing.Size(78, 154);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Quay Lại";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -274,14 +274,14 @@
             // dgvOrderDetails
             // 
             this.dgvOrderDetails.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Choice,
@@ -291,21 +291,21 @@
             this.Price,
             this.TotalAmount,
             this.Note});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvOrderDetails.Location = new System.Drawing.Point(3, 3);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
-            this.dgvOrderDetails.Size = new System.Drawing.Size(757, 368);
+            this.dgvOrderDetails.Size = new System.Drawing.Size(757, 329);
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
@@ -388,26 +388,13 @@
             this.pnlOrderDetails.Controls.Add(this.pnlButton, 1, 0);
             this.pnlOrderDetails.Controls.Add(this.dgvOrderDetails, 0, 0);
             this.pnlOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 367);
+            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 406);
             this.pnlOrderDetails.Name = "pnlOrderDetails";
             this.pnlOrderDetails.RowCount = 1;
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 374F));
-            this.pnlOrderDetails.Size = new System.Drawing.Size(859, 374);
+            this.pnlOrderDetails.Size = new System.Drawing.Size(859, 335);
             this.pnlOrderDetails.TabIndex = 2;
-            // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -425,7 +412,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 82);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 121);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // pnlRoot
@@ -445,6 +432,19 @@
             this.pnlRoot.Size = new System.Drawing.Size(1264, 761);
             this.pnlRoot.TabIndex = 1;
             // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
+            // 
             // pnlOrder
             // 
             this.pnlOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -462,8 +462,8 @@
             this.pnlOrder.Name = "pnlOrder";
             this.pnlOrder.RowCount = 3;
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.86486F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.64865F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.62162F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.95161F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.37097F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -552,7 +552,6 @@
             this.txbTelephoneNum.Name = "txbTelephoneNum";
             this.txbTelephoneNum.Size = new System.Drawing.Size(186, 30);
             this.txbTelephoneNum.TabIndex = 18;
-            this.txbTelephoneNum.Leave += new System.EventHandler(this.txbTelephoneNum_Leave);
             // 
             // txbGeneralNote
             // 
@@ -640,8 +639,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 94);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 133);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pnlShipping
@@ -650,7 +649,7 @@
             this.pnlShipping.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShipping.Location = new System.Drawing.Point(434, 6);
             this.pnlShipping.Name = "pnlShipping";
-            this.pnlShipping.Size = new System.Drawing.Size(419, 82);
+            this.pnlShipping.Size = new System.Drawing.Size(419, 121);
             this.pnlShipping.TabIndex = 1;
             // 
             // FrmUpdateOrders
@@ -675,10 +674,10 @@
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
             this.pnlOrderDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
