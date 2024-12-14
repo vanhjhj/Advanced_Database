@@ -10,6 +10,7 @@ namespace SuShiX
 {
     public partial class FrmManagerStatistics : Form
     {
+        private string selectedDishName;
         private string userID;
         private string branchName = "";
         private DateTime startDate;
@@ -35,6 +36,7 @@ namespace SuShiX
             this.endDate = dtpEndDate.Value;
             this.branchName = txbBranchName.Text;
             LoadBranchName();
+            LoadDishList();
         }
 
         private void LoadBranchName()
@@ -61,6 +63,7 @@ namespace SuShiX
                         {
                             branchName = reader["TenCN"].ToString();
                             txbBranchName.Text = branchName; // Gán tên chi nhánh vào textbox
+                            //MessageBox.Show(branchName);
                         }
                         else
                         {
@@ -76,9 +79,59 @@ namespace SuShiX
                 }
             }
         }
+
+        private void LoadDishList()
+        {
+            string query = @"
+                SELECT DISTINCT ma.TenMA
+                FROM NhanVien nv
+                JOIN ThucDon td ON td.MaCN = nv.MaCN
+                JOIN MonAn ma ON ma.MaMA = td.MaMA
+                WHERE nv.MaTK = @MaTK
+            ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@MaTK", userID); // Sử dụng userID làm tham số MaTK
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        DataTable dtDish = new DataTable();
+                        dtDish.Load(reader);
+
+                        List<string> dishes = new List<string>();
+                        dishes.Add("");
+                        foreach (DataRow row in dtDish.Rows)
+                        {
+                            foreach (DataColumn column in dtDish.Columns)
+                            {
+                                if (column.ColumnName == "TenMA")
+                                {
+                                    Console.WriteLine($"{column.ColumnName}: {row[column]}");
+                                    dishes.Add(row[column].ToString());
+                                    //MessageBox.Show(row[column].ToString());
+                                }
+                            }
+                        }
+                        cbbDishName.DataSource = dishes;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải danh sách món ăn: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void LoadBranchStatistics()
         {
-            string procedureName = "USP_QuanLyThongKe";
+           // MessageBox.Show($"UserID: {userID}, StartDate: {startDate}, EndDate: {endDate}, DishName: {selectedDishName}");
+
+            //string procedureName = @"EXEC USP_QuanLyThongKe @MaTK,@NgayBD,@NgayKT,@TenMA,@TongSoLuongBan,@TongDoanhThu";
+            string procedureName = @"USP_QuanLyThongKe";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -90,6 +143,15 @@ namespace SuShiX
                     command.Parameters.AddWithValue("@MaTK", userID);
                     command.Parameters.AddWithValue("@NgayBD", startDate);
                     command.Parameters.AddWithValue("@NgayKT", endDate);
+
+                    if (string.IsNullOrEmpty(selectedDishName))
+                    {
+                        command.Parameters.AddWithValue("@TenMA", DBNull.Value); // Nếu không có món ăn chọn
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@TenMA", selectedDishName); // Truyền Tên Món Ăn
+                    }
 
                     // Thêm tham số đầu ra
                     SqlParameter totalAmountParam = new SqlParameter
@@ -155,13 +217,13 @@ namespace SuShiX
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
             startDate = dtpStartDate.Value;
-            LoadBranchStatistics();
+          //  LoadBranchStatistics();
         }
 
         private void dtpEndDate_ValueChanged(object sender, EventArgs e)
         {
             endDate = dtpEndDate.Value;
-            LoadBranchStatistics();
+          //  LoadBranchStatistics();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -170,6 +232,55 @@ namespace SuShiX
             this.Hide();
             frmManager.ShowDialog();
             this.Close();
+        }
+
+        
+        private void dgvStatistics_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //foreach (DataGridViewColumn column in dgvStatistics.Columns)
+            //{
+            //    MessageBox.Show(column.Name);  // Hiển thị tất cả các tên cột
+            //}
+            if (dgvStatistics.Columns.Contains("DishName"))
+            {
+            // Kiểm tra xem có phải là cột "Tên Món" và đảm bảo có chỉ số dòng hợp lệ
+                if (e.ColumnIndex == dgvStatistics.Columns["DishName"].Index && e.RowIndex >= 0)
+                {
+                    var cell = dgvStatistics.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+
+                    if (cell != null && cell.Value != null)
+                    {
+                        selectedDishName = cell.Value.ToString();
+
+                    }
+                }
+            }
+
+        }
+
+        private void dgvStatistics_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedDishName = cbbDishName.SelectedItem.ToString();
+        }
+
+        private void lblBranchName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadBranchStatistics();
         }
     }
 }
