@@ -616,8 +616,9 @@ CREATE OR ALTER PROCEDURE USP_QuanLyThongKe
     @MaTK VARCHAR(10),
     @NgayBD DATETIME,
     @NgayKT DATETIME,
-    @TongSoLuongBan INT OUTPUT, 
-    @TongDoanhThu BIGINT OUTPUT
+	@TenMA  NVARCHAR(100) = NULL,
+    @TongSoLuongBan INT OUT, 
+    @TongDoanhThu BIGINT OUT
 AS
 BEGIN
     BEGIN TRY
@@ -635,7 +636,11 @@ BEGIN
         WHERE MaTK = @MaTK;
 
         -- Kiểm tra chi nhánh hợp lệ
-        IF @MaCN IS NULL
+        IF NOT EXISTS (
+			SELECT *
+			FROM ChiNhanh
+			WHERE MaCN = @MaCN
+		)
         BEGIN
             ;THROW 60001, N'Nhân viên không thuộc chi nhánh nào.', 1;
         END
@@ -647,33 +652,112 @@ BEGIN
         END
 
         -- Thống kê theo món ăn
-        SELECT MA.TenMA AS DishName, 
+        SELECT MA.TenMA AS 'DishName', 
                SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
                SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
         FROM MonAn MA
-        JOIN CTPD ON MA.MaMA = CTPD.MaMA
-        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
-        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
-        WHERE PD.MaCN = @MaCN 
-        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT 
+        LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
+        LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+		WHERE (@TenMA IS NULL OR MA.TenMA = @TenMA)
+        AND PD.MaCN = @MaCN
+        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+		AND MA.MaMA IN (
+			SELECT td.MaMA
+			FROM ThucDon td
+			WHERE td.MaCN = @MaCN
+		)
         GROUP BY MA.MaMA, MA.TenMA
         ORDER BY Revenue DESC;
 
-        -- Thống kê tổng
-        SELECT @TongSoLuongBan = SUM(ISNULL(CTPD.SoLuong, 0)),
-               @TongDoanhThu = CAST(SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS BIGINT)
-        FROM CTPD
-        JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
-        JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
-        WHERE PD.MaCN = @MaCN 
-          AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT;
+		IF @TenMA IS NULL
+		BEGIN
+			-- Thống kê tổng
+			SELECT @TongSoLuongBan = SUM(CTPD.SoLuong),
+				   @TongDoanhThu = SUM(CAST(CTPD.ThanhTien AS BIGINT))
+			FROM CTPD
+			JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+			JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+			WHERE PD.MaCN = @MaCN
+			AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+			AND ctpd.MaMA IN (
+				SELECT td.MaMA
+				FROM ThucDon td
+				WHERE td.MaCN = @MaCN
+			)
 
+		END
     END TRY
     BEGIN CATCH
-        THROW;
+        THROW 50001, 'Lỗi thống kê', 1;
     END CATCH
 END
 GO
+
+--Admin quan ly thong ke
+GO
+CREATE OR ALTER PROCEDURE USP_QuanLyThongKeBoiAdmin
+    @MaTK VARCHAR(10),
+    @NgayBD DATETIME,
+    @NgayKT DATETIME,
+	@TenKV  NVARCHAR(100) = NULL,
+	@TenCN NVARCHAR(100) =NUll,
+    @TongSoLuongBan INT OUT, 
+    @TongDoanhThu BIGINT OUT
+AS
+BEGIN
+    BEGIN TRY
+
+        -- Kiểm tra điều kiện ngày
+        IF @NgayKT < @NgayBD
+        BEGIN
+            ;THROW 60002, N'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.', 1;
+        END
+
+        -- Thống kê theo món ăn
+        SELECT KV.TenKV AS 'KhuVuc',
+			   CN.TenCN AS 'ChiNhanh',
+			   MA.TenMA AS 'DishName', 
+               SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
+               SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
+        FROM MonAn MA
+        LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
+        LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+        LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+		LEFT JOIN ChiNhanh CN ON CN.MaCN=PD.MaCN
+		LEFT JOIN KhuVuc KV ON KV.MaKV=CN.MaKV
+		INNER JOIN ThucDon TD ON TD.MaCN = CN.MaCN AND TD.MaMA = MA.MaMA
+		WHERE (@TenCN IS NULL OR CN.TenCN = @TenCN)
+		AND (@TenKV IS NULL OR KV.TenKV = @TenKV)
+        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+        GROUP BY KV.TenKV,CN.TenCN, MA.MaMA, MA.TenMA
+        ORDER BY KV.TenKV ASC, CN.TenCN ASC , Revenue DESC;
+
+		--IF @TenCN IS NULL OR @TenKV IS NULL
+		BEGIN
+			-- Thống kê tổng
+			SELECT 
+					 @TongSoLuongBan = COALESCE(SUM(CTPD.SoLuong), 0),
+					 @TongDoanhThu = COALESCE(SUM(CAST(CTPD.ThanhTien AS BIGINT)), 0)
+			FROM CTPD
+			LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+			LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+			LEFT JOIN ChiNhanh CN ON CN.MaCN= PD.MaCN
+			LEFT JOIN KhuVuc KV ON KV.MaKV =CN.MaKV
+			INNER JOIN ThucDon TD ON TD.MaCN = CN.MaCN AND CTPD.MaMA = TD.MaMA 
+			WHERE (@TenCN IS NULL OR CN.TenCN = @TenCN)
+			AND (@TenKV IS NULL OR KV.TenKV = @TenKV)
+			AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+		END
+    END TRY
+    BEGIN CATCH
+        THROW 50001, 'Lỗi thống kê', 1;
+    END CATCH
+END
+GO
+
+select * from NhanVien where MaTK='NV0015';
+
 
 --Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể
 GO
