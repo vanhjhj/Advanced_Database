@@ -1538,3 +1538,124 @@ BEGIN
 	DEALLOCATe cur
 END
 GO
+
+-- Thêm món mới
+CREATE OR ALTER PROCEDURE USP_ThemMonAnMoi
+    @TenMA NVARCHAR(50),
+    @GiaHienTai INT,
+    @MaMuc VARCHAR(10)
+AS
+BEGIN
+
+    -- Kiểm tra tên món ăn đã tồn tại chưa
+    IF EXISTS (SELECT 1 FROM dbo.MonAn WHERE TenMA = @TenMA)
+    BEGIN
+        ;THROW 50000, N'Tên món ăn đã tồn tại!', 1;
+    END
+
+    -- Tạo mã món ăn tự động
+    DECLARE @MaxMA INT, @MaMA VARCHAR(10);
+
+    SELECT @MaxMA = ISNULL(MAX(CAST(SUBSTRING(MaMA, 3, LEN(MaMA) - 2) AS INT)), 0)
+    FROM dbo.MonAn;
+
+    SET @MaMA = 'MA' + FORMAT(@MaxMA + 1, '000');
+
+    -- Thêm dữ liệu vào bảng MonAn
+    INSERT INTO dbo.MonAn (MaMA, TenMA, GiaHienTai,TinhTrangMonAn, MaMuc)
+    VALUES (@MaMA, @TenMA, @GiaHienTai, N'Có', @MaMuc);
+
+END
+GO
+
+CREATE TABLE TempMenu (
+    OriginalTenMA NVARCHAR(50), -- Tên món ăn gốc
+    NewTenMA NVARCHAR(50), -- Tên món ăn mới
+    GiaHienTai INT, -- Giá hiện tại
+    TinhTrangMonAn NVARCHAR(5), -- Tình trạng món ăn
+    TenMuc NVARCHAR(50) -- Tên mục
+);
+GO
+
+CREATE OR ALTER PROCEDURE USP_UpdateMenu
+    @AreaName NVARCHAR(100) -- Khu vực (hoặc 'Tất cả')
+AS
+BEGIN
+    -- Biến tạm để lưu giá trị từ con trỏ
+    DECLARE @OriginalTenMA NVARCHAR(100),
+            @NewTenMA NVARCHAR(100),
+            @GiaHienTai DECIMAL(18, 2),
+            @TinhTrang NVARCHAR(50),
+            @TenMuc NVARCHAR(100),
+            @MaMA VARCHAR(10); -- Mã món ăn
+
+    -- Khai báo con trỏ
+    DECLARE menu_cursor CURSOR FOR
+    SELECT OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc
+    FROM dbo.TempMenu; -- Bảng tạm chứa danh sách món ăn cần cập nhật
+
+    -- Mở con trỏ
+    OPEN menu_cursor;
+
+    -- Lấy dòng đầu tiên từ con trỏ
+    FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+
+	-- Kiểm tra tên
+	IF EXISTS (SELECT 1 FROM dbo.MonAn WHERE TenMA = @NewTenMA)
+	BEGIN
+		;THROW 51000, 'Tên món ăn đã tồn tại', 1;
+	END
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy MaMA từ MonAn
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @OriginalTenMA;
+
+        -- Nếu không tìm thấy MaMA, bỏ qua dòng này
+        IF @MaMA IS NULL
+        BEGIN
+            FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+            CONTINUE;
+        END;
+
+        -- Nếu là "Tất cả", cập nhật toàn bộ thực đơn
+        IF @AreaName = N'Tất cả'
+        BEGIN
+			Declare @MaMuc varchar(10)
+			Select @MaMuc =MaMuc from Muc where Muc.TenMuc=@TenMuc
+
+            -- Cập nhật thông tin món ăn trong MonAn
+            UPDATE MonAn
+            SET TenMA = @NewTenMA,
+                GiaHienTai = @GiaHienTai,
+                TinhTrangMonAn = @TinhTrang,
+				MaMuc=@MaMuc
+            WHERE MaMA = @MaMA;
+
+            -- Cập nhật tình trạng phục vụ trong ThucDon
+            UPDATE ThucDon
+            SET TinhTrangPhucVu = @TinhTrang
+            WHERE MaMA = @MaMA;
+        END
+        ELSE
+        BEGIN
+            -- Nếu là khu vực cụ thể, chỉ cập nhật tình trạng phục vụ
+            UPDATE ThucDon
+            SET TinhTrangPhucVu = @TinhTrang
+            WHERE MaMA = @MaMA AND MaCN IN (
+                SELECT CN.MaCN
+                FROM ChiNhanh CN
+                JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+                WHERE KV.TenKV = @AreaName
+            );
+        END;
+
+        -- Lấy dòng tiếp theo từ con trỏ
+        FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+    END;
+
+    -- Đóng và giải phóng con trỏ
+    CLOSE menu_cursor;
+    DEALLOCATE menu_cursor;
+END;
+GO
