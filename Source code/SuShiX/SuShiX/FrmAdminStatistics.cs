@@ -63,7 +63,7 @@ namespace SuShiX
                         DataTable dtArea = new DataTable();
                         dtArea.Load(reader);
 
-                        List<string> area = new List<string> { "" };  // Thêm "All" vào đầu danh sách
+                        List<string> area = new List<string> { "Tất cả" };  // Thêm "All" vào đầu danh sách
                         foreach (DataRow row in dtArea.Rows)
                         {
                             area.Add(row["TenKV"].ToString());
@@ -105,7 +105,7 @@ namespace SuShiX
                             DataTable dtBranchName = new DataTable();
                             dtBranchName.Load(reader);
 
-                            List<string> branch = new List<string> { "" };  // Thêm "All" vào đầu danh sách
+                            List<string> branch = new List<string> { "Tất cả" };  // Thêm "All" vào đầu danh sách
                             foreach (DataRow row in dtBranchName.Rows)
                             {
                                 branch.Add(row["TenCN"].ToString());
@@ -144,6 +144,10 @@ namespace SuShiX
                     {
                         command.Parameters.AddWithValue("@TenKV", DBNull.Value); // Nếu không có khu vực chọn
                     }
+                    else if (selectedArea == "Tất cả")
+                    {
+                        command.Parameters.AddWithValue("@TenKV", DBNull.Value); // Nếu chọn "Tất cả"
+                    }
                     else
                     {
                         command.Parameters.AddWithValue("@TenKV", selectedArea); // Truyền Khu Vực
@@ -153,6 +157,10 @@ namespace SuShiX
                     if (string.IsNullOrEmpty(selectedBranchName))
                     {
                         command.Parameters.AddWithValue("@TenCN", DBNull.Value); // Nếu không có chi nhánh chọn
+                    }
+                    else if (selectedBranchName == "Tất cả")
+                    {
+                        command.Parameters.AddWithValue("@TenCN", DBNull.Value); // Nếu chọn "Tất cả"
                     }
                     else
                     {

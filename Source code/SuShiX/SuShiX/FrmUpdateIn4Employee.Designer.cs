@@ -58,7 +58,7 @@
             this.pbDisplayPassword = new System.Windows.Forms.PictureBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDisplayPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.476821F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.52318F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnReturn, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 167);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -270,7 +270,6 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(238, 26);
             this.txbUsername.TabIndex = 1;
-            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
             // 
             // label2
             // 
@@ -341,7 +340,6 @@
             this.cbbGender.Name = "cbbGender";
             this.cbbGender.Size = new System.Drawing.Size(238, 27);
             this.cbbGender.TabIndex = 5;
-            this.cbbGender.SelectedIndexChanged += new System.EventHandler(this.cbbGender_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -393,7 +391,6 @@
             this.txbFullName.Name = "txbFullName";
             this.txbFullName.Size = new System.Drawing.Size(238, 26);
             this.txbFullName.TabIndex = 3;
-            this.txbFullName.TextChanged += new System.EventHandler(this.txbFullName_TextChanged);
             // 
             // txbStartDate
             // 
@@ -447,7 +444,6 @@
             this.txbPassword.Size = new System.Drawing.Size(238, 26);
             this.txbPassword.TabIndex = 2;
             this.txbPassword.UseSystemPasswordChar = true;
-            this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
             // 
             // button1
             // 
@@ -463,16 +459,16 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox3
+            // btnReturn
             // 
-            this.pictureBox3.Image = global::SuShiX.Properties.Resources.return_button;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnReturn.Image = global::SuShiX.Properties.Resources.return_button;
+            this.btnReturn.Location = new System.Drawing.Point(3, 3);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(40, 40);
+            this.btnReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnReturn.TabIndex = 1;
+            this.btnReturn.TabStop = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // pictureBox2
             // 
@@ -519,7 +515,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDisplayPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -554,7 +550,7 @@
         private System.Windows.Forms.TextBox txbStartDate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txbBranch;

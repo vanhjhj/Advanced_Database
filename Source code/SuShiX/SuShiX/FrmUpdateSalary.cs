@@ -11,21 +11,19 @@ using System.Windows.Forms;
 
 namespace SuShiX
 {
-    public partial class FrmPromotionManagement : Form
+    public partial class FrmUpdateSalary : Form
     {
 
-        // Biến private lưu trữ userID
         private string userID;
-        // Connection string cho cơ sở dữ liệu
         private string connectionString = AppConfig.connectionString;
-        // Getter để chỉ cho phép đọc userID từ bên ngoài nếu cần
+
         public string UserID
         {
             get { return userID; }
             private set { userID = value; }
         }
 
-        public FrmPromotionManagement(string userID)
+        public FrmUpdateSalary(string userID)
         {
             InitializeComponent();
             this.UserID = userID;
@@ -43,7 +41,7 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM LoaiThe";
+                    string query = "SELECT * FROM BoPhan";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -65,7 +63,6 @@ namespace SuShiX
             btnSave.Enabled = false;
         }
 
-
         //Hàm cập nhật trạng thái nút khi có dữ liệu được chọn
         private void UpdateButtonStatus()
         {
@@ -86,26 +83,25 @@ namespace SuShiX
 
         private void HandleSaveChanges()
         {
-            // Tạo DataTable để lưu trữ dữ liệu cần cập nhật
-            DataTable dtUpdateMenu = new DataTable();
-            dtUpdateMenu.Columns.Add("TenLoaiThe", typeof(string));
-            dtUpdateMenu.Columns.Add("ChieuKhau", typeof(string));
-            dtUpdateMenu.Columns.Add("GiamGia", typeof(string));
-            dtUpdateMenu.Columns.Add("SpTang", typeof(string));
+            DataTable dtUpdateSalary = new DataTable();
+
+            dtUpdateSalary.Columns.Add("MaBP", typeof(string));
+            dtUpdateSalary.Columns.Add("TenBP", typeof(string));
+            dtUpdateSalary.Columns.Add("Luong", typeof(string));
 
             bool hasChanges = false;
+
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 // Kiểm tra nếu hàng đó đang được chỉnh sửa
                 if (row.Cells["Edit"].Value != null && (bool)row.Cells["Edit"].Value)
                 {
                     hasChanges = true;
-                    // Thêm dòng vào DataTable
-                    dtUpdateMenu.Rows.Add(
-                        row.Cells["TenLoaiThe"].Value.ToString(),
-                        row.Cells["ChietKhau"].Value.ToString(),
-                        row.Cells["GiamGia"].Value.ToString(),
-                        row.Cells["SpTang"].Value.ToString());
+
+                    dtUpdateSalary.Rows.Add(
+                        row.Cells["MaBP"].Value,
+                        row.Cells["TenBP"].Value,
+                        row.Cells["Luong"].Value);
                 }
             }
 
@@ -121,17 +117,17 @@ namespace SuShiX
                 {
                     connection.Open();
 
-                    //Gọi stored procedure cập nhật loại thẻ
-                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatLoaiThe", connection))
+                    //Gọi stored procedure cập nhật lương
+                    using (SqlCommand cmd = new SqlCommand("USP_CapNhatLuong", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@MaTK", userID);
 
-                        SqlParameter tvpParam = new SqlParameter("@LoaiTheThayDoi", SqlDbType.Structured)
+                        SqlParameter tvpParam = new SqlParameter("@LuongThayDoi", SqlDbType.Structured)
                         {
-                            TypeName = "dbo.LoaiTheThayDoi",
-                            Value = dtUpdateMenu
+                            TypeName = "dbo.LuongThayDoi",
+                            Value = dtUpdateSalary
                         };
                         cmd.Parameters.Add(tvpParam);
 
@@ -169,6 +165,7 @@ namespace SuShiX
 
         private void pbReturn_Click(object sender, EventArgs e)
         {
+            //back to admin form
             FrmAdmin frmAdmin = new FrmAdmin(userID);
             this.Hide();
             frmAdmin.ShowDialog();
