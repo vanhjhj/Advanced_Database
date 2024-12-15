@@ -127,11 +127,11 @@
             // 
             this.txbTotalRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalRevenue.Location = new System.Drawing.Point(519, 62);
+            this.txbTotalRevenue.Location = new System.Drawing.Point(519, 53);
             this.txbTotalRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalRevenue.Name = "txbTotalRevenue";
             this.txbTotalRevenue.ReadOnly = true;
-            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 26);
+            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 44);
             this.txbTotalRevenue.TabIndex = 9;
             this.txbTotalRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -140,11 +140,11 @@
             this.txbTotalAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txbTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(115, 62);
+            this.txbTotalAmount.Location = new System.Drawing.Point(115, 53);
             this.txbTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(177, 26);
+            this.txbTotalAmount.Size = new System.Drawing.Size(177, 44);
             this.txbTotalAmount.TabIndex = 8;
             this.txbTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -213,7 +213,7 @@
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.64014F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.96886F));
-            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
+            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.pnlStatisticsInfo.Controls.Add(this.label1, 3, 0);
             this.pnlStatisticsInfo.Controls.Add(this.dtpEndDate, 2, 1);
             this.pnlStatisticsInfo.Controls.Add(this.lblEndDate, 2, 0);
@@ -239,9 +239,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(584, 3);
+            this.label1.Location = new System.Drawing.Point(579, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 27);
+            this.label1.Size = new System.Drawing.Size(227, 27);
             this.label1.TabIndex = 11;
             this.label1.Text = "Tên Món Ăn";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,9 +251,9 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(421, 41);
+            this.dtpEndDate.Location = new System.Drawing.Point(416, 36);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(138, 26);
+            this.dtpEndDate.Size = new System.Drawing.Size(138, 44);
             this.dtpEndDate.TabIndex = 10;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
@@ -264,9 +264,9 @@
             this.lblEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEndDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEndDate.Location = new System.Drawing.Point(405, 3);
+            this.lblEndDate.Location = new System.Drawing.Point(401, 3);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(170, 27);
+            this.lblEndDate.Size = new System.Drawing.Size(169, 27);
             this.lblEndDate.TabIndex = 5;
             this.lblEndDate.Text = "Ngày Kết Thúc";
             this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +278,9 @@
             this.lblStartDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStartDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblStartDate.Location = new System.Drawing.Point(199, 3);
+            this.lblStartDate.Location = new System.Drawing.Point(197, 3);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(197, 27);
+            this.lblStartDate.Size = new System.Drawing.Size(195, 27);
             this.lblStartDate.TabIndex = 4;
             this.lblStartDate.Text = "Ngày Bắt Đầu";
             this.lblStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,7 +294,7 @@
             this.lblBranchName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBranchName.Location = new System.Drawing.Point(6, 3);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(184, 27);
+            this.lblBranchName.Size = new System.Drawing.Size(182, 27);
             this.lblBranchName.TabIndex = 1;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             this.lblBranchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -304,9 +304,9 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(228, 41);
+            this.dtpStartDate.Location = new System.Drawing.Point(225, 36);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(138, 26);
+            this.dtpStartDate.Size = new System.Drawing.Size(138, 44);
             this.dtpStartDate.TabIndex = 9;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
@@ -314,11 +314,11 @@
             // 
             this.txbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbBranchName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBranchName.Location = new System.Drawing.Point(6, 41);
+            this.txbBranchName.Location = new System.Drawing.Point(6, 37);
             this.txbBranchName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(184, 26);
+            this.txbBranchName.Size = new System.Drawing.Size(182, 44);
             this.txbBranchName.TabIndex = 8;
             this.txbBranchName.TabStop = false;
             // 
@@ -326,9 +326,9 @@
             // 
             this.cbbDishName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbDishName.FormattingEnabled = true;
-            this.cbbDishName.Location = new System.Drawing.Point(602, 43);
+            this.cbbDishName.Location = new System.Drawing.Point(599, 37);
             this.cbbDishName.Name = "cbbDishName";
-            this.cbbDishName.Size = new System.Drawing.Size(186, 27);
+            this.cbbDishName.Size = new System.Drawing.Size(186, 44);
             this.cbbDishName.TabIndex = 12;
             this.cbbDishName.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -442,7 +442,7 @@
             // 
             // FrmManagerStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1363, 753);

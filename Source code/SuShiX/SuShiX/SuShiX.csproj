@@ -161,6 +161,12 @@
     <Compile Include="FrmPromotionManagement.Designer.cs">
       <DependentUpon>FrmPromotionManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateMenu.Designer.cs">
+      <DependentUpon>FrmUpdateMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPromotionManagement.resx">
       <DependentUpon>FrmPromotionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateMenu.resx">
+      <DependentUpon>FrmUpdateMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateOrders.resx">
       <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
