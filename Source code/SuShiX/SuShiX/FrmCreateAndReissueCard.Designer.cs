@@ -41,7 +41,7 @@
             // 
             this.txbUserName.Location = new System.Drawing.Point(162, 112);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(175, 26);
+            this.txbUserName.Size = new System.Drawing.Size(175, 44);
             this.txbUserName.TabIndex = 0;
             // 
             // lbMessage
@@ -50,7 +50,7 @@
             this.lbMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMessage.Location = new System.Drawing.Point(146, 70);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(208, 19);
+            this.lbMessage.Size = new System.Drawing.Size(428, 36);
             this.lbMessage.TabIndex = 1;
             this.lbMessage.Text = "Tên tài khoản của khách hàng";
             // 
@@ -63,10 +63,10 @@
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(210, 200);
+            this.btnOK.Location = new System.Drawing.Point(305, 250);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(80, 34);
+            this.btnOK.Size = new System.Drawing.Size(80, 48);
             this.btnOK.TabIndex = 15;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
@@ -90,17 +90,17 @@
             this.lbRegister.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRegister.Location = new System.Drawing.Point(198, 151);
             this.lbRegister.Name = "lbRegister";
-            this.lbRegister.Size = new System.Drawing.Size(104, 15);
+            this.lbRegister.Size = new System.Drawing.Size(205, 29);
             this.lbRegister.TabIndex = 21;
             this.lbRegister.Text = "Đăng ký tài khoản";
             this.lbRegister.Click += new System.EventHandler(this.lbRegister_Click);
             // 
             // FrmCreateAndReissueCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.ClientSize = new System.Drawing.Size(674, 360);
             this.Controls.Add(this.lbRegister);
             this.Controls.Add(this.pbReturn);
             this.Controls.Add(this.btnOK);

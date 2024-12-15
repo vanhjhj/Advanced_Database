@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="FrmAddNewDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddNewDish.Designer.cs">
+      <DependentUpon>FrmAddNewDish.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAdminStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddNewDish.resx">
+      <DependentUpon>FrmAddNewDish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAdminStatistics.resx">
       <DependentUpon>FrmAdminStatistics.cs</DependentUpon>
     </EmbeddedResource>
