@@ -159,5 +159,12 @@ namespace SuShiX
                 MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FrmManageIn4Employee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //close parent form
+            this.Owner.Close();
+            this.Close();
+        }
     }
 }

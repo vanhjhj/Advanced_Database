@@ -142,6 +142,9 @@ namespace SuShiX
 
                     // Đọc giá trị của checkbox sau khi người dùng click
                     bool isChecked = Convert.ToBoolean(checkBoxCell.Value);
+                    // bật Amount và Note khi chọn món ăn
+                    dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"].ReadOnly = !isChecked;
+                    dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].ReadOnly = !isChecked;
 
                     // Cập nhật trạng thái của nút "Order"
                     UpdateButtonState();
