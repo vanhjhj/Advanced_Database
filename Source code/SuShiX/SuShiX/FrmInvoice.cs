@@ -148,7 +148,6 @@ namespace SuShiX
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
-                        cmd.Parameters.AddWithValue("@SDTKhachHang", phoneNumber);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
