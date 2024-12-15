@@ -137,7 +137,19 @@ namespace SuShiX
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
+                            // Thêm cột ẩn lưu giá trị TenMA gốc
+                            if (!dt.Columns.Contains("OriginalTenMA"))
+                                dt.Columns.Add("OriginalTenMA", typeof(string));
+
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                row["OriginalTenMA"] = row["TenMA"];
+                            }
+
                             dgvMenu.DataSource = dt;
+
+                            // Ẩn cột OriginalTenMA
+                            dgvMenu.Columns["OriginalTenMA"].Visible = false;
                         }
                     }
 

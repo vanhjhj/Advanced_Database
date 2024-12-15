@@ -1601,10 +1601,13 @@ BEGIN
     FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
 
 	-- Kiểm tra tên
-	IF EXISTS (SELECT 1 FROM dbo.MonAn WHERE TenMA = @NewTenMA)
-	BEGIN
-		;THROW 51000, 'Tên món ăn đã tồn tại', 1;
-	END
+	IF(@OriginalTenMA <> @NewTenMA) 
+	 BEGIN
+		IF EXISTS (SELECT 1 FROM dbo.MonAn WHERE TenMA = @NewTenMA)
+		BEGIN
+			;THROW 51000, 'Tên món ăn đã tồn tại', 1;
+		END
+	 END
 
     WHILE @@FETCH_STATUS = 0
     BEGIN
@@ -1640,14 +1643,28 @@ BEGIN
         ELSE
         BEGIN
             -- Nếu là khu vực cụ thể, chỉ cập nhật tình trạng phục vụ
-            UPDATE ThucDon
-            SET TinhTrangPhucVu = @TinhTrang
-            WHERE MaMA = @MaMA AND MaCN IN (
-                SELECT CN.MaCN
-                FROM ChiNhanh CN
-                JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
-                WHERE KV.TenKV = @AreaName
-            );
+			IF(@TinhTrang=N'Không')
+			 BEGIN 
+				UPDATE ThucDon
+				SET TinhTrangPhucVu = @TinhTrang, TinhTrangGiaoHang=@TinhTrang
+				WHERE MaMA = @MaMA AND MaCN IN (
+					SELECT CN.MaCN
+					FROM ChiNhanh CN
+					JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+					WHERE KV.TenKV = @AreaName
+				);
+			END
+			ELSE
+				BEGIN 
+					 ThucDon
+					SET TinhTrangPhucVu = @TinhTrang
+					WHERE MaMA = @MaMA AND MaCN IN (
+						SELECT CN.MaCN
+						FROM ChiNhanh CN
+						JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+						WHERE KV.TenKV = @AreaName
+					);
+				END
         END;
 
         -- Lấy dòng tiếp theo từ con trỏ
