@@ -1,6 +1,6 @@
 ﻿namespace SuShiX
 {
-    partial class AddEmployee
+    partial class FrmAddEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -178,9 +178,9 @@
             // 
             this.txbUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txbUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUserName.Location = new System.Drawing.Point(111, 25);
+            this.txbUserName.Location = new System.Drawing.Point(111, 30);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(222, 35);
+            this.txbUserName.Size = new System.Drawing.Size(222, 26);
             this.txbUserName.TabIndex = 0;
             // 
             // label9
@@ -188,9 +188,9 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 16);
+            this.label9.Location = new System.Drawing.Point(3, 33);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 54);
+            this.label9.Size = new System.Drawing.Size(98, 19);
             this.label9.TabIndex = 15;
             this.label9.Text = "Tên đăng nhập";
             // 
@@ -198,18 +198,18 @@
             // 
             this.dtpDateOfBirth.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpDateOfBirth.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(460, 111);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(460, 116);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(222, 35);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(222, 26);
             this.dtpDateOfBirth.TabIndex = 3;
             // 
             // dtpEndDate
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpEndDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEndDate.Location = new System.Drawing.Point(111, 283);
+            this.dtpEndDate.Location = new System.Drawing.Point(111, 288);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(222, 35);
+            this.dtpEndDate.Size = new System.Drawing.Size(222, 26);
             this.dtpEndDate.TabIndex = 6;
             // 
             // label8
@@ -217,9 +217,9 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(361, 361);
+            this.label8.Location = new System.Drawing.Point(361, 378);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 54);
+            this.label8.Size = new System.Drawing.Size(85, 19);
             this.label8.TabIndex = 14;
             this.label8.Text = "Tên bộ phận";
             // 
@@ -227,9 +227,9 @@
             // 
             this.txbAddress.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txbAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAddress.Location = new System.Drawing.Point(111, 370);
+            this.txbAddress.Location = new System.Drawing.Point(111, 375);
             this.txbAddress.Name = "txbAddress";
-            this.txbAddress.Size = new System.Drawing.Size(222, 35);
+            this.txbAddress.Size = new System.Drawing.Size(222, 26);
             this.txbAddress.TabIndex = 8;
             // 
             // label7
@@ -237,9 +237,9 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 374);
+            this.label7.Location = new System.Drawing.Point(3, 378);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 27);
+            this.label7.Size = new System.Drawing.Size(51, 19);
             this.label7.TabIndex = 12;
             this.label7.Text = "Địa chỉ";
             // 
@@ -247,9 +247,9 @@
             // 
             this.txbPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txbPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPhoneNumber.Location = new System.Drawing.Point(460, 283);
+            this.txbPhoneNumber.Location = new System.Drawing.Point(460, 288);
             this.txbPhoneNumber.Name = "txbPhoneNumber";
-            this.txbPhoneNumber.Size = new System.Drawing.Size(222, 35);
+            this.txbPhoneNumber.Size = new System.Drawing.Size(222, 26);
             this.txbPhoneNumber.TabIndex = 7;
             // 
             // label6
@@ -257,9 +257,9 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(361, 287);
+            this.label6.Location = new System.Drawing.Point(361, 291);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 27);
+            this.label6.Size = new System.Drawing.Size(38, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "SDT";
             // 
@@ -268,9 +268,9 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 274);
+            this.label5.Location = new System.Drawing.Point(3, 291);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 54);
+            this.label5.Size = new System.Drawing.Size(98, 19);
             this.label5.TabIndex = 8;
             this.label5.Text = "Ngày nghỉ việc";
             // 
@@ -279,9 +279,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(361, 188);
+            this.label4.Location = new System.Drawing.Point(361, 205);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 54);
+            this.label4.Size = new System.Drawing.Size(93, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "Ngày vào làm";
             // 
@@ -290,9 +290,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 201);
+            this.label3.Location = new System.Drawing.Point(3, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 27);
+            this.label3.Size = new System.Drawing.Size(59, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Giới tính";
             // 
@@ -301,9 +301,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(361, 102);
+            this.label2.Location = new System.Drawing.Point(361, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 54);
+            this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày sinh";
             // 
@@ -312,9 +312,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 115);
+            this.label1.Location = new System.Drawing.Point(3, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 27);
+            this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ tên";
             // 
@@ -322,9 +322,9 @@
             // 
             this.txbFullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txbFullName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFullName.Location = new System.Drawing.Point(111, 111);
+            this.txbFullName.Location = new System.Drawing.Point(111, 116);
             this.txbFullName.Name = "txbFullName";
-            this.txbFullName.Size = new System.Drawing.Size(222, 35);
+            this.txbFullName.Size = new System.Drawing.Size(222, 26);
             this.txbFullName.TabIndex = 2;
             // 
             // cbbGender
@@ -335,18 +335,18 @@
             this.cbbGender.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbGender.Location = new System.Drawing.Point(111, 197);
+            this.cbbGender.Location = new System.Drawing.Point(111, 201);
             this.cbbGender.Name = "cbbGender";
-            this.cbbGender.Size = new System.Drawing.Size(222, 35);
+            this.cbbGender.Size = new System.Drawing.Size(222, 27);
             this.cbbGender.TabIndex = 4;
             // 
             // dtpStartDate
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpStartDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStartDate.Location = new System.Drawing.Point(460, 197);
+            this.dtpStartDate.Location = new System.Drawing.Point(460, 202);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(222, 35);
+            this.dtpStartDate.Size = new System.Drawing.Size(222, 26);
             this.dtpStartDate.TabIndex = 5;
             // 
             // cbbDepartment
@@ -354,9 +354,9 @@
             this.cbbDepartment.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbDepartment.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbDepartment.FormattingEnabled = true;
-            this.cbbDepartment.Location = new System.Drawing.Point(460, 370);
+            this.cbbDepartment.Location = new System.Drawing.Point(460, 374);
             this.cbbDepartment.Name = "cbbDepartment";
-            this.cbbDepartment.Size = new System.Drawing.Size(222, 35);
+            this.cbbDepartment.Size = new System.Drawing.Size(222, 27);
             this.cbbDepartment.TabIndex = 9;
             // 
             // label10
@@ -364,9 +364,9 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(361, 16);
+            this.label10.Location = new System.Drawing.Point(361, 33);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 54);
+            this.label10.Size = new System.Drawing.Size(67, 19);
             this.label10.TabIndex = 16;
             this.label10.Text = "Mật khẩu";
             // 
@@ -399,7 +399,7 @@
             this.txbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPassword.Location = new System.Drawing.Point(4, 26);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(222, 35);
+            this.txbPassword.Size = new System.Drawing.Size(222, 26);
             this.txbPassword.TabIndex = 1;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
@@ -452,16 +452,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // AddEmployee
+            // FrmAddEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "AddEmployee";
+            this.Name = "FrmAddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddEmployee";
+            this.Text = "AddEmployee";
             this.Load += new System.EventHandler(this.FrmAddEmployee_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

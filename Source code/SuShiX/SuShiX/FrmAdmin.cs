@@ -29,7 +29,7 @@ namespace SuShiX
             this.Height = AppConfig.formHeight;
 
             // Sử dụng userID để thực hiện các tác vụ
-            LoadAdminData();
+            //LoadAdminData();
         }
 
         // Hàm tải dữ liệu Admin dựa trên userID
@@ -65,5 +65,28 @@ namespace SuShiX
             this.Close();
         }
 
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        {
+            FrmUpdateSalary frmUpdateSalary = new FrmUpdateSalary(userID);
+            this.Hide();
+            frmUpdateSalary.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdatePromotion_Click(object sender, EventArgs e)
+        {
+            FrmPromotionManagement frmPromotionManagement = new FrmPromotionManagement(userID);
+            this.Hide();
+            frmPromotionManagement.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdateIn4_Click(object sender, EventArgs e)
+        {
+            FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+            frmUpdateIn4Employee.Owner = this;
+            this.Hide();
+            frmUpdateIn4Employee.ShowDialog();
+        }
     }
 }

@@ -35,15 +35,6 @@ namespace SuShiX
             LoadEmployeeData();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            //
-            FrmManager frmManager = new FrmManager(userID);
-            this.Hide();
-            frmManager.ShowDialog();
-            this.Close();
-        }
-
         private void LoadEmployeeData()
         {
             try
@@ -165,24 +156,10 @@ namespace SuShiX
             UpdateEmployeeInfo();
         }
 
-        private void txbUsername_TextChanged(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txbPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbFullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            this.Owner.Show();
+            this.Close();
         }
     }
 }

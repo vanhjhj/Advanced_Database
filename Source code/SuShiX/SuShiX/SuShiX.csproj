@@ -173,6 +173,12 @@
     <Compile Include="FrmUpdateIn4Employee.Designer.cs">
       <DependentUpon>FrmUpdateIn4Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateSalary.Designer.cs">
+      <DependentUpon>FrmUpdateSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAdminStatistics.resx">
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateIn4Employee.resx">
       <DependentUpon>FrmUpdateIn4Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateSalary.resx">
+      <DependentUpon>FrmUpdateSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

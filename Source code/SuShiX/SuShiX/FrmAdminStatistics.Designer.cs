@@ -129,11 +129,11 @@
             // 
             this.txbTotalRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalRevenue.Location = new System.Drawing.Point(475, 61);
+            this.txbTotalRevenue.Location = new System.Drawing.Point(464, 63);
             this.txbTotalRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalRevenue.Name = "txbTotalRevenue";
             this.txbTotalRevenue.ReadOnly = true;
-            this.txbTotalRevenue.Size = new System.Drawing.Size(177, 30);
+            this.txbTotalRevenue.Size = new System.Drawing.Size(199, 26);
             this.txbTotalRevenue.TabIndex = 9;
             this.txbTotalRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -142,11 +142,11 @@
             this.txbTotalAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txbTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(100, 61);
+            this.txbTotalAmount.Location = new System.Drawing.Point(89, 63);
             this.txbTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(177, 30);
+            this.txbTotalAmount.Size = new System.Drawing.Size(199, 26);
             this.txbTotalAmount.TabIndex = 8;
             this.txbTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -201,10 +201,10 @@
             this.pnlStatistics.Location = new System.Drawing.Point(0, 0);
             this.pnlStatistics.Name = "pnlStatistics";
             this.pnlStatistics.RowCount = 3;
-            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.588957F));
-            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.17791F));
+            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.52632F));
+            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.18219F));
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74F));
-            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.pnlStatistics.Size = new System.Drawing.Size(759, 494);
             this.pnlStatistics.TabIndex = 0;
             // 
@@ -216,7 +216,7 @@
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.63636F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.90909F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.45455F));
-            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
+            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 278F));
             this.pnlStatisticsInfo.Controls.Add(this.cbbBranchName, 1, 1);
             this.pnlStatisticsInfo.Controls.Add(this.label3, 1, 0);
             this.pnlStatisticsInfo.Controls.Add(this.label2, 2, 0);
@@ -226,22 +226,22 @@
             this.pnlStatisticsInfo.Controls.Add(this.dtpEndDate, 3, 1);
             this.pnlStatisticsInfo.Controls.Add(this.cbbArea, 0, 1);
             this.pnlStatisticsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlStatisticsInfo.Location = new System.Drawing.Point(3, 45);
+            this.pnlStatisticsInfo.Location = new System.Drawing.Point(3, 55);
             this.pnlStatisticsInfo.Name = "pnlStatisticsInfo";
             this.pnlStatisticsInfo.RowCount = 2;
             this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlStatisticsInfo.Size = new System.Drawing.Size(753, 79);
+            this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.pnlStatisticsInfo.Size = new System.Drawing.Size(753, 69);
             this.pnlStatisticsInfo.TabIndex = 0;
             // 
             // cbbBranchName
             // 
             this.cbbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbBranchName.FormattingEnabled = true;
-            this.cbbBranchName.Location = new System.Drawing.Point(176, 40);
+            this.cbbBranchName.Location = new System.Drawing.Point(163, 34);
             this.cbbBranchName.Name = "cbbBranchName";
-            this.cbbBranchName.Size = new System.Drawing.Size(167, 30);
+            this.cbbBranchName.Size = new System.Drawing.Size(154, 27);
             this.cbbBranchName.TabIndex = 13;
             this.cbbBranchName.SelectedIndexChanged += new System.EventHandler(this.cbbBranchName_SelectedIndexChanged);
             // 
@@ -252,9 +252,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(176, 3);
+            this.label3.Location = new System.Drawing.Point(163, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 28);
+            this.label3.Size = new System.Drawing.Size(154, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Tên Chi Nhánh";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,9 +266,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(352, 3);
+            this.label2.Location = new System.Drawing.Point(326, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 28);
+            this.label2.Size = new System.Drawing.Size(138, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Ngày Bắt Đầu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -280,9 +280,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(511, 3);
+            this.label1.Location = new System.Drawing.Point(473, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 28);
+            this.label1.Size = new System.Drawing.Size(274, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Ngày Kết Thúc";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,7 +296,7 @@
             this.lblBranchArea.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBranchArea.Location = new System.Drawing.Point(6, 3);
             this.lblBranchArea.Name = "lblBranchArea";
-            this.lblBranchArea.Size = new System.Drawing.Size(161, 28);
+            this.lblBranchArea.Size = new System.Drawing.Size(148, 24);
             this.lblBranchArea.TabIndex = 1;
             this.lblBranchArea.Text = "Tên Khu Vực";
             this.lblBranchArea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -305,9 +305,9 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(358, 40);
+            this.dtpStartDate.Location = new System.Drawing.Point(326, 35);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(138, 30);
+            this.dtpStartDate.Size = new System.Drawing.Size(138, 26);
             this.dtpStartDate.TabIndex = 10;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
@@ -315,9 +315,9 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(560, 40);
+            this.dtpEndDate.Location = new System.Drawing.Point(533, 35);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(138, 30);
+            this.dtpEndDate.Size = new System.Drawing.Size(154, 26);
             this.dtpEndDate.TabIndex = 11;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
@@ -325,9 +325,9 @@
             // 
             this.cbbArea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbArea.FormattingEnabled = true;
-            this.cbbArea.Location = new System.Drawing.Point(9, 43);
+            this.cbbArea.Location = new System.Drawing.Point(6, 34);
             this.cbbArea.Name = "cbbArea";
-            this.cbbArea.Size = new System.Drawing.Size(154, 30);
+            this.cbbArea.Size = new System.Drawing.Size(148, 27);
             this.cbbArea.TabIndex = 12;
             this.cbbArea.SelectedIndexChanged += new System.EventHandler(this.cbbArea_SelectedIndexChanged);
             // 
@@ -407,7 +407,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 36);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 46);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // pictureBox1
@@ -415,7 +415,7 @@
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -426,7 +426,7 @@
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(50, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 28);
+            this.button1.Size = new System.Drawing.Size(120, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -449,7 +449,7 @@
             this.pbStatisticsImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(1)))), ((int)(((byte)(9)))));
             this.pbStatisticsImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbStatisticsImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbStatisticsImage.Image = global::SuShiX.Properties.Resources.login2;
+            this.pbStatisticsImage.Image = global::SuShiX.Properties.Resources.logo_register;
             this.pbStatisticsImage.Location = new System.Drawing.Point(0, 0);
             this.pbStatisticsImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbStatisticsImage.Name = "pbStatisticsImage";
@@ -460,12 +460,14 @@
             // 
             // FrmAdminStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.pnlRoot);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmAdminStatistics";
-            this.Text = "FrmAdminStatistics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Statistics";
             this.pnlRoot.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
