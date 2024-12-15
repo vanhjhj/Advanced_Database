@@ -110,7 +110,7 @@ namespace SuShiX
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddEmployee frmAddEmployee = new AddEmployee(UserID);
+            FrmAddEmployee frmAddEmployee = new FrmAddEmployee(UserID);
             this.Hide();
             frmAddEmployee.ShowDialog();
             this.Close();

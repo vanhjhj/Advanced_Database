@@ -39,6 +39,8 @@
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnUpdateMenu = new System.Windows.Forms.Button();
             this.btnUpdateSalary = new System.Windows.Forms.Button();
+            this.btnUpdatePromotion = new System.Windows.Forms.Button();
+            this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -124,17 +126,15 @@
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.PeachPuff;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.btnUpdateIn4, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(367, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 6;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.53211F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.01835F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.52096F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 134F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(191, 569);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
@@ -145,7 +145,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(26, 489);
+            this.btnLogout.Location = new System.Drawing.Point(26, 91);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(139, 72);
             this.btnLogout.TabIndex = 4;
@@ -158,18 +158,20 @@
             this.tableLayoutPanel5.BackColor = System.Drawing.Color.PeachPuff;
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.btnStatistics, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.btnUpdateMenu, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.btnUpdateSalary, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnUpdatePromotion, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnStatistics, 0, 3);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 5;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00001F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.33335F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.33332F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.33332F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00001F));
+            this.tableLayoutPanel5.RowCount = 6;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 569);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
@@ -182,7 +184,7 @@
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnStatistics.Location = new System.Drawing.Point(34, 379);
+            this.btnStatistics.Location = new System.Drawing.Point(34, 293);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(290, 72);
             this.btnStatistics.TabIndex = 2;
@@ -199,7 +201,7 @@
             this.btnUpdateMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateMenu.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateMenu.Location = new System.Drawing.Point(34, 247);
+            this.btnUpdateMenu.Location = new System.Drawing.Point(34, 199);
             this.btnUpdateMenu.Name = "btnUpdateMenu";
             this.btnUpdateMenu.Size = new System.Drawing.Size(290, 72);
             this.btnUpdateMenu.TabIndex = 1;
@@ -215,12 +217,45 @@
             this.btnUpdateSalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateSalary.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateSalary.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateSalary.Location = new System.Drawing.Point(34, 115);
+            this.btnUpdateSalary.Location = new System.Drawing.Point(34, 105);
             this.btnUpdateSalary.Name = "btnUpdateSalary";
             this.btnUpdateSalary.Size = new System.Drawing.Size(290, 72);
             this.btnUpdateSalary.TabIndex = 0;
             this.btnUpdateSalary.Text = "Cập nhật lương";
             this.btnUpdateSalary.UseVisualStyleBackColor = false;
+            this.btnUpdateSalary.Click += new System.EventHandler(this.btnUpdateSalary_Click);
+            // 
+            // btnUpdatePromotion
+            // 
+            this.btnUpdatePromotion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdatePromotion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnUpdatePromotion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpdatePromotion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdatePromotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePromotion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePromotion.ForeColor = System.Drawing.Color.White;
+            this.btnUpdatePromotion.Location = new System.Drawing.Point(34, 11);
+            this.btnUpdatePromotion.Name = "btnUpdatePromotion";
+            this.btnUpdatePromotion.Size = new System.Drawing.Size(290, 72);
+            this.btnUpdatePromotion.TabIndex = 3;
+            this.btnUpdatePromotion.Text = "Cập nhật khuyến mãi";
+            this.btnUpdatePromotion.UseVisualStyleBackColor = false;
+            this.btnUpdatePromotion.Click += new System.EventHandler(this.btnUpdatePromotion_Click);
+            // 
+            // btnUpdateIn4
+            // 
+            this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateIn4.BackColor = System.Drawing.Color.Black;
+            this.btnUpdateIn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateIn4.Location = new System.Drawing.Point(26, 6);
+            this.btnUpdateIn4.Name = "btnUpdateIn4";
+            this.btnUpdateIn4.Size = new System.Drawing.Size(139, 72);
+            this.btnUpdateIn4.TabIndex = 5;
+            this.btnUpdateIn4.Text = "Cập nhật thông tin";
+            this.btnUpdateIn4.UseVisualStyleBackColor = false;
+            this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
             // 
             // FrmAdmin
             // 
@@ -231,7 +266,6 @@
             this.Name = "FrmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -256,5 +290,7 @@
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button btnUpdateSalary;
         private System.Windows.Forms.Button btnUpdateMenu;
+        private System.Windows.Forms.Button btnUpdatePromotion;
+        private System.Windows.Forms.Button btnUpdateIn4;
     }
 }

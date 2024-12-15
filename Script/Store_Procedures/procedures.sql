@@ -706,7 +706,7 @@ CREATE OR ALTER PROCEDURE USP_QuanLyThongKeBoiAdmin
     @NgayBD DATETIME,
     @NgayKT DATETIME,
 	@TenKV  NVARCHAR(100) = NULL,
-	@TenCN NVARCHAR(100) =NUll,
+	@TenCN NVARCHAR(100) = NUll,
     @TongSoLuongBan INT OUT, 
     @TongDoanhThu BIGINT OUT
 AS
@@ -760,9 +760,6 @@ BEGIN
     END CATCH
 END
 GO
-
-select * from NhanVien where MaTK='NV0015';
-
 
 --Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể
 GO
@@ -1351,7 +1348,7 @@ CREATE OR ALTER PROCEDURE USP_CapNhatLoaiThe
 AS
 BEGIN
 	--Kiểm tra mã tài khoản có tồn tại
-	IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE MaTK = @MaTK)
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
 		THROW 50000, N'Tài khoản không tồn tại', 1
 
 	--Khai báo cursor
@@ -1495,5 +1492,49 @@ BEGIN
 
 	INSERT INTO dbo.DanhGia (MaHD, DiemViTriCN, DiemChatLuongMonAN, DiemGiaCa, DiemKhongGianNhaHang, DiemPhucVu, BinhLuan)
 	VALUES (@MaHD, @DiemViTriCN, @DiemChatLuongMonAn, @DiemGiaCa, @DiemKhongGianNhaHang, @DiemPhucVu, @BinhLuan);
+END
+GO
+
+--Tạo kiểu dữ liệu để cập nhật lương
+CREATE TYPE dbo.LuongThayDoi AS TABLE
+(
+	MaBP VARCHAR(10),
+	TenBP NVARCHAR(50),
+	Luong INT
+)
+
+--Admin cập nhật lương
+GO
+CREATE OR ALTER PROCEDURE USP_CapNhatLuong
+	@MaTK VARCHAR(10),
+	@LuongThayDoi dbo.LuongThayDoi READONLY
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại', 1
+
+	--Khai báo cursor
+	DECLARE cur CURSOR FOR
+	SELECT MaBP, TenBP, Luong
+	FROM @LuongThayDoi
+
+	--Khai báo các biến dùng để duyệt
+	DECLARE @MaBP VARCHAR(10), @TenBP NVARCHAR(50), @Luong INT
+
+	--Duyệt qua cursor
+	OPEN cur
+	FETCH NEXT FROM cur INTO @MaBP, @TenBP, @Luong
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		UPDATE BoPhan
+		SET Luong = @Luong, TenBP = @TenBP
+		WHERE MaBP = @MaBP
+		FETCH NEXT FROM cur INTO @MaBP, @TenBP, @Luong
+	END
+
+	CLOSE cur
+	DEALLOCATe cur
 END
 GO
