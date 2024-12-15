@@ -60,7 +60,7 @@ namespace SuShiX
                         this.Hide();
                         managerForm.ShowDialog();
                     }
-                    else if (department == "Chủ Chuỗi Nhà Hàng")
+                    else if (department == "Chủ Nhà Hàng")
                     {
                         FrmAdmin adminForm = new FrmAdmin(userID);
                         this.Hide();

@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="FrmAdminStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdminStatistics.Designer.cs">
+      <DependentUpon>FrmAdminStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCreateAndReissueCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAdminStatistics.resx">
+      <DependentUpon>FrmAdminStatistics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCreateAndReissueCard.resx">
       <DependentUpon>FrmCreateAndReissueCard.cs</DependentUpon>
     </EmbeddedResource>

@@ -48,5 +48,22 @@ namespace SuShiX
             // Bạn có thể sử dụng UserID ở đây mà không lo bị sửa đổi ngoài ý muốn
             Console.WriteLine($"User ID hiện tại là: {UserID}");
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            FrmAdminStatistics frmAdminStatistics = new FrmAdminStatistics(userID);
+            this.Hide();
+            frmAdminStatistics.ShowDialog();
+            this.Close();
+        }
+
     }
 }
