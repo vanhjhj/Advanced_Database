@@ -43,7 +43,6 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbStatisticsImage = new System.Windows.Forms.PictureBox();
-            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaHienTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrangMonAn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -111,7 +110,6 @@
             this.dgvMenu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Edit,
             this.TenMA,
             this.GiaHienTai,
             this.TinhTrangMonAn,
@@ -287,14 +285,6 @@
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
             // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 95;
-            // 
             // TenMA
             // 
             this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -379,7 +369,6 @@
         private System.Windows.Forms.Button btnEditMenu;
         private System.Windows.Forms.Button btnAddNewDish;
         private System.Windows.Forms.ComboBox cbbAreaName;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Edit;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMA;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaHienTai;
         private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangMonAn;
