@@ -143,11 +143,12 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDat", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDatHoaDon", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
+                        cmd.Parameters.AddWithValue("@SDTKhachHang", phoneNumber);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {

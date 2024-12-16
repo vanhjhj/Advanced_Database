@@ -27,6 +27,8 @@ namespace SuShiX
         {
             InitializeComponent();
             this.UserID = userID;
+            this.Width = AppConfig.formWidth;
+            this.Height = AppConfig.formHeight;
             dgvMenu.RowHeadersVisible = false;
             LoadArea();
             LoadDataToGridView(); // Load dữ liệu ban đầu

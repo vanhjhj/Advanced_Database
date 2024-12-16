@@ -1058,7 +1058,7 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt của loại phiếu đặt
+-- Lấy danh sách phiếu đặt của loại phiếu đặt để cập nhật phiếu đặt
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
@@ -1102,9 +1102,77 @@ BEGIN
     END
 
     -- Trả kết quả nếu có
-    SELECT MaPhieu FROM @MaPhieuResult;
+    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;
 END
 GO
+
+-- Lấy danh sách phiếu đặt của loại phiếu đặt
+GO
+CREATE OR ALTER PROCEDURE USP_DanhSachDatHoaDon
+    @LoaiPhieuDat NVARCHAR(20),
+    @MaTKNhanVien VARCHAR(10),
+	@SDTKhachHang VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaPhieuResult TABLE (MaPhieu VARCHAR(50));
+
+    IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+    BEGIN
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+        BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
+    END
+    ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+    BEGIN
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+			;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+		BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
+    END
+	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
+	BEGIN
+		INSERT INTO @MaPhieuResult (MaPhieu)
+        SELECT PD.MaPhieu
+        FROM PhieuDat PD
+        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+        WHERE NV.MaTK = @MaTKNhanVien
+        AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+	END
+
+    -- Kiểm tra kết quả và ném lỗi nếu không tìm thấy bản ghi nào
+    IF NOT EXISTS (SELECT 1 FROM @MaPhieuResult)
+    BEGIN
+        ;THROW 50000, N'Không tìm thấy phiếu đặt nào với thông tin đã cung cấp hoặc nhân viên không thuộc chi nhánh mà khách hàng đặt.', 1;
+    END
+
+    -- Trả kết quả nếu có
+    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;
+END
+GO
+
 
 -- Lấy ra chi tiết phiếu đặt và thực đơn
 CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
@@ -1387,6 +1455,11 @@ BEGIN
 	IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
 	BEGIN
 		SET @MaThe = NULL
+	END
+
+	IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+	BEGIN
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
 	END
 
 	ELSE
