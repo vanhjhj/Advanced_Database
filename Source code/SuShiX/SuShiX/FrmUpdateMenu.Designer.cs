@@ -67,19 +67,21 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.75F));
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1118, 46);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(754, 53);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -93,12 +95,13 @@
             this.pnlStatistics.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.pnlStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlStatistics.Location = new System.Drawing.Point(0, 0);
+            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlStatistics.Name = "pnlStatistics";
             this.pnlStatistics.RowCount = 3;
-            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.588957F));
-            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.46099F));
+            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.81633F));
+            this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.755102F));
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.02837F));
-            this.pnlStatistics.Size = new System.Drawing.Size(1124, 608);
+            this.pnlStatistics.Size = new System.Drawing.Size(758, 527);
             this.pnlStatistics.TabIndex = 0;
             // 
             // dgvMenu
@@ -111,11 +114,12 @@
             this.TinhTrangMonAn,
             this.TenMuc});
             this.dgvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMenu.Location = new System.Drawing.Point(3, 118);
+            this.dgvMenu.Location = new System.Drawing.Point(2, 100);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.RowHeadersWidth = 51;
             this.dgvMenu.RowTemplate.Height = 24;
-            this.dgvMenu.Size = new System.Drawing.Size(1118, 487);
+            this.dgvMenu.Size = new System.Drawing.Size(754, 425);
             this.dgvMenu.TabIndex = 1;
             this.dgvMenu.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellValueChanged);
             // 
@@ -168,21 +172,23 @@
             this.tableLayoutPanel4.Controls.Add(this.cbbAreaName, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 55);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 59);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1118, 57);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(754, 37);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // cbbAreaName
             // 
             this.cbbAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbAreaName.FormattingEnabled = true;
-            this.cbbAreaName.Location = new System.Drawing.Point(573, 12);
+            this.cbbAreaName.Location = new System.Drawing.Point(388, 3);
+            this.cbbAreaName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbAreaName.Name = "cbbAreaName";
-            this.cbbAreaName.Size = new System.Drawing.Size(529, 44);
+            this.cbbAreaName.Size = new System.Drawing.Size(354, 30);
             this.cbbAreaName.TabIndex = 3;
             this.cbbAreaName.SelectedIndexChanged += new System.EventHandler(this.cbbAreaName_SelectedIndexChanged);
             // 
@@ -190,9 +196,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(4, 1);
+            this.label1.Location = new System.Drawing.Point(3, 1);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(551, 55);
+            this.label1.Size = new System.Drawing.Size(371, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Khu Vực";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,10 +210,10 @@
             this.pnlLoginInfo.Controls.Add(this.pnlStatistics);
             this.pnlLoginInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLoginInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 173);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 150);
             this.pnlLoginInfo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
-            this.pnlLoginInfo.Size = new System.Drawing.Size(1124, 608);
+            this.pnlLoginInfo.Size = new System.Drawing.Size(758, 527);
             this.pnlLoginInfo.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -220,11 +227,12 @@
             this.tableLayoutPanel2.Controls.Add(this.btnEditMenu, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnAddNewDish, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 784);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 679);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1118, 81);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(754, 72);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // btnEditMenu
@@ -232,9 +240,10 @@
             this.btnEditMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnEditMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditMenu.ForeColor = System.Drawing.Color.White;
-            this.btnEditMenu.Location = new System.Drawing.Point(563, 6);
+            this.btnEditMenu.Location = new System.Drawing.Point(380, 5);
+            this.btnEditMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditMenu.Name = "btnEditMenu";
-            this.btnEditMenu.Size = new System.Drawing.Size(549, 69);
+            this.btnEditMenu.Size = new System.Drawing.Size(369, 62);
             this.btnEditMenu.TabIndex = 2;
             this.btnEditMenu.Text = "Lưu Thay Đổi";
             this.btnEditMenu.UseVisualStyleBackColor = false;
@@ -245,9 +254,10 @@
             this.btnAddNewDish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnAddNewDish.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddNewDish.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewDish.Location = new System.Drawing.Point(6, 6);
+            this.btnAddNewDish.Location = new System.Drawing.Point(5, 5);
+            this.btnAddNewDish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddNewDish.Name = "btnAddNewDish";
-            this.btnAddNewDish.Size = new System.Drawing.Size(548, 69);
+            this.btnAddNewDish.Size = new System.Drawing.Size(368, 62);
             this.btnAddNewDish.TabIndex = 0;
             this.btnAddNewDish.Text = "Thêm Món Mới ";
             this.btnAddNewDish.UseVisualStyleBackColor = false;
@@ -262,14 +272,14 @@
             this.tableLayoutPanel1.Controls.Add(this.pbLogo, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(748, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(504, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.16129F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.907834F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1124, 868);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(758, 753);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pbLogo
@@ -279,7 +289,7 @@
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(1124, 173);
+            this.pbLogo.Size = new System.Drawing.Size(758, 150);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
@@ -297,7 +307,7 @@
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlRoot.Size = new System.Drawing.Size(1872, 868);
+            this.pnlRoot.Size = new System.Drawing.Size(1262, 753);
             this.pnlRoot.TabIndex = 3;
             // 
             // pbStatisticsImage
@@ -309,19 +319,21 @@
             this.pbStatisticsImage.Location = new System.Drawing.Point(0, 0);
             this.pbStatisticsImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbStatisticsImage.Name = "pbStatisticsImage";
-            this.pbStatisticsImage.Size = new System.Drawing.Size(748, 868);
+            this.pbStatisticsImage.Size = new System.Drawing.Size(504, 753);
             this.pbStatisticsImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
             // 
             // FrmUpdateMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1872, 868);
+            this.ClientSize = new System.Drawing.Size(1262, 753);
             this.Controls.Add(this.pnlRoot);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmUpdateMenu";
-            this.Text = "FrmUpdateMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "UpdateMenu";
             this.Load += new System.EventHandler(this.FrmUpdateMenu_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
