@@ -32,10 +32,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlStatistics = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMenu = new System.Windows.Forms.DataGridView();
-            this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaHienTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrangMonAn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TenMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbAreaName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +43,11 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbStatisticsImage = new System.Windows.Forms.PictureBox();
+            this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaHienTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrangMonAn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TenMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlStatistics.SuspendLayout();
@@ -68,7 +69,7 @@
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -79,12 +80,13 @@
             // 
             this.pictureBox1.Image = global::SuShiX.Properties.Resources.return_button;
             this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pnlStatistics
             // 
@@ -95,7 +97,7 @@
             this.pnlStatistics.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.pnlStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlStatistics.Location = new System.Drawing.Point(0, 0);
-            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlStatistics.Margin = new System.Windows.Forms.Padding(2);
             this.pnlStatistics.Name = "pnlStatistics";
             this.pnlStatistics.RowCount = 3;
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.81633F));
@@ -109,59 +111,20 @@
             this.dgvMenu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Edit,
             this.TenMA,
             this.GiaHienTai,
             this.TinhTrangMonAn,
             this.TenMuc});
             this.dgvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMenu.Location = new System.Drawing.Point(2, 100);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.RowHeadersWidth = 51;
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.Size = new System.Drawing.Size(754, 425);
             this.dgvMenu.TabIndex = 1;
             this.dgvMenu.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellValueChanged);
-            // 
-            // TenMA
-            // 
-            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMA.DataPropertyName = "TenMA";
-            this.TenMA.FillWeight = 200F;
-            this.TenMA.HeaderText = "Tên Món";
-            this.TenMA.MinimumWidth = 6;
-            this.TenMA.Name = "TenMA";
-            this.TenMA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // GiaHienTai
-            // 
-            this.GiaHienTai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GiaHienTai.DataPropertyName = "GiaHienTai";
-            this.GiaHienTai.HeaderText = "Giá Hiện Tại";
-            this.GiaHienTai.MinimumWidth = 6;
-            this.GiaHienTai.Name = "GiaHienTai";
-            // 
-            // TinhTrangMonAn
-            // 
-            this.TinhTrangMonAn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TinhTrangMonAn.DataPropertyName = "TinhTrangMonAn";
-            this.TinhTrangMonAn.HeaderText = "Tình Trạng Món Ăn";
-            this.TinhTrangMonAn.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangMonAn.MinimumWidth = 6;
-            this.TinhTrangMonAn.Name = "TinhTrangMonAn";
-            this.TinhTrangMonAn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangMonAn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // TenMuc
-            // 
-            this.TenMuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMuc.DataPropertyName = "TenMuc";
-            this.TenMuc.HeaderText = "Tên Mục";
-            this.TenMuc.MinimumWidth = 10;
-            this.TenMuc.Name = "TenMuc";
-            this.TenMuc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // tableLayoutPanel4
             // 
@@ -173,7 +136,7 @@
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 59);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -185,8 +148,8 @@
             // 
             this.cbbAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbAreaName.FormattingEnabled = true;
-            this.cbbAreaName.Location = new System.Drawing.Point(388, 3);
-            this.cbbAreaName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbAreaName.Location = new System.Drawing.Point(388, 6);
+            this.cbbAreaName.Margin = new System.Windows.Forms.Padding(2);
             this.cbbAreaName.Name = "cbbAreaName";
             this.cbbAreaName.Size = new System.Drawing.Size(354, 30);
             this.cbbAreaName.TabIndex = 3;
@@ -228,7 +191,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnAddNewDish, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 679);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -241,7 +204,7 @@
             this.btnEditMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditMenu.ForeColor = System.Drawing.Color.White;
             this.btnEditMenu.Location = new System.Drawing.Point(380, 5);
-            this.btnEditMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditMenu.Name = "btnEditMenu";
             this.btnEditMenu.Size = new System.Drawing.Size(369, 62);
             this.btnEditMenu.TabIndex = 2;
@@ -255,7 +218,7 @@
             this.btnAddNewDish.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddNewDish.ForeColor = System.Drawing.Color.White;
             this.btnAddNewDish.Location = new System.Drawing.Point(5, 5);
-            this.btnAddNewDish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddNewDish.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddNewDish.Name = "btnAddNewDish";
             this.btnAddNewDish.Size = new System.Drawing.Size(368, 62);
             this.btnAddNewDish.TabIndex = 0;
@@ -324,13 +287,61 @@
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
             // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.HeaderText = "Chỉnh sửa";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 95;
+            // 
+            // TenMA
+            // 
+            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMA.DataPropertyName = "TenMA";
+            this.TenMA.FillWeight = 200F;
+            this.TenMA.HeaderText = "Tên Món";
+            this.TenMA.MinimumWidth = 6;
+            this.TenMA.Name = "TenMA";
+            this.TenMA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // GiaHienTai
+            // 
+            this.GiaHienTai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GiaHienTai.DataPropertyName = "GiaHienTai";
+            this.GiaHienTai.HeaderText = "Giá Hiện Tại";
+            this.GiaHienTai.MinimumWidth = 6;
+            this.GiaHienTai.Name = "GiaHienTai";
+            // 
+            // TinhTrangMonAn
+            // 
+            this.TinhTrangMonAn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TinhTrangMonAn.DataPropertyName = "TinhTrangMonAn";
+            this.TinhTrangMonAn.HeaderText = "Tình Trạng Món Ăn";
+            this.TinhTrangMonAn.Items.AddRange(new object[] {
+            "Có",
+            "Không"});
+            this.TinhTrangMonAn.MinimumWidth = 6;
+            this.TinhTrangMonAn.Name = "TinhTrangMonAn";
+            this.TinhTrangMonAn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TinhTrangMonAn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // TenMuc
+            // 
+            this.TenMuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMuc.DataPropertyName = "TenMuc";
+            this.TenMuc.HeaderText = "Tên Mục";
+            this.TenMuc.MinimumWidth = 10;
+            this.TenMuc.Name = "TenMuc";
+            this.TenMuc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // FrmUpdateMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 753);
             this.Controls.Add(this.pnlRoot);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmUpdateMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateMenu";
@@ -368,6 +379,7 @@
         private System.Windows.Forms.Button btnEditMenu;
         private System.Windows.Forms.Button btnAddNewDish;
         private System.Windows.Forms.ComboBox cbbAreaName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Edit;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMA;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaHienTai;
         private System.Windows.Forms.DataGridViewComboBoxColumn TinhTrangMonAn;
