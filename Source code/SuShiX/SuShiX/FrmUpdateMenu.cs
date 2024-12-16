@@ -166,11 +166,15 @@ namespace SuShiX
         private void cbbAreaName_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedArea = cbbAreaName.SelectedValue.ToString();
+
             if (selectedArea == "Tất cả")
                 LoadDataToGridView();
             else
                 LoadDataAreaToGridView(selectedArea);
+
+            AdjustGridViewEditMode(); // Điều chỉnh chế độ chỉnh sửa sau khi tải dữ liệu
         }
+
 
         private void btnAddNewDish_Click(object sender, EventArgs e)
         {
@@ -226,12 +230,18 @@ namespace SuShiX
             string selectedArea = cbbAreaName.SelectedValue.ToString();
             bool isEditable = selectedArea == "Tất cả";
 
-            // Điều chỉnh quyền chỉnh sửa cho từng cột
-            dgvMenu.Columns["TenMA"].ReadOnly = !isEditable;
-            dgvMenu.Columns["GiaHienTai"].ReadOnly = !isEditable;
-            dgvMenu.Columns["TinhTrangMonAn"].ReadOnly = false; // Luôn cho phép chỉnh sửa
-            dgvMenu.Columns["TenMuc"].ReadOnly = !isEditable;
+            foreach (DataGridViewColumn column in dgvMenu.Columns)
+            {
+                column.ReadOnly = !isEditable; // Nếu không phải "Tất cả", tất cả cột đều chỉ đọc
+            }
+
+            // Nếu cần, có thể thêm logic cho các cột luôn được chỉnh sửa (VD: TinhTrangMonAn)
+            if (isEditable == false) // Nếu không chỉnh sửa được
+            {
+                dgvMenu.Columns["TinhTrangMonAn"].ReadOnly = false; // Luôn cho phép chỉnh sửa cột này
+            }
         }
+
         private void dgvMenu_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -246,62 +256,92 @@ namespace SuShiX
         {
             try
             {
+                string selectedArea = cbbAreaName.SelectedValue.ToString();
+
+                // Kiểm tra nếu khu vực khác "Tất cả"
+                if (selectedArea != "Tất cả")
+                {
+                    MessageBox.Show("Bạn không được phép thay đổi dữ liệu trong khu vực cụ thể!",
+                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Dừng việc lưu thay đổi
+                }
+
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Xóa dữ liệu cũ trong bảng TempMenu (nếu có)
-                    string deleteTempTableQuery = "DELETE FROM TempMenu;";
-                    using (SqlCommand cmd = new SqlCommand(deleteTempTableQuery, conn))
+                    using (SqlTransaction transaction = conn.BeginTransaction())
                     {
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // Chèn dữ liệu từ DataGridView vào TempMenu
-                    foreach (int rowIndex in changedRows)
-                    {
-                        DataGridViewRow row = dgvMenu.Rows[rowIndex];
-
-                        string originalTenMA = row.Cells["OriginalTenMA"].Value?.ToString();
-                        string newTenMA = row.Cells["TenMA"].Value?.ToString();
-                        string giaHienTai = row.Cells["GiaHienTai"].Value?.ToString();
-                        string tinhTrang = row.Cells["TinhTrangMonAn"].Value?.ToString();
-                        string tenMuc = row.Cells["TenMuc"].Value?.ToString();
-
-                        string insertQuery = @"
-                    INSERT INTO TempMenu (OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc)
-                    VALUES (@OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrangMonAn, @TenMuc)";
-                        using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                        try
                         {
-                            cmd.Parameters.AddWithValue("@OriginalTenMA", originalTenMA);
-                            cmd.Parameters.AddWithValue("@NewTenMA", newTenMA);
-                            cmd.Parameters.AddWithValue("@GiaHienTai", Convert.ToDecimal(giaHienTai));
-                            cmd.Parameters.AddWithValue("@TinhTrangMonAn", tinhTrang);
-                            cmd.Parameters.AddWithValue("@TenMuc", tenMuc);
+                            // Tạo bảng tạm trong cùng kết nối
+                            string createTempTableQuery = @"
+                        CREATE TABLE #TempMenu (
+                            OriginalTenMA NVARCHAR(50),
+                            NewTenMA NVARCHAR(50),
+                            GiaHienTai INT,
+                            TinhTrangMonAn NVARCHAR(50),
+                            TenMuc NVARCHAR(50)
+                        );";
 
-                            cmd.ExecuteNonQuery();
+                            using (SqlCommand cmd = new SqlCommand(createTempTableQuery, conn, transaction))
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Chèn dữ liệu vào bảng tạm
+                            foreach (int rowIndex in changedRows)
+                            {
+                                DataGridViewRow row = dgvMenu.Rows[rowIndex];
+
+                                string insertTempQuery = @"
+                            INSERT INTO #TempMenu (OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc)
+                            VALUES (@OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrangMonAn, @TenMuc)";
+
+                                using (SqlCommand cmd = new SqlCommand(insertTempQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@OriginalTenMA", row.Cells["OriginalTenMA"].Value?.ToString());
+                                    cmd.Parameters.AddWithValue("@NewTenMA", row.Cells["TenMA"].Value?.ToString());
+                                    cmd.Parameters.AddWithValue("@GiaHienTai", Convert.ToDecimal(row.Cells["GiaHienTai"].Value));
+                                    cmd.Parameters.AddWithValue("@TinhTrangMonAn", row.Cells["TinhTrangMonAn"].Value?.ToString());
+                                    cmd.Parameters.AddWithValue("@TenMuc", row.Cells["TenMuc"].Value?.ToString());
+
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Gọi Stored Procedure để cập nhật dữ liệu
+                            using (SqlCommand cmd = new SqlCommand("USP_UpdateMenu", conn, transaction))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@AreaName", selectedArea);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Reload dữ liệu
+                            LoadDataToGridView();
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            MessageBox.Show("Lỗi khi lưu thay đổi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
-                    // Gọi Stored Procedure
-                    using (SqlCommand cmd = new SqlCommand("USP_UpdateMenu", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@AreaName", cbbAreaName.SelectedValue.ToString());
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Reload dữ liệu từ database
-                    LoadDataToGridView();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu thay đổi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
 
     }
