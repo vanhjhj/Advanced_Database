@@ -1118,23 +1118,39 @@ BEGIN
 
     IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
     BEGIN
-        INSERT INTO @MaPhieuResult (MaPhieu)
-        SELECT PD.MaPhieu
-        FROM PhieuDat PD
-        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
-        WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
-        AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+        BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
     END
     ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
     BEGIN
-        INSERT INTO @MaPhieuResult (MaPhieu)
-        SELECT PD.MaPhieu
-        FROM PhieuDat PD
-        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
-		JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
-        WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
-        AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+			;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+		BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
     END
 	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
 	BEGIN

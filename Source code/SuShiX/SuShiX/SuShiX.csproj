@@ -251,12 +251,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManagerStatistics.resx">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPromotionManagement.resx">
       <DependentUpon>FrmPromotionManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateMenu.resx">
       <DependentUpon>FrmUpdateMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateOrders.resx">
       <DependentUpon>FrmUpdateOrders.cs</DependentUpon>
