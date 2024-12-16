@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SuShiX
@@ -15,7 +16,6 @@ namespace SuShiX
         private string connectionString = AppConfig.connectionString;
 
         private HashSet<int> changedRows = new HashSet<int>(); // Lưu các dòng đã thay đổi
-
         public string UserID
         {
             get { return userID; }
@@ -230,16 +230,11 @@ namespace SuShiX
             string selectedArea = cbbAreaName.SelectedValue.ToString();
             bool isEditable = selectedArea == "Tất cả";
 
-            foreach (DataGridViewColumn column in dgvMenu.Columns)
-            {
-                column.ReadOnly = !isEditable; // Nếu không phải "Tất cả", tất cả cột đều chỉ đọc
-            }
-
-            // Nếu cần, có thể thêm logic cho các cột luôn được chỉnh sửa (VD: TinhTrangMonAn)
-            if (isEditable == false) // Nếu không chỉnh sửa được
-            {
-                dgvMenu.Columns["TinhTrangMonAn"].ReadOnly = false; // Luôn cho phép chỉnh sửa cột này
-            }
+            // Điều chỉnh quyền chỉnh sửa cho từng cột
+            dgvMenu.Columns["TenMA"].ReadOnly = !isEditable;
+            dgvMenu.Columns["GiaHienTai"].ReadOnly = !isEditable;
+            dgvMenu.Columns["TinhTrangMonAn"].ReadOnly = false; // Luôn cho phép chỉnh sửa
+            dgvMenu.Columns["TenMuc"].ReadOnly = !isEditable;
         }
 
         private void dgvMenu_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -251,20 +246,27 @@ namespace SuShiX
             }
         }
 
+        private bool DoesMenuNameExist(string newTenMA)
+        {
+            string query = "SELECT COUNT(1) FROM MonAn WHERE TenMA = @TenMA";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@TenMA", newTenMA);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0; // Trả về true nếu tên tồn tại
+                }
+            }
+        }
+
 
         private void btnEditMenu_Click(object sender, EventArgs e)
         {
             try
             {
                 string selectedArea = cbbAreaName.SelectedValue.ToString();
-
-                // Kiểm tra nếu khu vực khác "Tất cả"
-                if (selectedArea != "Tất cả")
-                {
-                    MessageBox.Show("Bạn không được phép thay đổi dữ liệu trong khu vực cụ thể!",
-                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Dừng việc lưu thay đổi
-                }
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -276,27 +278,58 @@ namespace SuShiX
                         {
                             // Tạo bảng tạm trong cùng kết nối
                             string createTempTableQuery = @"
-                        CREATE TABLE #TempMenu (
-                            OriginalTenMA NVARCHAR(50),
-                            NewTenMA NVARCHAR(50),
-                            GiaHienTai INT,
-                            TinhTrangMonAn NVARCHAR(50),
-                            TenMuc NVARCHAR(50)
-                        );";
+                                                            CREATE TABLE #TempMenu (
+                                                                OriginalTenMA NVARCHAR(50),
+                                                                NewTenMA NVARCHAR(50),
+                                                                GiaHienTai INT,
+                                                                TinhTrangMonAn NVARCHAR(50),
+                                                                TenMuc NVARCHAR(50)
+                                                            );";
 
                             using (SqlCommand cmd = new SqlCommand(createTempTableQuery, conn, transaction))
                             {
                                 cmd.ExecuteNonQuery();
                             }
+                            int check = 0;
 
                             // Chèn dữ liệu vào bảng tạm
                             foreach (int rowIndex in changedRows)
                             {
                                 DataGridViewRow row = dgvMenu.Rows[rowIndex];
 
+                                // Lấy giá trị từ các ô
+                                string originalTenMA = row.Cells["OriginalTenMA"].Value?.ToString();
+                                string newTenMA = row.Cells["TenMA"].Value?.ToString();
+                                string giaHienTaiStr = row.Cells["GiaHienTai"].Value?.ToString();
+                                string tinhTrang = row.Cells["TinhTrangMonAn"].Value?.ToString();
+                                string tenMuc = row.Cells["TenMuc"].Value?.ToString();
+
+                                // Kiểm tra dữ liệu NULL hoặc rỗng
+                                if (string.IsNullOrWhiteSpace(newTenMA) ||
+                                    string.IsNullOrWhiteSpace(giaHienTaiStr) ||
+                                    string.IsNullOrWhiteSpace(tinhTrang) ||
+                                    string.IsNullOrWhiteSpace(tenMuc))
+                                {
+                                    MessageBox.Show($"Món ăn '{originalTenMA}' chứa dữ liệu trống và sẽ không được lưu.",
+                                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     
+                                    check ++;
+                                    continue; // Bỏ qua dòng lỗi
+                                }
+
+                                // Kiểm tra TÊN MÓN ĂN ĐÃ TỒN TẠI CHƯA
+                                if (newTenMA != originalTenMA && DoesMenuNameExist(newTenMA))
+                                {
+                                    MessageBox.Show($"Món ăn '{originalTenMA}' sau khi chỉnh sửa có tên '{newTenMA}' đã tồn tại.",
+                                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    check++;
+                                    continue; // Bỏ qua dòng lỗi
+                                }
+
+
                                 string insertTempQuery = @"
-                            INSERT INTO #TempMenu (OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc)
-                            VALUES (@OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrangMonAn, @TenMuc)";
+                                                            INSERT INTO #TempMenu (OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc)
+                                                            VALUES (@OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrangMonAn, @TenMuc)";
 
                                 using (SqlCommand cmd = new SqlCommand(insertTempQuery, conn, transaction))
                                 {
@@ -320,7 +353,7 @@ namespace SuShiX
 
                             // Commit giao dịch
                             transaction.Commit();
-
+                            if(changedRows.Count!=check)
                             MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Reload dữ liệu
@@ -340,10 +373,6 @@ namespace SuShiX
                 MessageBox.Show("Lỗi kết nối: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-
     }
 }
 

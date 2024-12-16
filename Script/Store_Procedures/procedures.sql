@@ -1607,7 +1607,7 @@ BEGIN
             CONTINUE; -- Bỏ qua dòng này nếu có giá trị NULL
         END;
 
-        -- Lấy MaMA từ MonAn
+        -- Lấy MaMA của món bị sửa từ MonAn
         SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @OriginalTenMA;
 
         -- Nếu không tìm thấy MaMA, bỏ qua dòng này
@@ -1626,9 +1626,13 @@ BEGIN
             -- Nếu khu vực là "Tất cả", cập nhật toàn bộ
             IF @AreaName = N'Tất cả'
             BEGIN
-                DECLARE @MaMuc VARCHAR(10);
+                DECLARE @MaMuc VARCHAR(10), @TinhTrangMonAn NVARCHAR(5);
+				--Lấy Mã mục từ tên mục
                 SELECT @MaMuc = MaMuc FROM Muc WHERE TenMuc = @TenMuc;
-
+				--Lấy tình trạng món ăn lúc đầu
+				SELECT @TinhTrangMonAn =TinhTrangMonAn
+				FROM MonAn
+				WHERE TenMA=@OriginalTenMA
                 -- Cập nhật bảng MonAn
                 UPDATE MonAn
                 SET TenMA = @NewTenMA,
@@ -1638,10 +1642,53 @@ BEGIN
                 WHERE MaMA = @MaMA;
 
                 -- Cập nhật bảng ThucDon
-                UPDATE ThucDon
-                SET TinhTrangPhucVu = @TinhTrang
-                WHERE MaMA = @MaMA;
-            END;
+				
+                --Nếu tình trạng là Không và trước khi sửa là có thì xóa món đó ra khỏi tất cả chi nhánh có bán món đó
+					IF (@TinhTrang=N'Không' AND @TinhTrangMonAn=N'Có' )
+					BEGIN
+						DELETE FROM ThucDon
+						WHERE MaMA = @MaMA
+					END;
+            END
+			ELSE 
+				BEGIN
+					DECLARE @TinhTrangTruocKhiSua NVARCHAR(5);
+					--Nếu tồn tại 1 món trong thực đơn của khu vực thì set tình trạng trước khi sửa là có
+					IF EXISTS (SELECT 1
+								FROM ThucDon TD
+								JOIN ChiNhanh CN ON TD.MaCN = CN.MaCN
+								JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+								WHERE TD.MaMA = @MaMA AND KV.TenKV = @AreaName)
+					BEGIN
+						SET @TinhTrangTruocKhiSua = N'Có';
+					END
+					ELSE
+					BEGIN
+						SET @TinhTrangTruocKhiSua = N'Không';
+					END;
+
+					--Nếu tình trạng là Không và trước khi sửa là có thì xóa món đó ra khỏi tất cả chi nhánh trong khu vực
+					IF (@TinhTrang=N'Không' AND @TinhTrangTruocKhiSua=N'Có')
+					BEGIN
+						DELETE FROM ThucDon
+						WHERE MaMA = @MaMA AND MaCN IN (
+							SELECT CN.MaCN
+							FROM ChiNhanh CN
+							JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+							WHERE KV.TenKV = @AreaName
+						);
+					END;
+					--Nếu tình trạng là có và trước khi sửa là không thì thêm món đó vào tất cả chi nhánh trong khu vực
+					IF (@TinhTrang=N'Có' AND @TinhTrangTruocKhiSua=N'Không')
+					BEGIN
+						INSERT INTO ThucDon(MaCN,MaMA,TinhTrangPhucVu,TinhTrangGiaoHang)
+						SELECT CN.MaCN,@MaMA,N'Có',N'Có'
+						FROM ChiNhanh CN
+						JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+						WHERE KV.TenKV = @AreaName
+					END;
+
+				END
         END;
 
         -- Lấy dòng tiếp theo từ con trỏ
@@ -1653,4 +1700,3 @@ BEGIN
     DEALLOCATE menu_cursor;
 END;
 GO
-
