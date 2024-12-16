@@ -190,12 +190,11 @@ namespace SuShiX
             if (selectedOrderType == "Đặt Bàn Trực Tuyến" && txbTelephoneNum.Text != null)
             {
                 LoadCustomerCard();
-                LoadOrderList();
+                
             }
             else if (selectedOrderType == "Giao Hàng Tận Nơi" && txbTelephoneNum.Text != null)
             {
                 LoadCustomerCard();
-                LoadOrderList();
             }
             else if (selectedOrderType == "Đặt Bàn Trực Tiếp" && txbTelephoneNum.Text != null)
             {
@@ -242,7 +241,7 @@ namespace SuShiX
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             // Kiểm tra xem có dữ liệu trả về không
-                            if (maTheParam != null)
+                            if (maTheParam.Value != DBNull.Value)
                             {
                                 cardID = maTheParam.Value.ToString();
                                 txbCard.Text = cardID;
@@ -254,6 +253,16 @@ namespace SuShiX
                                 txbCard.Text = string.Empty;
                                 discount = 0;
                             }
+                        }
+
+                        string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
+                        if (selectedOrderType == "Giao Hàng Tận Nơi" && txbTelephoneNum.Text != null)
+                        {
+                            LoadOrderList();
+                        }
+                        else if (selectedOrderType == "Đặt Bàn Trực Tuyến" && txbTelephoneNum.Text != null)
+                        {
+                            LoadOrderList();
                         }
                     }
                 }

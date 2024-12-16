@@ -1452,14 +1452,15 @@ CREATE OR ALTER PROCEDURE USP_LayRaTheCuaKhachHang
 	@GiamGia INT OUTPUT
 AS
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
-	BEGIN
-		SET @MaThe = NULL
-	END
-
 	IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
 	BEGIN
+		SET @MaThe = NULL
 		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+	END
+
+	ELSE IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
+	BEGIN
+		SET @MaThe = NULL
 	END
 
 	ELSE
