@@ -128,7 +128,7 @@
             this.btnLogin.Location = new System.Drawing.Point(138, 328);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 40);
+            this.btnLogin.Size = new System.Drawing.Size(110, 40);
             this.btnLogin.TabIndex = 14;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -159,7 +159,7 @@
             this.txbPassword.Location = new System.Drawing.Point(276, 213);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(163, 26);
+            this.txbPassword.Size = new System.Drawing.Size(163, 30);
             this.txbPassword.TabIndex = 8;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
@@ -170,7 +170,7 @@
             this.txbUsername.Location = new System.Drawing.Point(276, 156);
             this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(163, 26);
+            this.txbUsername.Size = new System.Drawing.Size(163, 30);
             this.txbUsername.TabIndex = 7;
             // 
             // lblPassword
@@ -180,7 +180,7 @@
             this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(136, 217);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(78, 19);
+            this.lblPassword.Size = new System.Drawing.Size(94, 23);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Mật Khẩu";
             // 
@@ -191,7 +191,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(134, 161);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(109, 19);
+            this.lblUsername.Size = new System.Drawing.Size(134, 23);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tên Tài Khoản";
             // 
@@ -223,7 +223,7 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
