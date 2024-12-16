@@ -1389,6 +1389,11 @@ BEGIN
 		SET @MaThe = NULL
 	END
 
+	IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+	BEGIN
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+	END
+
 	ELSE
 	BEGIN
 		SELECT @MaThe = MaThe, @GiamGia = GiamGia
@@ -1654,3 +1659,4 @@ BEGIN
 END;
 GO
 
+SELECT * FROM dbo.HoaDon
