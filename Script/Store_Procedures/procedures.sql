@@ -1074,7 +1074,7 @@ BEGIN
         FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
         WHERE NV.MaTK = @MaTKNhanVien
-        AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán'
+        AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
     ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
     BEGIN
@@ -1083,7 +1083,7 @@ BEGIN
         FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
         WHERE NV.MaTK = @MaTKNhanVien
-        AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán'
+        AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
     END
 	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
 	BEGIN
@@ -1092,7 +1092,7 @@ BEGIN
         FROM PhieuDat PD
         JOIN NhanVien NV ON NV.MaCN = PD.MaCN
         WHERE NV.MaTK = @MaTKNhanVien
-        AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán'
+        AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
 	END
 
     -- Kiểm tra kết quả và ném lỗi nếu không tìm thấy bản ghi nào
@@ -1102,7 +1102,7 @@ BEGIN
     END
 
     -- Trả kết quả nếu có
-    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;;
+    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;
 END
 GO
 
