@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -16,8 +17,9 @@ namespace SuShiX
             InitializeComponent();
             this.parentForm = parent;
             LoadComboBoxTenMuc();
+            LoadAreaList();
         }
-
+       
         // Load dữ liệu vào ComboBox
         private void LoadComboBoxTenMuc()
         {
@@ -46,6 +48,35 @@ namespace SuShiX
             }
         }
 
+        private void LoadAreaList()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT MaKV, TenKV FROM KhuVuc";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        // Gán dữ liệu vào CheckedListBox
+                        clbAreaList.DataSource = dt;
+                        clbAreaList.DisplayMember = "TenKV";
+                        clbAreaList.ValueMember = "MaKV";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải khu vực: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         // Sự kiện khi chọn Tên Mục trong ComboBox
         private void cbbTenMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -72,27 +103,67 @@ namespace SuShiX
                 return;
             }
 
+            // Lấy danh sách các khu vực đã chọn
+            List<string> selectedAreas = new List<string>();
+            foreach (DataRowView item in clbAreaList.CheckedItems)
+            {
+                selectedAreas.Add(item["MaKV"].ToString());
+            }
+
+            if (selectedAreas.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một khu vực!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
+                string maMA = ""; // Sử dụng string cho mã món ăn
+
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Gọi Stored Procedure
+                    // Thêm món ăn vào bảng MonAn và lấy MaMA
                     using (SqlCommand cmd = new SqlCommand("USP_ThemMonAnMoi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Thêm tham số cho Stored Procedure
                         cmd.Parameters.AddWithValue("@TenMA", txbTenMA.Text.Trim());
                         cmd.Parameters.AddWithValue("@GiaHienTai", giaHienTai);
                         cmd.Parameters.AddWithValue("@MaMuc", maMuc);
 
+                        // Thêm tham số OUTPUT cho MaMA
+                        SqlParameter outputMaMA = new SqlParameter("@NewMaMA", SqlDbType.VarChar, 10)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(outputMaMA);
+
                         cmd.ExecuteNonQuery();
+
+                        // Lấy giá trị MaMA từ tham số OUTPUT
+                        maMA = outputMaMA.Value.ToString();
+                    }
+
+                    // Thêm món ăn vào ThucDon cho các khu vực đã chọn
+                    foreach (string maKV in selectedAreas)
+                    {
+                        string insertThucDonQuery = @"
+                INSERT INTO ThucDon (MaCN, MaMA, TinhTrangGiaoHang, TinhTrangPhucVu)
+                SELECT CN.MaCN, @MaMA, N'Có', N'Có'
+                FROM ChiNhanh CN
+                WHERE CN.MaKV = @MaKV";
+
+                        using (SqlCommand cmd = new SqlCommand(insertThucDonQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@MaMA", maMA);
+                            cmd.Parameters.AddWithValue("@MaKV", maKV);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
 
-                MessageBox.Show("Thêm món ăn mới thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm món ăn mới thành công vào các khu vực đã chọn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -106,7 +177,8 @@ namespace SuShiX
             }
         }
 
-        // Nút quay lại
+
+
         private void pbReturn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -32,6 +32,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlStatistics = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMenu = new System.Windows.Forms.DataGridView();
+            this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaHienTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrangMonAn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TenMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbAreaName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,10 +47,6 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbStatisticsImage = new System.Windows.Forms.PictureBox();
-            this.TenMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaHienTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrangMonAn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TenMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlStatistics.SuspendLayout();
@@ -119,6 +119,46 @@
             this.dgvMenu.TabIndex = 1;
             this.dgvMenu.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellValueChanged);
             // 
+            // TenMA
+            // 
+            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMA.DataPropertyName = "TenMA";
+            this.TenMA.FillWeight = 200F;
+            this.TenMA.HeaderText = "Tên Món";
+            this.TenMA.MinimumWidth = 6;
+            this.TenMA.Name = "TenMA";
+            this.TenMA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // GiaHienTai
+            // 
+            this.GiaHienTai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GiaHienTai.DataPropertyName = "GiaHienTai";
+            this.GiaHienTai.HeaderText = "Giá Hiện Tại";
+            this.GiaHienTai.MinimumWidth = 6;
+            this.GiaHienTai.Name = "GiaHienTai";
+            // 
+            // TinhTrangMonAn
+            // 
+            this.TinhTrangMonAn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TinhTrangMonAn.DataPropertyName = "TinhTrangMonAn";
+            this.TinhTrangMonAn.HeaderText = "Tình Trạng Món Ăn";
+            this.TinhTrangMonAn.Items.AddRange(new object[] {
+            "Có",
+            "Không"});
+            this.TinhTrangMonAn.MinimumWidth = 6;
+            this.TinhTrangMonAn.Name = "TinhTrangMonAn";
+            this.TinhTrangMonAn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TinhTrangMonAn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // TenMuc
+            // 
+            this.TenMuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMuc.DataPropertyName = "TenMuc";
+            this.TenMuc.HeaderText = "Tên Mục";
+            this.TenMuc.MinimumWidth = 10;
+            this.TenMuc.Name = "TenMuc";
+            this.TenMuc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -140,7 +180,7 @@
             // 
             this.cbbAreaName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbAreaName.FormattingEnabled = true;
-            this.cbbAreaName.Location = new System.Drawing.Point(573, 6);
+            this.cbbAreaName.Location = new System.Drawing.Point(573, 12);
             this.cbbAreaName.Name = "cbbAreaName";
             this.cbbAreaName.Size = new System.Drawing.Size(529, 44);
             this.cbbAreaName.TabIndex = 3;
@@ -273,46 +313,6 @@
             this.pbStatisticsImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
-            // 
-            // TenMA
-            // 
-            this.TenMA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMA.DataPropertyName = "TenMA";
-            this.TenMA.FillWeight = 200F;
-            this.TenMA.HeaderText = "Tên Món";
-            this.TenMA.MinimumWidth = 6;
-            this.TenMA.Name = "TenMA";
-            this.TenMA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // GiaHienTai
-            // 
-            this.GiaHienTai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GiaHienTai.DataPropertyName = "GiaHienTai";
-            this.GiaHienTai.HeaderText = "Giá Hiện Tại";
-            this.GiaHienTai.MinimumWidth = 6;
-            this.GiaHienTai.Name = "GiaHienTai";
-            // 
-            // TinhTrangMonAn
-            // 
-            this.TinhTrangMonAn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TinhTrangMonAn.DataPropertyName = "TinhTrangMonAn";
-            this.TinhTrangMonAn.HeaderText = "Tình Trạng Món Ăn";
-            this.TinhTrangMonAn.Items.AddRange(new object[] {
-            "Có",
-            "Không"});
-            this.TinhTrangMonAn.MinimumWidth = 6;
-            this.TinhTrangMonAn.Name = "TinhTrangMonAn";
-            this.TinhTrangMonAn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TinhTrangMonAn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // TenMuc
-            // 
-            this.TenMuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMuc.DataPropertyName = "TenMuc";
-            this.TenMuc.HeaderText = "Tên Mục";
-            this.TenMuc.MinimumWidth = 10;
-            this.TenMuc.Name = "TenMuc";
-            this.TenMuc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FrmUpdateMenu
             // 
