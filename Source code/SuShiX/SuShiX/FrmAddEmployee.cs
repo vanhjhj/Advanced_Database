@@ -51,15 +51,23 @@ namespace SuShiX
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
+                    DataRow[] filteredRows = dataTable.Select("TenBP <> 'Quản Lý'");
+                    DataTable filteredTable = dataTable.Clone();
+
+                    foreach (DataRow row in filteredRows)
+                    {
+                        filteredTable.ImportRow(row);
+                    }
+
                     // Kiểm tra nếu không có dữ liệu
-                    if (dataTable.Rows.Count == 0)
+                    if (filteredTable.Rows.Count == 0)
                     {
                         MessageBox.Show("Không có dữ liệu nào từ bảng BoPhan.");
                         return;
                     }
 
                     // Gán dữ liệu vào ComboBox
-                    cbbDepartment.DataSource = dataTable;
+                    cbbDepartment.DataSource = filteredTable;
                     cbbDepartment.DisplayMember = "TenBP"; // Hiển thị tên bộ phận
                 }
             }

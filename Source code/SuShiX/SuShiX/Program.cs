@@ -24,8 +24,8 @@ namespace SuShiX
             //Application.Run(new FrmCreateAndReissueCard());
             //Application.Run(new FrmPromotionManagement("NV0000"));
             //Application.Run(new FrmManagerStatistics("NV0012"));
-            //Application.Run(new FrmManageEmployee("NV0012"));
-            Application.Run(new FrmUpdateMenu("NV0015"));
+            Application.Run(new FrmManageEmployee("NV0012"));
+            //Application.Run(new FrmUpdateMenu("NV0015"));
         }
     }
 }
