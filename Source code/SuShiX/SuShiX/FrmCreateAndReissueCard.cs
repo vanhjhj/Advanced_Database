@@ -36,12 +36,6 @@ namespace SuShiX
             this.Close();
         }
 
-        private void pbReturn_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
         private void lbRegister_Click(object sender, EventArgs e)
         {
 
@@ -57,9 +51,5 @@ namespace SuShiX
             this.Close();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

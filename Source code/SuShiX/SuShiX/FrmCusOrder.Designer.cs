@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
@@ -82,8 +81,8 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
@@ -99,6 +98,7 @@
             this.pnlOrderDetails.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -117,19 +117,6 @@
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlRoot.Size = new System.Drawing.Size(1260, 757);
             this.pnlRoot.TabIndex = 0;
-            // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
             // 
             // pnlOrder
             // 
@@ -234,7 +221,7 @@
             this.txbTimeOpen.Location = new System.Drawing.Point(714, 109);
             this.txbTimeOpen.Name = "txbTimeOpen";
             this.txbTimeOpen.ReadOnly = true;
-            this.txbTimeOpen.Size = new System.Drawing.Size(108, 30);
+            this.txbTimeOpen.Size = new System.Drawing.Size(108, 26);
             this.txbTimeOpen.TabIndex = 16;
             // 
             // txbMotorbikeParking
@@ -243,7 +230,7 @@
             this.txbMotorbikeParking.Location = new System.Drawing.Point(472, 109);
             this.txbMotorbikeParking.Name = "txbMotorbikeParking";
             this.txbMotorbikeParking.ReadOnly = true;
-            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 30);
+            this.txbMotorbikeParking.Size = new System.Drawing.Size(61, 26);
             this.txbMotorbikeParking.TabIndex = 15;
             // 
             // txbCarParking
@@ -252,7 +239,7 @@
             this.txbCarParking.Location = new System.Drawing.Point(145, 109);
             this.txbCarParking.Name = "txbCarParking";
             this.txbCarParking.ReadOnly = true;
-            this.txbCarParking.Size = new System.Drawing.Size(61, 30);
+            this.txbCarParking.Size = new System.Drawing.Size(61, 26);
             this.txbCarParking.TabIndex = 14;
             // 
             // txbBranchPhoneNumber
@@ -261,7 +248,7 @@
             this.txbBranchPhoneNumber.Location = new System.Drawing.Point(531, 77);
             this.txbBranchPhoneNumber.Name = "txbBranchPhoneNumber";
             this.txbBranchPhoneNumber.ReadOnly = true;
-            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(88, 30);
+            this.txbBranchPhoneNumber.Size = new System.Drawing.Size(88, 26);
             this.txbBranchPhoneNumber.TabIndex = 13;
             // 
             // txbBranchName
@@ -270,7 +257,7 @@
             this.txbBranchName.Location = new System.Drawing.Point(145, 77);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 26);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbBranchAddress
@@ -279,7 +266,7 @@
             this.cbbBranchAddress.FormattingEnabled = true;
             this.cbbBranchAddress.Location = new System.Drawing.Point(145, 45);
             this.cbbBranchAddress.Name = "cbbBranchAddress";
-            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 30);
+            this.cbbBranchAddress.Size = new System.Drawing.Size(545, 27);
             this.cbbBranchAddress.TabIndex = 11;
             this.cbbBranchAddress.SelectedIndexChanged += new System.EventHandler(this.cbbBranchAddress_SelectedIndexChanged);
             // 
@@ -289,7 +276,7 @@
             this.cbbAreaName.FormattingEnabled = true;
             this.cbbAreaName.Location = new System.Drawing.Point(459, 12);
             this.cbbAreaName.Name = "cbbAreaName";
-            this.cbbAreaName.Size = new System.Drawing.Size(260, 30);
+            this.cbbAreaName.Size = new System.Drawing.Size(260, 27);
             this.cbbAreaName.TabIndex = 10;
             this.cbbAreaName.SelectedIndexChanged += new System.EventHandler(this.cbbAreaName_SelectedIndexChanged);
             // 
@@ -302,7 +289,7 @@
             "Giao Hàng Tận Nơi"});
             this.cbbOrderType.Location = new System.Drawing.Point(145, 12);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -312,7 +299,7 @@
             this.lblGeneralNote.AutoSize = true;
             this.lblGeneralNote.Location = new System.Drawing.Point(15, 172);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
+            this.lblGeneralNote.Size = new System.Drawing.Size(59, 19);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -322,7 +309,7 @@
             this.lblMotorbikeParking.AutoSize = true;
             this.lblMotorbikeParking.Location = new System.Drawing.Point(360, 112);
             this.lblMotorbikeParking.Name = "lblMotorbikeParking";
-            this.lblMotorbikeParking.Size = new System.Drawing.Size(135, 22);
+            this.lblMotorbikeParking.Size = new System.Drawing.Size(106, 19);
             this.lblMotorbikeParking.TabIndex = 7;
             this.lblMotorbikeParking.Text = "Bãi Đỗ Xe Máy";
             // 
@@ -332,7 +319,7 @@
             this.lblCarParking.AutoSize = true;
             this.lblCarParking.Location = new System.Drawing.Point(15, 112);
             this.lblCarParking.Name = "lblCarParking";
-            this.lblCarParking.Size = new System.Drawing.Size(131, 22);
+            this.lblCarParking.Size = new System.Drawing.Size(100, 19);
             this.lblCarParking.TabIndex = 6;
             this.lblCarParking.Text = "Bãi Đỗ Xe Hơi";
             // 
@@ -342,7 +329,7 @@
             this.lblTimeOpen.AutoSize = true;
             this.lblTimeOpen.Location = new System.Drawing.Point(569, 112);
             this.lblTimeOpen.Name = "lblTimeOpen";
-            this.lblTimeOpen.Size = new System.Drawing.Size(181, 22);
+            this.lblTimeOpen.Size = new System.Drawing.Size(139, 19);
             this.lblTimeOpen.TabIndex = 5;
             this.lblTimeOpen.Text = "Thời Gian Hoạt Động";
             // 
@@ -352,7 +339,7 @@
             this.lblBranchName.AutoSize = true;
             this.lblBranchName.Location = new System.Drawing.Point(15, 80);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
+            this.lblBranchName.Size = new System.Drawing.Size(101, 19);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -362,7 +349,7 @@
             this.lblBranchPhoneNumber.AutoSize = true;
             this.lblBranchPhoneNumber.Location = new System.Drawing.Point(360, 80);
             this.lblBranchPhoneNumber.Name = "lblBranchPhoneNumber";
-            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(213, 22);
+            this.lblBranchPhoneNumber.Size = new System.Drawing.Size(165, 19);
             this.lblBranchPhoneNumber.TabIndex = 3;
             this.lblBranchPhoneNumber.Text = "Số Điện Thoại Chi Nhánh";
             // 
@@ -372,7 +359,7 @@
             this.lblBranchAddress.AutoSize = true;
             this.lblBranchAddress.Location = new System.Drawing.Point(15, 47);
             this.lblBranchAddress.Name = "lblBranchAddress";
-            this.lblBranchAddress.Size = new System.Drawing.Size(160, 22);
+            this.lblBranchAddress.Size = new System.Drawing.Size(124, 19);
             this.lblBranchAddress.TabIndex = 2;
             this.lblBranchAddress.Text = "Địa Chỉ Chi Nhánh";
             // 
@@ -382,7 +369,7 @@
             this.lblAreaName.AutoSize = true;
             this.lblAreaName.Location = new System.Drawing.Point(360, 15);
             this.lblAreaName.Name = "lblAreaName";
-            this.lblAreaName.Size = new System.Drawing.Size(115, 22);
+            this.lblAreaName.Size = new System.Drawing.Size(93, 19);
             this.lblAreaName.TabIndex = 1;
             this.lblAreaName.Text = "Tên Khu Vực";
             // 
@@ -392,7 +379,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(15, 15);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -476,7 +463,7 @@
             this.txbReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 30);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 26);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -551,7 +538,7 @@
             this.nudCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCusNumber.Location = new System.Drawing.Point(0, 0);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(281, 30);
+            this.nudCusNumber.Size = new System.Drawing.Size(281, 26);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
@@ -568,7 +555,7 @@
             this.dtpArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpArrivalTime.Location = new System.Drawing.Point(0, 0);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(281, 30);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(281, 26);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // pnlOrderDetails
@@ -746,9 +733,22 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
+            // 
             // FrmCusOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 757);
             this.Controls.Add(this.pnlRoot);
@@ -758,10 +758,8 @@
             this.Name = "FrmCusOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
-            this.Load += new System.EventHandler(this.FrmCusOrder_Load);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
@@ -780,6 +778,7 @@
             this.pnlOrderDetails.ResumeLayout(false);
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }

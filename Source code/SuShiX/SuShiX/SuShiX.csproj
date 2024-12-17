@@ -161,6 +161,12 @@
     <Compile Include="FrmManagerStatistics.Designer.cs">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrderResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderResult.Designer.cs">
+      <DependentUpon>FrmOrderResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPromotionManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     <EmbeddedResource Include="FrmManagerStatistics.resx">
       <DependentUpon>FrmManagerStatistics.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderResult.resx">
+      <DependentUpon>FrmOrderResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPromotionManagement.resx">
       <DependentUpon>FrmPromotionManagement.cs</DependentUpon>

@@ -165,6 +165,7 @@ namespace SuShiX
                 using (SqlCommand cmd = new SqlCommand("USP_CapNhatHangTheThanhVien", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaTK", userID);
 
                     try
                     {

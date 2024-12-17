@@ -1774,3 +1774,24 @@ BEGIN
     DEALLOCATE menu_cursor;
 END;
 GO
+
+
+--Lấy ra mức giảm của khách hàng từ MaTK của khách hàng
+CREATE OR ALTER PROCEDURE USP_LayMucGiamCuaThe
+	@MaTK VARCHAR(10),
+	@MucGiam INT OUTPUT
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM KhachHang WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại hoặc không phải là khách hàng', 1
+
+	SET @MucGiam = 0
+
+	SELECT @MucGiam = ISNULL(LT.GiamGia, @MucGiam)
+	FROM KhachHang KH
+	LEFT JOIN The T ON KH.MaTK = T.TkSoHuu
+	LEFT JOIN LoaiThe LT ON T.TenLoaiThe = LT.TenLoaiThe
+	WHERE t.TinhTrang = N'Mở' AND kh.MaTK = @MaTK
+END
+GO
