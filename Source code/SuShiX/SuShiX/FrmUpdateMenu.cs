@@ -358,8 +358,14 @@ namespace SuShiX
                             if(changedRows.Count!=check)
                             MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Reload dữ liệu
-                            LoadDataToGridView();
+                            if(selectedArea == "Tất cả")
+                            {
+                                LoadDataToGridView();
+                            }
+                            else
+                            {
+                                LoadDataAreaToGridView(selectedArea);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -374,6 +380,15 @@ namespace SuShiX
             {
                 MessageBox.Show("Lỗi kết nối: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //return admin form
+            FrmAdmin frmAdmin = new FrmAdmin(userID);
+            this.Hide();
+            frmAdmin.ShowDialog();
+            this.Close();
         }
     }
 }

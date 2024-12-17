@@ -186,6 +186,12 @@ namespace SuShiX
         {
             string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
 
+            //Nếu txbTelephoneNum rỗng thì không thực hiện gì cả
+            if (string.IsNullOrEmpty(txbTelephoneNum.Text))
+            {
+                return;
+            }
+
             // Kiểm tra loại phiếu đặt và thay đổi trạng thái các điều khiển tương ứng
             if (selectedOrderType == "Đặt Bàn Trực Tuyến" && txbTelephoneNum.Text != null)
             {

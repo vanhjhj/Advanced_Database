@@ -16,6 +16,8 @@ namespace SuShiX
         {
             InitializeComponent();
             this.parentForm = parent;
+            this.Width = 800;
+            this.Height = 600;
             LoadComboBoxTenMuc();
             LoadAreaList();
         }
