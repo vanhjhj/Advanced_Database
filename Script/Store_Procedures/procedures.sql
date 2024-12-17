@@ -82,7 +82,7 @@ BEGIN
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
 
-    SET @NewMaTK = 'KH' + FORMAT(@MaxMaTK + 1, '00000');
+    SET @NewMaTK = 'KH' + FORMAT(@MaxMaTK + 1, '000000');
 
     -- Thêm vào bảng TaiKhoan
     INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
@@ -245,7 +245,7 @@ BEGIN
     SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
     FROM PhieuDatBanTrucTuyen;
 
-    SET @MaPhieu = 'PDOL' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDOL' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	DECLARE @MaCN VARCHAR(10);
 	
@@ -311,7 +311,7 @@ BEGIN
     SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
     FROM PhieuDatGiaoHang;
 
-    SET @MaPhieu = 'PDGH' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDGH' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	DECLARE @MaCN VARCHAR(10);
 	
@@ -393,7 +393,7 @@ BEGIN
 	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
 	FROM The
 
-	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '000000')
 
 	-- Insert vào bảng The
 	INSERT INTO The (MaThe, NgayLap, NgayBDChuKy, TongDiem, TongDiemDuyTri, TinhTrang, TenLoaiThe, TkSoHuu, TkLap)
@@ -439,7 +439,7 @@ BEGIN
 	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
 	FROM The
 
-	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '000000')
 
 	--Lấy lại các thông tin của thẻ thành viên có tình trạng đang mở
 	DECLARE @NgayBDChuKy DATETIME, @TongDiem INT, @TongDiemDuyTri INT, @TenLoaiThe VARCHAR(10)
@@ -911,7 +911,7 @@ BEGIN
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
 
-    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '0000');
+    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '000000');
 
     -- Thêm vào bảng TaiKhoan
     INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
@@ -1023,7 +1023,7 @@ BEGIN
     FROM PhieuDat
 	WHERE MaPhieu LIKE 'PDTT%';
 
-    SET @MaPhieu = 'PDTT' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDTT' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	-- Bước 1: Nhập dữ liệu vào bảng PhieuDat
     INSERT INTO PhieuDat (MaPhieu, TinhTrangThanhToan, LoaiPD, MaCN, TkLap)
@@ -1523,7 +1523,7 @@ BEGIN
     SELECT @MaxMaHD = ISNULL(MAX(CAST(SUBSTRING(MaHD, 3, LEN(MaHD) - 2) AS INT)), -1)
     FROM dbo.HoaDon;
 
-    SET @MaHD = 'HD' + FORMAT(@MaxMaHD + 1, '00000');
+    SET @MaHD = 'HD' + FORMAT(@MaxMaHD + 1, '000000');
 
 	INSERT INTO dbo.HoaDon (MaHD, NgayLapHD, TongTien, TongTienDuocGiam, ThanhTien, DiemCong, MaPhieu, MaThe)
 	VALUES (@MaHD, GETDATE(), @TongTien, @TongTienDuocGiam, @ThanhTien, @DiemCong, @MaPhieu, @MaThe);
