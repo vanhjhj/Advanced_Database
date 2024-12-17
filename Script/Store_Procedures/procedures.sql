@@ -1641,8 +1641,7 @@ BEGIN
 END
 GO
 
-
-
+GO
 CREATE OR ALTER PROCEDURE USP_UpdateMenu
     @AreaName NVARCHAR(100) -- Khu vực (hoặc 'Tất cả')
 AS
@@ -1774,3 +1773,5 @@ BEGIN
     DEALLOCATE menu_cursor;
 END;
 GO
+
+SELECT * FROM dbo.ThucDon JOIN dbo.MonAn WHERE TenMA = N''
