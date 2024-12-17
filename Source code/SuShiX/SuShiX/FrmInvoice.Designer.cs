@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlOrderInfo = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralOrderInfo = new System.Windows.Forms.Panel();
             this.txbCard = new System.Windows.Forms.TextBox();
@@ -77,8 +76,8 @@
             this.pnlComment = new System.Windows.Forms.TableLayoutPanel();
             this.txbComment = new System.Windows.Forms.TextBox();
             this.lblComment = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlOrderInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
             this.pnlInvoiceInfo.SuspendLayout();
@@ -95,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDishPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).BeginInit();
             this.pnlComment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -112,18 +112,6 @@
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 753F));
             this.pnlRoot.Size = new System.Drawing.Size(1262, 753);
             this.pnlRoot.TabIndex = 0;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogo.Location = new System.Drawing.Point(3, 3);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(372, 747);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
             // 
             // pnlOrderInfo
             // 
@@ -168,7 +156,7 @@
             this.txbCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCard.Location = new System.Drawing.Point(632, 58);
             this.txbCard.Name = "txbCard";
-            this.txbCard.Size = new System.Drawing.Size(186, 30);
+            this.txbCard.Size = new System.Drawing.Size(186, 26);
             this.txbCard.TabIndex = 22;
             // 
             // label1
@@ -177,7 +165,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(438, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 22);
+            this.label1.Size = new System.Drawing.Size(32, 19);
             this.label1.TabIndex = 21;
             this.label1.Text = "Thẻ";
             // 
@@ -187,7 +175,7 @@
             this.cbbOrderList.FormattingEnabled = true;
             this.cbbOrderList.Location = new System.Drawing.Point(195, 58);
             this.cbbOrderList.Name = "cbbOrderList";
-            this.cbbOrderList.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderList.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderList.TabIndex = 20;
             this.cbbOrderList.SelectedIndexChanged += new System.EventHandler(this.cbbOrderList_SelectedIndexChanged);
             // 
@@ -197,7 +185,7 @@
             this.lblOrderList.AutoSize = true;
             this.lblOrderList.Location = new System.Drawing.Point(13, 61);
             this.lblOrderList.Name = "lblOrderList";
-            this.lblOrderList.Size = new System.Drawing.Size(176, 22);
+            this.lblOrderList.Size = new System.Drawing.Size(138, 19);
             this.lblOrderList.TabIndex = 19;
             this.lblOrderList.Text = "Danh Sách Phiếu Đặt";
             // 
@@ -206,7 +194,7 @@
             this.txbTelephoneNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTelephoneNum.Location = new System.Drawing.Point(632, 9);
             this.txbTelephoneNum.Name = "txbTelephoneNum";
-            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 30);
+            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 26);
             this.txbTelephoneNum.TabIndex = 18;
             this.txbTelephoneNum.Leave += new System.EventHandler(this.txbTelephoneNum_Leave);
             // 
@@ -220,7 +208,7 @@
             "Đặt Bàn Trực Tiếp"});
             this.cbbOrderType.Location = new System.Drawing.Point(195, 9);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -230,7 +218,7 @@
             this.lblTelephoneNum.AutoSize = true;
             this.lblTelephoneNum.Location = new System.Drawing.Point(438, 12);
             this.lblTelephoneNum.Name = "lblTelephoneNum";
-            this.lblTelephoneNum.Size = new System.Drawing.Size(158, 22);
+            this.lblTelephoneNum.Size = new System.Drawing.Size(122, 19);
             this.lblTelephoneNum.TabIndex = 1;
             this.lblTelephoneNum.Text = "Số Điện Thoại Đặt";
             // 
@@ -240,7 +228,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(13, 12);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -452,28 +440,28 @@
             // txbPoint
             // 
             this.txbPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPoint.Location = new System.Drawing.Point(94, 214);
+            this.txbPoint.Location = new System.Drawing.Point(94, 216);
             this.txbPoint.Name = "txbPoint";
             this.txbPoint.ReadOnly = true;
-            this.txbPoint.Size = new System.Drawing.Size(153, 30);
+            this.txbPoint.Size = new System.Drawing.Size(153, 26);
             this.txbPoint.TabIndex = 12;
             // 
             // txbGross
             // 
             this.txbGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbGross.Location = new System.Drawing.Point(94, 149);
+            this.txbGross.Location = new System.Drawing.Point(94, 151);
             this.txbGross.Name = "txbGross";
             this.txbGross.ReadOnly = true;
-            this.txbGross.Size = new System.Drawing.Size(153, 30);
+            this.txbGross.Size = new System.Drawing.Size(153, 26);
             this.txbGross.TabIndex = 11;
             // 
             // txbDiscount
             // 
             this.txbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDiscount.Location = new System.Drawing.Point(94, 84);
+            this.txbDiscount.Location = new System.Drawing.Point(94, 86);
             this.txbDiscount.Name = "txbDiscount";
             this.txbDiscount.ReadOnly = true;
-            this.txbDiscount.Size = new System.Drawing.Size(153, 30);
+            this.txbDiscount.Size = new System.Drawing.Size(153, 26);
             this.txbDiscount.TabIndex = 10;
             // 
             // lblPoint
@@ -523,10 +511,10 @@
             // txbTotalAmount
             // 
             this.txbTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(94, 19);
+            this.txbTotalAmount.Location = new System.Drawing.Point(94, 21);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(153, 30);
+            this.txbTotalAmount.Size = new System.Drawing.Size(153, 26);
             this.txbTotalAmount.TabIndex = 9;
             // 
             // pnlEvaluation
@@ -588,7 +576,7 @@
             0,
             0});
             this.nudServicePoint.Name = "nudServicePoint";
-            this.nudServicePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudServicePoint.Size = new System.Drawing.Size(170, 26);
             this.nudServicePoint.TabIndex = 23;
             this.nudServicePoint.Value = new decimal(new int[] {
             5,
@@ -611,7 +599,7 @@
             0,
             0});
             this.nudSpacePoint.Name = "nudSpacePoint";
-            this.nudSpacePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudSpacePoint.Size = new System.Drawing.Size(170, 26);
             this.nudSpacePoint.TabIndex = 22;
             this.nudSpacePoint.Value = new decimal(new int[] {
             5,
@@ -634,7 +622,7 @@
             0,
             0});
             this.nudPricePoint.Name = "nudPricePoint";
-            this.nudPricePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudPricePoint.Size = new System.Drawing.Size(170, 26);
             this.nudPricePoint.TabIndex = 21;
             this.nudPricePoint.Value = new decimal(new int[] {
             5,
@@ -657,7 +645,7 @@
             0,
             0});
             this.nudDishPoint.Name = "nudDishPoint";
-            this.nudDishPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudDishPoint.Size = new System.Drawing.Size(170, 26);
             this.nudDishPoint.TabIndex = 20;
             this.nudDishPoint.Value = new decimal(new int[] {
             5,
@@ -735,7 +723,7 @@
             0,
             0});
             this.nudLocationPoint.Name = "nudLocationPoint";
-            this.nudLocationPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudLocationPoint.Size = new System.Drawing.Size(170, 26);
             this.nudLocationPoint.TabIndex = 19;
             this.nudLocationPoint.Value = new decimal(new int[] {
             5,
@@ -780,9 +768,21 @@
             this.lblComment.Text = "Bình Luận";
             this.lblComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbLogo
+            // 
+            this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogo.Location = new System.Drawing.Point(3, 3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(372, 747);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
             // FrmInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 753);
             this.Controls.Add(this.pnlRoot);
@@ -792,7 +792,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Invoice";
             this.pnlRoot.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlOrderInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.PerformLayout();
@@ -812,6 +811,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLocationPoint)).EndInit();
             this.pnlComment.ResumeLayout(false);
             this.pnlComment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
