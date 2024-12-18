@@ -691,26 +691,32 @@ BEGIN
             ;THROW 60002, N'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.', 1;
         END
 
-         --Thống kê theo món ăn
-		-- Món ăn có doanh thu
-		
+		;WITH CTE_PhieuDat AS (
+			SELECT 
+				CTPD.MaMA, 
+				CTPD.SoLuong, 
+				CTPD.ThanhTien
+			FROM PhieuDat PD
+			JOIN HoaDon HD ON HD.MaPhieu = PD.MaPhieu
+			JOIN CTPD ON CTPD.MaPhieu = PD.MaPhieu
+			WHERE HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT 
+			  AND PD.MaCN = @MaCN
+		),
+		CTE_ThucDon AS (
+			SELECT MaMA
+			FROM ThucDon
+			WHERE MaCN = @MaCN
+		)
+		-- Truy vấn chính
 		SELECT 
-			MA.TenMA AS 'DishName', 
+			MA.TenMA AS 'DishName',
 			SUM(ISNULL(PD.SoLuong, 0)) AS Amount,
 			SUM(ISNULL(CAST(PD.ThanhTien AS BIGINT), 0)) AS Revenue
-		FROM MonAn ma LEFT JOIN (
-			SELECT ctpd.MaMA, CTPD.SoLuong, CTPD.ThanhTien
-			FROM PhieuDat PD
-			JOIN HoaDon hd ON hd.MaPhieu = PD.MaPhieu
-			JOIN ctpd on ctpd.MaPhieu = pd.MaPhieu
-			WHERE hd.NgayLapHD BETWEEN @NgayBD AND @NgayKT AND PD.MaCN = @MaCN
-		) AS pd ON ma.MaMA = pd.MaMA
-		WHERE (@TenMA IS NULL OR @TenMA=MA.TenMA)
-		AND MA.MaMA IN (
-			SELECT td.MaMA
-			FROM ThucDon td
-			WHERE td.MaCN = @MaCN
-		)
+		FROM MonAn MA
+		LEFT JOIN CTE_PhieuDat PD ON MA.MaMA = PD.MaMA
+		WHERE 
+			(@TenMA IS NULL OR @TenMA = MA.TenMA)
+			AND MA.MaMA IN (SELECT MaMA FROM CTE_ThucDon)
 		GROUP BY MA.MaMA, MA.TenMA
 		ORDER BY Revenue DESC;
 
