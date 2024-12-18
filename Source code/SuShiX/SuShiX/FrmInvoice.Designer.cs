@@ -318,7 +318,7 @@
             this.btnComment.Name = "btnComment";
             this.btnComment.Size = new System.Drawing.Size(116, 87);
             this.btnComment.TabIndex = 4;
-            this.btnComment.Text = "Gửi Bình Luận";
+            this.btnComment.Text = "Gửi Đánh Giá";
             this.btnComment.UseVisualStyleBackColor = false;
             this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
             // 
