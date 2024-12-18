@@ -656,33 +656,21 @@ BEGIN
             ;THROW 60002, N'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.', 1;
         END
 
-        -- Thống kê theo món ăn
-		SELECT MA1.TenMA AS 'DishName', 0 AS Amount, 0 AS Revenue
-		FROM ThucDon TD1
-		JOIN MonAn MA1 ON MA1.MaMA = TD1.MAMA
-		WHERE TD1.MaCN = @MaCN
-		AND MA1.MaMA NOT IN (
-			SELECT MA.MaMA
-			FROM MonAn MA
-			LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
-			LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
-			LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
-			WHERE (@TenMA IS NULL OR MA.TenMA = @TenMA)
-			AND PD.MaCN = @MaCN
-			AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
-		)
-		UNION ALL
+         --Thống kê theo món ăn
 		-- Món ăn có doanh thu
-		SELECT MA.TenMA AS 'DishName', 
-			   SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
-			   SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
-		FROM MonAn MA
-		LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
-		LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
-		LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
-		WHERE (@TenMA IS NULL OR MA.TenMA = @TenMA)
-		AND PD.MaCN = @MaCN
-		AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+		
+		SELECT 
+			MA.TenMA AS 'DishName', 
+			SUM(ISNULL(PD.SoLuong, 0)) AS Amount,
+			SUM(ISNULL(CAST(PD.ThanhTien AS BIGINT), 0)) AS Revenue
+		FROM MonAn ma LEFT JOIN (
+			SELECT ctpd.MaMA, CTPD.SoLuong, CTPD.ThanhTien
+			FROM PhieuDat PD
+			JOIN HoaDon hd ON hd.MaPhieu = PD.MaPhieu
+			JOIN ctpd on ctpd.MaPhieu = pd.MaPhieu
+			WHERE hd.NgayLapHD BETWEEN @NgayBD AND @NgayKT AND PD.MaCN = @MaCN
+		) AS pd ON ma.MaMA = pd.MaMA
+		WHERE (@TenMA IS NULL OR @TenMA=MA.TenMA)
 		AND MA.MaMA IN (
 			SELECT td.MaMA
 			FROM ThucDon td
@@ -706,7 +694,6 @@ BEGIN
 				FROM ThucDon td
 				WHERE td.MaCN = @MaCN
 			)
-
 		END
     END TRY
     BEGIN CATCH
@@ -714,6 +701,7 @@ BEGIN
     END CATCH
 END
 GO
+
 
 --Admin quan ly thong ke
 GO
