@@ -66,6 +66,7 @@ namespace SuShiX
                                 txbPhoneNumber.Text = reader["SDT"].ToString();
                                 txbStartDate.Text = reader["NgayVaoLam"] != DBNull.Value && DateTime.TryParse(reader["NgayVaoLam"].ToString(), out DateTime NgayVaoLam)? NgayVaoLam.ToString("dd/MM/yyyy"): "";
                                 txbEndDate.Text = reader["NgayNghiViec"] != DBNull.Value && DateTime.TryParse(reader["NgayNghiViec"].ToString(), out DateTime NgayNghiViec) ? NgayNghiViec.ToString("dd/MM/yyyy") : "";
+                                txbAddress.Text = reader["DiaChi"].ToString();
                                 txbDepartment.Text = reader["MaBP"].ToString();
                                 txbBranch.Text = reader["MaCN"].ToString();
                             }
