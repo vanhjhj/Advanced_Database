@@ -161,7 +161,6 @@
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
-            this.dgvOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrderDetails.Size = new System.Drawing.Size(741, 493);
             this.dgvOrderDetails.TabIndex = 1;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
@@ -237,60 +236,55 @@
             this.Choice.HeaderText = "Đặt";
             this.Choice.MinimumWidth = 6;
             this.Choice.Name = "Choice";
-            this.Choice.Width = 37;
+            this.Choice.Width = 44;
             // 
             // DishName
             // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DishName.DataPropertyName = "DishName";
-            this.DishName.FillWeight = 32.40876F;
+            this.DishName.FillWeight = 25F;
             this.DishName.HeaderText = "Tên Món";
             this.DishName.MinimumWidth = 6;
             this.DishName.Name = "DishName";
             this.DishName.ReadOnly = true;
-            this.DishName.Width = 90;
             // 
             // DishType
             // 
-            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DishType.DataPropertyName = "DishType";
-            this.DishType.FillWeight = 32.40876F;
+            this.DishType.FillWeight = 20F;
             this.DishType.HeaderText = "Tên Mục";
             this.DishType.MinimumWidth = 6;
             this.DishType.Name = "DishType";
             this.DishType.ReadOnly = true;
-            this.DishType.Width = 125;
             // 
             // Amount
             // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.FillWeight = 437.9562F;
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Amount.FillWeight = 10F;
             this.Amount.HeaderText = "SL";
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
-            this.Amount.Width = 40;
             // 
             // Price
             // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Price.DataPropertyName = "Price";
-            this.Price.FillWeight = 32.40876F;
+            this.Price.FillWeight = 30F;
             this.Price.HeaderText = "Đơn Giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 125;
             // 
             // TotalAmount
             // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TotalAmount.FillWeight = 32.40876F;
             this.TotalAmount.HeaderText = "Thành Tiền";
             this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 125;
             // 
             // Note
             // 
@@ -303,7 +297,7 @@
             // 
             // FrmEmployeeOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 761);
