@@ -230,12 +230,12 @@ namespace SuShiX
             {
                 if (Convert.ToBoolean(row.Cells["Choice"].Value)) 
                 {
-                    string selectedMaTK = row.Cells["MaTK"].Value.ToString(); 
+                    string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
-                    FrmManageIn4Employee frmManageIn4Employee = new FrmManageIn4Employee(UserID, selectedMaTK);
+                    FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+                    frmUpdateIn4Employee.Owner = this;
                     this.Hide();
-                    frmManageIn4Employee.ShowDialog();
-                    this.Close();
+                    frmUpdateIn4Employee.ShowDialog();
 
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }

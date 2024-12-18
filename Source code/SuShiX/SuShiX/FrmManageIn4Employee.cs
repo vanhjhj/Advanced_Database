@@ -39,11 +39,6 @@ namespace SuShiX
             LoadEmployeeData();
         }
 
-        private void FrmManageIn4Employee_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
