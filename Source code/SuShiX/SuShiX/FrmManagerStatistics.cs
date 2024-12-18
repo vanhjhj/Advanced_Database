@@ -110,9 +110,7 @@ namespace SuShiX
                             {
                                 if (column.ColumnName == "TenMA")
                                 {
-                                    Console.WriteLine($"{column.ColumnName}: {row[column]}");
                                     dishes.Add(row[column].ToString());
-                                    //MessageBox.Show(row[column].ToString());
                                 }
                             }
                         }
@@ -147,10 +145,18 @@ namespace SuShiX
                     if (selectedDishName == "Tất Cả")
                     {
                         command.Parameters.AddWithValue("@TenMA", DBNull.Value); // Nếu không có món ăn chọn
+                        lblTotalAmount.Visible = true;
+                        lblTotalRevenue.Visible = true;
+                        txbTotalAmount.Visible = true;
+                        txbTotalRevenue.Visible = true;
                     }
                     else
                     {
                         command.Parameters.AddWithValue("@TenMA", selectedDishName); // Truyền Tên Món Ăn
+                        lblTotalAmount.Visible = false;
+                        lblTotalRevenue.Visible = false;
+                        txbTotalAmount.Visible = false;
+                        txbTotalRevenue.Visible = false;
                     }
 
                     // Thêm tham số đầu ra
