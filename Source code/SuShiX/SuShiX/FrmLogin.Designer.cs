@@ -107,7 +107,7 @@
             this.pbDisplayPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbDisplayPassword.BackColor = System.Drawing.SystemColors.Window;
             this.pbDisplayPassword.Image = ((System.Drawing.Image)(resources.GetObject("pbDisplayPassword.Image")));
-            this.pbDisplayPassword.Location = new System.Drawing.Point(416, 216);
+            this.pbDisplayPassword.Location = new System.Drawing.Point(441, 217);
             this.pbDisplayPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbDisplayPassword.Name = "pbDisplayPassword";
             this.pbDisplayPassword.Size = new System.Drawing.Size(20, 20);
@@ -159,7 +159,7 @@
             this.txbPassword.Location = new System.Drawing.Point(276, 213);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(163, 30);
+            this.txbPassword.Size = new System.Drawing.Size(194, 30);
             this.txbPassword.TabIndex = 8;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
@@ -170,7 +170,7 @@
             this.txbUsername.Location = new System.Drawing.Point(276, 156);
             this.txbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(163, 30);
+            this.txbUsername.Size = new System.Drawing.Size(194, 30);
             this.txbUsername.TabIndex = 7;
             // 
             // lblPassword
