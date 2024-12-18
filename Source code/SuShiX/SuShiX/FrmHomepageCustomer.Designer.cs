@@ -34,8 +34,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.btnAddress = new System.Windows.Forms.Button();
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -121,50 +119,23 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.btnMenu, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnAddress, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnUpdateIn4, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnOrder, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 4, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.1338F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.1831F));
+            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnUpdateIn4, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnOrder, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(568, 114);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(3, 17);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(107, 79);
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.Text = "Thực đơn";
-            this.btnMenu.UseVisualStyleBackColor = false;
-            // 
-            // btnAddress
-            // 
-            this.btnAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddress.ForeColor = System.Drawing.Color.White;
-            this.btnAddress.Location = new System.Drawing.Point(116, 17);
-            this.btnAddress.Name = "btnAddress";
-            this.btnAddress.Size = new System.Drawing.Size(107, 79);
-            this.btnAddress.TabIndex = 1;
-            this.btnAddress.Text = "Địa chỉ";
-            this.btnAddress.UseVisualStyleBackColor = false;
             // 
             // btnUpdateIn4
             // 
@@ -172,9 +143,9 @@
             this.btnUpdateIn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateIn4.Location = new System.Drawing.Point(229, 17);
+            this.btnUpdateIn4.Location = new System.Drawing.Point(23, 17);
             this.btnUpdateIn4.Name = "btnUpdateIn4";
-            this.btnUpdateIn4.Size = new System.Drawing.Size(107, 79);
+            this.btnUpdateIn4.Size = new System.Drawing.Size(142, 79);
             this.btnUpdateIn4.TabIndex = 2;
             this.btnUpdateIn4.Text = "Thông tin cá nhân";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
@@ -186,9 +157,9 @@
             this.btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(342, 17);
+            this.btnOrder.Location = new System.Drawing.Point(212, 17);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(107, 79);
+            this.btnOrder.Size = new System.Drawing.Size(142, 79);
             this.btnOrder.TabIndex = 3;
             this.btnOrder.Text = "Đặt món";
             this.btnOrder.UseVisualStyleBackColor = false;
@@ -200,9 +171,9 @@
             this.btnLogout.BackColor = System.Drawing.Color.Black;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(455, 17);
+            this.btnLogout.Location = new System.Drawing.Point(402, 17);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(110, 79);
+            this.btnLogout.Size = new System.Drawing.Size(142, 79);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -226,23 +197,24 @@
             this.lbHomepage.AutoSize = true;
             this.lbHomepage.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHomepage.ForeColor = System.Drawing.Color.Black;
-            this.lbHomepage.Location = new System.Drawing.Point(5, 500);
+            this.lbHomepage.Location = new System.Drawing.Point(17, 477);
             this.lbHomepage.Name = "lbHomepage";
             this.lbHomepage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbHomepage.Size = new System.Drawing.Size(564, 21);
+            this.lbHomepage.Size = new System.Drawing.Size(539, 66);
             this.lbHomepage.TabIndex = 2;
             this.lbHomepage.Text = "~Đặt món ngay để thưởng thức những món ăn tuyệt hảo của chúng tôi~";
             // 
             // FrmHomepageCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmHomepageCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmHomepageCustomer";
+            this.Text = "Homepage";
+            this.Load += new System.EventHandler(this.FrmHomepageCustomer_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -263,8 +235,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.Button btnAddress;
         private System.Windows.Forms.Button btnUpdateIn4;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnLogout;

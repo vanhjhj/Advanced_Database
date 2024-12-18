@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -98,6 +99,7 @@ namespace SuShiX
                 {
                     dtpArrivalTime.Enabled = false;
                     nudCusNumber.Enabled = false;
+                    nudCusNumber.Value = 0;
 
                     txbReceiverAddress.Enabled = true;
                     txbReceiverPhoneNumber.Enabled = true;
@@ -379,7 +381,7 @@ namespace SuShiX
         }
 
         // Hàm xử lý sự kiện khi người dùng muốn tạo phiếu đặt bàn trực tuyến
-        private void HandleOnlineReservation()
+        private DataTable HandleOnlineReservation()
         {
             totalTimeAccess = DateTime.Now;
 
@@ -391,7 +393,7 @@ namespace SuShiX
             if (nudCusNumber.Value < 1)
             {
                 MessageBox.Show("Số lượng khách phải lớn hơn hoặc bằng 1.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return null;
             }
 
             // Kiểm tra nếu có ít nhất 1 món ăn được chọn và số lượng của món ăn đó phải hợp lệ
@@ -415,7 +417,7 @@ namespace SuShiX
                         if (amountCell.Value == null || string.IsNullOrEmpty(amountCell.Value.ToString()) || Convert.ToInt32(amountCell.Value) <= 0)
                         {
                             MessageBox.Show("Vui lòng nhập số lượng cho món ăn đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;  // Dừng lại nếu Số Lượng không hợp lệ
+                            return null;  // Dừng lại nếu Số Lượng không hợp lệ
                         }
 
                         // Lấy các thông tin cần thiết
@@ -437,7 +439,7 @@ namespace SuShiX
             if (!hasSelectedDish)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất 1 món ăn và nhập số lượng cho món ăn đó.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return null;
             }
 
             // Nếu kiểm tra tất cả các điều kiện hợp lệ, tiếp tục xử lý đơn hàng
@@ -483,10 +485,12 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi lưu đơn hàng: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return dtCTPD;
         }
 
         // Hàm xử lý sự kiện khi người dùng muốn tạo phiếu giao hàng tận nơi
-        private void HandleDeliveryOrder()
+        private DataTable HandleDeliveryOrder()
         {
             totalTimeAccess = DateTime.Now;
 
@@ -498,13 +502,13 @@ namespace SuShiX
             if (string.IsNullOrEmpty(txbReceiverAddress.Text))
             {
                 MessageBox.Show("Vui lòng nhập địa chỉ người nhận.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return null;
             }
 
             if (string.IsNullOrEmpty(txbReceiverPhoneNumber.Text))
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại người nhận.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return null;
             }
 
             // Kiểm tra nếu có ít nhất 1 món ăn được chọn và số lượng của món ăn đó phải hợp lệ
@@ -528,7 +532,7 @@ namespace SuShiX
                         if (amountCell.Value == null || string.IsNullOrEmpty(amountCell.Value.ToString()) || Convert.ToInt32(amountCell.Value) <= 0)
                         {
                             MessageBox.Show("Vui lòng nhập số lượng cho món ăn đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;  // Dừng lại nếu Số Lượng không hợp lệ
+                            return null;  // Dừng lại nếu Số Lượng không hợp lệ
                         }
 
                         // Lấy các thông tin cần thiết
@@ -550,7 +554,7 @@ namespace SuShiX
             if (!hasSelectedDish)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất 1 món ăn và nhập số lượng cho món ăn đó.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return null;
             }
 
             // Nếu kiểm tra tất cả các điều kiện hợp lệ, tiếp tục xử lý đơn hàng
@@ -596,24 +600,35 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi lưu đơn hàng: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return dtCTPD;
         }
 
-        // Hàm xử lý sự kiện khi người dùng nhấn Lập Phiếu
+
+        void ShowOrderResult(DataTable data, string orderType)
+        {
+            FrmOrderResult frmOrderResult = new FrmOrderResult(data, userID, orderType);
+            frmOrderResult.ShowDialog();
+        }
+
         private void btnOrder_Click(object sender, EventArgs e)
         {
             string orderType = cbbOrderType.SelectedItem?.ToString();
+            DataTable dataTable = new DataTable();
             if (orderType == "Đặt Bàn Trực Tuyến")
             {
-                HandleOnlineReservation();
+                dataTable = HandleOnlineReservation();
             }
             else if (orderType == "Giao Hàng Tận Nơi")
             {
-                HandleDeliveryOrder();
+                dataTable = HandleDeliveryOrder();
             }
-        }
 
-        private void FrmCusOrder_Load(object sender, EventArgs e)
-        {
+            if (dataTable != null)
+            {
+                ShowOrderResult(dataTable, orderType);
+            }
+
 
         }
     }

@@ -30,6 +30,8 @@ namespace SuShiX
             this.Width = AppConfig.formWidth;
             this.Height = AppConfig.formHeight;
             LoadMenuInfo();
+            dgvOrderDetails.RowHeadersVisible = false;
+            btnOrder.Enabled = false; // Mặc định nút Order sẽ bị tắt cho đến khi có món ăn được chọn
         }
         private void LoadMenuInfo()
         {
@@ -140,25 +142,16 @@ namespace SuShiX
 
                     // Đọc giá trị của checkbox sau khi người dùng click
                     bool isChecked = Convert.ToBoolean(checkBoxCell.Value);
-
-                    // Cập nhật trạng thái "Amount" và "Note" dựa trên trạng thái checkbox
+                    // bật Amount và Note khi chọn món ăn
                     dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"].ReadOnly = !isChecked;
                     dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].ReadOnly = !isChecked;
 
-                    // Nếu không được chọn, thiết lập lại giá trị Thành Tiền
-                    if (!isChecked)
-                    {
-                        dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"].Value = null;
-                        dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].Value = null;
-                        dgvOrderDetails.Rows[e.RowIndex].Cells["TotalAmount"].Value = null;
-                    }
-
                     // Cập nhật trạng thái của nút "Order"
-                    UpdateOrderButtonState();
+                    UpdateButtonState();
                 }
             }
         }
-        private void UpdateOrderButtonState()
+        private void UpdateButtonState()
         {
             // Đếm số lượng ô "Choice" được chọn
             int selectedCount = 0;
@@ -265,6 +258,10 @@ namespace SuShiX
         private void btnOrder_Click(object sender, EventArgs e)
         {
             HandleOfflineReservation();
+            FrmEmployee frmEmployee = new FrmEmployee(userID);
+            this.Hide();
+            frmEmployee.ShowDialog();
+            this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

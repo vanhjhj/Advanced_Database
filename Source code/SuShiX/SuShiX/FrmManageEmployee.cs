@@ -37,11 +37,6 @@ namespace SuShiX
             dgvEmployee.RowHeadersVisible = false;
         }
 
-        private void FrmManageEmployee_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadComboBoxData()
         {
 
@@ -80,6 +75,10 @@ namespace SuShiX
             {
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
+
+            // ẩn các nút 
+            btnUpdate.Enabled = false;
+            btnAssign.Enabled = false;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -90,11 +89,12 @@ namespace SuShiX
             this.Close();
         }
 
+
         private void btnAssign_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvEmployee.Rows)
             {
-                if (Convert.ToBoolean(row.Cells["Edit"].Value))
+                if (Convert.ToBoolean(row.Cells["Choice"].Value) && row.Cells["MaTK"].Value != this.userID)
                 {
                     string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
@@ -106,7 +106,6 @@ namespace SuShiX
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }
             }
-            MessageBox.Show($"Bạn cần chọn nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -138,7 +137,7 @@ namespace SuShiX
             // Gọi phương thức LoadEmployeeData với tên bộ phận
             LoadEmployeeData(department);
         }
-
+        
         private void LoadEmployeeData(string department)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -165,74 +164,87 @@ namespace SuShiX
                     {
                         DataTable dt = new DataTable();
                         dt.Load(reader);
-
-                        // Đảm bảo rằng DataGridView không bị thay đổi cấu trúc cột của nó
-                        // Trước khi gán DataSource, kiểm tra và giữ các cột đã có trong DataGridView
-                        dgvEmployee.Columns.Clear();
-
-                        // Thêm lại cột "Chọn" nếu nó đã có sẵn trong DataGridView
-                        DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
-                        {
-                            Name = "Edit",
-                            HeaderText = "Chọn",
-                            Width = 45
-                        };
-                        dgvEmployee.Columns.Add(checkBoxColumn);
-
-                        // Gán DataTable vào DataGridView
                         dgvEmployee.DataSource = dt;
 
-                        // Duyệt qua các hàng để gán giá trị mặc định cho cột Edit
+                        // Đảm bảo cột "Choice" được thêm vào và checkbox được thiết lập
                         foreach (DataGridViewRow row in dgvEmployee.Rows)
                         {
-                            if (row.Cells["Edit"] is DataGridViewCheckBoxCell checkBoxCell)
+                            if (row.Cells["Choice"] is DataGridViewCheckBoxCell checkBoxCell)
                             {
-                                checkBoxCell.Value = false; // Đặt giá trị mặc định là false
+                                checkBoxCell.Value = false; // Mặc định checkbox chưa được chọn
                             }
                         }
                     }
                 }
             }
         }
+
         private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra xem người dùng có nhấn vào cột "Chọn" không
-            if (e.ColumnIndex == dgvEmployee.Columns["Edit"].Index && e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvEmployee.Columns[e.ColumnIndex].Name == "Choice")
             {
-                // Hủy chọn tất cả các dòng
-                foreach (DataGridViewRow row in dgvEmployee.Rows)
-                {
-                    if (row.Index != e.RowIndex) // Nếu không phải dòng đang chọn, hủy chọn
-                    {
-                        DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Edit"];
-                        checkBoxCell.Value = false;
-                    }
-                }
+                DataGridViewCheckBoxCell checkBoxCell = dgvEmployee.Rows[e.RowIndex].Cells["Choice"] as DataGridViewCheckBoxCell;
 
-                // Chọn dòng hiện tại (nếu chưa được chọn)
-                DataGridViewCheckBoxCell currentCell = (DataGridViewCheckBoxCell)dgvEmployee.Rows[e.RowIndex].Cells["Edit"];
-                currentCell.Value = true;
+                if (checkBoxCell != null)
+                {
+                    // Đặt giá trị của các ô checkbox khác thành false
+                    foreach (DataGridViewRow row in dgvEmployee.Rows)
+                    {
+                        if (row.Index != e.RowIndex)
+                        {
+                            row.Cells["Choice"].Value = false;
+                        }
+                    }
+
+                    // Commit giá trị checkbox và cập nhật trạng thái nút
+                    dgvEmployee.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                    UpdateButtonStatus();
+                }
             }
         }
+
+
+        //Hàm cập nhật trạng thái nút khi có dữ liệu được chọn
+        private void UpdateButtonStatus()
+        {
+            // Kiểm tra xem có dòng nào được chọn không
+            bool isSelected = false;
+            foreach (DataGridViewRow row in dgvEmployee.Rows)
+            {
+                if (row != null && Convert.ToBoolean(row.Cells["Choice"].Value) && row.Cells["MaTK"].Value.ToString()!=this.userID)
+                {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            // Cập nhật trạng thái của các nút
+            btnUpdate.Enabled = isSelected;
+            btnAssign.Enabled = isSelected;
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem có dòng nào được chọn không
             foreach (DataGridViewRow row in dgvEmployee.Rows)
             {
-                if (Convert.ToBoolean(row.Cells["Edit"].Value)) 
+                if (Convert.ToBoolean(row.Cells["Choice"].Value)) 
                 {
-                    string selectedMaTK = row.Cells["MaTK"].Value.ToString(); 
+                    string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
-                    FrmManageIn4Employee frmManageIn4Employee = new FrmManageIn4Employee(UserID, selectedMaTK);
+                    FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+                    frmUpdateIn4Employee.Owner = this;
                     this.Hide();
-                    frmManageIn4Employee.ShowDialog();
-                    this.Close();
+                    frmUpdateIn4Employee.ShowDialog();
 
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }
             }
-            MessageBox.Show($"Bạn cần chọn nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void FrmManageEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

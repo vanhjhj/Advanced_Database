@@ -35,14 +35,6 @@ namespace SuShiX
             LoadEmployeeData();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            FrmManager frmManager = new FrmManager(userID);
-            this.Hide();
-            frmManager.ShowDialog();
-            this.Close();
-        }
-
         private void LoadEmployeeData()
         {
             try
@@ -51,12 +43,10 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    // Tạo đối tượng SqlCommand để gọi thủ tục
                     using (SqlCommand cmd = new SqlCommand("USP_XemThongTinNhanVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Thêm tham số @MaTK
                         cmd.Parameters.Add(new SqlParameter("@MaTK", SqlDbType.NVarChar)
                         {
                             Value = this.UserID
@@ -76,6 +66,7 @@ namespace SuShiX
                                 txbPhoneNumber.Text = reader["SDT"].ToString();
                                 txbStartDate.Text = reader["NgayVaoLam"] != DBNull.Value && DateTime.TryParse(reader["NgayVaoLam"].ToString(), out DateTime NgayVaoLam)? NgayVaoLam.ToString("dd/MM/yyyy"): "";
                                 txbEndDate.Text = reader["NgayNghiViec"] != DBNull.Value && DateTime.TryParse(reader["NgayNghiViec"].ToString(), out DateTime NgayNghiViec) ? NgayNghiViec.ToString("dd/MM/yyyy") : "";
+                                txbAddress.Text = reader["DiaChi"].ToString();
                                 txbDepartment.Text = reader["MaBP"].ToString();
                                 txbBranch.Text = reader["MaCN"].ToString();
                             }
@@ -166,24 +157,10 @@ namespace SuShiX
             UpdateEmployeeInfo();
         }
 
-        private void txbUsername_TextChanged(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txbPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbFullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            this.Owner.Show();
+            this.Close();
         }
     }
 }

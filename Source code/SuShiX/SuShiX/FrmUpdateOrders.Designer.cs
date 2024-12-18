@@ -47,17 +47,17 @@
             this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
+            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DishType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Choice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlOrderDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
@@ -83,9 +83,9 @@
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             this.pnlOrderDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlRoot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
@@ -98,7 +98,7 @@
             this.lblReceiverAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblReceiverAddress.Location = new System.Drawing.Point(6, 3);
             this.lblReceiverAddress.Name = "lblReceiverAddress";
-            this.lblReceiverAddress.Size = new System.Drawing.Size(137, 36);
+            this.lblReceiverAddress.Size = new System.Drawing.Size(137, 56);
             this.lblReceiverAddress.TabIndex = 0;
             this.lblReceiverAddress.Text = "Địa Chỉ Nhận";
             this.lblReceiverAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,9 +107,9 @@
             // 
             this.panel1.Controls.Add(this.txbReceiverPhoneNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(152, 45);
+            this.panel1.Location = new System.Drawing.Point(152, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(261, 31);
+            this.panel1.Size = new System.Drawing.Size(261, 50);
             this.panel1.TabIndex = 3;
             // 
             // txbReceiverPhoneNumber
@@ -117,7 +117,7 @@
             this.txbReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbReceiverPhoneNumber.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverPhoneNumber.Name = "txbReceiverPhoneNumber";
-            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 26);
+            this.txbReceiverPhoneNumber.Size = new System.Drawing.Size(261, 30);
             this.txbReceiverPhoneNumber.TabIndex = 0;
             this.txbReceiverPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -127,7 +127,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(152, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 30);
+            this.panel2.Size = new System.Drawing.Size(261, 50);
             this.panel2.TabIndex = 4;
             // 
             // txbReceiverAddress
@@ -136,7 +136,7 @@
             this.txbReceiverAddress.Location = new System.Drawing.Point(0, 0);
             this.txbReceiverAddress.Multiline = true;
             this.txbReceiverAddress.Name = "txbReceiverAddress";
-            this.txbReceiverAddress.Size = new System.Drawing.Size(261, 30);
+            this.txbReceiverAddress.Size = new System.Drawing.Size(261, 50);
             this.txbReceiverAddress.TabIndex = 0;
             // 
             // pnlBookingOnline
@@ -155,7 +155,7 @@
             this.pnlBookingOnline.RowCount = 2;
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlBookingOnline.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlBookingOnline.Size = new System.Drawing.Size(419, 82);
+            this.pnlBookingOnline.Size = new System.Drawing.Size(419, 121);
             this.pnlBookingOnline.TabIndex = 2;
             // 
             // lblArrivalTime
@@ -163,7 +163,7 @@
             this.lblArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblArrivalTime.Location = new System.Drawing.Point(6, 3);
             this.lblArrivalTime.Name = "lblArrivalTime";
-            this.lblArrivalTime.Size = new System.Drawing.Size(115, 36);
+            this.lblArrivalTime.Size = new System.Drawing.Size(115, 56);
             this.lblArrivalTime.TabIndex = 0;
             this.lblArrivalTime.Text = "Thời Gian Đến";
             this.lblArrivalTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +171,9 @@
             // lblCusNumber
             // 
             this.lblCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCusNumber.Location = new System.Drawing.Point(6, 42);
+            this.lblCusNumber.Location = new System.Drawing.Point(6, 62);
             this.lblCusNumber.Name = "lblCusNumber";
-            this.lblCusNumber.Size = new System.Drawing.Size(115, 37);
+            this.lblCusNumber.Size = new System.Drawing.Size(115, 56);
             this.lblCusNumber.TabIndex = 1;
             this.lblCusNumber.Text = "Số Lượng Khách";
             this.lblCusNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,9 +182,9 @@
             // 
             this.pnlCusNumber.Controls.Add(this.nudCusNumber);
             this.pnlCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCusNumber.Location = new System.Drawing.Point(130, 45);
+            this.pnlCusNumber.Location = new System.Drawing.Point(130, 65);
             this.pnlCusNumber.Name = "pnlCusNumber";
-            this.pnlCusNumber.Size = new System.Drawing.Size(283, 31);
+            this.pnlCusNumber.Size = new System.Drawing.Size(283, 50);
             this.pnlCusNumber.TabIndex = 3;
             // 
             // nudCusNumber
@@ -192,7 +192,7 @@
             this.nudCusNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCusNumber.Location = new System.Drawing.Point(0, 0);
             this.nudCusNumber.Name = "nudCusNumber";
-            this.nudCusNumber.Size = new System.Drawing.Size(283, 26);
+            this.nudCusNumber.Size = new System.Drawing.Size(283, 30);
             this.nudCusNumber.TabIndex = 0;
             // 
             // pnlArrivalTime
@@ -201,7 +201,7 @@
             this.pnlArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlArrivalTime.Location = new System.Drawing.Point(130, 6);
             this.pnlArrivalTime.Name = "pnlArrivalTime";
-            this.pnlArrivalTime.Size = new System.Drawing.Size(283, 30);
+            this.pnlArrivalTime.Size = new System.Drawing.Size(283, 50);
             this.pnlArrivalTime.TabIndex = 4;
             // 
             // dtpArrivalTime
@@ -209,15 +209,15 @@
             this.dtpArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpArrivalTime.Location = new System.Drawing.Point(0, 0);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 26);
+            this.dtpArrivalTime.Size = new System.Drawing.Size(283, 30);
             this.dtpArrivalTime.TabIndex = 3;
             // 
             // lblReceiverPhoneNumber
             // 
             this.lblReceiverPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 42);
+            this.lblReceiverPhoneNumber.Location = new System.Drawing.Point(6, 62);
             this.lblReceiverPhoneNumber.Name = "lblReceiverPhoneNumber";
-            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(137, 37);
+            this.lblReceiverPhoneNumber.Size = new System.Drawing.Size(137, 56);
             this.lblReceiverPhoneNumber.TabIndex = 1;
             this.lblReceiverPhoneNumber.Text = "Số Điện Thoại Nhận";
             this.lblReceiverPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,7 +236,7 @@
             this.pnlButton.RowCount = 2;
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButton.Size = new System.Drawing.Size(90, 368);
+            this.pnlButton.Size = new System.Drawing.Size(90, 329);
             this.pnlButton.TabIndex = 1;
             // 
             // btnUpdateOrder
@@ -249,7 +249,7 @@
             this.btnUpdateOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpdateOrder.Location = new System.Drawing.Point(6, 6);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(78, 173);
+            this.btnUpdateOrder.Size = new System.Drawing.Size(78, 154);
             this.btnUpdateOrder.TabIndex = 0;
             this.btnUpdateOrder.Text = "Cập Nhật";
             this.btnUpdateOrder.UseVisualStyleBackColor = false;
@@ -263,9 +263,9 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(6, 188);
+            this.btnExit.Location = new System.Drawing.Point(6, 169);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(78, 174);
+            this.btnExit.Size = new System.Drawing.Size(78, 154);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Quay Lại";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -284,13 +284,13 @@
             this.dgvOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Choice,
             this.DishName,
             this.DishType,
             this.Amount,
             this.Price,
             this.TotalAmount,
-            this.Note,
-            this.Choice});
+            this.Note});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -305,63 +305,71 @@
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 35;
             this.dgvOrderDetails.RowTemplate.Height = 24;
-            this.dgvOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvOrderDetails.Size = new System.Drawing.Size(757, 368);
+            this.dgvOrderDetails.Size = new System.Drawing.Size(757, 329);
             this.dgvOrderDetails.TabIndex = 0;
             this.dgvOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellContentClick);
             this.dgvOrderDetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellValueChanged);
             // 
+            // Choice
+            // 
+            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Choice.HeaderText = "Cập nhật";
+            this.Choice.MinimumWidth = 6;
+            this.Choice.Name = "Choice";
+            this.Choice.Width = 85;
+            // 
             // DishName
             // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DishName.DataPropertyName = "DishName";
             this.DishName.FillWeight = 32.40876F;
             this.DishName.HeaderText = "Tên Món";
             this.DishName.MinimumWidth = 6;
             this.DishName.Name = "DishName";
             this.DishName.ReadOnly = true;
+            this.DishName.Width = 110;
             // 
             // DishType
             // 
-            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DishType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DishType.DataPropertyName = "DishType";
             this.DishType.FillWeight = 32.40876F;
             this.DishType.HeaderText = "Tên Mục";
             this.DishType.MinimumWidth = 6;
             this.DishType.Name = "DishType";
             this.DishType.ReadOnly = true;
-            this.DishType.Width = 150;
+            this.DishType.Width = 109;
             // 
             // Amount
             // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Amount.DataPropertyName = "Amount";
             this.Amount.FillWeight = 437.9562F;
             this.Amount.HeaderText = "SL";
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
-            this.Amount.Width = 40;
+            this.Amount.Width = 61;
             // 
             // Price
             // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Price.DataPropertyName = "Price";
             this.Price.FillWeight = 32.40876F;
             this.Price.HeaderText = "Đơn Giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 150;
+            this.Price.Width = 107;
             // 
             // TotalAmount
             // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalAmount.DataPropertyName = "TotalAmount";
             this.TotalAmount.FillWeight = 32.40876F;
             this.TotalAmount.HeaderText = "Thành Tiền";
             this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.Width = 150;
+            this.TotalAmount.Width = 127;
             // 
             // Note
             // 
@@ -372,14 +380,6 @@
             this.Note.MinimumWidth = 6;
             this.Note.Name = "Note";
             // 
-            // Choice
-            // 
-            this.Choice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Choice.HeaderText = "Đặt";
-            this.Choice.MinimumWidth = 6;
-            this.Choice.Name = "Choice";
-            this.Choice.Width = 50;
-            // 
             // pnlOrderDetails
             // 
             this.pnlOrderDetails.ColumnCount = 2;
@@ -388,26 +388,13 @@
             this.pnlOrderDetails.Controls.Add(this.pnlButton, 1, 0);
             this.pnlOrderDetails.Controls.Add(this.dgvOrderDetails, 0, 0);
             this.pnlOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 367);
+            this.pnlOrderDetails.Location = new System.Drawing.Point(6, 406);
             this.pnlOrderDetails.Name = "pnlOrderDetails";
             this.pnlOrderDetails.RowCount = 1;
             this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 374F));
-            this.pnlOrderDetails.Size = new System.Drawing.Size(859, 374);
+            this.pnlOrderDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 335F));
+            this.pnlOrderDetails.Size = new System.Drawing.Size(859, 335);
             this.pnlOrderDetails.TabIndex = 2;
-            // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -425,7 +412,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 82);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 121);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // pnlRoot
@@ -445,6 +432,19 @@
             this.pnlRoot.Size = new System.Drawing.Size(1264, 761);
             this.pnlRoot.TabIndex = 1;
             // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(368, 747);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
+            // 
             // pnlOrder
             // 
             this.pnlOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -462,8 +462,8 @@
             this.pnlOrder.Name = "pnlOrder";
             this.pnlOrder.RowCount = 3;
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.86486F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.64865F));
-            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.62162F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.95161F));
+            this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.37097F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -531,7 +531,7 @@
             this.cbbOrderList.FormattingEnabled = true;
             this.cbbOrderList.Location = new System.Drawing.Point(601, 72);
             this.cbbOrderList.Name = "cbbOrderList";
-            this.cbbOrderList.Size = new System.Drawing.Size(186, 27);
+            this.cbbOrderList.Size = new System.Drawing.Size(186, 30);
             this.cbbOrderList.TabIndex = 20;
             this.cbbOrderList.SelectedIndexChanged += new System.EventHandler(this.cbbOrderList_SelectedIndexChanged);
             // 
@@ -541,7 +541,7 @@
             this.lblOrderList.AutoSize = true;
             this.lblOrderList.Location = new System.Drawing.Point(405, 75);
             this.lblOrderList.Name = "lblOrderList";
-            this.lblOrderList.Size = new System.Drawing.Size(138, 19);
+            this.lblOrderList.Size = new System.Drawing.Size(176, 22);
             this.lblOrderList.TabIndex = 19;
             this.lblOrderList.Text = "Danh Sách Phiếu Đặt";
             // 
@@ -550,9 +550,8 @@
             this.txbTelephoneNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTelephoneNum.Location = new System.Drawing.Point(197, 72);
             this.txbTelephoneNum.Name = "txbTelephoneNum";
-            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 26);
+            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 30);
             this.txbTelephoneNum.TabIndex = 18;
-            this.txbTelephoneNum.Leave += new System.EventHandler(this.txbTelephoneNum_Leave);
             // 
             // txbGeneralNote
             // 
@@ -569,7 +568,7 @@
             this.txbBranchName.Location = new System.Drawing.Point(197, 10);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(186, 26);
+            this.txbBranchName.Size = new System.Drawing.Size(186, 30);
             this.txbBranchName.TabIndex = 12;
             // 
             // cbbOrderType
@@ -582,7 +581,7 @@
             "Đặt Bàn Trực Tiếp"});
             this.cbbOrderType.Location = new System.Drawing.Point(601, 10);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -592,7 +591,7 @@
             this.lblGeneralNote.AutoSize = true;
             this.lblGeneralNote.Location = new System.Drawing.Point(16, 156);
             this.lblGeneralNote.Name = "lblGeneralNote";
-            this.lblGeneralNote.Size = new System.Drawing.Size(59, 19);
+            this.lblGeneralNote.Size = new System.Drawing.Size(76, 22);
             this.lblGeneralNote.TabIndex = 8;
             this.lblGeneralNote.Text = "Ghi Chú";
             // 
@@ -602,7 +601,7 @@
             this.lblBranchName.AutoSize = true;
             this.lblBranchName.Location = new System.Drawing.Point(16, 13);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(101, 19);
+            this.lblBranchName.Size = new System.Drawing.Size(128, 22);
             this.lblBranchName.TabIndex = 4;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             // 
@@ -612,7 +611,7 @@
             this.lblTelephoneNum.AutoSize = true;
             this.lblTelephoneNum.Location = new System.Drawing.Point(16, 75);
             this.lblTelephoneNum.Name = "lblTelephoneNum";
-            this.lblTelephoneNum.Size = new System.Drawing.Size(122, 19);
+            this.lblTelephoneNum.Size = new System.Drawing.Size(158, 22);
             this.lblTelephoneNum.TabIndex = 1;
             this.lblTelephoneNum.Text = "Số Điện Thoại Đặt";
             // 
@@ -622,7 +621,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(405, 13);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
+            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -640,8 +639,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 94);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 133);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pnlShipping
@@ -650,12 +649,12 @@
             this.pnlShipping.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShipping.Location = new System.Drawing.Point(434, 6);
             this.pnlShipping.Name = "pnlShipping";
-            this.pnlShipping.Size = new System.Drawing.Size(419, 82);
+            this.pnlShipping.Size = new System.Drawing.Size(419, 121);
             this.pnlShipping.TabIndex = 1;
             // 
             // FrmUpdateOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.pnlRoot);
@@ -663,7 +662,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUpdateOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmUpdateOrders";
+            this.Text = "UpdateOrders";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -675,10 +674,10 @@
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
             this.pnlOrderDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
@@ -728,12 +727,12 @@
         private System.Windows.Forms.TextBox txbTelephoneNum;
         private System.Windows.Forms.ComboBox cbbOrderList;
         private System.Windows.Forms.Label lblOrderList;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DishType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Choice;
     }
 }

@@ -29,7 +29,7 @@ namespace SuShiX
             this.Height = AppConfig.formHeight;
 
             // Sử dụng userID để thực hiện các tác vụ
-            LoadAdminData();
+            //LoadAdminData();
         }
 
         // Hàm tải dữ liệu Admin dựa trên userID
@@ -47,6 +47,54 @@ namespace SuShiX
         {
             // Bạn có thể sử dụng UserID ở đây mà không lo bị sửa đổi ngoài ý muốn
             Console.WriteLine($"User ID hiện tại là: {UserID}");
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            FrmAdminStatistics frmAdminStatistics = new FrmAdminStatistics(userID);
+            this.Hide();
+            frmAdminStatistics.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        {
+            FrmUpdateSalary frmUpdateSalary = new FrmUpdateSalary(userID);
+            this.Hide();
+            frmUpdateSalary.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdatePromotion_Click(object sender, EventArgs e)
+        {
+            FrmPromotionManagement frmPromotionManagement = new FrmPromotionManagement(userID);
+            this.Hide();
+            frmPromotionManagement.ShowDialog();
+            this.Close();
+        }
+
+        private void btnUpdateIn4_Click(object sender, EventArgs e)
+        {
+            FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+            frmUpdateIn4Employee.Owner = this;
+            this.Hide();
+            frmUpdateIn4Employee.ShowDialog();
+        }
+
+        private void btnUpdateMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUpdateMenu frmUpdateMenu = new FrmUpdateMenu(userID);
+            frmUpdateMenu.ShowDialog();
+            this.Close();
         }
     }
 }

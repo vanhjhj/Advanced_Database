@@ -47,7 +47,7 @@ namespace SuShiX
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaTK", userID);
-                        
+
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
@@ -61,6 +61,9 @@ namespace SuShiX
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+
+            //ẩn nút chỉnh sửa
+            btnSave.Enabled = false;
         }
 
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -160,9 +163,41 @@ namespace SuShiX
             LoadMenuData();
         }
 
-        private void FrmManageMenu_Load(object sender, EventArgs e)
+        //Hàm cập nhật trạng thái nút khi có dữ liệu được chọn
+        private void UpdateButtonStatus()
         {
+            // Kiểm tra xem có dòng nào được chọn không
+            bool isSelected = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row != null && Convert.ToBoolean(row.Cells["Edit"].Value))
+                {
+                    isSelected = true;
+                    break;
+                }
+            }
 
+            // Cập nhật trạng thái của các nút
+            btnSave.Enabled = isSelected;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                // Kiểm tra xem ô checkbox đã được click hay chưa
+                DataGridViewCheckBoxCell checkBoxCell = dataGridView1.Rows[e.RowIndex].Cells["Edit"] as DataGridViewCheckBoxCell;
+
+                if (checkBoxCell != null)
+                {
+
+                    // Gọi CommitEdit để chắc chắn giá trị của checkbox được cập nhật
+                    dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                    // Cập nhật trạng thái của nút 
+                    UpdateButtonStatus();
+                }
+            }
         }
     }
 }

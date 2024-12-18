@@ -34,12 +34,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
+            this.btnUpdateCardRank = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.btnCreateVoice = new System.Windows.Forms.Button();
+            this.btnCreateCard = new System.Windows.Forms.Button();
+            this.btnReissueCard = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -124,32 +127,19 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnUpdateIn4, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnUpdateCardRank, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnLogout, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(367, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(191, 569);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogout.BackColor = System.Drawing.Color.Black;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(26, 91);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(139, 72);
-            this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "Đăng xuất";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnUpdateIn4
             // 
@@ -164,6 +154,37 @@
             this.btnUpdateIn4.TabIndex = 3;
             this.btnUpdateIn4.Text = "Cập nhật thông tin";
             this.btnUpdateIn4.UseVisualStyleBackColor = false;
+            this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
+            // 
+            // btnUpdateCardRank
+            // 
+            this.btnUpdateCardRank.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateCardRank.BackColor = System.Drawing.Color.Black;
+            this.btnUpdateCardRank.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateCardRank.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateCardRank.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCardRank.Location = new System.Drawing.Point(26, 91);
+            this.btnUpdateCardRank.Name = "btnUpdateCardRank";
+            this.btnUpdateCardRank.Size = new System.Drawing.Size(139, 72);
+            this.btnUpdateCardRank.TabIndex = 5;
+            this.btnUpdateCardRank.Text = "Cập nhật hạng thẻ";
+            this.btnUpdateCardRank.UseVisualStyleBackColor = false;
+            this.btnUpdateCardRank.Click += new System.EventHandler(this.btnUpdateCardRank_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogout.BackColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(26, 176);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(139, 72);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -171,7 +192,9 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.btnCreateOrder, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnUpdateOrder, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.btnCreateVoice, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.btnCreateVoice, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btnCreateCard, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.btnReissueCard, 0, 4);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -227,22 +250,59 @@
             this.btnCreateVoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateVoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateVoice.ForeColor = System.Drawing.Color.White;
-            this.btnCreateVoice.Location = new System.Drawing.Point(34, 359);
+            this.btnCreateVoice.Location = new System.Drawing.Point(34, 246);
             this.btnCreateVoice.Name = "btnCreateVoice";
             this.btnCreateVoice.Size = new System.Drawing.Size(290, 72);
             this.btnCreateVoice.TabIndex = 3;
             this.btnCreateVoice.Text = "Xuất Hóa Đơn";
             this.btnCreateVoice.UseVisualStyleBackColor = false;
+            this.btnCreateVoice.Click += new System.EventHandler(this.btnCreateVoice_Click);
+            // 
+            // btnCreateCard
+            // 
+            this.btnCreateCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCreateCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnCreateCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnCreateCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateCard.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCard.ForeColor = System.Drawing.Color.White;
+            this.btnCreateCard.Location = new System.Drawing.Point(34, 359);
+            this.btnCreateCard.Name = "btnCreateCard";
+            this.btnCreateCard.Size = new System.Drawing.Size(290, 72);
+            this.btnCreateCard.TabIndex = 4;
+            this.btnCreateCard.Text = "Lập thẻ thành viên";
+            this.btnCreateCard.UseVisualStyleBackColor = false;
+            this.btnCreateCard.Click += new System.EventHandler(this.btnCreateCard_Click);
+            // 
+            // btnReissueCard
+            // 
+            this.btnReissueCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReissueCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnReissueCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReissueCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnReissueCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReissueCard.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReissueCard.ForeColor = System.Drawing.Color.White;
+            this.btnReissueCard.Location = new System.Drawing.Point(34, 474);
+            this.btnReissueCard.Name = "btnReissueCard";
+            this.btnReissueCard.Size = new System.Drawing.Size(290, 72);
+            this.btnReissueCard.TabIndex = 4;
+            this.btnReissueCard.Text = "Cấp lại thẻ thành viên";
+            this.btnReissueCard.UseVisualStyleBackColor = false;
+            this.btnReissueCard.Click += new System.EventHandler(this.btnReissueCard_Click);
             // 
             // FrmEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -269,5 +329,8 @@
         private System.Windows.Forms.Button btnCreateOrder;
         private System.Windows.Forms.Button btnUpdateOrder;
         private System.Windows.Forms.Button btnCreateVoice;
+        private System.Windows.Forms.Button btnCreateCard;
+        private System.Windows.Forms.Button btnReissueCard;
+        private System.Windows.Forms.Button btnUpdateCardRank;
     }
 }

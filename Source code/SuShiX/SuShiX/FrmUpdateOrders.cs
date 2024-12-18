@@ -50,7 +50,8 @@ namespace SuShiX
             lblOrderType.Enabled = true;
             cbbOrderType.Enabled = true;
             btnExit.Enabled = true;
-            btnUpdateOrder.Enabled = true;
+            btnUpdateOrder.Enabled = false;
+            dgvOrderDetails.Enabled = false;
         }
 
         private void LoadBranchName()
@@ -99,19 +100,39 @@ namespace SuShiX
                 // Nếu chưa chọn loại phiếu đặt, tắt tất cả các điều khiển
                 DisableAllControls();
             }
-            else if (selectedOrderType != "Đặt Bàn Trực Tiếp")
-            {
-                // Enable trường số điện thoại khách hàng
-                txbTelephoneNum.Enabled = true;
-            }
             else
             {
-                txbTelephoneNum.Enabled = false;
-                txbTelephoneNum.Text = string.Empty;
-                pnlBookingOnline.Enabled = false;
-                pnlShipping.Enabled = false;
                 cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
+                txbTelephoneNum.Text = string.Empty;
+                txbGeneralNote.Text = string.Empty;
+                cbbOrderList.DataSource = null;
+                
+                nudCusNumber.Value = 0;
+                dtpArrivalTime.Value = DateTime.Now;
+                
+                txbReceiverAddress.Text = string.Empty;
+                txbReceiverPhoneNumber.Text = string.Empty;
+                
+                dgvOrderDetails.DataSource = null;
+                
+                if (selectedOrderType == "Đặt Bàn Trực Tuyến")
+                {
+                    pnlBookingOnline.Enabled = true;
+                    pnlShipping.Enabled = false; 
+                    txbGeneralNote.Enabled = true;
+                }
+                else if (selectedOrderType == "Giao Hàng Tận Nơi")
+                {
+                    pnlBookingOnline.Enabled = false;
+                    pnlShipping.Enabled = true;
+                    txbGeneralNote.Enabled = true;
+                }
+                else
+                {
+                    pnlBookingOnline.Enabled = false;
+                    pnlShipping.Enabled = false;
+                    txbGeneralNote.Enabled = false;
+                }
                 LoadOrderList();
             }
         }
@@ -132,7 +153,6 @@ namespace SuShiX
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
-                        cmd.Parameters.AddWithValue("@SDTKhachHang", phoneNumber);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -166,32 +186,6 @@ namespace SuShiX
             }
         }
 
-        private void txbTelephoneNum_Leave(object sender, EventArgs e)
-        {
-            string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
-            dgvOrderDetails.Enabled = true;
-
-            // Kiểm tra loại phiếu đặt và thay đổi trạng thái các điều khiển tương ứng
-            if (selectedOrderType == "Đặt Bàn Trực Tuyến")
-            {
-                // Bật Trực Tuyến
-                pnlBookingOnline.Enabled = true;
-                pnlShipping.Enabled = false;
-                cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
-                LoadOrderList();
-            }
-            else if (selectedOrderType == "Giao Hàng Tận Nơi")
-            {
-                // Bật Giao Hàng
-                pnlShipping.Enabled = true;
-                pnlBookingOnline.Enabled = false;
-                cbbOrderList.Enabled = true;
-                txbGeneralNote.Enabled = true;
-                LoadOrderList();
-            }
-        }
-
         private void LoadOrderDetails()
         {
             // Lấy giá trị phiếu đặt từ ComboBox cbbOrderList
@@ -199,7 +193,6 @@ namespace SuShiX
 
             if (string.IsNullOrEmpty(selectedOrderID))
             {
-                MessageBox.Show("Vui lòng chọn một phiếu đặt để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -218,6 +211,7 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
 
                         // Thêm các tham số đầu ra
+
                         SqlParameter ghiChuParam = new SqlParameter
                         {
                             ParameterName = "@GhiChu",
@@ -251,6 +245,15 @@ namespace SuShiX
                             Direction = ParameterDirection.Output
                         };
                         cmd.Parameters.Add(diaChiParam);
+
+                        SqlParameter sdtKhachHangParam = new SqlParameter
+                        {
+                            ParameterName = "@SDTKhachHang",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 10,
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(sdtKhachHangParam);
 
                         SqlParameter sdtNguoiNhanParam = new SqlParameter
                         {
@@ -320,6 +323,7 @@ namespace SuShiX
                         int? slKhach = slKhachParam.Value as int?;
                         DateTime? thoiGianDen = thoiGianDenParam.Value as DateTime?;
                         string diaChi = diaChiParam.Value as string;
+                        string sdtKhachHang = sdtKhachHangParam.Value as string;
                         string sdtNguoiNhan = sdtNguoiNhanParam.Value as string;
 
                         // Chỉ hiển thị nếu giá trị không phải null
@@ -343,6 +347,11 @@ namespace SuShiX
                             txbReceiverAddress.Text = diaChi;
                         }
 
+                        if (!string.IsNullOrEmpty(sdtKhachHang))
+                        {
+                            txbTelephoneNum.Text = sdtKhachHang;
+                        }
+
                         if (!string.IsNullOrEmpty(sdtNguoiNhan))
                         {
                             txbReceiverPhoneNumber.Text = sdtNguoiNhan;
@@ -354,6 +363,8 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi tải chi tiết phiếu đặt: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            dgvOrderDetails.Enabled = true;
         }
         private void cbbOrderList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -444,8 +455,28 @@ namespace SuShiX
                         dgvOrderDetails.Rows[e.RowIndex].Cells["Note"].Value = DBNull.Value;
                         dgvOrderDetails.Rows[e.RowIndex].Cells["Amount"].Value = DBNull.Value;                        
                     }
+
+                    // Update the button state.
+                    UpdateButtonState();
                 }
             }
+        }
+
+        private void UpdateButtonState()
+        {
+            // Đếm số lượng ô "Choice" được chọn
+            int selectedCount = 0;
+            foreach (DataGridViewRow row in dgvOrderDetails.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["Choice"] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    selectedCount++;
+                }
+            }
+
+            // Kiểm tra điều kiện bật/tắt nút "Order"
+            btnUpdateOrder.Enabled = selectedCount > 0; // Bật nút Order nếu có ít nhất 1 ô được chọn, ngược lại tắt
         }
 
         private void btnOrder_Click(object sender, EventArgs e)

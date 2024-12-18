@@ -51,16 +51,24 @@ namespace SuShiX
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
+                    DataRow[] filteredRows = dataTable.Select("TenBP <> 'Quản Lý'");
+                    DataTable filteredTable = dataTable.Clone();
+
+                    foreach (DataRow row in filteredRows)
+                    {
+                        filteredTable.ImportRow(row);
+                    }
+
                     // Kiểm tra nếu không có dữ liệu
-                    if (dataTable.Rows.Count == 0)
+                    if (filteredTable.Rows.Count == 0)
                     {
                         MessageBox.Show("Không có dữ liệu nào từ bảng BoPhan.");
                         return;
                     }
 
                     // Gán dữ liệu vào ComboBox
-                    comboBox2.DataSource = dataTable;
-                    comboBox2.DisplayMember = "TenBP"; // Hiển thị tên bộ phận
+                    cbbDepartment.DataSource = filteredTable;
+                    cbbDepartment.DisplayMember = "TenBP"; // Hiển thị tên bộ phận
                 }
             }
             catch (Exception ex)
@@ -73,20 +81,108 @@ namespace SuShiX
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(this.UserID);
-            this.Hide();
-            frmManageEmployee.ShowDialog();
-            this.Close();
+            Save();
         }
 
+        private void Save()
+        {
+            if (string.IsNullOrEmpty(txbUserName.Text.Trim()) ||
+            string.IsNullOrEmpty(txbPassword.Text.Trim()) ||
+            string.IsNullOrEmpty(txbFullName.Text.Trim()) ||
+            string.IsNullOrEmpty(txbPhoneNumber.Text.Trim()) ||
+            string.IsNullOrEmpty(txbAddress.Text.Trim()) ||
+            cbbGender.SelectedItem == null ||
+            cbbDepartment.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Gọi thủ tục cập nhật thông tin khách hàng
+                    using (SqlCommand cmd = new SqlCommand("USP_ThemNhanVien", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm các tham số
+                        cmd.Parameters.AddWithValue("@MaTK", this.userID);
+                        cmd.Parameters.AddWithValue("@TenTK", txbUserName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@MatKhau", txbPassword.Text.Trim());
+                        cmd.Parameters.AddWithValue("@HoTen", txbFullName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@NgaySinh", dtpDateOfBirth.Value);
+                        cmd.Parameters.AddWithValue("@GioiTinh", cbbGender.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("NgayVaoLam", dtpStartDate.Value);
+                        if (dtpEndDate.Value.Date == DateTime.Now.Date)
+                        {
+                            cmd.Parameters.AddWithValue("@NgayNghiViec", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@NgayNghiViec", dtpEndDate.Value);
+                        }
+                        cmd.Parameters.AddWithValue("@SDT", txbPhoneNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@DiaChi", txbAddress.Text.Trim());
+
+                        DataRowView selectedRow = cbbDepartment.SelectedItem as DataRowView;
+                        string department = selectedRow?["TenBP"]?.ToString();
+
+                        cmd.Parameters.AddWithValue("@TenBP", department);
+
+                        // Thực thi thủ tục
+                        cmd.ExecuteNonQuery();
+
+                        // Nếu không có lỗi, thông báo thành công
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FrmManageEmployee frmManageEmployee = new FrmManageEmployee(this.UserID);
+                        this.Hide();
+                        frmManageEmployee.ShowDialog();
+                        this.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Kiểm tra mã lỗi duy nhất và hiển thị thông báo chi tiết
+                if (ex.Number == 50000)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi khi thêm nhân viên: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi thêm nhân viên: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             FrmManageEmployee frmManageEmployee = new FrmManageEmployee(this.UserID);
             this.Hide();
             frmManageEmployee.ShowDialog();
             this.Close();
+        }
+        private void pbDisplayPassword_Click(object sender, EventArgs e)
+        {
+            if (txbPassword.UseSystemPasswordChar)
+            {
+                txbPassword.UseSystemPasswordChar = false;
+                pbDisplayPassword.Image = Properties.Resources.eye_open;
+            }
+            else
+            {
+                txbPassword.UseSystemPasswordChar = true;
+                pbDisplayPassword.Image = Properties.Resources.eye_close;
+            }
         }
     }
 }
