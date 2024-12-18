@@ -657,23 +657,39 @@ BEGIN
         END
 
         -- Thống kê theo món ăn
-        SELECT MA.TenMA AS 'DishName', 
-               SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
-               SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
-        FROM MonAn MA
-        LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
-        LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
-        LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+		SELECT MA1.TenMA AS 'DishName', 0 AS Amount, 0 AS Revenue
+		FROM ThucDon TD1
+		JOIN MonAn MA1 ON MA1.MaMA = TD1.MAMA
+		WHERE TD1.MaCN = @MaCN
+		AND MA1.MaMA NOT IN (
+			SELECT MA.MaMA
+			FROM MonAn MA
+			LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
+			LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+			LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
+			WHERE (@TenMA IS NULL OR MA.TenMA = @TenMA)
+			AND PD.MaCN = @MaCN
+			AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+		)
+		UNION ALL
+		-- Món ăn có doanh thu
+		SELECT MA.TenMA AS 'DishName', 
+			   SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
+			   SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
+		FROM MonAn MA
+		LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
+		LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
+		LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
 		WHERE (@TenMA IS NULL OR MA.TenMA = @TenMA)
-        AND PD.MaCN = @MaCN
-        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+		AND PD.MaCN = @MaCN
+		AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
 		AND MA.MaMA IN (
 			SELECT td.MaMA
 			FROM ThucDon td
 			WHERE td.MaCN = @MaCN
 		)
-        GROUP BY MA.MaMA, MA.TenMA
-        ORDER BY Revenue DESC;
+		GROUP BY MA.MaMA, MA.TenMA
+		ORDER BY Revenue DESC;
 
 		IF @TenMA IS NULL
 		BEGIN
@@ -720,23 +736,49 @@ BEGIN
         END
 
         -- Thống kê theo món ăn
+        SELECT KV1.TenKV AS 'KhuVuc',
+               CN1.TenCN AS 'ChiNhanh',
+               MA1.TenMA AS 'DishName', 
+               0 AS Amount, 
+               0 AS Revenue
+        FROM KhuVuc KV1
+        JOIN ChiNhanh CN1 ON CN1.MaKV = KV1.MaKV
+        JOIN ThucDon TD1 ON TD1.MaCN = CN1.MaCN
+        JOIN MonAn MA1 ON MA1.MaMA = TD1.MaMA
+        WHERE (@TenCN IS NULL OR CN1.TenCN = @TenCN)
+          AND (@TenKV IS NULL OR KV1.TenKV = @TenKV)
+          AND MA1.MaMA NOT IN (
+              SELECT MA2.MaMA
+              FROM MonAn MA2
+              LEFT JOIN CTPD ON MA2.MaMA = CTPD.MaMA
+              LEFT JOIN PhieuDat PD2 ON PD2.MaPhieu = CTPD.MaPhieu
+              LEFT JOIN HoaDon HD2 ON HD2.MaPhieu = CTPD.MaPhieu
+              LEFT JOIN ChiNhanh CN2 ON CN2.MaCN = PD2.MaCN
+              LEFT JOIN KhuVuc KV2 ON KV2.MaKV = CN2.MaKV
+              INNER JOIN ThucDon TD ON TD.MaCN = CN2.MaCN AND TD.MaMA = MA2.MaMA
+              WHERE (@TenCN IS NULL OR CN2.TenCN = @TenCN)
+                AND (@TenKV IS NULL OR KV2.TenKV = @TenKV)
+                AND HD2.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+          )
+        UNION ALL
+        -- Món ăn có doanh thu trong khoảng thời gian @NgayBD - @NgayKT
         SELECT KV.TenKV AS 'KhuVuc',
-			   CN.TenCN AS 'ChiNhanh',
-			   MA.TenMA AS 'DishName', 
+               CN.TenCN AS 'ChiNhanh',
+               MA.TenMA AS 'DishName',
                SUM(ISNULL(CTPD.SoLuong, 0)) AS Amount,
                SUM(ISNULL(CAST(CTPD.ThanhTien AS BIGINT), 0)) AS Revenue
         FROM MonAn MA
         LEFT JOIN CTPD ON MA.MaMA = CTPD.MaMA
         LEFT JOIN PhieuDat PD ON PD.MaPhieu = CTPD.MaPhieu
         LEFT JOIN HoaDon HD ON HD.MaPhieu = CTPD.MaPhieu
-		LEFT JOIN ChiNhanh CN ON CN.MaCN=PD.MaCN
-		LEFT JOIN KhuVuc KV ON KV.MaKV=CN.MaKV
-		INNER JOIN ThucDon TD ON TD.MaCN = CN.MaCN AND TD.MaMA = MA.MaMA
-		WHERE (@TenCN IS NULL OR CN.TenCN = @TenCN)
-		AND (@TenKV IS NULL OR KV.TenKV = @TenKV)
-        AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
-        GROUP BY KV.TenKV,CN.TenCN, MA.MaMA, MA.TenMA
-        ORDER BY KV.TenKV ASC, CN.TenCN ASC , Revenue DESC;
+        LEFT JOIN ChiNhanh CN ON CN.MaCN = PD.MaCN
+        LEFT JOIN KhuVuc KV ON KV.MaKV = CN.MaKV
+        INNER JOIN ThucDon TD ON TD.MaCN = CN.MaCN AND TD.MaMA = MA.MaMA
+        WHERE (@TenCN IS NULL OR CN.TenCN = @TenCN)
+          AND (@TenKV IS NULL OR KV.TenKV = @TenKV)
+          AND HD.NgayLapHD BETWEEN @NgayBD AND @NgayKT
+        GROUP BY KV.TenKV, CN.TenCN, MA.MaMA, MA.TenMA
+        ORDER BY 1 ASC, 2 ASC, 4 DESC, 5 DESC;
 
 		--IF @TenCN IS NULL OR @TenKV IS NULL
 		BEGIN

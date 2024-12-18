@@ -119,7 +119,7 @@ namespace SuShiX
                         cmd.Parameters.AddWithValue("@NgaySinh", dtpDateOfBirth.Value);
                         cmd.Parameters.AddWithValue("@GioiTinh", cbbGender.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("NgayVaoLam", dtpStartDate.Value);
-                        if (dtpEndDate.Value == DateTime.Now.Date)
+                        if (dtpEndDate.Value.Date == DateTime.Now.Date)
                         {
                             cmd.Parameters.AddWithValue("@NgayNghiViec", DBNull.Value);
                         }
