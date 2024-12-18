@@ -216,7 +216,7 @@
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.63636F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.90909F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.45455F));
-            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 287F));
+            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 292F));
             this.pnlStatisticsInfo.Controls.Add(this.cbbBranchName, 1, 1);
             this.pnlStatisticsInfo.Controls.Add(this.label3, 1, 0);
             this.pnlStatisticsInfo.Controls.Add(this.label2, 2, 0);
@@ -239,9 +239,9 @@
             // 
             this.cbbBranchName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbBranchName.FormattingEnabled = true;
-            this.cbbBranchName.Location = new System.Drawing.Point(160, 36);
+            this.cbbBranchName.Location = new System.Drawing.Point(159, 33);
             this.cbbBranchName.Name = "cbbBranchName";
-            this.cbbBranchName.Size = new System.Drawing.Size(151, 30);
+            this.cbbBranchName.Size = new System.Drawing.Size(149, 30);
             this.cbbBranchName.TabIndex = 13;
             this.cbbBranchName.SelectedIndexChanged += new System.EventHandler(this.cbbBranchName_SelectedIndexChanged);
             // 
@@ -252,9 +252,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(160, 3);
+            this.label3.Location = new System.Drawing.Point(159, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 24);
+            this.label3.Size = new System.Drawing.Size(149, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Tên Chi Nhánh";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,9 +266,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(320, 3);
+            this.label2.Location = new System.Drawing.Point(317, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 24);
+            this.label2.Size = new System.Drawing.Size(134, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Ngày Bắt Đầu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -280,9 +280,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(464, 3);
+            this.label1.Location = new System.Drawing.Point(460, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 24);
+            this.label1.Size = new System.Drawing.Size(287, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Ngày Kết Thúc";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,7 +296,7 @@
             this.lblBranchArea.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBranchArea.Location = new System.Drawing.Point(6, 3);
             this.lblBranchArea.Name = "lblBranchArea";
-            this.lblBranchArea.Size = new System.Drawing.Size(145, 24);
+            this.lblBranchArea.Size = new System.Drawing.Size(144, 24);
             this.lblBranchArea.TabIndex = 1;
             this.lblBranchArea.Text = "Tên Khu Vực";
             this.lblBranchArea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -305,9 +305,9 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(320, 33);
+            this.dtpStartDate.Location = new System.Drawing.Point(317, 33);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(135, 30);
+            this.dtpStartDate.Size = new System.Drawing.Size(134, 30);
             this.dtpStartDate.TabIndex = 10;
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
@@ -315,7 +315,7 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(528, 33);
+            this.dtpEndDate.Location = new System.Drawing.Point(526, 33);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(154, 30);
             this.dtpEndDate.TabIndex = 11;
@@ -325,9 +325,9 @@
             // 
             this.cbbArea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbArea.FormattingEnabled = true;
-            this.cbbArea.Location = new System.Drawing.Point(6, 36);
+            this.cbbArea.Location = new System.Drawing.Point(6, 33);
             this.cbbArea.Name = "cbbArea";
-            this.cbbArea.Size = new System.Drawing.Size(145, 30);
+            this.cbbArea.Size = new System.Drawing.Size(144, 30);
             this.cbbArea.TabIndex = 12;
             this.cbbArea.SelectedIndexChanged += new System.EventHandler(this.cbbArea_SelectedIndexChanged);
             // 
@@ -423,12 +423,13 @@
             // 
             // button1
             // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(50, 3);
+            this.button1.Location = new System.Drawing.Point(630, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 40);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Search";
+            this.button1.Text = "Thống Kê";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
