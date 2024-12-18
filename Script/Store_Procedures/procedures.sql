@@ -1578,7 +1578,7 @@ BEGIN
 	IF @MaThe IS NOT NULL
 	BEGIN
 		UPDATE dbo.The
-		SET TongDiemDuyTri = TongDiemDuyTri + @DiemCong
+		SET TongDiem = TongDiem + @DiemCong, TongDiemDuyTri = TongDiemDuyTri + @DiemCong
 		WHERE MaThe = @MaThe
 	END
 END
