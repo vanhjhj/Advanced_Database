@@ -26,6 +26,7 @@ namespace SuShiX
             //Application.Run(new FrmManagerStatistics("NV000012"));
             //Application.Run(new FrmManageEmployee("NV0012"));
             //Application.Run(new FrmUpdateMenu("NV0015"));
+            //Application.Run(new FrmAdmin("NV0015"));
         }
     }
 }

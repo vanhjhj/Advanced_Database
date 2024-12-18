@@ -103,7 +103,7 @@ namespace SuShiX
                         dtDish.Load(reader);
 
                         List<string> dishes = new List<string>();
-                        dishes.Add("");
+                        dishes.Add("Tất Cả");
                         foreach (DataRow row in dtDish.Rows)
                         {
                             foreach (DataColumn column in dtDish.Columns)
@@ -144,7 +144,7 @@ namespace SuShiX
                     command.Parameters.AddWithValue("@NgayBD", startDate);
                     command.Parameters.AddWithValue("@NgayKT", endDate);
 
-                    if (string.IsNullOrEmpty(selectedDishName))
+                    if (selectedDishName == "Tất Cả")
                     {
                         command.Parameters.AddWithValue("@TenMA", DBNull.Value); // Nếu không có món ăn chọn
                     }

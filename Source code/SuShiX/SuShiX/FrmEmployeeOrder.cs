@@ -258,6 +258,10 @@ namespace SuShiX
         private void btnOrder_Click(object sender, EventArgs e)
         {
             HandleOfflineReservation();
+            FrmEmployee frmEmployee = new FrmEmployee(userID);
+            this.Hide();
+            frmEmployee.ShowDialog();
+            this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

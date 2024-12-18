@@ -180,13 +180,13 @@
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 6;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 569);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
@@ -199,7 +199,7 @@
             this.btnUpdateMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateMenu.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateMenu.Location = new System.Drawing.Point(34, 199);
+            this.btnUpdateMenu.Location = new System.Drawing.Point(34, 319);
             this.btnUpdateMenu.Name = "btnUpdateMenu";
             this.btnUpdateMenu.Size = new System.Drawing.Size(290, 72);
             this.btnUpdateMenu.TabIndex = 1;
@@ -216,7 +216,7 @@
             this.btnUpdateSalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateSalary.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateSalary.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateSalary.Location = new System.Drawing.Point(34, 105);
+            this.btnUpdateSalary.Location = new System.Drawing.Point(34, 177);
             this.btnUpdateSalary.Name = "btnUpdateSalary";
             this.btnUpdateSalary.Size = new System.Drawing.Size(290, 72);
             this.btnUpdateSalary.TabIndex = 0;
@@ -233,7 +233,7 @@
             this.btnUpdatePromotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdatePromotion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdatePromotion.ForeColor = System.Drawing.Color.White;
-            this.btnUpdatePromotion.Location = new System.Drawing.Point(34, 11);
+            this.btnUpdatePromotion.Location = new System.Drawing.Point(34, 35);
             this.btnUpdatePromotion.Name = "btnUpdatePromotion";
             this.btnUpdatePromotion.Size = new System.Drawing.Size(290, 72);
             this.btnUpdatePromotion.TabIndex = 3;
@@ -250,7 +250,7 @@
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnStatistics.Location = new System.Drawing.Point(34, 293);
+            this.btnStatistics.Location = new System.Drawing.Point(34, 461);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(290, 72);
             this.btnStatistics.TabIndex = 2;
