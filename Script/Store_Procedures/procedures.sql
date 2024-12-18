@@ -1,5 +1,56 @@
 ﻿USE QUAN_LY_NHA_HANG
--- Đăng Nhập
+
+--===========================================Tạo các kiểu dữ liệu cần thiết cho các procedures===========================================
+-- Tạo table type cho món ăn
+CREATE TYPE dbo.CTPDType AS TABLE
+(
+    DishName NVARCHAR(50),
+    Amount INT,
+    Price INT,
+    TotalAmount INT,
+    Note NVARCHAR(200)
+);
+GO
+
+--Tạo kiểu dữ liệu để cập nhật thực đơn
+CREATE TYPE dbo.ThucDonThayDoi AS TABLE
+(
+	MaMA VARCHAR(10),
+	TinhTrangPhucVu VARCHAR(10),
+	TinhTrangGiaoHang VARCHAR(10)
+)
+
+
+--Tạo kiểu dữ liệu để cập nhật Loại thẻ
+CREATE TYPE dbo.LoaiTheThayDoi AS TABLE
+(
+	TenLoaiThe VARCHAR(10),
+	ChietKhau INT,
+	GiamGia INT,
+	SpTang NVARCHAR(200)
+)
+
+
+--Tạo kiểu dữ liệu để cập nhật lương
+CREATE TYPE dbo.LuongThayDoi AS TABLE
+(
+	MaBP VARCHAR(10),
+	TenBP NVARCHAR(50),
+	Luong INT
+)
+
+
+--Tạo kiểu dữ liệu để cập nhật thực đơn
+
+CREATE TYPE dbo.ThucDonThayDoi AS TABLE
+(
+	MaMA VARCHAR(10),
+	TinhTrangPhucVu VARCHAR(10),
+	TinhTrangGiaoHang VARCHAR(10)
+)
+GO
+
+--===========================================Đăng Nhập===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DangNhap
     @TenTK VARCHAR(50),
@@ -43,7 +94,7 @@ BEGIN
 END;
 GO
 
--- Đăng Ký
+--===========================================Đăng Ký===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DangKy
     @TenTK VARCHAR(50),
@@ -97,7 +148,7 @@ BEGIN
 END
 GO
 
--- Xem thông tin khách hàng
+--===========================================Xem thông tin khách hàng===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinKhachHang
     @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
@@ -114,7 +165,7 @@ BEGIN
 END;
 GO
 
--- Cập Nhật thông tin khách hàng
+--===========================================Cập Nhật thông tin khách hàng===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatThongTinKhachHang
     @MaTK VARCHAR(10),    
@@ -165,7 +216,7 @@ BEGIN
 END
 GO
 
--- Lấy thông tin chi nhánh
+--===========================================Lấy thông tin chi nhánh===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_ThongTinChiNhanh 
     @DiaChiChiNhanh NVARCHAR(200)
@@ -184,7 +235,7 @@ BEGIN
 END;
 GO
 
--- Lấy thực đơn của chi nhánh
+--===========================================Lấy thực đơn của chi nhánh===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_ThucDonChiNhanh
     @LoaiPhieuDat NVARCHAR(50),
@@ -213,18 +264,7 @@ BEGIN
 END;
 GO
 
--- Tạo table type cho món ăn
-CREATE TYPE dbo.CTPDType AS TABLE
-(
-    DishName NVARCHAR(50),
-    Amount INT,
-    Price INT,
-    TotalAmount INT,
-    Note NVARCHAR(200)
-);
-GO
-
--- Lập Phiếu Đặt Bàn Trực Tuyến
+--===========================================Lập Phiếu Đặt Bàn Trực Tuyến===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DatBanTrucTuyen
     @TkLap VARCHAR(10),                    
@@ -290,7 +330,7 @@ BEGIN
 END;
 GO
 
--- Lập Phiếu Giao Hàng Tận Nơi
+--===========================================Lập Phiếu Giao Hàng Tận Nơi===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_GiaoHangTanNoi 
 	@TkLap VARCHAR(10),                    
@@ -358,7 +398,8 @@ END;
 GO
 
 
---Đăng ký thẻ thành viên cho khách hàng
+--===========================================Đăng ký thẻ thành viên cho khách hàng===========================================
+GO
 CREATE OR ALTER PROCEDURE USP_DangKyTheThanhVien
 	@TkLap VARCHAR(10),
 	@TenTKKH VARCHAR(50),
@@ -404,7 +445,7 @@ BEGIN
 END
 GO
 
---Cấp lại thẻ thành viên cho khách hàng
+--===========================================Cấp lại thẻ thành viên cho khách hàng===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapLaiTheThanhVien
 	@TkLap VARCHAR(10),
@@ -463,7 +504,8 @@ BEGIN
 END
 GO
 
---Cập nhật lại hạng thẻ cho khách hàng
+
+--===========================================Cập nhật lại hạng thẻ cho khách hàng===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatHangTheThanhVien
 	@MaTK VARCHAR(10)
@@ -531,7 +573,7 @@ BEGIN
 END
 GO
 
---Chủ chi nhánh lấy danh sách thực đơn và tình trạng thực đơn của chi nhánh
+--===========================================Chủ chi nhánh lấy danh sách thực đơn và tình trạng thực đơn của chi nhánh===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_QuanLiXemThucDonChiNhanh
 	@MaTK VARCHAR(10)
@@ -559,16 +601,8 @@ BEGIN
 END
 GO
 
---Tạo kiểu dữ liệu để cập nhật thực đơn
 
-CREATE TYPE dbo.ThucDonThayDoi AS TABLE
-(
-	MaMA VARCHAR(10),
-	TinhTrangPhucVu VARCHAR(10),
-	TinhTrangGiaoHang VARCHAR(10)
-)
-
---Quản lí chi nhánh cập nhật thực đơn (trạng thái phục vụ và trạng thái giao hàng)
+--===========================================Quản lí chi nhánh cập nhật thực đơn (trạng thái phục vụ và trạng thái giao hàng)===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatThucDon
 	@MaTK VARCHAR(10),
@@ -615,7 +649,8 @@ BEGIN
 END
 GO
 
--- Quản Lý Thống Kê
+
+--===========================================Quản Lý Thống Kê===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_QuanLyThongKe
     @MaTK VARCHAR(10),
@@ -703,7 +738,7 @@ END
 GO
 
 
---Admin quan ly thong ke
+--===========================================Admin quan ly thong ke===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_QuanLyThongKeBoiAdmin
     @MaTK VARCHAR(10),
@@ -791,7 +826,8 @@ BEGIN
 END
 GO
 
---Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể
+
+--===========================================Xem thông tin tất cả nhân viên thuộc 1 bộ phận cụ thể===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaMotBoPhan
 	@MaTK VARCHAR(10),
@@ -805,7 +841,8 @@ BEGIN
 END;
 GO 
 
---Xem thông tin tất cả nhân viên thuộc tất cả bộ phận 
+
+--===========================================Xem thông tin tất cả nhân viên thuộc tất cả bộ phận===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienCuaTatCaBoPhan
 	@MaTK VARCHAR(10)
@@ -817,7 +854,8 @@ BEGIN
 END;
 GO 
 
---Xem thông tin nhân viên(từ người quản lý)
+
+--===========================================Xem thông tin nhân viên(từ người quản lý)===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVienTuQuanLy
     @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
@@ -829,7 +867,8 @@ BEGIN
 END;
 GO
 
---Cập nhật thông tin nhân viên(từ người quản lý)
+
+--===========================================Cập nhật thông tin nhân viên(từ người quản lý)===========================================
 GO 
 CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVienTuQuanLy
 	@MaTK VARCHAR(10),    
@@ -857,7 +896,8 @@ BEGIN
 END;
 GO
 
---Điều động nhân viên sang chi nhánh khác
+
+--===========================================Điều động nhân viên sang chi nhánh khác===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DieuDongNhanVien
 	@MaTK VARCHAR(10),
@@ -890,8 +930,10 @@ BEGIN
 
 	INSERT INTO LichSuDieuDong(MaCN,MaTkNV,NgayBD,NgayKT) VALUES (@MaCN,@MaTKNV,@NgayBD,@NgayKT)
 END;
+GO
 
---Thêm nhân viên mới
+
+--===========================================Thêm nhân viên mới===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_ThemNhanVien
 	@MaTK VARCHAR(10),
@@ -953,7 +995,8 @@ BEGIN
 END
 GO
 
--- Xem thông tin chủ chi nhánh/nhân viên
+
+--===========================================Xem thông tin chủ chi nhánh/nhân viên===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_XemThongTinNhanVien
     @MaTK VARCHAR(10) -- Nhận vào userID (MaTK)
@@ -967,7 +1010,8 @@ BEGIN
 END;
 GO
 
---Chỉnh sửa thông tin chủ chi nhánh/nhân viên
+
+--===========================================Chỉnh sửa thông tin chủ chi nhánh/nhân viên===========================================
 GO 
 CREATE OR ALTER PROCEDURE USP_CapNhatThongTinNhanVien
 	@MaTK VARCHAR(10),    
@@ -999,7 +1043,8 @@ BEGIN
 END;
 GO
 
--- Thực đơn cho nhân viên xem khi lập phiếu
+
+--===========================================Thực đơn cho nhân viên xem khi lập phiếu===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_ThucDonChoDatBanTrucTiep
 	@TkLap VARCHAR(10), 
@@ -1030,7 +1075,8 @@ BEGIN
 END
 GO
 
--- Lập Phiếu Đặt Bàn Trực Tiếp
+
+--===========================================Lập Phiếu Đặt Bàn Trực Tiếp===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DatBanTrucTiep
 	@TkLap VARCHAR(10),
@@ -1088,7 +1134,8 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt của loại phiếu đặt để cập nhật phiếu đặt
+
+--===========================================Lấy danh sách phiếu đặt của loại phiếu đặt để cập nhật phiếu đặt===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
@@ -1136,7 +1183,8 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt của loại phiếu đặt
+
+--===========================================Lấy danh sách phiếu đặt của loại phiếu đặt===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDatHoaDon
     @LoaiPhieuDat NVARCHAR(20),
@@ -1204,7 +1252,7 @@ END
 GO
 
 
--- Lấy ra chi tiết phiếu đặt và thực đơn
+--===========================================Lấy ra chi tiết phiếu đặt và thực đơn===========================================
 CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
 	@MaPhieu VARCHAR(10),
 	@MaTKNhanVien VARCHAR(10),
@@ -1348,7 +1396,8 @@ BEGIN
 END
 GO
 
--- Cập nhật phiếu đặt online
+
+--===========================================Cập nhật phiếu đặt online===========================================
 CREATE OR ALTER PROCEDURE USP_CapNhatPhieuDat
     @Maphieu VARCHAR(10),
     @LoaiPhieuDat NVARCHAR(20),
@@ -1429,16 +1478,8 @@ BEGIN
 END;
 GO
 
---Tạo kiểu dữ liệu để cập nhật Loại thẻ
-CREATE TYPE dbo.LoaiTheThayDoi AS TABLE
-(
-	TenLoaiThe VARCHAR(10),
-	ChietKhau INT,
-	GiamGia INT,
-	SpTang NVARCHAR(200)
-)
 
---Admin cập nhật Loại thẻ
+--===========================================Admin cập nhật Loại thẻ===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatLoaiThe
 	@MaTK VARCHAR(10),
@@ -1474,7 +1515,8 @@ BEGIN
 END
 GO
 
--- Lấy ra thẻ cho khách hàng
+
+--===========================================Lấy ra thẻ cho khách hàng===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_LayRaTheCuaKhachHang
 	@SDTKhachHang VARCHAR(10),
@@ -1504,7 +1546,8 @@ BEGIN
 END
 GO
 
--- Lấy ra chi tiết hóa đơn
+
+--===========================================Lấy ra chi tiết hóa đơn===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CTHD
 	@MaPhieu VARCHAR(10)
@@ -1526,7 +1569,8 @@ BEGIN
 END
 GO
 
--- Tạo hóa đơn
+
+--===========================================Tạo hóa đơn===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_Xuat_Hoa_Don
 	@MaHD VARCHAR(10) OUTPUT,
@@ -1572,7 +1616,8 @@ BEGIN
 END
 GO
 
--- Tạo đánh giá
+
+--===========================================Tạo đánh giá===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_Them_Danh_Gia
 	@MaHD VARCHAR(10),
@@ -1599,15 +1644,8 @@ BEGIN
 END
 GO
 
---Tạo kiểu dữ liệu để cập nhật lương
-CREATE TYPE dbo.LuongThayDoi AS TABLE
-(
-	MaBP VARCHAR(10),
-	TenBP NVARCHAR(50),
-	Luong INT
-)
 
---Admin cập nhật lương
+--===========================================Admin cập nhật lương===========================================
 GO
 CREATE OR ALTER PROCEDURE USP_CapNhatLuong
 	@MaTK VARCHAR(10),
@@ -1643,7 +1681,8 @@ BEGIN
 END
 GO
 
--- Thêm món mới
+
+--===========================================Thêm món mới===========================================
 CREATE OR ALTER PROCEDURE USP_ThemMonAnMoi
     @TenMA NVARCHAR(50),
     @GiaHienTai INT,
@@ -1671,7 +1710,8 @@ BEGIN
 END
 GO
 
-GO
+
+--===========================================Update Menu===========================================
 CREATE OR ALTER PROCEDURE USP_UpdateMenu
     @AreaName NVARCHAR(100) -- Khu vực (hoặc 'Tất cả')
 AS
@@ -1805,7 +1845,7 @@ END;
 GO
 
 
---Lấy ra mức giảm của khách hàng từ MaTK của khách hàng
+--===========================================Lấy ra mức giảm của khách hàng từ MaTK của khách hàng===========================================
 CREATE OR ALTER PROCEDURE USP_LayMucGiamCuaThe
 	@MaTK VARCHAR(10),
 	@MucGiam INT OUTPUT
