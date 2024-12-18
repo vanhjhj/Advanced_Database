@@ -110,9 +110,7 @@ namespace SuShiX
                             {
                                 if (column.ColumnName == "TenMA")
                                 {
-                                    Console.WriteLine($"{column.ColumnName}: {row[column]}");
                                     dishes.Add(row[column].ToString());
-                                    //MessageBox.Show(row[column].ToString());
                                 }
                             }
                         }
