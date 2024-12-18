@@ -461,7 +461,7 @@
             this.Name = "FrmManageIn4Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
-            this.Load += new System.EventHandler(this.FrmManageIn4Employee_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmManageIn4Employee_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

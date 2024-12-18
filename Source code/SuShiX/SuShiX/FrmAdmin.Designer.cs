@@ -34,13 +34,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnStatistics = new System.Windows.Forms.Button();
             this.btnUpdateMenu = new System.Windows.Forms.Button();
             this.btnUpdateSalary = new System.Windows.Forms.Button();
             this.btnUpdatePromotion = new System.Windows.Forms.Button();
-            this.btnUpdateIn4 = new System.Windows.Forms.Button();
+            this.btnStatistics = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -138,6 +138,21 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(191, 569);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // btnUpdateIn4
+            // 
+            this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateIn4.BackColor = System.Drawing.Color.Black;
+            this.btnUpdateIn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateIn4.Location = new System.Drawing.Point(26, 6);
+            this.btnUpdateIn4.Name = "btnUpdateIn4";
+            this.btnUpdateIn4.Size = new System.Drawing.Size(139, 72);
+            this.btnUpdateIn4.TabIndex = 5;
+            this.btnUpdateIn4.Text = "Cập nhật thông tin";
+            this.btnUpdateIn4.UseVisualStyleBackColor = false;
+            this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -175,23 +190,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 569);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
-            // btnStatistics
-            // 
-            this.btnStatistics.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
-            this.btnStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnStatistics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistics.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnStatistics.Location = new System.Drawing.Point(34, 293);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(290, 72);
-            this.btnStatistics.TabIndex = 2;
-            this.btnStatistics.Text = "Thống kê doanh thu";
-            this.btnStatistics.UseVisualStyleBackColor = false;
-            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
-            // 
             // btnUpdateMenu
             // 
             this.btnUpdateMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -207,6 +205,7 @@
             this.btnUpdateMenu.TabIndex = 1;
             this.btnUpdateMenu.Text = "Cập nhật thực đơn";
             this.btnUpdateMenu.UseVisualStyleBackColor = false;
+            this.btnUpdateMenu.Click += new System.EventHandler(this.btnUpdateMenu_Click);
             // 
             // btnUpdateSalary
             // 
@@ -242,20 +241,22 @@
             this.btnUpdatePromotion.UseVisualStyleBackColor = false;
             this.btnUpdatePromotion.Click += new System.EventHandler(this.btnUpdatePromotion_Click);
             // 
-            // btnUpdateIn4
+            // btnStatistics
             // 
-            this.btnUpdateIn4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdateIn4.BackColor = System.Drawing.Color.Black;
-            this.btnUpdateIn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateIn4.Location = new System.Drawing.Point(26, 6);
-            this.btnUpdateIn4.Name = "btnUpdateIn4";
-            this.btnUpdateIn4.Size = new System.Drawing.Size(139, 72);
-            this.btnUpdateIn4.TabIndex = 5;
-            this.btnUpdateIn4.Text = "Cập nhật thông tin";
-            this.btnUpdateIn4.UseVisualStyleBackColor = false;
-            this.btnUpdateIn4.Click += new System.EventHandler(this.btnUpdateIn4_Click);
+            this.btnStatistics.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
+            this.btnStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnStatistics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistics.ForeColor = System.Drawing.Color.White;
+            this.btnStatistics.Location = new System.Drawing.Point(34, 293);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Size = new System.Drawing.Size(290, 72);
+            this.btnStatistics.TabIndex = 2;
+            this.btnStatistics.Text = "Thống kê doanh thu";
+            this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // FrmAdmin
             // 

@@ -66,7 +66,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 761);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1450, 761);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -76,7 +76,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(505, 761);
+            this.pictureBox1.Size = new System.Drawing.Size(580, 761);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -88,13 +88,13 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(505, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(580, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.7F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.3F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(759, 761);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(870, 761);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -109,7 +109,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 575);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(864, 575);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -125,7 +125,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(753, 460);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(864, 460);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // dataGridView1
@@ -140,11 +140,11 @@
             this.TinhTrangPhucVu,
             this.TinhTrangGiaoHang});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(57, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(700, 454);
+            this.dataGridView1.Size = new System.Drawing.Size(804, 454);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -156,7 +156,7 @@
             this.Edit.HeaderText = "Chỉnh sửa";
             this.Edit.MinimumWidth = 8;
             this.Edit.Name = "Edit";
-            this.Edit.Width = 69;
+            this.Edit.Width = 132;
             // 
             // MaMA
             // 
@@ -191,7 +191,7 @@
             this.TinhTrangPhucVu.Name = "TinhTrangPhucVu";
             this.TinhTrangPhucVu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TinhTrangPhucVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangPhucVu.Width = 120;
+            this.TinhTrangPhucVu.Width = 243;
             // 
             // TinhTrangGiaoHang
             // 
@@ -206,7 +206,7 @@
             this.TinhTrangGiaoHang.Name = "TinhTrangGiaoHang";
             this.TinhTrangGiaoHang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TinhTrangGiaoHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangGiaoHang.Width = 116;
+            this.TinhTrangGiaoHang.Width = 238;
             // 
             // pbReturn
             // 
@@ -230,7 +230,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(747, 109);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(858, 109);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // btnSave
@@ -239,7 +239,7 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(9)))), ((int)(((byte)(1)))));
             this.btnSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(268, 24);
+            this.btnSave.Location = new System.Drawing.Point(324, 24);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(210, 61);
             this.btnSave.TabIndex = 1;
@@ -254,16 +254,16 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(759, 180);
+            this.pictureBox2.Size = new System.Drawing.Size(870, 180);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // FrmManageMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 761);
+            this.ClientSize = new System.Drawing.Size(1450, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmManageMenu";

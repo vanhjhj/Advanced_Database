@@ -94,7 +94,7 @@ namespace SuShiX
         {
             foreach (DataGridViewRow row in dgvEmployee.Rows)
             {
-                if (Convert.ToBoolean(row.Cells["Choice"].Value))
+                if (Convert.ToBoolean(row.Cells["Choice"].Value) && row.Cells["MaTK"].Value != this.userID)
                 {
                     string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
@@ -178,33 +178,31 @@ namespace SuShiX
                 }
             }
         }
+
         private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvEmployee.Columns[e.ColumnIndex].Name == "Choice")
             {
-                // Kiểm tra xem ô checkbox đã được click hay chưa
                 DataGridViewCheckBoxCell checkBoxCell = dgvEmployee.Rows[e.RowIndex].Cells["Choice"] as DataGridViewCheckBoxCell;
 
                 if (checkBoxCell != null)
                 {
-                    //đặt giá trị của các ô checkbox khác thành false
+                    // Đặt giá trị của các ô checkbox khác thành false
                     foreach (DataGridViewRow row in dgvEmployee.Rows)
                     {
-                        if (row != null && row.Index != e.RowIndex)
+                        if (row.Index != e.RowIndex)
                         {
                             row.Cells["Choice"].Value = false;
                         }
                     }
 
-                    // Gọi CommitEdit để chắc chắn giá trị của checkbox được cập nhật
+                    // Commit giá trị checkbox và cập nhật trạng thái nút
                     dgvEmployee.CommitEdit(DataGridViewDataErrorContexts.Commit);
-
-                    // Cập nhật trạng thái của nút 
                     UpdateButtonStatus();
-
                 }
             }
         }
+
 
         //Hàm cập nhật trạng thái nút khi có dữ liệu được chọn
         private void UpdateButtonStatus()
@@ -213,7 +211,7 @@ namespace SuShiX
             bool isSelected = false;
             foreach (DataGridViewRow row in dgvEmployee.Rows)
             {
-                if (row != null && Convert.ToBoolean(row.Cells["Choice"].Value))
+                if (row != null && Convert.ToBoolean(row.Cells["Choice"].Value) && row.Cells["MaTK"].Value.ToString()!=this.userID)
                 {
                     isSelected = true;
                     break;
@@ -232,12 +230,12 @@ namespace SuShiX
             {
                 if (Convert.ToBoolean(row.Cells["Choice"].Value)) 
                 {
-                    string selectedMaTK = row.Cells["MaTK"].Value.ToString(); 
+                    string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
-                    FrmManageIn4Employee frmManageIn4Employee = new FrmManageIn4Employee(UserID, selectedMaTK);
+                    FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
+                    frmUpdateIn4Employee.Owner = this;
                     this.Hide();
-                    frmManageIn4Employee.ShowDialog();
-                    this.Close();
+                    frmUpdateIn4Employee.ShowDialog();
 
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }

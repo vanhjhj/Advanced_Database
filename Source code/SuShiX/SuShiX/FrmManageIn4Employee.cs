@@ -39,11 +39,6 @@ namespace SuShiX
             LoadEmployeeData();
         }
 
-        private void FrmManageIn4Employee_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
@@ -158,6 +153,13 @@ namespace SuShiX
             {
                 MessageBox.Show($"Lỗi khi cập nhật thông tin: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmManageIn4Employee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //close parent form
+            this.Owner.Close();
+            this.Close();
         }
     }
 }

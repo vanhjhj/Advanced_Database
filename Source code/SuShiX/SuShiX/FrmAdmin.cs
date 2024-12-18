@@ -88,5 +88,13 @@ namespace SuShiX
             this.Hide();
             frmUpdateIn4Employee.ShowDialog();
         }
+
+        private void btnUpdateMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUpdateMenu frmUpdateMenu = new FrmUpdateMenu(userID);
+            frmUpdateMenu.ShowDialog();
+            this.Close();
+        }
     }
 }

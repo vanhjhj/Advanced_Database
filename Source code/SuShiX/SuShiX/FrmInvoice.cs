@@ -143,11 +143,12 @@ namespace SuShiX
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDat", conn))
+                    using (SqlCommand cmd = new SqlCommand("USP_DanhSachDatHoaDon", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@LoaiPhieuDat", orderType);
                         cmd.Parameters.AddWithValue("@MaTKNhanVien", userID);
+                        cmd.Parameters.AddWithValue("@SDTKhachHang", phoneNumber);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -185,16 +186,21 @@ namespace SuShiX
         {
             string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
 
+            //Nếu txbTelephoneNum rỗng thì không thực hiện gì cả
+            if (string.IsNullOrEmpty(txbTelephoneNum.Text))
+            {
+                return;
+            }
+
             // Kiểm tra loại phiếu đặt và thay đổi trạng thái các điều khiển tương ứng
             if (selectedOrderType == "Đặt Bàn Trực Tuyến" && txbTelephoneNum.Text != null)
             {
                 LoadCustomerCard();
-                LoadOrderList();
+                
             }
             else if (selectedOrderType == "Giao Hàng Tận Nơi" && txbTelephoneNum.Text != null)
             {
                 LoadCustomerCard();
-                LoadOrderList();
             }
             else if (selectedOrderType == "Đặt Bàn Trực Tiếp" && txbTelephoneNum.Text != null)
             {
@@ -241,7 +247,7 @@ namespace SuShiX
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             // Kiểm tra xem có dữ liệu trả về không
-                            if (maTheParam != null)
+                            if (maTheParam.Value != DBNull.Value)
                             {
                                 cardID = maTheParam.Value.ToString();
                                 txbCard.Text = cardID;
@@ -253,6 +259,16 @@ namespace SuShiX
                                 txbCard.Text = string.Empty;
                                 discount = 0;
                             }
+                        }
+
+                        string selectedOrderType = cbbOrderType.SelectedItem?.ToString();
+                        if (selectedOrderType == "Giao Hàng Tận Nơi" && txbTelephoneNum.Text != null)
+                        {
+                            LoadOrderList();
+                        }
+                        else if (selectedOrderType == "Đặt Bàn Trực Tuyến" && txbTelephoneNum.Text != null)
+                        {
+                            LoadOrderList();
                         }
                     }
                 }

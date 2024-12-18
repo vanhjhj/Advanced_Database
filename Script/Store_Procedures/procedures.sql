@@ -82,7 +82,7 @@ BEGIN
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
 
-    SET @NewMaTK = 'KH' + FORMAT(@MaxMaTK + 1, '00000');
+    SET @NewMaTK = 'KH' + FORMAT(@MaxMaTK + 1, '000000');
 
     -- Thêm vào bảng TaiKhoan
     INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
@@ -245,7 +245,7 @@ BEGIN
     SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
     FROM PhieuDatBanTrucTuyen;
 
-    SET @MaPhieu = 'PDOL' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDOL' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	DECLARE @MaCN VARCHAR(10);
 	
@@ -311,7 +311,7 @@ BEGIN
     SELECT @MaxMaPhieu = ISNULL(MAX(CAST(SUBSTRING(MaPhieu, 5, LEN(MaPhieu) - 4) AS INT)), 0)
     FROM PhieuDatGiaoHang;
 
-    SET @MaPhieu = 'PDGH' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDGH' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	DECLARE @MaCN VARCHAR(10);
 	
@@ -393,7 +393,7 @@ BEGIN
 	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
 	FROM The
 
-	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '000000')
 
 	-- Insert vào bảng The
 	INSERT INTO The (MaThe, NgayLap, NgayBDChuKy, TongDiem, TongDiemDuyTri, TinhTrang, TenLoaiThe, TkSoHuu, TkLap)
@@ -439,7 +439,7 @@ BEGIN
 	SELECT @MaxMaThe = ISNULL(MAX(CAST(SUBSTRING(MaThe, 4, LEN(MaThe) - 3) as INT)), -1)
 	FROM The
 
-	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '00000')
+	SET @NewMaThe = 'THE' + FORMAT(@MaxMaThe + 1, '000000')
 
 	--Lấy lại các thông tin của thẻ thành viên có tình trạng đang mở
 	DECLARE @NgayBDChuKy DATETIME, @TongDiem INT, @TongDiemDuyTri INT, @TenLoaiThe VARCHAR(10)
@@ -953,7 +953,7 @@ BEGIN
     SELECT @MaxMaTK = ISNULL(MAX(CAST(SUBSTRING(MaTK, 3, LEN(MaTK) - 2) AS INT)), -1)
     FROM TaiKhoan;
 
-    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '0000');
+    SET @NewMaTK = 'NV' + FORMAT(@MaxMaTK + 1, '000000');
 
     -- Thêm vào bảng TaiKhoan
     INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, LoaiTK)
@@ -1065,7 +1065,7 @@ BEGIN
     FROM PhieuDat
 	WHERE MaPhieu LIKE 'PDTT%';
 
-    SET @MaPhieu = 'PDTT' + FORMAT(@MaxMaPhieu + 1, '0000');
+    SET @MaPhieu = 'PDTT' + FORMAT(@MaxMaPhieu + 1, '000000');
 
 	-- Bước 1: Nhập dữ liệu vào bảng PhieuDat
     INSERT INTO PhieuDat (MaPhieu, TinhTrangThanhToan, LoaiPD, MaCN, TkLap)
@@ -1100,7 +1100,7 @@ BEGIN
 END
 GO
 
--- Lấy danh sách phiếu đặt của loại phiếu đặt
+-- Lấy danh sách phiếu đặt của loại phiếu đặt để cập nhật phiếu đặt
 GO
 CREATE OR ALTER PROCEDURE USP_DanhSachDat
     @LoaiPhieuDat NVARCHAR(20),
@@ -1144,9 +1144,77 @@ BEGIN
     END
 
     -- Trả kết quả nếu có
-    SELECT MaPhieu FROM @MaPhieuResult;
+    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;
 END
 GO
+
+-- Lấy danh sách phiếu đặt của loại phiếu đặt
+GO
+CREATE OR ALTER PROCEDURE USP_DanhSachDatHoaDon
+    @LoaiPhieuDat NVARCHAR(20),
+    @MaTKNhanVien VARCHAR(10),
+	@SDTKhachHang VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaPhieuResult TABLE (MaPhieu VARCHAR(50));
+
+    IF @LoaiPhieuDat = N'Đặt Bàn Trực Tuyến'
+    BEGIN
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+        BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Trực Tuyến' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
+    END
+    ELSE IF @LoaiPhieuDat = N'Giao Hàng Tận Nơi'
+    BEGIN
+		IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+		BEGIN
+			;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+		END
+		
+		ELSE
+		BEGIN
+			INSERT INTO @MaPhieuResult (MaPhieu)
+			SELECT PD.MaPhieu
+			FROM PhieuDat PD
+			JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+			JOIN dbo.KhachHang KH ON KH.MaTK = PD.TkLap
+			WHERE NV.MaTK = @MaTKNhanVien AND KH.SDT = @SDTKhachHang
+			AND PD.LoaiPD = N'Giao Hàng' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+		END
+    END
+	ELSE IF @LoaiPhieuDat = N'Đặt Bàn Trực Tiếp'
+	BEGIN
+		INSERT INTO @MaPhieuResult (MaPhieu)
+        SELECT PD.MaPhieu
+        FROM PhieuDat PD
+        JOIN NhanVien NV ON NV.MaCN = PD.MaCN
+        WHERE NV.MaTK = @MaTKNhanVien
+        AND PD.LoaiPD = N'Trực Tiếp' AND PD.TinhTrangThanhToan = N'Chưa Thanh Toán';
+	END
+
+    -- Kiểm tra kết quả và ném lỗi nếu không tìm thấy bản ghi nào
+    IF NOT EXISTS (SELECT 1 FROM @MaPhieuResult)
+    BEGIN
+        ;THROW 50000, N'Không tìm thấy phiếu đặt nào với thông tin đã cung cấp hoặc nhân viên không thuộc chi nhánh mà khách hàng đặt.', 1;
+    END
+
+    -- Trả kết quả nếu có
+    SELECT MaPhieu FROM @MaPhieuResult ORDER BY LEN(MaPhieu), MaPhieu DESC;
+END
+GO
+
 
 -- Lấy ra chi tiết phiếu đặt và thực đơn
 CREATE OR ALTER PROCEDURE USP_CTPD_ThucDon
@@ -1426,7 +1494,13 @@ CREATE OR ALTER PROCEDURE USP_LayRaTheCuaKhachHang
 	@GiamGia INT OUTPUT
 AS
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
+	IF NOT EXISTS (SELECT 1 FROM dbo.KhachHang KH WHERE @SDTKhachHang = KH.SDT)
+	BEGIN
+		SET @MaThe = NULL
+		;THROW 51000, 'Khách hàng chưa có tài khoản', 1;
+	END
+
+	ELSE IF NOT EXISTS(SELECT 1 FROM THE JOIN dbo.KhachHang ON MaTK = TkSoHuu WHERE SDT = @SDTKhachHang AND TinhTrang = N'Mở')
 	BEGIN
 		SET @MaThe = NULL
 	END
@@ -1491,7 +1565,7 @@ BEGIN
     SELECT @MaxMaHD = ISNULL(MAX(CAST(SUBSTRING(MaHD, 3, LEN(MaHD) - 2) AS INT)), -1)
     FROM dbo.HoaDon;
 
-    SET @MaHD = 'HD' + FORMAT(@MaxMaHD + 1, '00000');
+    SET @MaHD = 'HD' + FORMAT(@MaxMaHD + 1, '000000');
 
 	INSERT INTO dbo.HoaDon (MaHD, NgayLapHD, TongTien, TongTienDuocGiam, ThanhTien, DiemCong, MaPhieu, MaThe)
 	VALUES (@MaHD, GETDATE(), @TongTien, @TongTienDuocGiam, @ThanhTien, @DiemCong, @MaPhieu, @MaThe);
@@ -1578,5 +1652,187 @@ BEGIN
 
 	CLOSE cur
 	DEALLOCATe cur
+END
+GO
+
+-- Thêm món mới
+CREATE OR ALTER PROCEDURE USP_ThemMonAnMoi
+    @TenMA NVARCHAR(50),
+    @GiaHienTai INT,
+    @MaMuc VARCHAR(10),
+    @NewMaMA VARCHAR(10) OUTPUT -- Tham số OUTPUT
+AS
+BEGIN
+    -- Kiểm tra tên món ăn đã tồn tại chưa
+    IF EXISTS (SELECT 1 FROM dbo.MonAn WHERE TenMA = @TenMA)
+    BEGIN
+        ;THROW 50000, N'Tên món ăn đã tồn tại!', 1;
+    END
+
+    -- Tạo mã món ăn tự động
+    DECLARE @MaxMA INT;
+    SELECT @MaxMA = ISNULL(MAX(CAST(SUBSTRING(MaMA, 3, LEN(MaMA) - 2) AS INT)), 0)
+    FROM dbo.MonAn;
+
+    SET @NewMaMA = 'MA' + FORMAT(@MaxMA + 1, '000');
+
+    -- Thêm dữ liệu vào bảng MonAn
+    INSERT INTO dbo.MonAn (MaMA, TenMA, GiaHienTai, TinhTrangMonAn, MaMuc)
+    VALUES (@NewMaMA, @TenMA, @GiaHienTai, N'Có', @MaMuc);
+
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE USP_UpdateMenu
+    @AreaName NVARCHAR(100) -- Khu vực (hoặc 'Tất cả')
+AS
+BEGIN
+    -- Biến tạm để lưu giá trị từ con trỏ
+    DECLARE @OriginalTenMA NVARCHAR(100),
+            @NewTenMA NVARCHAR(100),
+            @GiaHienTai DECIMAL(18, 2),
+            @TinhTrang NVARCHAR(50),
+            @TenMuc NVARCHAR(100),
+            @MaMA VARCHAR(10); -- Mã món ăn
+
+    -- Kiểm tra bảng tạm tồn tại
+    IF OBJECT_ID('tempdb..#TempMenu') IS NULL
+    BEGIN
+        THROW 51000, 'Bảng tạm #TempMenu không tồn tại!', 1;
+    END;
+
+    -- Khai báo con trỏ
+    DECLARE menu_cursor CURSOR FOR
+    SELECT OriginalTenMA, NewTenMA, GiaHienTai, TinhTrangMonAn, TenMuc
+    FROM #TempMenu;
+
+    -- Mở con trỏ
+    OPEN menu_cursor;
+
+    -- Lấy dòng đầu tiên từ con trỏ
+    FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Kiểm tra giá trị NULL trong các biến
+        IF @OriginalTenMA IS NULL OR @NewTenMA IS NULL OR @GiaHienTai IS NULL OR @TinhTrang IS NULL OR @TenMuc IS NULL
+        BEGIN
+            FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+            CONTINUE; -- Bỏ qua dòng này nếu có giá trị NULL
+        END;
+
+        -- Lấy MaMA của món bị sửa từ MonAn
+        SELECT @MaMA = MaMA FROM MonAn WHERE TenMA = @OriginalTenMA;
+
+        -- Nếu không tìm thấy MaMA, bỏ qua dòng này
+        IF @MaMA IS NOT NULL
+        BEGIN
+            -- Kiểm tra nếu tên món ăn mới đã tồn tại
+            IF (@OriginalTenMA <> @NewTenMA)
+            BEGIN
+                IF EXISTS (SELECT 1 FROM MonAn WHERE TenMA = @NewTenMA)
+                BEGIN
+                    FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+                    CONTINUE; -- Bỏ qua dòng này nếu tên mới đã tồn tại
+                END;
+            END;
+
+            -- Nếu khu vực là "Tất cả", cập nhật toàn bộ
+            IF @AreaName = N'Tất cả'
+            BEGIN
+                DECLARE @MaMuc VARCHAR(10), @TinhTrangMonAn NVARCHAR(5);
+				--Lấy Mã mục từ tên mục
+                SELECT @MaMuc = MaMuc FROM Muc WHERE TenMuc = @TenMuc;
+				--Lấy tình trạng món ăn lúc đầu
+				SELECT @TinhTrangMonAn =TinhTrangMonAn
+				FROM MonAn
+				WHERE TenMA=@OriginalTenMA
+                -- Cập nhật bảng MonAn
+                UPDATE MonAn
+                SET TenMA = @NewTenMA,
+                    GiaHienTai = @GiaHienTai,
+                    TinhTrangMonAn = @TinhTrang,
+                    MaMuc = @MaMuc
+                WHERE MaMA = @MaMA;
+
+                -- Cập nhật bảng ThucDon
+				
+                --Nếu tình trạng là Không và trước khi sửa là có thì xóa món đó ra khỏi tất cả chi nhánh có bán món đó
+					IF (@TinhTrang=N'Không' AND @TinhTrangMonAn=N'Có' )
+					BEGIN
+						DELETE FROM ThucDon
+						WHERE MaMA = @MaMA
+					END;
+            END
+			ELSE 
+				BEGIN
+					DECLARE @TinhTrangTruocKhiSua NVARCHAR(5);
+					--Nếu tồn tại 1 món trong thực đơn của khu vực thì set tình trạng trước khi sửa là có
+					IF EXISTS (SELECT 1
+								FROM ThucDon TD
+								JOIN ChiNhanh CN ON TD.MaCN = CN.MaCN
+								JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+								WHERE TD.MaMA = @MaMA AND KV.TenKV = @AreaName)
+					BEGIN
+						SET @TinhTrangTruocKhiSua = N'Có';
+					END
+					ELSE
+					BEGIN
+						SET @TinhTrangTruocKhiSua = N'Không';
+					END;
+
+					--Nếu tình trạng là Không và trước khi sửa là có thì xóa món đó ra khỏi tất cả chi nhánh trong khu vực
+					IF (@TinhTrang=N'Không' AND @TinhTrangTruocKhiSua=N'Có')
+					BEGIN
+						DELETE FROM ThucDon
+						WHERE MaMA = @MaMA AND MaCN IN (
+							SELECT CN.MaCN
+							FROM ChiNhanh CN
+							JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+							WHERE KV.TenKV = @AreaName
+						);
+					END;
+					--Nếu tình trạng là có và trước khi sửa là không thì thêm món đó vào tất cả chi nhánh trong khu vực
+					IF (@TinhTrang=N'Có' AND @TinhTrangTruocKhiSua=N'Không')
+					BEGIN
+						INSERT INTO ThucDon(MaCN,MaMA,TinhTrangPhucVu,TinhTrangGiaoHang)
+						SELECT CN.MaCN,@MaMA,N'Có',N'Có'
+						FROM ChiNhanh CN
+						JOIN KhuVuc KV ON CN.MaKV = KV.MaKV
+						WHERE KV.TenKV = @AreaName
+					END;
+
+				END
+        END;
+
+        -- Lấy dòng tiếp theo từ con trỏ
+        FETCH NEXT FROM menu_cursor INTO @OriginalTenMA, @NewTenMA, @GiaHienTai, @TinhTrang, @TenMuc;
+    END;
+
+    -- Đóng con trỏ
+    CLOSE menu_cursor;
+    DEALLOCATE menu_cursor;
+END;
+GO
+
+
+--Lấy ra mức giảm của khách hàng từ MaTK của khách hàng
+CREATE OR ALTER PROCEDURE USP_LayMucGiamCuaThe
+	@MaTK VARCHAR(10),
+	@MucGiam INT OUTPUT
+AS
+BEGIN
+	--Kiểm tra mã tài khoản có tồn tại
+	IF NOT EXISTS (SELECT 1 FROM KhachHang WHERE MaTK = @MaTK)
+		THROW 50000, N'Tài khoản không tồn tại hoặc không phải là khách hàng', 1
+
+	SET @MucGiam = 0
+
+	SELECT @MucGiam = ISNULL(LT.GiamGia, @MucGiam)
+	FROM KhachHang KH
+	LEFT JOIN The T ON KH.MaTK = T.TkSoHuu
+	LEFT JOIN LoaiThe LT ON T.TenLoaiThe = LT.TenLoaiThe
+	WHERE t.TinhTrang = N'Mở' AND kh.MaTK = @MaTK
 END
 GO
