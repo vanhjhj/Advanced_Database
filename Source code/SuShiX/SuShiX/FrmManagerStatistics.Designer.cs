@@ -173,7 +173,7 @@
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(395, 39);
             this.lblTotalAmount.TabIndex = 1;
-            this.lblTotalAmount.Text = "Tổng Số Lượng";
+            this.lblTotalAmount.Text = "Tổng Doanh Số";
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlLoginInfo
