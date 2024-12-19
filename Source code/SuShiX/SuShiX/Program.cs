@@ -17,7 +17,7 @@ namespace SuShiX
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FrmEmployee("NV000000"));
+            Application.Run(new FrmLogin());
         }
     }
 }
