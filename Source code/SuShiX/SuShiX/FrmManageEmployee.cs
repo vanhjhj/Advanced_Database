@@ -232,19 +232,14 @@ namespace SuShiX
                 {
                     string selectedMaTK = row.Cells["MaTK"].Value.ToString();
 
-                    FrmUpdateIn4Employee frmUpdateIn4Employee = new FrmUpdateIn4Employee(userID);
-                    frmUpdateIn4Employee.Owner = this;
+                    FrmManageIn4Employee frmManageIn4Employee = new FrmManageIn4Employee(UserID, selectedMaTK);
+                    frmManageIn4Employee.Owner = this;
                     this.Hide();
-                    frmUpdateIn4Employee.ShowDialog();
+                    frmManageIn4Employee.ShowDialog();
 
                     break; // Dừng vòng lặp khi đã tìm được dòng được chọn
                 }
             }
-        }
-
-        private void FrmManageEmployee_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

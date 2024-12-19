@@ -405,6 +405,7 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtpStartDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Enabled = false;
             this.dtpStartDate.Location = new System.Drawing.Point(103, 202);
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(0);
             this.dtpStartDate.Name = "dtpStartDate";

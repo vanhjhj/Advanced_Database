@@ -505,6 +505,7 @@
             this.Name = "FrmUpdateIn4Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateEmployeeProfile";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmUpdateIn4Employee_FormClosing);
             this.Load += new System.EventHandler(this.FrmUpdateIn4Employee_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -162,5 +162,13 @@ namespace SuShiX
             this.Owner.Show();
             this.Close();
         }
+
+        private void FrmUpdateIn4Employee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
+        }
     }
 }
