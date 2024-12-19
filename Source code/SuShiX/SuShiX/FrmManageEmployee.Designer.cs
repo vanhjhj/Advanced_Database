@@ -386,7 +386,6 @@
             this.Name = "FrmManageEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageEmployee";
-            this.Load += new System.EventHandler(this.FrmManageEmployee_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

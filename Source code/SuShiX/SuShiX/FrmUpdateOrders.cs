@@ -288,6 +288,8 @@ namespace SuShiX
                                     DataSource = dtOrderDetails
                                 };
 
+                                dgvOrderDetails.AutoGenerateColumns = false; // Tắt tự động tạo cột
+
                                 // Gán BindingSource cho DataGridView
                                 dgvOrderDetails.DataSource = bindingSource;
 

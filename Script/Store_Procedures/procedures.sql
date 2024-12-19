@@ -641,6 +641,12 @@ BEGIN
 		SET TinhTrangPhucVu = @TinhTrangPhucVu, TinhTrangGiaoHang = @TinhTrangGiaoHang
 		WHERE MaCN = @MaCN and MaMA = @MaMA
 
+		--Nếu tình trạng phục vụ là 'Không', thì tình trạng giao hàng phải là 'Không'
+		IF @TinhTrangPhucVu = N'Không'
+			UPDATE ThucDon
+			SET TinhTrangGiaoHang = N'Không'
+			WHERE MaCN = @MaCN and MaMA = @MaMA
+
 		FETCH NEXT FROM cur INTO @MaMA, @TinhTrangPhucVu, @TinhTrangGiaoHang
 	END
 

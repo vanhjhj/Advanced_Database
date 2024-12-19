@@ -41,9 +41,7 @@ namespace SuShiX
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            FrmManageEmployee frmManageEmployee = new FrmManageEmployee(userID);
-            this.Hide();
-            frmManageEmployee.ShowDialog();
+            this.Owner.Show();
             this.Close();
         }
 
@@ -157,9 +155,10 @@ namespace SuShiX
 
         private void FrmManageIn4Employee_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //close parent form
-            this.Owner.Close();
-            this.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
         }
     }
 }
