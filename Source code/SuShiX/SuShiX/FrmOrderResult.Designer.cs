@@ -30,11 +30,18 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrderResult));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnOK = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
+            this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblPoint = new System.Windows.Forms.Label();
@@ -45,13 +52,7 @@
             this.txbDiscount = new System.Windows.Forms.TextBox();
             this.txbGross = new System.Windows.Forms.TextBox();
             this.txbPoint = new System.Windows.Forms.TextBox();
-            this.btnOK = new System.Windows.Forms.Button();
             this.lbOrderType = new System.Windows.Forms.Label();
-            this.DishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -76,6 +77,21 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 561);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(7)))), ((int)(((byte)(1)))));
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOK.Location = new System.Drawing.Point(414, 516);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(156, 43);
+            this.btnOK.TabIndex = 4;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -155,6 +171,60 @@
             this.dgvOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrderDetails.Size = new System.Drawing.Size(691, 395);
             this.dgvOrderDetails.TabIndex = 1;
+            // 
+            // DishName
+            // 
+            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DishName.DataPropertyName = "DishName";
+            this.DishName.FillWeight = 32.40876F;
+            this.DishName.HeaderText = "Tên Món";
+            this.DishName.MinimumWidth = 6;
+            this.DishName.Name = "DishName";
+            this.DishName.ReadOnly = true;
+            this.DishName.Width = 90;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.FillWeight = 437.9562F;
+            this.Amount.HeaderText = "SL";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 40;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Price.DataPropertyName = "Price";
+            this.Price.FillWeight = 32.40876F;
+            this.Price.HeaderText = "Đơn Giá";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 150;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TotalAmount.DataPropertyName = "TotalAmount";
+            this.TotalAmount.FillWeight = 32.40876F;
+            this.TotalAmount.HeaderText = "Thành Tiền";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.Width = 150;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.DataPropertyName = "Note";
+            this.Note.FillWeight = 32.40876F;
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
             // 
             // tableLayoutPanel4
             // 
@@ -279,21 +349,6 @@
             this.txbPoint.Size = new System.Drawing.Size(150, 26);
             this.txbPoint.TabIndex = 15;
             // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(7)))), ((int)(((byte)(1)))));
-            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOK.Location = new System.Drawing.Point(414, 516);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(156, 43);
-            this.btnOK.TabIndex = 4;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
             // lbOrderType
             // 
             this.lbOrderType.AutoSize = true;
@@ -306,60 +361,6 @@
             this.lbOrderType.TabIndex = 2;
             this.lbOrderType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DishName
-            // 
-            this.DishName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DishName.DataPropertyName = "DishName";
-            this.DishName.FillWeight = 32.40876F;
-            this.DishName.HeaderText = "Tên Món";
-            this.DishName.MinimumWidth = 6;
-            this.DishName.Name = "DishName";
-            this.DishName.ReadOnly = true;
-            this.DishName.Width = 90;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.FillWeight = 437.9562F;
-            this.Amount.HeaderText = "SL";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 40;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Price.DataPropertyName = "Price";
-            this.Price.FillWeight = 32.40876F;
-            this.Price.HeaderText = "Đơn Giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 150;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TotalAmount.DataPropertyName = "TotalAmount";
-            this.TotalAmount.FillWeight = 32.40876F;
-            this.TotalAmount.HeaderText = "Thành Tiền";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 150;
-            // 
-            // Note
-            // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Note.DataPropertyName = "Note";
-            this.Note.FillWeight = 32.40876F;
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            // 
             // FrmOrderResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -367,6 +368,7 @@
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmOrderResult";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

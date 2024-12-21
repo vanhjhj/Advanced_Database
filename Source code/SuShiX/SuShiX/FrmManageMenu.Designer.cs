@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManageMenu));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -156,7 +157,7 @@
             this.Edit.HeaderText = "Chỉnh sửa";
             this.Edit.MinimumWidth = 8;
             this.Edit.Name = "Edit";
-            this.Edit.Width = 132;
+            this.Edit.Width = 69;
             // 
             // MaMA
             // 
@@ -191,7 +192,7 @@
             this.TinhTrangPhucVu.Name = "TinhTrangPhucVu";
             this.TinhTrangPhucVu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TinhTrangPhucVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangPhucVu.Width = 243;
+            this.TinhTrangPhucVu.Width = 120;
             // 
             // TinhTrangGiaoHang
             // 
@@ -206,7 +207,7 @@
             this.TinhTrangGiaoHang.Name = "TinhTrangGiaoHang";
             this.TinhTrangGiaoHang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TinhTrangGiaoHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TinhTrangGiaoHang.Width = 238;
+            this.TinhTrangGiaoHang.Width = 116;
             // 
             // pbReturn
             // 
@@ -261,11 +262,12 @@
             // 
             // FrmManageMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1450, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManagerStatistics));
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -81,7 +82,7 @@
             this.pnlRoot.Name = "pnlRoot";
             this.pnlRoot.RowCount = 1;
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlRoot.Size = new System.Drawing.Size(1363, 753);
+            this.pnlRoot.Size = new System.Drawing.Size(1264, 761);
             this.pnlRoot.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -93,14 +94,14 @@
             this.tableLayoutPanel1.Controls.Add(this.pbLogo, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(545, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(505, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(818, 753);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 761);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -115,19 +116,19 @@
             this.tableLayoutPanel2.Controls.Add(this.lblTotalRevenue, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblTotalAmount, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 642);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 649);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 108);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(753, 109);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // txbTotalRevenue
             // 
             this.txbTotalRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalRevenue.Location = new System.Drawing.Point(519, 62);
+            this.txbTotalRevenue.Location = new System.Drawing.Point(475, 63);
             this.txbTotalRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalRevenue.Name = "txbTotalRevenue";
             this.txbTotalRevenue.ReadOnly = true;
@@ -140,7 +141,7 @@
             this.txbTotalAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txbTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTotalAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(115, 62);
+            this.txbTotalAmount.Location = new System.Drawing.Point(100, 63);
             this.txbTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
@@ -155,9 +156,9 @@
             this.lblTotalRevenue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalRevenue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalRevenue.Location = new System.Drawing.Point(410, 3);
+            this.lblTotalRevenue.Location = new System.Drawing.Point(380, 3);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
-            this.lblTotalRevenue.Size = new System.Drawing.Size(396, 39);
+            this.lblTotalRevenue.Size = new System.Drawing.Size(367, 40);
             this.lblTotalRevenue.TabIndex = 4;
             this.lblTotalRevenue.Text = "Tổng Doanh Thu";
             this.lblTotalRevenue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,7 +172,7 @@
             this.lblTotalAmount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTotalAmount.Location = new System.Drawing.Point(6, 3);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(395, 39);
+            this.lblTotalAmount.Size = new System.Drawing.Size(365, 40);
             this.lblTotalAmount.TabIndex = 1;
             this.lblTotalAmount.Text = "Tổng Doanh Số";
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,10 +183,10 @@
             this.pnlLoginInfo.Controls.Add(this.pnlStatistics);
             this.pnlLoginInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLoginInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 150);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(0, 152);
             this.pnlLoginInfo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
-            this.pnlLoginInfo.Size = new System.Drawing.Size(818, 489);
+            this.pnlLoginInfo.Size = new System.Drawing.Size(759, 494);
             this.pnlLoginInfo.TabIndex = 2;
             // 
             // pnlStatistics
@@ -202,7 +203,7 @@
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.83845F));
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.92843F));
             this.pnlStatistics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74F));
-            this.pnlStatistics.Size = new System.Drawing.Size(818, 489);
+            this.pnlStatistics.Size = new System.Drawing.Size(759, 494);
             this.pnlStatistics.TabIndex = 0;
             // 
             // pnlStatisticsInfo
@@ -213,7 +214,7 @@
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.64014F));
             this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.96886F));
-            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.pnlStatisticsInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
             this.pnlStatisticsInfo.Controls.Add(this.label1, 3, 0);
             this.pnlStatisticsInfo.Controls.Add(this.dtpEndDate, 2, 1);
             this.pnlStatisticsInfo.Controls.Add(this.lblEndDate, 2, 0);
@@ -229,7 +230,7 @@
             this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.pnlStatisticsInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlStatisticsInfo.Size = new System.Drawing.Size(812, 67);
+            this.pnlStatisticsInfo.Size = new System.Drawing.Size(753, 67);
             this.pnlStatisticsInfo.TabIndex = 0;
             // 
             // label1
@@ -239,9 +240,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(570, 3);
+            this.label1.Location = new System.Drawing.Point(506, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 23);
+            this.label1.Size = new System.Drawing.Size(241, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Tên Món Ăn";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,7 +252,7 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(409, 33);
+            this.dtpEndDate.Location = new System.Drawing.Point(355, 33);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(138, 26);
             this.dtpEndDate.TabIndex = 10;
@@ -264,9 +265,9 @@
             this.lblEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEndDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEndDate.Location = new System.Drawing.Point(395, 3);
+            this.lblEndDate.Location = new System.Drawing.Point(351, 3);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(166, 23);
+            this.lblEndDate.Size = new System.Drawing.Size(146, 23);
             this.lblEndDate.TabIndex = 5;
             this.lblEndDate.Text = "Ngày Kết Thúc";
             this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +279,9 @@
             this.lblStartDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStartDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblStartDate.Location = new System.Drawing.Point(194, 3);
+            this.lblStartDate.Location = new System.Drawing.Point(173, 3);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(192, 23);
+            this.lblStartDate.Size = new System.Drawing.Size(169, 23);
             this.lblStartDate.TabIndex = 4;
             this.lblStartDate.Text = "Ngày Bắt Đầu";
             this.lblStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,7 +295,7 @@
             this.lblBranchName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBranchName.Location = new System.Drawing.Point(6, 3);
             this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(179, 23);
+            this.lblBranchName.Size = new System.Drawing.Size(158, 23);
             this.lblBranchName.TabIndex = 1;
             this.lblBranchName.Text = "Tên Chi Nhánh";
             this.lblBranchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -304,7 +305,7 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(221, 33);
+            this.dtpStartDate.Location = new System.Drawing.Point(188, 33);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(138, 26);
             this.dtpStartDate.TabIndex = 9;
@@ -318,7 +319,7 @@
             this.txbBranchName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbBranchName.Name = "txbBranchName";
             this.txbBranchName.ReadOnly = true;
-            this.txbBranchName.Size = new System.Drawing.Size(179, 26);
+            this.txbBranchName.Size = new System.Drawing.Size(158, 26);
             this.txbBranchName.TabIndex = 8;
             this.txbBranchName.TabStop = false;
             // 
@@ -326,7 +327,7 @@
             // 
             this.cbbDishName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbDishName.FormattingEnabled = true;
-            this.cbbDishName.Location = new System.Drawing.Point(595, 33);
+            this.cbbDishName.Location = new System.Drawing.Point(533, 36);
             this.cbbDishName.Name = "cbbDishName";
             this.cbbDishName.Size = new System.Drawing.Size(186, 27);
             this.cbbDishName.TabIndex = 12;
@@ -345,7 +346,7 @@
             this.dgvStatistics.Name = "dgvStatistics";
             this.dgvStatistics.RowHeadersWidth = 51;
             this.dgvStatistics.RowTemplate.Height = 24;
-            this.dgvStatistics.Size = new System.Drawing.Size(812, 357);
+            this.dgvStatistics.Size = new System.Drawing.Size(753, 362);
             this.dgvStatistics.TabIndex = 1;
             this.dgvStatistics.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStatistics_CellContentClick);
             // 
@@ -389,7 +390,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(812, 47);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 47);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // pictureBox1
@@ -407,7 +408,7 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(708, 3);
+            this.button1.Location = new System.Drawing.Point(649, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 41);
             this.button1.TabIndex = 1;
@@ -422,7 +423,7 @@
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(818, 150);
+            this.pbLogo.Size = new System.Drawing.Size(759, 152);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
@@ -436,7 +437,7 @@
             this.pbStatisticsImage.Location = new System.Drawing.Point(0, 0);
             this.pbStatisticsImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbStatisticsImage.Name = "pbStatisticsImage";
-            this.pbStatisticsImage.Size = new System.Drawing.Size(545, 753);
+            this.pbStatisticsImage.Size = new System.Drawing.Size(505, 761);
             this.pbStatisticsImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStatisticsImage.TabIndex = 2;
             this.pbStatisticsImage.TabStop = false;
@@ -446,9 +447,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1363, 753);
+            this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.pnlRoot);
             this.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmManagerStatistics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,7 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCusOrder));
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
+            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlOrder = new System.Windows.Forms.TableLayoutPanel();
             this.pnlGeneralInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lblGeneralInfo = new System.Windows.Forms.Label();
@@ -81,8 +83,8 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pbLogoCusOrder = new System.Windows.Forms.PictureBox();
             this.pnlRoot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.pnlOrder.SuspendLayout();
             this.pnlGeneralInfo.SuspendLayout();
             this.pnlGeneralOrderInfo.SuspendLayout();
@@ -98,7 +100,6 @@
             this.pnlOrderDetails.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRoot
@@ -117,6 +118,19 @@
             this.pnlRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlRoot.Size = new System.Drawing.Size(1260, 757);
             this.pnlRoot.TabIndex = 0;
+            // 
+            // pbLogoCusOrder
+            // 
+            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
+            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
+            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
+            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
+            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoCusOrder.TabIndex = 0;
+            this.pbLogoCusOrder.TabStop = false;
             // 
             // pnlOrder
             // 
@@ -733,19 +747,6 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             // 
-            // pbLogoCusOrder
-            // 
-            this.pbLogoCusOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoCusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogoCusOrder.Image = global::SuShiX.Properties.Resources.logo_cus_order;
-            this.pbLogoCusOrder.Location = new System.Drawing.Point(7, 7);
-            this.pbLogoCusOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogoCusOrder.Name = "pbLogoCusOrder";
-            this.pbLogoCusOrder.Size = new System.Drawing.Size(367, 743);
-            this.pbLogoCusOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoCusOrder.TabIndex = 0;
-            this.pbLogoCusOrder.TabStop = false;
-            // 
             // FrmCusOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -754,12 +755,14 @@
             this.Controls.Add(this.pnlRoot);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCusOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.pnlRoot.ResumeLayout(false);
             this.pnlRoot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.pnlOrder.ResumeLayout(false);
             this.pnlGeneralInfo.ResumeLayout(false);
             this.pnlGeneralOrderInfo.ResumeLayout(false);
@@ -778,7 +781,6 @@
             this.pnlOrderDetails.ResumeLayout(false);
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoCusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }

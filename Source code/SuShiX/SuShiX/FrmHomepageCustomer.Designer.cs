@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHomepageCustomer));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnUpdateIn4 = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.pbHomepage = new System.Windows.Forms.PictureBox();
             this.lbHomepage = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -133,9 +134,23 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(568, 114);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogout.BackColor = System.Drawing.Color.Black;
+            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(402, 17);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(142, 79);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnUpdateIn4
             // 
@@ -165,20 +180,6 @@
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogout.BackColor = System.Drawing.Color.Black;
-            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(402, 17);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(142, 79);
-            this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "Đăng xuất";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // pbHomepage
             // 
             this.pbHomepage.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -197,20 +198,21 @@
             this.lbHomepage.AutoSize = true;
             this.lbHomepage.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHomepage.ForeColor = System.Drawing.Color.Black;
-            this.lbHomepage.Location = new System.Drawing.Point(17, 477);
+            this.lbHomepage.Location = new System.Drawing.Point(5, 500);
             this.lbHomepage.Name = "lbHomepage";
             this.lbHomepage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbHomepage.Size = new System.Drawing.Size(539, 66);
+            this.lbHomepage.Size = new System.Drawing.Size(564, 21);
             this.lbHomepage.TabIndex = 2;
             this.lbHomepage.Text = "~Đặt món ngay để thưởng thức những món ăn tuyệt hảo của chúng tôi~";
             // 
             // FrmHomepageCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHomepageCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Homepage";

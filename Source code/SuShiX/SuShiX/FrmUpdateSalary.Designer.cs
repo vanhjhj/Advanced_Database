@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateSalary));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pbReturn = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MaBP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenBP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbReturn = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -148,6 +149,44 @@
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.FillWeight = 40F;
+            this.Edit.HeaderText = "Chỉnh sửa";
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 85;
+            // 
+            // MaBP
+            // 
+            this.MaBP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MaBP.DataPropertyName = "MaBP";
+            this.MaBP.FillWeight = 50F;
+            this.MaBP.HeaderText = "Mã bộ phận";
+            this.MaBP.MinimumWidth = 8;
+            this.MaBP.Name = "MaBP";
+            this.MaBP.ReadOnly = true;
+            this.MaBP.Width = 108;
+            // 
+            // TenBP
+            // 
+            this.TenBP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenBP.DataPropertyName = "TenBP";
+            this.TenBP.HeaderText = "Tên bộ phận";
+            this.TenBP.MinimumWidth = 8;
+            this.TenBP.Name = "TenBP";
+            // 
+            // Luong
+            // 
+            this.Luong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Luong.DataPropertyName = "Luong";
+            this.Luong.FillWeight = 48.56065F;
+            this.Luong.HeaderText = "Lương";
+            this.Luong.MinimumWidth = 8;
+            this.Luong.Name = "Luong";
+            this.Luong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // pbReturn
             // 
             this.pbReturn.Image = global::SuShiX.Properties.Resources.return_button;
@@ -199,44 +238,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.FillWeight = 40F;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 85;
-            // 
-            // MaBP
-            // 
-            this.MaBP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.MaBP.DataPropertyName = "MaBP";
-            this.MaBP.FillWeight = 50F;
-            this.MaBP.HeaderText = "Mã bộ phận";
-            this.MaBP.MinimumWidth = 8;
-            this.MaBP.Name = "MaBP";
-            this.MaBP.ReadOnly = true;
-            this.MaBP.Width = 108;
-            // 
-            // TenBP
-            // 
-            this.TenBP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenBP.DataPropertyName = "TenBP";
-            this.TenBP.HeaderText = "Tên bộ phận";
-            this.TenBP.MinimumWidth = 8;
-            this.TenBP.Name = "TenBP";
-            // 
-            // Luong
-            // 
-            this.Luong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Luong.DataPropertyName = "Luong";
-            this.Luong.FillWeight = 48.56065F;
-            this.Luong.HeaderText = "Lương";
-            this.Luong.MinimumWidth = 8;
-            this.Luong.Name = "Luong";
-            this.Luong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // FrmUpdateSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -244,6 +245,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUpdateSalary";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

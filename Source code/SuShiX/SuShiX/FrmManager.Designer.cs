@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManager));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,7 +63,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1258, 744);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 761);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -72,7 +73,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(694, 744);
+            this.pictureBox1.Size = new System.Drawing.Size(697, 761);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -84,13 +85,13 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(694, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(697, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.7F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.3F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(564, 744);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(567, 761);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pictureBox2
@@ -100,7 +101,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(564, 176);
+            this.pictureBox2.Size = new System.Drawing.Size(567, 180);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -113,11 +114,11 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 179);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 183);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(558, 562);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(561, 575);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -127,13 +128,13 @@
             this.tableLayoutPanel4.Controls.Add(this.btnLogout, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnUpdateIn4, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(365, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(367, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(190, 556);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(191, 569);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // btnLogout
@@ -143,7 +144,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(25, 88);
+            this.btnLogout.Location = new System.Drawing.Point(26, 91);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(139, 72);
             this.btnLogout.TabIndex = 4;
@@ -158,7 +159,7 @@
             this.btnUpdateIn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateIn4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateIn4.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateIn4.Location = new System.Drawing.Point(25, 5);
+            this.btnUpdateIn4.Location = new System.Drawing.Point(26, 6);
             this.btnUpdateIn4.Name = "btnUpdateIn4";
             this.btnUpdateIn4.Size = new System.Drawing.Size(139, 72);
             this.btnUpdateIn4.TabIndex = 3;
@@ -182,7 +183,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.33332F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.33332F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00001F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(356, 556);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 569);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // btnStatistics
@@ -194,7 +195,7 @@
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnStatistics.Location = new System.Drawing.Point(33, 369);
+            this.btnStatistics.Location = new System.Drawing.Point(34, 379);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(290, 72);
             this.btnStatistics.TabIndex = 2;
@@ -211,7 +212,7 @@
             this.btnManageMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageMenu.ForeColor = System.Drawing.Color.White;
-            this.btnManageMenu.Location = new System.Drawing.Point(33, 111);
+            this.btnManageMenu.Location = new System.Drawing.Point(34, 115);
             this.btnManageMenu.Name = "btnManageMenu";
             this.btnManageMenu.Size = new System.Drawing.Size(290, 72);
             this.btnManageMenu.TabIndex = 0;
@@ -228,7 +229,7 @@
             this.btnManageIn4Employee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageIn4Employee.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageIn4Employee.ForeColor = System.Drawing.Color.White;
-            this.btnManageIn4Employee.Location = new System.Drawing.Point(33, 240);
+            this.btnManageIn4Employee.Location = new System.Drawing.Point(34, 247);
             this.btnManageIn4Employee.Name = "btnManageIn4Employee";
             this.btnManageIn4Employee.Size = new System.Drawing.Size(290, 72);
             this.btnManageIn4Employee.TabIndex = 1;
@@ -241,9 +242,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(1258, 744);
+            this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

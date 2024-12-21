@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateAndReissueCard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbRegister = new System.Windows.Forms.Label();
+            this.lbMessage = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.txbUserName = new System.Windows.Forms.TextBox();
-            this.lbMessage = new System.Windows.Forms.Label();
+            this.lbRegister = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,17 +71,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(476, 247);
             this.tableLayoutPanel2.TabIndex = 26;
             // 
-            // lbRegister
+            // lbMessage
             // 
-            this.lbRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbRegister.AutoSize = true;
-            this.lbRegister.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRegister.Location = new System.Drawing.Point(173, 139);
-            this.lbRegister.Name = "lbRegister";
-            this.lbRegister.Size = new System.Drawing.Size(129, 19);
-            this.lbRegister.TabIndex = 33;
-            this.lbRegister.Text = "Đăng ký tài khoản";
-            this.lbRegister.Click += new System.EventHandler(this.lbRegister_Click);
+            this.lbMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbMessage.AutoSize = true;
+            this.lbMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMessage.Location = new System.Drawing.Point(134, 38);
+            this.lbMessage.Name = "lbMessage";
+            this.lbMessage.Size = new System.Drawing.Size(208, 19);
+            this.lbMessage.TabIndex = 35;
+            this.lbMessage.Text = "Tên tài khoản của khách hàng";
             // 
             // btnOK
             // 
@@ -103,30 +103,32 @@
             // txbUserName
             // 
             this.txbUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbUserName.Location = new System.Drawing.Point(137, 100);
+            this.txbUserName.Location = new System.Drawing.Point(137, 102);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(201, 30);
+            this.txbUserName.Size = new System.Drawing.Size(201, 26);
             this.txbUserName.TabIndex = 34;
             // 
-            // lbMessage
+            // lbRegister
             // 
-            this.lbMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbMessage.AutoSize = true;
-            this.lbMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMessage.Location = new System.Drawing.Point(108, 36);
-            this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(259, 23);
-            this.lbMessage.TabIndex = 35;
-            this.lbMessage.Text = "Tên tài khoản của khách hàng";
+            this.lbRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbRegister.AutoSize = true;
+            this.lbRegister.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRegister.Location = new System.Drawing.Point(186, 141);
+            this.lbRegister.Name = "lbRegister";
+            this.lbRegister.Size = new System.Drawing.Size(104, 15);
+            this.lbRegister.TabIndex = 33;
+            this.lbRegister.Text = "Đăng ký tài khoản";
+            this.lbRegister.Click += new System.EventHandler(this.lbRegister_Click);
             // 
             // FrmCreateAndReissueCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(482, 253);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCreateAndReissueCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

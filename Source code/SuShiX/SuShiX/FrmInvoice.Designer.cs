@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInvoice));
             this.pnlRoot = new System.Windows.Forms.TableLayoutPanel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlOrderInfo = new System.Windows.Forms.TableLayoutPanel();
@@ -168,7 +169,7 @@
             this.txbCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCard.Location = new System.Drawing.Point(632, 58);
             this.txbCard.Name = "txbCard";
-            this.txbCard.Size = new System.Drawing.Size(186, 30);
+            this.txbCard.Size = new System.Drawing.Size(186, 26);
             this.txbCard.TabIndex = 22;
             // 
             // label1
@@ -177,7 +178,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(438, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 22);
+            this.label1.Size = new System.Drawing.Size(32, 19);
             this.label1.TabIndex = 21;
             this.label1.Text = "Thẻ";
             // 
@@ -187,7 +188,7 @@
             this.cbbOrderList.FormattingEnabled = true;
             this.cbbOrderList.Location = new System.Drawing.Point(195, 58);
             this.cbbOrderList.Name = "cbbOrderList";
-            this.cbbOrderList.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderList.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderList.TabIndex = 20;
             this.cbbOrderList.SelectedIndexChanged += new System.EventHandler(this.cbbOrderList_SelectedIndexChanged);
             // 
@@ -197,7 +198,7 @@
             this.lblOrderList.AutoSize = true;
             this.lblOrderList.Location = new System.Drawing.Point(13, 61);
             this.lblOrderList.Name = "lblOrderList";
-            this.lblOrderList.Size = new System.Drawing.Size(176, 22);
+            this.lblOrderList.Size = new System.Drawing.Size(138, 19);
             this.lblOrderList.TabIndex = 19;
             this.lblOrderList.Text = "Danh Sách Phiếu Đặt";
             // 
@@ -206,7 +207,7 @@
             this.txbTelephoneNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbTelephoneNum.Location = new System.Drawing.Point(632, 9);
             this.txbTelephoneNum.Name = "txbTelephoneNum";
-            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 30);
+            this.txbTelephoneNum.Size = new System.Drawing.Size(186, 26);
             this.txbTelephoneNum.TabIndex = 18;
             this.txbTelephoneNum.Leave += new System.EventHandler(this.txbTelephoneNum_Leave);
             // 
@@ -220,7 +221,7 @@
             "Đặt Bàn Trực Tiếp"});
             this.cbbOrderType.Location = new System.Drawing.Point(195, 9);
             this.cbbOrderType.Name = "cbbOrderType";
-            this.cbbOrderType.Size = new System.Drawing.Size(186, 30);
+            this.cbbOrderType.Size = new System.Drawing.Size(186, 27);
             this.cbbOrderType.TabIndex = 9;
             this.cbbOrderType.SelectedIndexChanged += new System.EventHandler(this.cbbOrderType_SelectedIndexChanged);
             // 
@@ -230,7 +231,7 @@
             this.lblTelephoneNum.AutoSize = true;
             this.lblTelephoneNum.Location = new System.Drawing.Point(438, 12);
             this.lblTelephoneNum.Name = "lblTelephoneNum";
-            this.lblTelephoneNum.Size = new System.Drawing.Size(158, 22);
+            this.lblTelephoneNum.Size = new System.Drawing.Size(122, 19);
             this.lblTelephoneNum.TabIndex = 1;
             this.lblTelephoneNum.Text = "Số Điện Thoại Đặt";
             // 
@@ -240,7 +241,7 @@
             this.lblOrderType.AutoSize = true;
             this.lblOrderType.Location = new System.Drawing.Point(13, 12);
             this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(128, 22);
+            this.lblOrderType.Size = new System.Drawing.Size(99, 19);
             this.lblOrderType.TabIndex = 0;
             this.lblOrderType.Text = "Loại Phiếu Đặt";
             // 
@@ -452,28 +453,28 @@
             // txbPoint
             // 
             this.txbPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPoint.Location = new System.Drawing.Point(94, 214);
+            this.txbPoint.Location = new System.Drawing.Point(94, 216);
             this.txbPoint.Name = "txbPoint";
             this.txbPoint.ReadOnly = true;
-            this.txbPoint.Size = new System.Drawing.Size(153, 30);
+            this.txbPoint.Size = new System.Drawing.Size(153, 26);
             this.txbPoint.TabIndex = 12;
             // 
             // txbGross
             // 
             this.txbGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbGross.Location = new System.Drawing.Point(94, 149);
+            this.txbGross.Location = new System.Drawing.Point(94, 151);
             this.txbGross.Name = "txbGross";
             this.txbGross.ReadOnly = true;
-            this.txbGross.Size = new System.Drawing.Size(153, 30);
+            this.txbGross.Size = new System.Drawing.Size(153, 26);
             this.txbGross.TabIndex = 11;
             // 
             // txbDiscount
             // 
             this.txbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDiscount.Location = new System.Drawing.Point(94, 84);
+            this.txbDiscount.Location = new System.Drawing.Point(94, 86);
             this.txbDiscount.Name = "txbDiscount";
             this.txbDiscount.ReadOnly = true;
-            this.txbDiscount.Size = new System.Drawing.Size(153, 30);
+            this.txbDiscount.Size = new System.Drawing.Size(153, 26);
             this.txbDiscount.TabIndex = 10;
             // 
             // lblPoint
@@ -523,10 +524,10 @@
             // txbTotalAmount
             // 
             this.txbTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTotalAmount.Location = new System.Drawing.Point(94, 19);
+            this.txbTotalAmount.Location = new System.Drawing.Point(94, 21);
             this.txbTotalAmount.Name = "txbTotalAmount";
             this.txbTotalAmount.ReadOnly = true;
-            this.txbTotalAmount.Size = new System.Drawing.Size(153, 30);
+            this.txbTotalAmount.Size = new System.Drawing.Size(153, 26);
             this.txbTotalAmount.TabIndex = 9;
             // 
             // pnlEvaluation
@@ -588,7 +589,7 @@
             0,
             0});
             this.nudServicePoint.Name = "nudServicePoint";
-            this.nudServicePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudServicePoint.Size = new System.Drawing.Size(170, 26);
             this.nudServicePoint.TabIndex = 23;
             this.nudServicePoint.Value = new decimal(new int[] {
             5,
@@ -611,7 +612,7 @@
             0,
             0});
             this.nudSpacePoint.Name = "nudSpacePoint";
-            this.nudSpacePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudSpacePoint.Size = new System.Drawing.Size(170, 26);
             this.nudSpacePoint.TabIndex = 22;
             this.nudSpacePoint.Value = new decimal(new int[] {
             5,
@@ -634,7 +635,7 @@
             0,
             0});
             this.nudPricePoint.Name = "nudPricePoint";
-            this.nudPricePoint.Size = new System.Drawing.Size(170, 30);
+            this.nudPricePoint.Size = new System.Drawing.Size(170, 26);
             this.nudPricePoint.TabIndex = 21;
             this.nudPricePoint.Value = new decimal(new int[] {
             5,
@@ -657,7 +658,7 @@
             0,
             0});
             this.nudDishPoint.Name = "nudDishPoint";
-            this.nudDishPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudDishPoint.Size = new System.Drawing.Size(170, 26);
             this.nudDishPoint.TabIndex = 20;
             this.nudDishPoint.Value = new decimal(new int[] {
             5,
@@ -735,7 +736,7 @@
             0,
             0});
             this.nudLocationPoint.Name = "nudLocationPoint";
-            this.nudLocationPoint.Size = new System.Drawing.Size(170, 30);
+            this.nudLocationPoint.Size = new System.Drawing.Size(170, 26);
             this.nudLocationPoint.TabIndex = 19;
             this.nudLocationPoint.Value = new decimal(new int[] {
             5,
@@ -782,11 +783,12 @@
             // 
             // FrmInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 753);
             this.Controls.Add(this.pnlRoot);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FrmInvoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

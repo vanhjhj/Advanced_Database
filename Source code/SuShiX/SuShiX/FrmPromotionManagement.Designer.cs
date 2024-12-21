@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPromotionManagement));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pbReturn = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Edit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TenLoaiThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChietKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpTang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbReturn = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -150,6 +151,56 @@
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.FillWeight = 40F;
+            this.Edit.HeaderText = "Chỉnh sửa";
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 85;
+            // 
+            // TenLoaiThe
+            // 
+            this.TenLoaiThe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenLoaiThe.DataPropertyName = "TenLoaiThe";
+            this.TenLoaiThe.HeaderText = "Tên loại thẻ";
+            this.TenLoaiThe.MinimumWidth = 8;
+            this.TenLoaiThe.Name = "TenLoaiThe";
+            this.TenLoaiThe.ReadOnly = true;
+            this.TenLoaiThe.Width = 104;
+            // 
+            // ChietKhau
+            // 
+            this.ChietKhau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ChietKhau.DataPropertyName = "ChietKhau";
+            this.ChietKhau.FillWeight = 50F;
+            this.ChietKhau.HeaderText = "Chiết khấu";
+            this.ChietKhau.MinimumWidth = 8;
+            this.ChietKhau.Name = "ChietKhau";
+            this.ChietKhau.Width = 99;
+            // 
+            // GiamGia
+            // 
+            this.GiamGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.GiamGia.DataPropertyName = "GiamGia";
+            this.GiamGia.FillWeight = 48.56065F;
+            this.GiamGia.HeaderText = "Giảm giá";
+            this.GiamGia.MinimumWidth = 8;
+            this.GiamGia.Name = "GiamGia";
+            this.GiamGia.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GiamGia.Width = 87;
+            // 
+            // SpTang
+            // 
+            this.SpTang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SpTang.DataPropertyName = "SpTang";
+            this.SpTang.FillWeight = 44.71399F;
+            this.SpTang.HeaderText = "Sản phẩm tặng";
+            this.SpTang.MinimumWidth = 8;
+            this.SpTang.Name = "SpTang";
+            this.SpTang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // pbReturn
             // 
             this.pbReturn.Image = global::SuShiX.Properties.Resources.return_button;
@@ -201,56 +252,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.FillWeight = 40F;
-            this.Edit.HeaderText = "Chỉnh sửa";
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 85;
-            // 
-            // TenLoaiThe
-            // 
-            this.TenLoaiThe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TenLoaiThe.DataPropertyName = "TenLoaiThe";
-            this.TenLoaiThe.HeaderText = "Tên loại thẻ";
-            this.TenLoaiThe.MinimumWidth = 8;
-            this.TenLoaiThe.Name = "TenLoaiThe";
-            this.TenLoaiThe.ReadOnly = true;
-            this.TenLoaiThe.Width = 104;
-            // 
-            // ChietKhau
-            // 
-            this.ChietKhau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ChietKhau.DataPropertyName = "ChietKhau";
-            this.ChietKhau.FillWeight = 50F;
-            this.ChietKhau.HeaderText = "Chiết khấu";
-            this.ChietKhau.MinimumWidth = 8;
-            this.ChietKhau.Name = "ChietKhau";
-            this.ChietKhau.Width = 99;
-            // 
-            // GiamGia
-            // 
-            this.GiamGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.GiamGia.DataPropertyName = "GiamGia";
-            this.GiamGia.FillWeight = 48.56065F;
-            this.GiamGia.HeaderText = "Giảm giá";
-            this.GiamGia.MinimumWidth = 8;
-            this.GiamGia.Name = "GiamGia";
-            this.GiamGia.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.GiamGia.Width = 87;
-            // 
-            // SpTang
-            // 
-            this.SpTang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SpTang.DataPropertyName = "SpTang";
-            this.SpTang.FillWeight = 44.71399F;
-            this.SpTang.HeaderText = "Sản phẩm tặng";
-            this.SpTang.MinimumWidth = 8;
-            this.SpTang.Name = "SpTang";
-            this.SpTang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // FrmPromotionManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -258,6 +259,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPromotionManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
